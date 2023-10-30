@@ -1,0 +1,26 @@
+@startuml
+package quizoo{
+    package http{
+        class FrontServlet{
+            # void doPost(req:HttpServletRequest,resp:HttpServletResponce)
+            # void doGet(req:HttpservletRequest,reqp:HttpServletResponce)
+        }
+        package context{
+            class HttpRequestContext{
+                - HttpservletRequest
+                + void setAttribute(String key,Object value)
+                + 
+            }
+            class HttpResponceContext{
+                - HttpServletResponce
+            }
+        }
+    }
+    package service{
+        class Login{
+            
+        }
+    }
+}
+FrontServlet-|> Httpservlet
+@enduml
