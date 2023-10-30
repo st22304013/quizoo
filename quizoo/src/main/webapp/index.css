@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+
+body {
+    background-color: #fffaef;
+    
+}
+
+.top-img {
+    margin-top: 10%;
+    margin-left: 10%;
+    float: left;
+}
+
+.container {
+	margin-top: 0%;
+	float: right;
+}
+
+.row justify-content-center {
+	width: 40%;
+}
+
+
+
