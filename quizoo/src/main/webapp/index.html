@@ -13,55 +13,56 @@
 </head>
 
 <body>
-	<div class="d-flex align-items-center">
-		<div class="top-img flex-shrink-0">
-		<img  src="img/quizoo.png" alt="top">
-	</div>
-    <div class="container flex-grow-1 ms-3">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-header teal text-white">
-                        <ul class="nav nav-tabs nav-fill" id="myTabs">
-                            <li class="nav-item">
-                                <a class="nav-link active" id="login-tab" data-toggle="tab" href="#login" role="tab">Login</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" id="register-tab" data-toggle="tab" href="#register" role="tab">Register</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="card-body">
-                        <div class="tab-content">
-                            <div class="tab-pane fade show active" id="login" role="tabpanel">
-                                <form id="login-form" method="post" action="#">
-                                    <div class="form-group">
-                                        <label for="login-userid">Userid</label>
-                                        <input type="text" class="form-control" name="id" id="login-username"
-                                            placeholder="Enter your userid">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="login-password">Password</label>
-                                        <input type="password" class="form-control" name="password" id="login-password"
-                                            placeholder="Enter your password">
-                                    </div>
-                                    <button type="submit" class="btn btn-primary">Login</button>
-                                </form>
-                            </div>
-                            <div class="tab-pane fade" id="register" role="tabpanel">
-                                <form id="register-form" method="post" action="#">
-                                    <div class="form-group">
-                                        <label for="register-username">Userid</label>
-                                        <input type="text" class="form-control" name="id" id="register-username"
-                                            placeholder="Choose a userid">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="register-password">Password</label>
-                                        <input type="password" class="form-control" name="password" id="register-password"
-                                            placeholder="Choose a password">
-                                    </div>
-                                    <button type="submit" class="btn btn-primary">Register</button>
-                                </form>
+    <div class="d-flex align-items-center">
+        <div class="top-img flex-shrink-0">
+            <img src="img/quizoo.png" alt="top">
+        </div>
+        <div class="container flex-grow-1 ms-3">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header teal text-white">
+                            <ul class="nav nav-tabs nav-fill" id="myTabs">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="login-tab" data-toggle="tab" href="#login" role="tab">Login</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="signup-tab" data-toggle="tab" href="#Signup" role="tab">Sign up</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-body">
+                            <div class="tab-content">
+                                <div class="tab-pane fade show active" id="login" role="tabpanel">
+                                    <form id="login-form" method="post" action="#">
+                                        <div class="form-group">
+                                            <label for="login-userid">Userid</label>
+                                            <input type="text" class="form-control" name="id" id="login-username"
+                                                placeholder="Enter your userid">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="login-password">Password</label>
+                                            <input type="password" class="form-control" name="password" id="login-password"
+                                                placeholder="Enter your password">
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Login</button>
+                                    </form>
+                                </div>
+                                <div class="tab-pane fade" id="Signup" role="tabpanel">
+                                    <form id="register-form" method="post" action="#">
+                                        <div class="form-group">
+                                            <label for="register-username">Userid</label>
+                                            <input type="text" class="form-control" name="id" id="register-username"
+                                                placeholder="Choose a userid">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="register-password">Password</label>
+                                            <input type="password" class="form-control" name="password" id="register-password"
+                                                placeholder="Choose a password">
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Sign up</button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -69,17 +70,6 @@
             </div>
         </div>
     </div>
-		
-	</div>
-	
-    <script>
-        $(document).ready(function () {
-            $('#myTabs a').click(function (e) {
-                e.preventDefault();
-                $(this).tab('show');
-            });
-        });
-    </script>
 </body>
 
 </html>
