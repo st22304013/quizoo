@@ -2,65 +2,84 @@
 
 
 body {
-    background-color: #fffaef;
-    width: 100%;
-    
+	background-color: #fffaef;
+	width: 100%;
+
 }
 
 a {
-	font-size: 0.5cm;
+	font-size: 1.0em;
 }
 
+/* トップ画像のスタイル */
 .top-img {
 	margin-left: 10%;
-    margin-top: 8%;
-    float: left;
-    border: 8px ;
+	margin-top: 8%;
+	float: left;
+	border: 8px;
 }
 
-.d-flex {
-	width: 90vm;
-}
-
+/* 右側のコンテナのスタイル */
 .container {
 	float: right;
-	margin-top: 15%;
+	margin-top: 10%;
+	font-size: 1.5em;
+	width: 150em;
+}
+
+/* 列のスタイル */
+.col-md-6 {
+	margin-right: 15%;
 }
 
 .tabs .indicator {
-    background-color: #e0f2f1;
-    height: 60px;
-    opacity: 0.3;
+	background-color: #e0f2f1;
+	height: 60px;
+	opacity: 0.3;
 }
 
 .form-container {
-    padding-top: 10px;
+	padding-top: 10px;
 }
 
 .confirmation-tabs-btn {
-    position: absolute;
+	position: absolute;
 }
 
-
-.card-header teal text-white {
+/* カードヘッダーとカードボディの背景色 */
+.card-header teal text-white .card-body{
 	background-color: #e0f2f1;
 }
+
 .nav-link active {
 	background-color: #ffcc66;
 }
 
-.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
-	background-color: #ee7948;
-	flex: 1; /* 幅を均等に分割 */
-    text-align: center; /* テキストを中央寄せ */
-	
+/* タブメニューの背景色 */
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active {
+	background-color: #87cefa;
+	flex: 1;
+	text-align: center;	
+
 }
 
+/* ナビゲーションリンクの背景色とテキストカラー */
+.nav-link {
+	background-color: #e0ffff;
+	color: #3cb371;
+}
+
+/* タブメニューのスタイル */
 .nav-tabs .nav-link {
-    display: block;
-    padding: 1rem; /* オプション: パディングを追加して選択エリアを大きくする */
+	display: block;
+	padding: 1rem;
+	/* オプション: パディングを追加して選択エリアを大きくする */
 }
 
+/* カードヘッダーのパディング */
 .card-header {
 	padding: 0;
 }
+
+
