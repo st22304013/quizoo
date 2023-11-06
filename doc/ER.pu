@@ -3,16 +3,16 @@
 !define RELATIONSHIP relationship
 
 ENTITY "UserInfo" as user {
-    id:String<PK>
+    id:VARCHAR<PK>
 --
     password:VARBINARY
-    score:MEDIUMINT[UNSIGNED]
+    score:MEDIUMINT [UNSIGNED]
 }
 
 
 ENTITY "Quiz" as q {
-    quiz_id:String<PK>
-    id:String<FK>
+    quiz_id:VARCHAR<PK>
+    user_id:VARCHAR<FK>
 --
     title:VARCHAR
     genre:VARCHAR
@@ -20,17 +20,18 @@ ENTITY "Quiz" as q {
 }
 
 ENTITY "QuizDetails" as qd {
-    quiz_id:String<FK>
+    quiz_id:VARCHAR<FK>
 --
     question:VARCHAR
     choices:VARCHAR
-    judge:SET[correct,incorrect]
+    judge:SET [correct,incorrect]
 }
 
 ENTITY "AnswerHistory" as ah {
-    id:String<FK>
+    user_id:VARCHAR<FK>
+    quiz_id:VARCHAR<FK>
 --
-    past_question:VARCHAR
+    point:SMALLINT [UNSIGNED]
     clear_date:DATE
 }
 
