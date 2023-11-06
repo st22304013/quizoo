@@ -12,6 +12,7 @@ package javax.servlet{
         }
     }
 }
+
 package web{
     class WebApplicationController{
         + getRequest(request:Object):RequestContext
@@ -28,11 +29,12 @@ package web{
         class HttpRequestContext{
             - req:HttpservletRequest
             + setAttribute(key:String,value:Object):void
-            + setId(id:String)
+            + setId(id:String):void
+            + getId():String
         }
         class HttpResponseContext{
-            - HttpServletresponse
-            + setTarget(url:String):void
+            - res:HttpServletResponse
+            + forward(url:String,RequestContext):void
         }
     }
     WebApplicationController <.. FrontServlet
@@ -42,7 +44,9 @@ package web{
         }
     }
 }
-package {
+
+package frame{
+
     package exception{
         note "404" as e404
         class NotFoundException{
@@ -56,7 +60,7 @@ package {
         MethodNotAllowedException . e405
         note "400" as e400
         class BadRequestException{
-            + BadRequestException(msg:String):BadRequestException
+            + (msg:String):BadRequestException
         }
         BadRequestException . e400
     }
@@ -71,8 +75,25 @@ package {
         + {static} getSevice(req:RequestContext):Service
     }
     ServiceFactory .> Service
-
+    package context{
+        interface RequestContext{
+            + setAttribute(key:String,value:Onject)
+            + getParameter(key:String):String[]
+            + setId(key:UserId):void
+            + getId():String
+        }
+        interface ResponseContext{
+            + forward(url:String,RequestContext)
+            + getWtite():PrintWriter
+        }
+    }
+    package util{
+        class hash{
+            + {static} getSha256(String:value):byte[]
+        }
+    }
 }
+    
 
     package db{
         package dao{
@@ -81,16 +102,18 @@ package {
                 + close():void
             }
             class UserInfoDao{
-                + selectPassWord(id:String):byte[]
+                + getScore(id:String):int
+                + getPassword(id:String):byte[]
                 + insert(user:UserBean):void
-                + update(user:UserBean):void
+                + updatePassword(user:UserBean):void
+                + updateScore(user:UserBean):void
             }
             class QuizDao{
                 + selectQuiz(id:int):QuizBean
                 + inset(quiz:QuizBean):void
             }
             class QuizDetailsDao{
-
+                
             }
             class AnswerHistoryDao{
 
@@ -118,7 +141,9 @@ package {
                 - size:int
             }
             class QuizDetailBean{
-
+                - quizId:int
+                - question:String
+                - choices:String
             }
             class AnswerHistoryBean{
 
@@ -193,18 +218,6 @@ package quizoo{
         ResponseContext <.. HistoryList
         ResponseContext <.. Create
         ResponseContext <.. CreateHistory
-    }
-    package context{
-        interface RequestContext{
-            + setAttribute(key:String,value:Onject)
-            + getParameter(key:String):String[]
-            + setId(key:UserId):void
-            + getId():String
-        }
-        interface ResponseContext{
-            + send(url:String,RequestContext)
-            + getWtite():PrintWriter
-        }
     }
 }
 HttpServletRequest <-- HttpRequestContext
