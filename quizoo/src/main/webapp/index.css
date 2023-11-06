@@ -1,6 +1,5 @@
 @charset "UTF-8";
 
-
 body {
 	background-color: #fffaef;
 	width: 100%;
@@ -9,7 +8,22 @@ body {
 
 a {
 	font-size: 1.0em;
+	text-decoration: none;
 }
+
+img {
+	max-width: 100%;
+	vertical-align: bottom;
+}
+
+header {
+	background-color: #DBFAFD;
+	display: flex;
+	width: 100%;
+	height: 120px;
+	align-items: center;
+}
+
 
 /* トップ画像のスタイル */
 .top-img {
@@ -24,7 +38,7 @@ a {
 	float: right;
 	margin-top: 10%;
 	font-size: 1.5em;
-	width: 150em;
+	width: 200em;
 }
 
 /* 列のスタイル */
@@ -47,7 +61,7 @@ a {
 }
 
 /* カードヘッダーとカードボディの背景色 */
-.card-header teal text-white .card-body{
+.card-header teal text-white .card-body {
 	background-color: #e0f2f1;
 }
 
@@ -60,20 +74,20 @@ a {
 .nav-tabs .nav-link.active {
 	background-color: #87cefa;
 	flex: 1;
-	text-align: center;	
+	text-align: center;
 
 }
 
 /* ナビゲーションリンクの背景色とテキストカラー */
 .nav-link {
 	background-color: #e0ffff;
-	color: #3cb371;
+	color: royalblue;
 }
 
 /* タブメニューのスタイル */
 .nav-tabs .nav-link {
 	display: block;
-	padding: 1rem;
+	padding: 2rem;
 	/* オプション: パディングを追加して選択エリアを大きくする */
 }
 
@@ -82,4 +96,94 @@ a {
 	padding: 0;
 }
 
+/*index.html*/
 
+/*下のヘッダー*/
+.secondary-header {
+	background-color: #CCCCCC;
+	/* 任意の背景色 */
+	display: flex;
+	width: 100%;
+	height: 80px;
+	/* セカンダリーヘッダーの高さを設定 */
+	align-items: center;
+	/* 他のスタイルプロパティを追加 */
+}
+
+.bg-light {
+	background-color: #DBFAFD !important;
+}
+
+/*ヘッダー画像*/
+.header-img {
+	margin-top: 0.5em;
+	margin-left: 2em;
+	width: 120px;
+}
+
+/*ハンバーガーリスト*/
+.navbar-search {
+	position: relative;
+}
+
+.navbar-search .search-query {
+	padding-left: 29px;
+}
+
+.navbar-search .icon-search {
+	position: absolute;
+	top: 7px;
+	left: 11px;
+}
+
+.navbar-search .search-query:focus,
+.navbar-search .search-query.focused {
+	padding-left: 30px;
+}
+
+/*下のヘッダー*/
+.secondary-header {
+	display: flex;
+	width: 100%;
+	/* ヘッダー全体の幅を100%に設定 */
+	text-align: center;
+	/* ヘッダー内のテキストを中央揃えに設定 */
+	flex-direction: row;
+	justify-content: space-around;
+	background-color: #BCFAF3;
+}
+
+.secondary-header a {
+	color: #000000;
+	position: relative;
+	display: inline-block;
+	transition: .3s;
+	text-decoration: none;
+}
+
+.secondary-header a::after {
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	content: '';
+	width: 0;
+	height: 3px;
+	background-color: lightseagreen;
+	transition: .3s;
+	transform: translateX(-50%);
+}
+
+.secondary-header a:hover::after {
+	width: 100%;
+}
+
+.secondary-header ul {
+	display: flex;
+}
+
+.secondary-header li {
+	font-size: 2em;
+	width: 200px;
+	list-style: none;
+	margin: 120px;
+}
