@@ -14,6 +14,13 @@
 </head>
 
 <body>
+
+
+
+
+
+
+
 <!--	上のヘッダー-->
 	<header>
 		<nav class="navbar navbar-light bg-light fixed-top">
@@ -60,22 +67,35 @@
             <li><a href="#">new</a></li>
             <li><a href="#">favorite</a></li>
             <li><a href="#">fistory</a></li>
+          	<li><a href="#">ganle</a></li>         
         </ul>
-    </header>
 
-	<script>
-	    $('.navbar-toggler').click(function () {
-	        $('.navbar-collapse').toggleClass('show');
-	    });
+    </header>
+    
+    
+    <div class="box">
+		<div class="width row">
+			<div class="title col">常識クイズ</div>
+			<div class="d-flex align-items-center col">常識に関するクイズです</div>
+    	</div>
+		<div class="information text-right">作成者：たまい  作成日：2023/10/27  ジャンル：雑学  正解率：22.2%</div>
+	</div>
 	
-	    $('.navbar-nav>li>a , .dropdown-menu>a').on('click', function () {
+	<script>
+
+	
+	    $('.navbar-toggler').on('click', function () {
 	        $('.navbar-collapse').removeClass('show');
 	    });
+		
+
 	</script>
+	
 
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    
 </body>
 
 </html>

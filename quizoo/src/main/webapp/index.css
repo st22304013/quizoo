@@ -118,7 +118,7 @@ header {
 .header-img {
 	margin-top: 0.5em;
 	margin-left: 2em;
-	width: 120px;
+	width: 130px;
 }
 
 /*ハンバーガーリスト*/
@@ -179,6 +179,7 @@ header {
 
 .secondary-header ul {
 	display: flex;
+	padding-left: 0;
 }
 
 .secondary-header li {
@@ -186,4 +187,23 @@ header {
 	width: 200px;
 	list-style: none;
 	margin: 120px;
+}
+
+.box {
+	padding: 25px;
+	margin: 60px;
+	margin-bottom: 10px;
+	border: 1px solid #333333;
+	border-radius: 10px;
+	background-color: #ffff99;
+}
+
+
+.title {
+	font-size: 30px;
+	margin-left: 100px;
+}
+
+.information {
+	margin-right: 200px;
 }
