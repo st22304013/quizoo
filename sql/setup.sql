@@ -8,6 +8,8 @@ grant select, update, insert, create, drop on quizoo.* to 'quizoo_admin'@'localh
 
 grant select, update, insert on quizoo.* to 'quizoo_app'@'%';
 
+use quizoo
+
 CREATE TABLE UserInfo (
     id VARCHAR(300) PRIMARY KEY,
     password VARCHAR(20) NOT NULL,
@@ -15,7 +17,7 @@ CREATE TABLE UserInfo (
 );
 
 CREATE TABLE Genre (
-    genre_no TINYINT UNSIGNED AUTO_INCREMENT,
+    genre_no TINYINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
     genre_title VARCHAR(30) NOT NULL UNIQUE
 );
 
