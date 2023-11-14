@@ -30,6 +30,7 @@ header {
 
 /* トップ画像のスタイル */
 .top-img {
+	position: fixed;
 	margin-left: 10%;
 	margin-top: 8%;
 	float: left;
@@ -520,6 +521,12 @@ a.btn-border-shadow--color2:before {
 
 
 /*モーダル*/
+
+textarea {
+  resize: none;
+  width:300px;
+  height:150px;
+}
 
 .create-content {
 	padding: 50px;
