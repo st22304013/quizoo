@@ -161,65 +161,66 @@ package quizoo{
         abstract class Service{
             + do(req:RequestContext,resResponseContext):void
         }
+        package getter{
+            class HistoryCreator{
+                + do(req:RequestContext,res:ResponseContext):void
+            }
+            class AnswerHistory{
+                + do(req:RequestContext,res:ResponseContext):void
+            }
+            class AccountGetter{
+                + do(req:RequestContext,res:ResponseContext):void
+            }
+            package ajax{
+                class QuizGetter{
+                    + do(req:RequestContext,res:ResponseContext):void
+                }
+                class IdCheker{
+                    + do(req:RequestContext,res:ResponseContext):void
+                }
+                class QuizListGetter{
+                    + do(req:RequestContext,res:ResponseContext):void
+                }
+                class ScoreHistoryGetter{
+                    + do(req:RequestContext,res:ResponseContext):void
+                }
+            }
+        }
+        package setter{
+            class AnswerSubmitter{
+                + do(req:RequestContext,res:ResponseContext):void
+            }
+            class QuizCreator{
+                + do(req:RequestContext,res:ResponseContext):void
+            }
+            class NicknameChanger{
+                + do(req:RequestContext,res:ResponseContext):void
+            }
+            class QuizChanger{
+                + do(req:RequestContext,res:ResponseContext):void
+            }
+            class QuizDropper{
+                + do(req:RequestContext,res:ResponseContext):void
+            }
+        }
         class Login{
             + do(req:RequestContext,resResponseContext):void
         }
         class Logout{
             + do(req:RequestContext,res:ResponseContext):void
         }
-        class QuizList{
+        class Signup{
             + do(req:RequestContext,res:ResponseContext):void
         }
-        class QuizDetail{
+        class AccountDropper{
             + do(req:RequestContext,res:ResponseContext):void
         }
-        class SubmitAnswer{
-            + do(req:RequestContext,res:ResponseContext):void
-        }
-        class AnswerHistory{
-            + do(req:RequestContext,res:ResponseContext):void
-        }
-        class HistoryList{
-            + do(req:RequestContext,res:ResponseContext):void
-        }
-        class Create{
-            + do(req:RequestContext,res:ResponseContext):void
-        }
-        class CreateHistory{
-            + do(req:RequestContext,res:ResponseContext):void
-        }
-
-        Service <|-- Login
-        Service <|-- Logout
-        Service <|-- QuizList
-        Service <|-- QuizDetail
-        Service <|-- SubmitAnswer
-        Service <|-- AnswerHistory
-        Service <|-- HistoryList
-        Service <|-- Create
-        Service <|-- CreateHistory
-        RequestContext <.. Service
-        RequestContext <.. Login
-        RequestContext <.. Logout
-        RequestContext <.. QuizList
-        RequestContext <.. QuizDetail
-        RequestContext <.. SubmitAnswer
-        RequestContext <.. AnswerHistory
-        RequestContext <.. HistoryList
-        RequestContext <.. Create
-        RequestContext <.. CreateHistory
-        ResponseContext <.. Service
-        ResponseContext <.. Login
-        ResponseContext <.. Logout
-        ResponseContext <.. QuizList
-        ResponseContext <.. QuizDetail
-        ResponseContext <.. SubmitAnswer
-        ResponseContext <.. AnswerHistory
-        ResponseContext <.. HistoryList
-        ResponseContext <.. Create
-        ResponseContext <.. CreateHistory
     }
 }
+RequestContext <.. service
+ResponseContext <.. service
+Service <|-- service
+
 HttpServletRequest <-- HttpRequestContext
 HttpServletResponse <-- HttpResponseContext
 ResponseContext <.. HttpResponseContext
