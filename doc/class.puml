@@ -42,8 +42,8 @@ package web{
     }
     WebApplicationController <.. FrontServlet
     package util{
-        class ClassNameConverter{
-            {static} convert():String
+        class ClassNameFactory{
+            {static} createClassName(req:HttpServletRequest):String
         }
     }
 }
@@ -286,11 +286,11 @@ HttpServletRequest <-- HttpRequestContext
 HttpServletResponse <-- HttpResponseContext
 ResponseContext <.. HttpResponseContext
 RequestContext <.. HttpRequestContext
-Httpservlet <|-- FrontServlet
+Httpservlet <|-up- FrontServlet
 ApplicationController <|.. WebApplicationController
 WebApplicationController ..> RequestContext
 WebApplicationController ..> ResponseContext
 WebApplicationController ..> Service
 WebApplicationController ..> ServiceFactory
-LoginFilter ..|> Filter
+LoginFilter .down.|> Filter
 @enduml
