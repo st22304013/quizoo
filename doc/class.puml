@@ -31,6 +31,7 @@ package web{
             + setAttribute(key:String,value:Object):void
             + setId(id:String):void
             + getId():String
+            + getMessageBody():String
         }
         class HttpResponseContext{
             - res:HttpServletResponse
@@ -39,8 +40,8 @@ package web{
     }
     WebApplicationController <.. FrontServlet
     package util{
-        class methodChecker{
-            + {static} check(req:HttpServletRequest):boolean
+        class ClassNameConverter{
+            {static} convert():String
         }
     }
 }
@@ -81,6 +82,7 @@ package frame{
             + getParameter(key:String):String[]
             + setId(key:UserId):void
             + getId():String
+            + getMessageBody():String
         }
         interface ResponseContext{
             + forward(url:String,RequestContext)
