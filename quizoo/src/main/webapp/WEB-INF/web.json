@@ -1,0 +1,12 @@
+[
+	{
+		"name":"login",
+		"allowedMethods":["POST"],
+		"serviceClass":"quizoo.service.Login"
+	},
+	{
+		"name":"logout",
+		"allowedMethods":["POST"],
+		"serviceClass":"quizoo.service.Logout"
+	}
+]
