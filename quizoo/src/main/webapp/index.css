@@ -30,7 +30,7 @@ header {
 
 /* トップ画像のスタイル */
 .top-img {
-	position: fixed;
+/*	position: fixed;*/
 	margin-left: 10%;
 	margin-top: 8%;
 	float: left;
@@ -41,7 +41,7 @@ header {
 .container {
 	float: right;
 	margin-top: 10%;
-	font-size: 1.5em;
+	font-size: 1.2em;
 	width: 200em;
 }
 
@@ -519,37 +519,20 @@ a.btn-border-shadow--color2:before {
 	font-size: 40px;
 }
 
-
 /*モーダル*/
-
-textarea {
-  resize: none;
-  width:300px;
-  height:150px;
-}
-
-.create-content {
-	padding: 50px;
+.modal-dialog  {
+	width: 2000px;
+	height: 500px;
 }
 
 .modal-content {
-	width: 1200px;
-	height: 600px;
+	margin-top: 30px;
 }
 
-.col-md-3 {
-	background-color: #D9D9D9;
-	width: 100%;
+.modal-backdrop { /* モーダルが開いているときのオーバーレイ */
+    background-color: rgba(0, 0, 0, 0.5); /* 背景の色と透明度を調整 */
 }
 
-.form-floating {
-	margin: 40px;
-}
-
-.create-title {
-	width: 750px;
-}
-
-.input-group-text {
-	width:auto;
+.modal-open { /* モーダルが開いているときのbodyのスタイル（モーダルを開いたときにスクロールを禁止する） */
+    overflow: hidden;
 }

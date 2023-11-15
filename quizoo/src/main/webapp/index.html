@@ -18,7 +18,7 @@
 	<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 
 	<link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
-	<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
 	<link rel="stylesheet" href="index.css">
 
 
@@ -98,59 +98,26 @@
 		</a>
 	</div>
 
+
 	<!--作問ポップアップ-->
 	<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-		aria-hidden="true" onclick="openModal('#myModal1')">
-		<div class="modal-dialog modal-xl" role="document">
+		aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
 			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Modal Title</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
 				<div class="modal-body">
-					<!-- カルーセルの追加 -->
-					<div id="formCarousel" class="carousel slide" data-ride="carousel">
-						<div class="carousel-inner">
-							<!-- フォームの各セクション -->
-							<div class="carousel-item active">
-								<div class="row">
-									<!-- サイドメニューのコンテンツ -->
-									<div class="col-md-3">
-										<!-- サイドメニューの内容をここに追加 -->
-										<h4>作成した問題</h4>
-										<p>1.○○はなんでしょう？</p>
-										<p>2.○○はなんでしょう？</p>
-										<button type="button" class="btn btn-primary rounded-circle p-0"
-											style="width:2rem;height:2rem;">＋</button>
-									</div>
-
-									<!-- メインコンテンツ -->
-									<div class="col-md-9">
-										<!-- テキストエリアとチェックボックスの残りの部分 -->
-										<div class="form-floating">
-											<textarea class="create-title form-control"
-												placeholder="Leave a comment here" id="floatingTextarea2"
-												style="height: 200px;"></textarea>
-											<div class="clickedCheckbox">
-												<!-- チェックボックスなどの追加 -->
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<!-- 別のフォームセクションを追加 -->
-
-						</div>
-						<!-- カルーセルの前後ボタン -->
-						<a class="carousel-control-prev" href="#formCarousel" role="button" data-slide="prev">
-							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-							<span class="sr-only">Previous</span>
-						</a>
-						<a class="carousel-control-next" href="#formCarousel" role="button" data-slide="next">
-							<span class="carousel-control-next-icon" aria-hidden="true"></span>
-							<span class="sr-only">Next</span>
-						</a>
-					</div>
+					<!-- Modal Body Content Goes Here -->
+					<p>This is the content of the modal.</p>
 				</div>
 			</div>
 		</div>
 	</div>
+
 
 	<!--	ハンバーガー -->
 	<script>
@@ -196,6 +163,8 @@
 			});
 		}
 	</script>
+
+
 
 
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
