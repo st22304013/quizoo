@@ -42,8 +42,8 @@ package web{
     }
     WebApplicationController <.. FrontServlet
     package util{
-        class ClassNameFactory{
-            {static} createClassName(req:HttpServletRequest):String
+        class MethodChecker{
+            {static} check(req:HttpServletRequest):boolean
         }
     }
 }
@@ -56,11 +56,6 @@ package frame{
             + NotFoundException(msg:String):NotFoundException
         }
         NotFoundException . e404
-        note "405" as e405
-        class MethodNotAllowedException{
-            + MethodNotAllowedException(msg:String):MethodNotAllowedException
-        }
-        MethodNotAllowedException . e405
         note "400" as e400
         class BadRequestException{
             + (msg:String):BadRequestException
@@ -91,9 +86,9 @@ package frame{
             + getWtite():PrintWriter
         }
     }
-    package util{
-        class hash{
-            + {static} getSha256(String:value):byte[]
+    package security{
+        class Hash{
+            + {static} getSha256(value:String):byte[]
         }
     }
 }
