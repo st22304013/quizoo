@@ -31,7 +31,7 @@ CREATE TABLE genre (
 
 CREATE TABLE quiz (
     quiz_id MEDIUMINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    author_no MEDIUMINT UNSIGNED REFERENCES userinfo(user_no),
+    author_no MEDIUMINT UNSIGNED NOT NULL REFERENCES userinfo(user_no),
     title VARCHAR(100) NOT NULL,
 	question_count TINYINT NOT NULL,
     genre TINYINT UNSIGNED NOT NULL REFERENCES genre(genre_no),
