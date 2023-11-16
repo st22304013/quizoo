@@ -10,47 +10,54 @@ grant select, update, insert on quizoo.* to 'quizoo_app'@'%';
 
 use quizoo
 
-CREATE TABLE UserInfo (
-    id VARCHAR(300) PRIMARY KEY,
-    password VARCHAR(20) NOT NULL,
-    score MEDIUMINT UNSIGNED
+CREATE TABLE userinfo (
+    user_id VARCHAR(256) PRIMARY KEY,
+	user_no MEDIUMINT UNSIGNED NOT NULL UNIQUE,
+    password CHAR(64) NOT NULL,
+	total_answer MEDIUMINT UNSIGNED NOT NULL DEFAULT 0,
+	correct_answer MEDIUMINT UNSIGNED NOT NULL DEFAULT 0,
+    rating FLOAT UNSIGNED NOT NULL DEFAULT 0,
 );
 
-CREATE TABLE Genre (
+CREATE TABLE nickname (
+	user_no MEDIUMINT NOT NULL UNIQUE REFERENCES userinfo(user_no),
+	nickname VARCHAR(50) NOT NULL,
+)
+
+CREATE TABLE genre (
     genre_no TINYINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
     genre_title VARCHAR(30) NOT NULL UNIQUE
 );
 
-CREATE TABLE Quiz (
+CREATE TABLE quiz (
     quiz_id MEDIUMINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    user_id VARCHAR(300),
+    author_no MEDIUMINT UNSIGNED REFERENCES userinfo(user_no),
     title VARCHAR(100) NOT NULL,
-    genre TINYINT UNSIGNED REFERENCES Genre(genre_no),
+	question_count TINYINT NOT NULL,
+    genre TINYINT UNSIGNED NOT NULL REFERENCES genre(genre_no),
     explanation VARCHAR(200) DEFAULT NULL,
-    create_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (user_id) REFERENCES UserInfo(id)
+    create_time TIMESTAMP NOT NULL DEFAULT now(0),
+	correct_rate FLOAT UNSIGNED NOT NULL DEFAULT 0,
+	total_participants MEDIUMINT UNSIGNED NOT NULL DEFAULT 0
 );
 
 
-CREATE TABLE Question (
-	quiz_id MEDIUMINT UNSIGNED,
+CREATE TABLE question (
+	quiz_id MEDIUMINT UNSIGNED REFERENCES quiz(quiz_id),
+	question_id TINYINT UNSIGNED,
 	question VARCHAR(500) NOT NULL,
-	judge BIT(10) NOT NULL,
-	FOREIGN KEY (quiz_id) REFERENCES Quiz(quiz_id)
+	choise_1 VARCHAR(50) NOT NULL,
+	choise_2 VARCHAR(50) NOT NULL,
+	choise_3 VARCHAR(50),
+	choise_4 VARCHAR(50),
+	judge BIT(4) NOT NULL,
+	PRIMARY KEY(quiz_id, question_id)
 );
 
-CREATE TABLE Choise (
-	quiz_id MEDIUMINT UNSIGNED,
-	choises VARCHAR(100),
-	choise_no TINYINT UNSIGNED,
-	FOREIGN KEY (quiz_id) REFERENCES Quiz(quiz_id),
-	PRIMARY key (quiz_id,choise_no)
-);
-
-CREATE TABLE AnswerHistory (
-	user_id VARCHAR(300),
-	quiz_id MEDIUMINT UNSIGNED,
-	clear_date TIMESTAMP NOT NULL DEFAULT  CURRENT_TIMESTAMP,
-	FOREIGN KEY (user_id) REFERENCES UserInfo(id),
-	FOREIGN KEY (quiz_id) REFERENCES Quiz(quiz_id)
+CREATE TABLE answeraistory (
+	user_no MEDIUMINT UNSIGNED NOT NULL REFERENCES userinfo(user_id),
+	quiz_id MEDIUMINT UNSIGNED NOT NULL REFERENCES quiz(quiz_id),
+	answer_time TIMESTAMP NOT NULL DEFAULT  now(0),
+	question_count TINYINT UNSIGNED NOT NULL,
+	correct_count TINYINT UNSIGNED NOT NULL
 );
