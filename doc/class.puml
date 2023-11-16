@@ -73,6 +73,12 @@ package frame{
         + {static} getSevice(req:RequestContext):Service
     }
     ServiceFactory .> Service
+    package security{
+        class Hash{
+            + {static} getHashedString(value:String):String
+            + {static} getHashedBytes(value:String):Byte[]
+        }
+    }
     package context{
         interface RequestContext{
             + setAttribute(key:String,value:Onject)
@@ -84,11 +90,6 @@ package frame{
         interface ResponseContext{
             + forward(url:String,RequestContext)
             + getWtite():PrintWriter
-        }
-    }
-    package security{
-        class Hash{
-            + {static} getSha256(value:String):byte[]
         }
     }
 }
