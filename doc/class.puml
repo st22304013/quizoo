@@ -99,8 +99,8 @@ package db{
     package dao{
         abstract class Dao{
             ~ {static} cn:Connection
-            + connect():void
-            + close():void
+            ~ connect():void
+            ~ close():void
         }
         class UserInfoDao{
             + selectUser(userId:String):UserInfoBean
