@@ -94,7 +94,6 @@ package frame{
     }
 }
 
-
 package db{
     package dao{
         abstract class Dao{
