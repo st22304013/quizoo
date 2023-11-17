@@ -44,14 +44,14 @@ public abstract class Dao {
 					
 					Class.forName("com.mysql.cj.jdbc.Driver"); //jdbcドライバの読み込み
 					
+					// quizoo_appでコネクションを取得
 					cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/quizoo","quizoo_app","app");
 					
 					System.out.println("コネクション\u001B[42m" + cn + "\u001B[0mが取得されました");
 					
 				} catch (ClassNotFoundException | SQLException e1) {
-					
-					
 					System.out.println("\u001B[101m 取得に失敗しました\u001B[0m");
+					// 独自例外でラップ
 					throw new ResourceException(e.getMessage(), e);
 				}
 			}
@@ -62,10 +62,13 @@ public abstract class Dao {
 
 	public void close() throws ResourceException{
 		try {
+			// cnが解放されていないとき
 			if(cn!=null) {
+				// ログのために文字列を取得
 				String cnStr = cn.toString();
+				// 切断
 				cn.close();	
-				
+				// 切断されたことを確認するメッセージ
 				System.out.println("コネクション\u001B[42m"+cnStr+"\u001B[0mがクローズされました");
 			}
 		} catch (SQLException e) {
