@@ -1,1 +1,5 @@
-public abstract class ServiceFactory {} 
+package frame;
+
+public abstract class ServiceFactory {
+	
+} 
