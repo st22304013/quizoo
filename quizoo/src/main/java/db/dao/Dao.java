@@ -16,7 +16,7 @@ public abstract class Dao {
 	private Connection cn;
 	
 
-	public void connect() throws ResourceException {
+	protected void connect() throws ResourceException {
 		
 			try {
 //				----Tomcatからコネクションを取得----
@@ -60,7 +60,7 @@ public abstract class Dao {
 		
 		
 
-	public void close() throws ResourceException{
+	protected void close() throws ResourceException{
 		try {
 			// cnが解放されていないとき
 			if(cn!=null) {
