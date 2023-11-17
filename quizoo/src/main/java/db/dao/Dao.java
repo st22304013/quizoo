@@ -14,7 +14,6 @@ import frame.exception.ResourceException;
 
 public abstract class Dao {
 	private Connection cn;
-	
 
 	protected void connect() throws ResourceException {
 		
@@ -30,7 +29,7 @@ public abstract class Dao {
 				cn = ds.getConnection();
 				cn.setAutoCommit(false);
 				
-				System.out.println("コネクションプールからの取得に成功しました"+cn);
+				System.out.println("コネクションプールからの取得に成功しました\u001B[42m"+cn+"\u001B[00m");
 				
 			} catch (NamingException | SQLException e) {
 //				---Tomcatからコネクションが取得できなかったとき---
@@ -38,6 +37,7 @@ public abstract class Dao {
 				close(); //Tomcatで取得しようとしたコネクションを切断
 				
 				System.out.println("\u001B[101m コネクションプールからの取得に失敗しました\u001B[0m");
+				e.printStackTrace();
 				System.out.println("コネクションを再度取得します（プールを使用しない）");
 				
 				try {
