@@ -86,6 +86,7 @@ package frame{
             + setId(key:UserId):void
             + getId():String
             + getMessageBody():String
+            + getRequestPath():String
         }
         interface ResponseContext{
             + forward(url:String,RequestContext)
