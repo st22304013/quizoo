@@ -9,11 +9,13 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
+import frame.exception.ResourceException;
+
 
 public abstract class Dao {
 	protected static Connection cn;
 
-	public void connect() {
+	public void connect() throws ResourceException {
 		
 		try {
 			
@@ -40,7 +42,7 @@ public abstract class Dao {
 				
 				
 			} catch (ClassNotFoundException | SQLException e1) {
-				
+				throw new ResourceException(e.getMessage(), e);
 			}
 		}
 		
