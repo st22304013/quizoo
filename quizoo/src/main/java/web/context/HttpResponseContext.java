@@ -15,6 +15,10 @@ public class HttpResponseContext implements ResponseContext{
 	
 	HttpServletResponse res = null;
 	
+	public HttpResponseContext(HttpServletResponse res) {
+		this.res = res;
+	}
+	
 	@Override
 	public void forward(String url, RequestContext req) throws BadRequestException {
 		HttpServletRequest sreq = ((HttpRequestContext)req).getRequest();
