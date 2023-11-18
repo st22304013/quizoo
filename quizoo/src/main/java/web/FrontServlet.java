@@ -7,25 +7,25 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import frame.Service;
-import frame.ServiceFactory;
+import frame.context.RequestContext;
+import frame.context.ResponseContext;
 import frame.exception.NotFoundException;
 import frame.exception.ResourceException;
-import web.context.HttpRequestContext;
-import web.context.HttpResponseContext;
 
-public class FrontServlet extends HttpServlet{
+public class FrontServlet extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		WebApplicationController controller = new WebApplicationController();
+		
+		RequestContext reqc = controller.getRequest(req);
+		ResponseContext resc = controller.getResponse(resp);
+		
 		try {
-			Service service =  ServiceFactory.getService(req.getServletContext().getResourceAsStream("WEB-INF/command-mapping.properties"),new HttpRequestContext(req));
-			HttpRequestContext reqc = new HttpRequestContext(req);
-			HttpResponseContext resc = new HttpResponseContext(resp);
-			service.execute(reqc, resc);
+			controller.handleResponse(reqc, resc);
 		} catch (ResourceException | NotFoundException e) {
+			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
-			throw new ServletException(e);
 		}
+		
 	}
-} 
-
+}
