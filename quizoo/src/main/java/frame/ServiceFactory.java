@@ -15,7 +15,6 @@ public abstract class ServiceFactory {
 		Service service = null;
 		String serviceClassName = null;
 		String reqKey = req.getTargetServiceKey();
-		System.out.println(reqKey);
 		
 		Properties prop = new Properties();
 		try{
