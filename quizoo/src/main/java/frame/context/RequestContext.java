@@ -11,5 +11,5 @@ public interface RequestContext {
 
 	public String getMessageBody();
 	
-	public String getRequestUri();
+	public String getTargetServiceKey();
 }
