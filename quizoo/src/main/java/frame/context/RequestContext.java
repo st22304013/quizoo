@@ -10,4 +10,6 @@ public interface RequestContext {
 	public String getId();
 
 	public String getMessageBody();
+	
+	public String getRequestUri();
 }
