@@ -17,6 +17,9 @@ public class HttpRequestContext implements RequestContext{
 		this.req = req;
 		this.session = req.getSession();
 	}
+	public HttpServletRequest getRequest() {
+		return req;
+	}
 	@Override
 	public void setAttribute(String key, Object value) {
 		req.setAttribute(key, value);
