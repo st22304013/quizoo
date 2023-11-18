@@ -52,6 +52,6 @@ public class HttpRequestContext implements RequestContext{
 	}
 	@Override
 	public String getTargetServiceKey() {
-		return req.getRequestURI().toString().replaceFirst(".","").replaceAll("/", ".");
+		return req.getRequestURI().toString().replaceFirst("/quizoo/","");
 	}
 } 
