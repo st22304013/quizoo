@@ -1,4 +1,4 @@
-package quizoo.service;
+package quizoo;
 
 import frame.Service;
 import frame.context.RequestContext;
