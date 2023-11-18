@@ -214,64 +214,62 @@ package db{
     AnswerHistoryDao ..> AnswerhistoryBean
 }
 package quizoo{
-    package service{
-        abstract class Service{
-            + do(req:RequestContext,resResponseContext):void
-        }
-        package getter{
-            class HistoryCreator{
-                + do(req:RequestContext,res:ResponseContext):void
-            }
-            class AnswerHistory{
-                + do(req:RequestContext,res:ResponseContext):void
-            }
-            class AccountGetter{
-                + do(req:RequestContext,res:ResponseContext):void
-            }
-            package ajax{
-                class QuizGetter{
-                    + do(req:RequestContext,res:ResponseContext):void
-                }
-                class IdCheker{
-                    + do(req:RequestContext,res:ResponseContext):void
-                }
-                class QuizListGetter{
-                    + do(req:RequestContext,res:ResponseContext):void
-                }
-                class ScoreHistoryGetter{
-                    + do(req:RequestContext,res:ResponseContext):void
-                }
-            }
-        }
-        package setter{
-            class AnswerSubmitter{
-                + do(req:RequestContext,res:ResponseContext):void
-            }
-            class QuizCreator{
-                + do(req:RequestContext,res:ResponseContext):void
-            }
-            class NicknameChanger{
-                + do(req:RequestContext,res:ResponseContext):void
-            }
-            class QuizChanger{
-                + do(req:RequestContext,res:ResponseContext):void
-            }
-            class QuizDropper{
-                + do(req:RequestContext,res:ResponseContext):void
-            }
-        }
-        class Login{
-            + do(req:RequestContext,resResponseContext):void
-        }
-        class Logout{
+    abstract class Service{
+        + do(req:RequestContext,resResponseContext):void
+    }
+    package getter{
+        class HistoryCreator{
             + do(req:RequestContext,res:ResponseContext):void
         }
-        class Signup{
+        class AnswerHistory{
             + do(req:RequestContext,res:ResponseContext):void
         }
-        class AccountDropper{
+        class AccountGetter{
             + do(req:RequestContext,res:ResponseContext):void
         }
+        package ajax{
+            class QuizGetter{
+                + do(req:RequestContext,res:ResponseContext):void
+            }
+            class IdCheker{
+                + do(req:RequestContext,res:ResponseContext):void
+            }
+            class QuizListGetter{
+                + do(req:RequestContext,res:ResponseContext):void
+            }
+            class ScoreHistoryGetter{
+                + do(req:RequestContext,res:ResponseContext):void
+            }
+        }
+    }
+    package setter{
+        class AnswerSubmitter{
+            + do(req:RequestContext,res:ResponseContext):void
+        }
+        class QuizCreator{
+            + do(req:RequestContext,res:ResponseContext):void
+        }
+        class NicknameChanger{
+            + do(req:RequestContext,res:ResponseContext):void
+        }
+        class QuizChanger{
+            + do(req:RequestContext,res:ResponseContext):void
+        }
+        class QuizDropper{
+            + do(req:RequestContext,res:ResponseContext):void
+        }
+    }
+    class Login{
+        + do(req:RequestContext,resResponseContext):void
+    }
+    class Logout{
+        + do(req:RequestContext,res:ResponseContext):void
+    }
+    class Signup{
+        + do(req:RequestContext,res:ResponseContext):void
+    }
+    class AccountDropper{
+        + do(req:RequestContext,res:ResponseContext):void
     }
 }
 RequestContext <.. service
