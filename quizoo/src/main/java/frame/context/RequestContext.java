@@ -1,5 +1,7 @@
 package frame.context;
 
+import frame.exception.ResourceException;
+
 public interface RequestContext {
 	public void setAttribute(String key, Object value);
 
@@ -9,7 +11,7 @@ public interface RequestContext {
 
 	public String getId();
 
-	public String getMessageBody();
+	public String getMessageBody() throws ResourceException;
 	
 	public String getTargetServiceKey();
 }

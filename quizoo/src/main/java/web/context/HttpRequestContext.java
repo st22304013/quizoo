@@ -1,38 +1,51 @@
 package web.context;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import frame.context.RequestContext;
+import frame.exception.ResourceException;
 
 public class HttpRequestContext implements RequestContext{
 	HttpServletRequest req = null;
+	HttpSession session = null;
 	public HttpRequestContext(HttpServletRequest req) {
 		this.req = req;
+		this.session = req.getSession();
 	}
 	@Override
 	public void setAttribute(String key, Object value) {
-		// TODO 自動生成されたメソッド・スタブ
-		
+		req.setAttribute(key, value);
 	}
 	@Override
 	public String[] getParameter(String key) {
-		// TODO 自動生成されたメソッド・スタブ
-		return null;
+		return req.getParameterValues(key);
 	}
 	@Override
 	public void setId(String userId) {
-		// TODO 自動生成されたメソッド・スタブ
-		
+		session.setAttribute("id", userId);
 	}
 	@Override
 	public String getId() {
-		// TODO 自動生成されたメソッド・スタブ
-		return null;
+		return (String) session.getAttribute("id");
 	}
 	@Override
-	public String getMessageBody() {
-		// TODO 自動生成されたメソッド・スタブ
-		return null;
+	public String getMessageBody() throws ResourceException {
+		StringBuilder sb = new StringBuilder();
+		String line;
+        try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(req.getInputStream()))) {
+            while ((line = bufferedReader.readLine()) != null) {
+                sb.append(line);
+            }
+        }catch(IOException e) {
+        	throw new ResourceException(e.getMessage(), e);
+        }
+        
+        return line;
 	}
 	@Override
 	public String getTargetServiceKey() {
