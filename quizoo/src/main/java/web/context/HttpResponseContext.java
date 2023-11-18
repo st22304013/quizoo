@@ -19,6 +19,10 @@ public class HttpResponseContext implements ResponseContext{
 		this.res = res;
 	}
 	
+	public HttpServletResponse getResponse() {
+		return res;
+	}
+	
 	@Override
 	public void forward(String url, RequestContext req) throws BadRequestException {
 		HttpServletRequest sreq = ((HttpRequestContext)req).getRequest();
@@ -35,6 +39,7 @@ public class HttpResponseContext implements ResponseContext{
 	public PrintWriter getWrite() throws IOException {
 		return res.getWriter();
 	}
+
 	
 	
 } 
