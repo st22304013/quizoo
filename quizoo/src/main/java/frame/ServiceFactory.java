@@ -1,7 +1,7 @@
 package frame;
 
-import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Properties;
 
@@ -11,17 +11,17 @@ import frame.exception.ResourceException;
 
 public abstract class ServiceFactory {
 	
-	private static final String filePath = "WEB-INF/lib/command-mapping.properties";
-	
-	public static Service getService(RequestContext req) throws ResourceException, NotFoundException{
+	public static Service getService(InputStream file,RequestContext req) throws ResourceException, NotFoundException{
 		Service service = null;
 		String serviceClassName = null;
+		String reqKey = req.getTargetServiceKey();
+		System.out.println(reqKey);
 		
 		Properties prop = new Properties();
-		try (FileInputStream input = new FileInputStream(filePath)){
-			prop.load(input);
+		try{
+			prop.load(file);
 			
-			String reqKey = req.getTargetServiceKey();
+			
 			
 			serviceClassName = (String) prop.get(reqKey);
 			
