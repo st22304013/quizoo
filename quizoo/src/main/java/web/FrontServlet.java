@@ -7,10 +7,25 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class FrontServlet extends HttpServlet{
+import frame.context.RequestContext;
+import frame.context.ResponseContext;
+import frame.exception.NotFoundException;
+import frame.exception.ResourceException;
+
+public class FrontServlet extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		WebApplicationController controller = new WebApplicationController();
+		
+		RequestContext reqc = controller.getRequest(req);
+		ResponseContext resc = controller.getResponse(resp);
+		
+		try {
+			controller.handleResponse(reqc, resc);
+		} catch (ResourceException | NotFoundException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
 		
 	}
-} 
-
+}
