@@ -76,8 +76,8 @@ public class QuizDao extends Dao{
 			st.setString(7, quiz.getGenre());
 			st.setString(8, quiz.getExplanation());
 			st.setString(9, quiz.getCreateTime());
-			st.setFloat(10, getCorrectRate());
-			st.setInt(11, getTotalParticipants());
+			st.setFloat(10, quiz.getCorrectRate());
+			st.setInt(11, quiz.getTotalParticipants());
 			
 			st.executeUpdate();
 			
