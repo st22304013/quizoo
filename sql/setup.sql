@@ -16,8 +16,19 @@ CREATE TABLE userinfo (
     password CHAR(64) NOT NULL,
 	total_answer MEDIUMINT UNSIGNED NOT NULL DEFAULT 0,
 	correct_answer MEDIUMINT UNSIGNED NOT NULL DEFAULT 0,
-    rating FLOAT UNSIGNED NOT NULL DEFAULT 0,
+    rating FLOAT UNSIGNED NOT NULL DEFAULT 0 
 );
+
+-- ÉgÉäÉKÅ[
+DELIMITER //
+CREATE TRIGGER calculate_rating
+BEFORE UPDATE ON userinfo
+FOR EACH ROW
+BEGIN
+    SET NEW.rating = NEW.correct_answer * NEW.correct_answer / NEW.total_answer;
+END;
+//
+DELIMITER ;
 
 CREATE TABLE nickname (
 	user_no MEDIUMINT NOT NULL UNIQUE REFERENCES userinfo(user_no),
