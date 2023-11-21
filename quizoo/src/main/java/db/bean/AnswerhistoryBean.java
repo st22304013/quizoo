@@ -3,29 +3,29 @@ package db.bean;
 import java.io.Serializable;
 
 public class AnswerhistoryBean implements Serializable{
-	private int userNo;
 	private int quizId;
 	private String answeredTime;
 	private int questionCount;
 	private int correctCount;
 	
+	private String title;
+	
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
 	public AnswerhistoryBean() {}
 	
-	public AnswerhistoryBean(int userNo, int quizId, String answeredTime, int questionCount, int correctCount) {
-		this.userNo = userNo;
+	public AnswerhistoryBean(int quizId, String answeredTime, int questionCount, int correctCount, String title) {
 		this.quizId = quizId;
 		this.answeredTime = answeredTime;
 		this.questionCount = questionCount;
 		this.correctCount = correctCount;
-		
-	}
-
-	public int getUserNo() {
-		return userNo;
-	}
-
-	public void setUserNo(int userNo) {
-		this.userNo = userNo;
+		this.title = title;
 	}
 
 	public int getQuizId() {
