@@ -93,6 +93,11 @@ package frame{
             + getWtite():PrintWriter
         }
     }
+    namespace exception{
+        class MethodNotAllowedException{
+
+        }
+    }
 }
 
 package db{
