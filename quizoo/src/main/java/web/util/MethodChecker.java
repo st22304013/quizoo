@@ -4,15 +4,13 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
 
-import javax.servlet.http.HttpServletRequest;
-
 import com.google.gson.Gson;
 
 public class MethodChecker {
 	private static AllowedMethods methods = null;
-	public static boolean check(HttpServletRequest req) throws IOException {
+	public static boolean check(javax.servlet.http.HttpServletRequest req) throws IOException {
 		if(methods == null) {
-			try(Reader reader = new InputStreamReader(req.getServletContext().getResourceAsStream("/WEB-INF/web.json"))){
+			try(Reader reader = new InputStreamReader(req.getServletContext().getResourceAsStream("/WEB-INF/methos.json"))){
 				Gson gson = new Gson();
 				
 				methods = gson.fromJson(reader, AllowedMethods.class);
