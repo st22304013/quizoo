@@ -38,7 +38,7 @@ CREATE TABLE quiz (
     author_no MEDIUMINT UNSIGNED NOT NULL REFERENCES userinfo(user_no),
     title VARCHAR(100) NOT NULL,
 	question_count TINYINT NOT NULL,
-    genre TINYINT UNSIGNED NOT NULL REFERENCES genre(genre_no),
+    genre_no TINYINT UNSIGNED NOT NULL REFERENCES genre(genre_no),
     explanation VARCHAR(200) DEFAULT NULL,
     create_time TIMESTAMP NOT NULL DEFAULT now(0),
 	correct_rate FLOAT UNSIGNED NOT NULL DEFAULT 0,
@@ -79,8 +79,10 @@ BEGIN
 		NEW.rating = POW(NEW.correct_answer,2) / NEW.total_answer ;
 END;
 //
+DELIMITER
 
---answerhistoryにinsertしたときに、quizをupdateするトリガー。　
+--answerhistoryにinsertしたときに、quizをupdateするトリガー。
+DELIMITER //
 CREATE TRIGGER on_insert_answerhistroy
 BEFORE INSERT ON answerhistory
 FOR EACH ROW
