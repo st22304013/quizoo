@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import com.google.gson.Gson;
 
-public class methodChecker {
+public class MethodChecker {
 	private static AllowedMethods methods = null;
 	public static boolean check(HttpServletRequest req) throws IOException {
 		if(methods == null) {
