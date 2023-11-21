@@ -86,8 +86,8 @@ BEFORE INSERT ON answerhistory
 FOR EACH ROW
 BEGIN
 	UPDATE quiz SET 
-			correct_rate = ((correct_rate * total_participants)+(NEW.correct_count / NEW.question_count )) / (total_participants+1),
-			total_participants = total_participants+1 
+			total_participants = total_participants+1,
+			correct_rate = ((correct_rate * total_participants)+(NEW.correct_count / NEW.question_count )) / (total_participants)
 	WHERE quiz_id = NEW.quiz_id;
 END;
 //
