@@ -60,7 +60,7 @@ CREATE TABLE question (
 CREATE TABLE answerhistory (
 	user_no MEDIUMINT UNSIGNED NOT NULL REFERENCES userinfo(user_no),
 	quiz_id MEDIUMINT UNSIGNED NOT NULL REFERENCES quiz(quiz_id),
-	answer_time TIMESTAMP NOT NULL DEFAULT  now(0),
+	answered_time TIMESTAMP NOT NULL DEFAULT  now(0),
 	question_count TINYINT UNSIGNED NOT NULL,
 	correct_count TINYINT UNSIGNED NOT NULL
 );

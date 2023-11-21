@@ -48,7 +48,7 @@ INSERT INTO question (quiz_id, question_id, question, choise_1, choise_2, choise
 
 
 -- answerhistory テーブルへのデータ挿入
-INSERT INTO answerhistory (user_no, quiz_id, answer_time, question_count, correct_count) VALUES
+INSERT INTO answerhistory (user_no, quiz_id, answered_time, question_count, correct_count) VALUES
 (1, 2, NOW(), 1, 1),
 (3, 1, NOW(), 3, 2),
 (1, 3, NOW(), 2, 2),
