@@ -10,13 +10,6 @@ public class AnswerhistoryBean implements Serializable{
 	
 	private String title;
 	
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
 
 	public AnswerhistoryBean() {}
 	
@@ -60,5 +53,12 @@ public class AnswerhistoryBean implements Serializable{
 		this.correctCount = correctCount;
 	}
 	
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
 	
 }
