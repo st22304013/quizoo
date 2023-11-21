@@ -11,10 +11,13 @@ import frame.context.RequestContext;
 import frame.context.ResponseContext;
 import frame.exception.NotFoundException;
 import frame.exception.ResourceException;
+import web.util.MethodChecker;
 
 public class FrontServlet extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+//		System.out.println(MethodChecker.check(req));
+		
 		WebApplicationController controller = new WebApplicationController();
 		
 		RequestContext reqc = controller.getRequest(req);

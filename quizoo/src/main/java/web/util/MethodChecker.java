@@ -3,8 +3,6 @@ package web.util;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
-import java.util.ArrayList;
-import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -17,7 +15,7 @@ public class MethodChecker {
 			try(Reader reader = new InputStreamReader(req.getServletContext().getResourceAsStream("/WEB-INF/web.json"))){
 				Gson gson = new Gson();
 				
-				AllowedMethods methods = gson.fromJson(reader, AllowedMethods.class);
+				methods = gson.fromJson(reader, AllowedMethods.class);
 			} catch (IOException e) {
 				e.printStackTrace();
 				throw e;
@@ -31,12 +29,3 @@ public class MethodChecker {
 		
 	}
 } 
-class AllowedMethods{
-	HashMap<String, ArrayList<String>> methodsServiceMap = new HashMap<>();
-	ArrayList<String> get = new ArrayList<String>();
-	ArrayList<String> post = new ArrayList<String>();
-	{
-		methodsServiceMap.put("GET", get);
-		methodsServiceMap.put("POST", post);
-	}
-}
