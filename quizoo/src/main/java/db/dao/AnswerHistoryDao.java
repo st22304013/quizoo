@@ -29,11 +29,11 @@ public class AnswerHistoryDao extends Dao {
 			rs = st.executeQuery();
 			
 			while(rs.next()) {
-				int quizId = rs.getInt(1);
-				String title = rs.getString(2);
-				String answeredTime = rs.getString(3);
-				int questionCount = rs.getInt(4);
-				int correctCount = rs.getInt(5);
+				int quizId = rs.getInt("q.quiz_id");
+				String title = rs.getString("title");
+				String answeredTime = rs.getString("answered_time");
+				int questionCount = rs.getInt("a.question_count");
+				int correctCount = rs.getInt("correct_count");
 				
 				
 			
