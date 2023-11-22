@@ -57,4 +57,30 @@ public class AnswerHistoryDao extends Dao {
 		
 		return Answerhistory;
 	}
+	
+	public void insertAnswerHistory(int userNo, int quizId, String answeredTime, int questionCount, int correctCount) throws ResourceException {
+		
+		PreparedStatement st = null;
+		
+		connect();
+		
+		String sql = "INSERT INTO answeredhistory (user_no, quiz_id, answered_time, question_count, correct_count)"
+				+ "VALUES(?, ?, now(0), ?, ?)";
+		
+		st = cn.prepareStatement(sql);
+		
+		st.setInt(1, userNo);
+		st.setInt(2, quizId);
+		st.setString(3, answeredTime);
+		st.setInt(4, questionCount);
+		st.setInt(5,correctCount);
+		
+		close();		
+		
+	}
 }
+
+
+
+
+
