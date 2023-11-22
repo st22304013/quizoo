@@ -4,6 +4,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import db.bean.QuizBean;
+import frame.exception.ResourceException;
+
 public class QuizDao extends Dao{	
 	public QuizBean selectQuiz(int quizId) throws ResourceException {
 		

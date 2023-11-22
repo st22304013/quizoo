@@ -15,7 +15,7 @@ public class QuizBean implements Serializable{
 	private float correctRate;
 	private int totalParticipants;
 	
-	QuizBean(){}
+	public QuizBean(){}
 	
 	QuizBean(int quizId,int authorNo,String authorNickname,String title,int questionCount,int genreNo,String genre,
 			String explanation,String createTime,float correctRate,int totalParticipants){
