@@ -13,7 +13,7 @@ public class AnswerHistoryDao extends Dao {
 		
 		PreparedStatement st = null;
 		ResultSet rs = null;
-		ArrayList<AnswerhistoryBean> Answerhistory = null;
+		ArrayList<AnswerhistoryBean> Answerhistory = new ArrayList<>();
 		
 
 		connect();
@@ -23,26 +23,22 @@ public class AnswerHistoryDao extends Dao {
 				+ " USING (quiz_id)"
 				+ " WHERE user_no = ?";
 		
+		
 		try {
+			st = cn.prepareStatement(sql);
 			st.setInt(1, userNo);
 			
 			rs = st.executeQuery();
 			
+			
 			while(rs.next()) {
-				int quizId = rs.getInt("q.quiz_id");
-				String title = rs.getString("title");
-				String answeredTime = rs.getString("answered_time");
-				int questionCount = rs.getInt("a.question_count");
-				int correctCount = rs.getInt("correct_count");
-				
-				
 			
 				AnswerhistoryBean bean = new AnswerhistoryBean();
-				bean.setQuizId(quizId);
-				bean.setTitle(title);
-				bean.setAnsweredTime(answeredTime);
-				bean.setQuestionCount(questionCount);
-				bean.setCorrectCount(correctCount);
+				bean.setQuizId(rs.getInt("q.quiz_id"));
+				bean.setTitle(rs.getString("title"));
+				bean.setAnsweredTime(rs.getString("answered_time"));
+				bean.setQuestionCount(rs.getInt("a.question_count"));
+				bean.setCorrectCount(rs.getInt("correct_count"));
 				
 				Answerhistory.add(bean);
 			}
@@ -67,13 +63,22 @@ public class AnswerHistoryDao extends Dao {
 		String sql = "INSERT INTO answeredhistory (user_no, quiz_id, answered_time, question_count, correct_count)"
 				+ "VALUES(?, ?, now(0), ?, ?)";
 		
-		st = cn.prepareStatement(sql);
+		try {
+			st = cn.prepareStatement(sql);
+			
+			st.setInt(1, userNo);
+			st.setInt(2, quizId);
+			st.setString(3, answeredTime);
+			st.setInt(4, questionCount);
+			st.setInt(5,correctCount);
+			
+			st.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new ResourceException(e.getMessage(), e);
+		}
 		
-		st.setInt(1, userNo);
-		st.setInt(2, quizId);
-		st.setString(3, answeredTime);
-		st.setInt(4, questionCount);
-		st.setInt(5,correctCount);
 		
 		close();		
 		
