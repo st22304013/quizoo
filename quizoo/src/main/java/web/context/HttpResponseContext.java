@@ -39,7 +39,8 @@ public class HttpResponseContext implements ResponseContext{
 	public PrintWriter getWrite() throws IOException {
 		return res.getWriter();
 	}
-
+	
+	
 	
 	
 } 
