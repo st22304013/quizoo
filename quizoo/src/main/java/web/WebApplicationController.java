@@ -35,7 +35,7 @@ public class WebApplicationController implements ApplicationController{
 		
 		Service service = ServiceFactory.getService(stream, request);
 		
-		
+		service.execute(request, response);
 		
 	}
 } 
