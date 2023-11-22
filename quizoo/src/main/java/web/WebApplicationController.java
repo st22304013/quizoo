@@ -1,5 +1,6 @@
 package web;
 
+import java.io.IOException;
 import java.io.InputStream;
 
 import javax.servlet.http.HttpServletRequest;
@@ -10,6 +11,7 @@ import frame.Service;
 import frame.ServiceFactory;
 import frame.context.RequestContext;
 import frame.context.ResponseContext;
+import frame.exception.BadRequestException;
 import frame.exception.NotFoundException;
 import frame.exception.ResourceException;
 import web.context.HttpRequestContext;
@@ -28,7 +30,7 @@ public class WebApplicationController implements ApplicationController{
 	}
 
 	@Override
-	public void handleResponse(RequestContext request, ResponseContext response) throws ResourceException, NotFoundException {
+	public void handleResponse(RequestContext request, ResponseContext response) throws ResourceException, NotFoundException, IOException, BadRequestException {
 		HttpServletRequest hreq = ((HttpRequestContext)request).getRequest();
 		
 		InputStream stream = hreq.getServletContext().getResourceAsStream("WEB-INF/command-mapping.properties");

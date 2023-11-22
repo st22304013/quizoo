@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import frame.context.RequestContext;
 import frame.context.ResponseContext;
+import frame.exception.BadRequestException;
 import frame.exception.NotFoundException;
 import frame.exception.ResourceException;
 import web.util.MethodChecker;
@@ -33,6 +34,9 @@ public class FrontServlet extends HttpServlet {
 			e.printStackTrace();
 		} catch (NotFoundException e) {
 			resp.sendError(404);
+			e.printStackTrace();
+		} catch (BadRequestException e) {
+			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 		}
 		
