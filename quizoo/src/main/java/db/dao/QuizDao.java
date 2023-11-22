@@ -3,11 +3,67 @@ package db.dao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import db.bean.QuizBean;
 import frame.exception.ResourceException;
 
-public class QuizDao extends Dao{	
+public class QuizDao extends Dao{
+	public ArrayList<QuizBean> selectQuiz() throws ResourceException {
+		
+		PreparedStatement st = null;
+		ResultSet rs = null;
+		ArrayList<QuizBean> quizlist = new ArrayList<>();
+		
+		try {
+			connect();
+			
+			String sql = "SELECT * FROM quiz"; 
+			st = cn.prepareStatement(sql);
+			rs = st.executeQuery();
+			
+			while(rs.next()) {
+				QuizBean quizbean = new QuizBean();
+				
+				quizbean.setQuizId(rs.getInt(1));
+				quizbean.setAuthorNo(rs.getInt(2));
+				quizbean.setTitle(rs.getString(3));
+				quizbean.setQuestionCount(rs.getInt(4));
+				quizbean.setGenreNo(rs.getInt(5));
+				quizbean.setExplanation(rs.getString(6));
+				quizbean.setCreateTime(rs.getString(7));
+				quizbean.setCorrectRate(rs.getFloat(8));
+				quizbean.setTotalParticipants(rs.getInt(9));	
+				
+				quizlist.add(quizbean);
+			
+				cn.commit();
+			}
+		} catch(ClassNotFoundException e) {
+			throw new ResourceException(e.getMessage(), e);
+		} catch(SQLException e) {
+			try {
+				cn.rollback();
+			} catch(SQLException e2) {
+				throw new ResourceException(e2.getMessage(), e2);
+			}
+		} finally {
+			try {
+				if(rs != null) {
+					rs.close();
+				}
+				if(st != null) {
+					st.close();
+				}
+			} catch(SQLException e2) {
+				throw new ResourceException(e2.getMessage(), e2);
+			} finally {
+				close();
+			}
+		}
+		return quizlist;
+	}
+	
 	public QuizBean selectQuiz(int quizId) throws ResourceException {
 		
 		PreparedStatement st = null;
