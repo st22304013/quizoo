@@ -12,7 +12,7 @@ public class MethodChecker {
 	public static boolean check(javax.servlet.http.HttpServletRequest req) throws IOException {
 		if (methods == null) {
 			try (Reader reader = new InputStreamReader(
-					req.getServletContext().getResourceAsStream("/WEB-INF/methos.json"))) {
+					req.getServletContext().getResourceAsStream("/WEB-INF/methods.json"))) {
 				Gson gson = new Gson();
 				methods = gson.fromJson(reader, AllowedMethods.class);
 			} catch (IOException e) {
