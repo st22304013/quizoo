@@ -13,7 +13,7 @@ import frame.exception.ResourceException;
 
 
 public abstract class Dao {
-	private Connection cn;
+	protected Connection cn;
 
 	protected void connect() throws ResourceException {
 		
