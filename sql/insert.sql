@@ -1,4 +1,4 @@
--- userinfo テーブルへのデータ挿入
+/* userinfo テーブルへのデータ挿入 */
 INSERT INTO userinfo (user_id, password, total_answer, correct_answer, rating) VALUES
 ('watoru5151@gmail.com', 'password1', 2, 1, 0.5),
 ('jibiki@gmail.com', 'password2', 3, 0, 0),
@@ -6,7 +6,7 @@ INSERT INTO userinfo (user_id, password, total_answer, correct_answer, rating) V
 ('niko@gmail.com', 'password4', 100, 80, 64);
 
 
--- nickname テーブルへのデータ挿入
+/* nickname テーブルへのデータ挿入 */
 INSERT INTO nickname (user_no, nickname) VALUES
 (1, 'wataru'),
 (2, 'bikki-daddydirty'),
@@ -14,7 +14,7 @@ INSERT INTO nickname (user_no, nickname) VALUES
 (4, 'hachiware');
 
 
--- genre テーブルへのデータ挿入
+/* genre テーブルへのデータ挿入 */
 INSERT INTO genre (genre_no, genre_title) VALUES
 (1, 'スポーツ'),
 (2, '音楽'),
@@ -30,14 +30,14 @@ INSERT INTO genre (genre_no, genre_title) VALUES
 (12, '漫画');
 
 
--- quiz テーブルへのデータ挿入
+/* quiz テーブルへのデータ挿入 */
 INSERT INTO quiz (author_no, title, question_count, genre_no, explanation, create_time, correct_rate, total_participants) VALUES
 (1, '亘クイズ', 3, 5, 'おれに関するクイズやで', now(0), 1, 1),
 (2, 'びきクイズ', 1, 7, NULL, now(0), 1, 1),
 (1, '動物クイズ', 2, 9, 'いろんな動物のクイズ', now(0), 1, 2);
 
 
--- question テーブルへのデータ挿入
+/* question テーブルへのデータ挿入 */
 INSERT INTO question (quiz_id, question_id, question, choise_1, choise_2, choise_3, choise_4, judge) VALUES
 (1, 1, '亘の好きな食べ物は？', 'ラーメン', '寿司', 'カツオ', 'プリン', b'1100'),
 (1, 2, '亘の嫌いな食べ物は？', 'カツオ', 'プリン', 'カリフラワー', '大根', b'0010'),
@@ -47,7 +47,7 @@ INSERT INTO question (quiz_id, question_id, question, choise_1, choise_2, choise
 (1, 6, 'オランウータンの握力は何キロ？', '100', '150', '200', '250', b'0010');
 
 
--- answerhistory テーブルへのデータ挿入
+/* answerhistory テーブルへのデータ挿入 */
 INSERT INTO answerhistory (user_no, quiz_id, answered_time, question_count, correct_count) VALUES
 (1, 2, NOW(), 1, 1),
 (3, 1, NOW(), 3, 2),

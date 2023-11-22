@@ -1,7 +1,7 @@
--- データベース
+/* データベース */
 create database quizoo;
 
---ユーザー
+/* ユーザー */
 create user 'quizoo_admin'@'localhost' identified by 'admin';
 
 create user 'quizoo_app'@'%' identified by 'app';
@@ -13,7 +13,7 @@ grant select, update, insert on quizoo.* to 'quizoo_app'@'%';
 use quizoo
 
 
--- テーブル
+/* テーブル */
 CREATE TABLE userinfo (
     user_id VARCHAR(256) PRIMARY KEY,
 	user_no MEDIUMINT UNSIGNED AUTO_INCREMENT NOT NULL UNIQUE,
@@ -65,10 +65,10 @@ CREATE TABLE answerhistory (
 	correct_count TINYINT UNSIGNED NOT NULL
 );
 
--- トリガー
---userinfoをupdateするときのトリガー。　二列文のupdate文。
---トータルアンサーは更新後に更新前＋１してるので、updateするのはcorrect_answerだけで良い。
---ratingには、correct_answerの二乗割るtotal_anwserが入る　DELIMITERは一連の処理を表す。　
+/* トリガー
+userinfoをupdateするときのトリガー。　二列文のupdate文。
+トータルアンサーは更新後に更新前＋１してるので、updateするのはcorrect_answerだけで良い。
+ratingには、correct_answerの二乗割るtotal_anwserが入る　DELIMITERは一連の処理を表す。　*/
 DELIMITER //
 CREATE TRIGGER calculate_rating
 BEFORE UPDATE ON userinfo
@@ -79,9 +79,9 @@ BEGIN
 		NEW.rating = POW(NEW.correct_answer,2) / NEW.total_answer ;
 END;
 //
-DELIMITER
+DELIMITER ;
 
---answerhistoryにinsertしたときに、quizをupdateするトリガー。
+/* answerhistoryにinsertしたときに、quizをupdateするトリガー。 */
 DELIMITER //
 CREATE TRIGGER on_insert_answerhistroy
 BEFORE INSERT ON answerhistory
