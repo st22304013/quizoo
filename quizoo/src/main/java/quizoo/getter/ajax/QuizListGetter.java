@@ -2,31 +2,29 @@ package quizoo.getter.ajax;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 import com.google.gson.Gson;
 
-import db.bean.QuizBean;
 import db.dao.QuizDao;
 import frame.Service;
 import frame.context.RequestContext;
 import frame.context.ResponseContext;
+import frame.exception.ResourceException;
 
 public class QuizListGetter extends Service {
 
 	@Override
-	public void execute(RequestContext req, ResponseContext res) throws IOException {
+	public void execute(RequestContext req, ResponseContext res) throws IOException, ResourceException {
 		
 		PrintWriter out = res.getWrite();
 		
-		
-		
-		QuizBean qBean = new QuizBean();
-		QuizDao qdao = new QuizDao();
-		qBean = qdao.selectQuiz();//quiz_idはrequestContextからとってきてby和希
+		QuizDao quizDao = new QuizDao();
+		ArrayList quizList = quizDao.selectQuiz();
 		Gson gson = new Gson();
-		String result = gson.toJson(qBean);
+		String result = gson.toJson(quizList);
 		
-		
+		out.println(result);
 	}
 
 }

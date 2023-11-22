@@ -39,8 +39,6 @@ public class QuizDao extends Dao{
 			
 				cn.commit();
 			}
-		} catch(ClassNotFoundException e) {
-			throw new ResourceException(e.getMessage(), e);
 		} catch(SQLException e) {
 			try {
 				cn.rollback();
@@ -91,8 +89,6 @@ public class QuizDao extends Dao{
 			
 				cn.commit();
 			}
-		} catch(ClassNotFoundException e) {
-			throw new ResourceException(e.getMessage(), e);
 		} catch(SQLException e) {
 			try {
 				cn.rollback();
@@ -139,9 +135,7 @@ public class QuizDao extends Dao{
 			
 			cn.commit();
 	
-		} catch(ClassNotFoundException e) {
-			throw new ResourceException(e.getMessage(), e);
-        } catch(SQLException e) {
+		} catch(SQLException e) {
             try{
                 cn.rollback();
             } catch(SQLException e2) {
@@ -167,9 +161,7 @@ public class QuizDao extends Dao{
 			
 			cn.commit();
 			
-		} catch(ClassNotFoundException e) {
-			throw new ResourceException(e.getMessage(), e);
-        } catch(SQLException e) {
+		} catch(SQLException e) {
             try{
                 cn.rollback();
             } catch(SQLException e2) {
@@ -196,9 +188,7 @@ public class QuizDao extends Dao{
 			
 			cn.commit();
 			
-		} catch(ClassNotFoundException e) {
-			throw new ResourceException(e.getMessage(), e);
-        } catch(SQLException e) {
+		} catch(SQLException e) {
             try{
                 cn.rollback();
             } catch(SQLException e2) {
@@ -225,9 +215,7 @@ public class QuizDao extends Dao{
 			
 			cn.commit();
 			
-		} catch(ClassNotFoundException e) {
-			throw new ResourceException(e.getMessage(), e);
-        } catch(SQLException e) {
+		} catch(SQLException e) {
             try{
                 cn.rollback();
             } catch(SQLException e2) {
@@ -253,9 +241,7 @@ public class QuizDao extends Dao{
 			
 			cn.commit();
 			
-		} catch(ClassNotFoundException e) {
-			throw new ResourceException(e.getMessage(), e);
-        } catch(SQLException e) {
+		} catch(SQLException e) {
             try{
                 cn.rollback();
             } catch(SQLException e2) {
@@ -282,9 +268,7 @@ public class QuizDao extends Dao{
 			
 			cn.commit();
 			
-		} catch(ClassNotFoundException e) {
-			throw new ResourceException(e.getMessage(), e);
-        } catch(SQLException e) {
+		} catch(SQLException e) {
             try{
                 cn.rollback();
             } catch(SQLException e2) {
