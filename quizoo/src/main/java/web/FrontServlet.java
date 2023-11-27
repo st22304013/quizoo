@@ -12,7 +12,6 @@ import frame.context.ResponseContext;
 import frame.exception.BadRequestException;
 import frame.exception.NotFoundException;
 import frame.exception.ResourceException;
-import web.util.MethodChecker;
 
 public class FrontServlet extends HttpServlet {
 	@Override
@@ -22,10 +21,10 @@ public class FrontServlet extends HttpServlet {
 		
 		RequestContext reqc = controller.getRequest(req);
 		ResponseContext resc = controller.getResponse(resp);
-		if(!MethodChecker.check(req)) {
-			resp.sendError(405);
-			return;
-		}
+//		if(!MethodChecker.check(req)) {
+//			resp.sendError(405);
+//			return;
+//		}
 		
 		try {
 			controller.handleResponse(reqc, resc);
