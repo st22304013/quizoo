@@ -15,7 +15,7 @@ public class Login extends Service{
 	@Override
 	public void execute(RequestContext req, ResponseContext res) 
 			throws IOException, ResourceException,BadRequestException {
-		String userId = req.getParameter("user_id")[0];
+		String userId = req.getParameter("id")[0];
 		String pass = req.getParameter("password")[0];
 		
 		//userIdのチェック
