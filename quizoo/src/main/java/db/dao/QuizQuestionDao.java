@@ -16,41 +16,50 @@ public class QuizQuestionDao extends Dao{
 		try {
 			connect();
 			
-			String sql = "SELECT * FROM quiz INNER JOIN question ON quiz.quiz_id = question.quiz_id WHERE quiz_id = ?";
+			String quiz_sql = "SELECT * FROM quiz WHERE quiz_id = ?";
 			
-			st = cn.prepareStatement(sql);
+			st = cn.prepareStatement(quiz_sql);
+			st.setInt(1, quizid);
+			rs = st.executeQuery();
+			
+			QuizBean  quizBean = new QuizBean();
+			
+			quizBean.setQuizId(rs.getInt("quiz_id"));
+			quizBean.setAuthorNo(rs.getInt("author_no"));
+			quizBean.setTitle(rs.getString("title"));
+			quizBean.setQuestionCount(rs.getInt("question_count"));
+			quizBean.setGenreNo(rs.getInt("genre_no"));
+			quizBean.setExplanation(rs.getString("explanation"));
+			quizBean.setCreateTime(rs.getString("create_time"));
+			quizBean.setCorrectRate(rs.getFloat("correct_rate"));
+			quizBean.setTotalParticipants(rs.getInt("total_participants"));
+			
+			quizQuestionBean.setQuiz(quizBean);
+			
+			String question_sql = "SELECT * FROM question WHERE quiz_id = ?";
+			
+			st = cn.prepareStatement(question_sql);
 			st.setInt(1, quizid);
 			rs = st.executeQuery();
 			
 			while(rs.next()) {
-				QuizBean  quizBean = new QuizBean();
 				QuestionBean questionBean = new QuestionBean();
 				
-				questionBean.setQuizId(rs.getInt(1));
-				questionBean.setQuestionId(rs.getInt(2));
-				questionBean.setQuestion(rs.getString(3));
-				questionBean.setChoice1(rs.getString(4));
-				questionBean.setChoice2(rs.getString(5));
-				questionBean.setChoice3(rs.getString(6));
-				questionBean.setChoice4(rs.getString(7));
-				questionBean.setJudge(rs.getByte(8));
+				questionBean.setQuizId(rs.getInt("quiz_id"));
+				questionBean.setQuestionId(rs.getInt("question_id"));
+				questionBean.setQuestion(rs.getString("question"));
+				questionBean.setChoice1(rs.getString("choice_1"));
+				questionBean.setChoice2(rs.getString("choice_2"));
+				questionBean.setChoice3(rs.getString("choice_3"));
+				questionBean.setChoice4(rs.getString("choice_4"));
+				questionBean.setJudge(rs.getByte("judge"));
 				
 				questionList.add(questionBean);
 				
-				quizBean.setQuizId(rs.getInt(1));
-				quizBean.setAuthorNo(rs.getInt(2));
-				quizBean.setTitle(rs.getString(3));
-				quizBean.setQuestionCount(rs.getInt(4));
-				quizBean.setGenreNo(rs.getInt(5));
-				quizBean.setExplanation(rs.getString(6));
-				quizBean.setCreateTime(rs.getString(7));
-				quizBean.setCorrectRate(rs.getFloat(8));
-				quizBean.setTotalParticipants(rs.getInt(9));
-				
-				quizQuestionBean.setQuiz(quizBean);
-				quizQuestionBean.setQuestions(questionList);
-		
 			}
+			
+			quizQuestionBean.setQuestions(questionList);
+			
 			cn.commit();
 			
 		} catch(ClassNotFoundException e) {
