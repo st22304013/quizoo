@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import db.bean.AnswerhistoryBean;
+import db.bean.QuizBean;
 import frame.exception.ResourceException;
 
 public class AnswerHistoryDao extends Dao {
@@ -18,7 +19,8 @@ public class AnswerHistoryDao extends Dao {
 
 		connect();
 		
-		String sql = "SELECT q.quiz_id, title, answered_time, a.question_count,correct_count FROM answerhistory a"
+		String sql = "SELECT q.quiz_id, title, answered_time, a.question_count,correct_count, explanation, create_time, correct_rate, total_participants "
+				+ " FROM answerhistory a"
 				+ " INNER JOIN quiz q"
 				+ " USING (quiz_id)"
 				+ " WHERE user_no = ?";
@@ -33,14 +35,22 @@ public class AnswerHistoryDao extends Dao {
 			
 			while(rs.next()) {
 			
-				AnswerhistoryBean bean = new AnswerhistoryBean();
-				bean.setQuizId(rs.getInt("q.quiz_id"));
-				bean.setTitle(rs.getString("title"));
-				bean.setAnsweredTime(rs.getString("answered_time"));
-				bean.setQuestionCount(rs.getInt("a.question_count"));
-				bean.setCorrectCount(rs.getInt("correct_count"));
+				AnswerhistoryBean answerhistorybean = new AnswerhistoryBean();
+				answerhistorybean.setAnsweredTime(rs.getString("answered_time"));
+				answerhistorybean.setQuestionCount(rs.getInt("a.question_count"));
+				answerhistorybean.setCorrectCount(rs.getInt("correct_count"));
 				
-				Answerhistory.add(bean);
+				QuizBean quizbean = new Quizbean();
+				quizbean.setQuizId(rs.getInt("q.quiz_id"));
+				quizbean.setTitle(rs.getString("title"));
+				quizbean.setExplanation(rs.getString("explanation"));
+				quizbean.setCreateTime(rs.getString("create_time"));
+				quizbean.setCorrectRate(rs.getFloat("correct_rate"));
+				quizbean.setTotalParticipants(rs.getInt("totle_participants"));
+				
+				answerhistorybean.setQuizBean(quizbean);
+				
+				Answerhistory.add(answerhistorybean);
 			}
 			
 			
