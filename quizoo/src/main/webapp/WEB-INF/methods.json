@@ -3,6 +3,6 @@
 		"test","login"
 	],
 	"GET":[
-		
+		"quizlist"
 	]
 }
