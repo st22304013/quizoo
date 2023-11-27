@@ -9,6 +9,16 @@
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
+  
+  <servlet>
+  	<servlet-name>login-page</servlet-name>
+  	<jsp-file>/WEB-INF/jsp/top.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>login-page</servlet-name>
+  	<url-pattern>/login-page</url-pattern>
+  </servlet-mapping>
+  
   <servlet>
   	<servlet-name>front</servlet-name>
   	<servlet-class>web.FrontServlet</servlet-class>
