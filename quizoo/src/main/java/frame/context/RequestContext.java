@@ -1,5 +1,6 @@
 package frame.context;
 
+import db.bean.UserInfoBean;
 import frame.exception.ResourceException;
 
 public interface RequestContext {
@@ -7,9 +8,9 @@ public interface RequestContext {
 
 	public String[] getParameter(String key);
 
-	public void setId(String userId);
+	public void setUser(UserInfoBean user);
 
-	public String getId();
+	public UserInfoBean getUser();
 
 	public String getMessageBody() throws ResourceException;
 	
