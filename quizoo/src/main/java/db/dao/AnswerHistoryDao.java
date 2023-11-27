@@ -40,7 +40,7 @@ public class AnswerHistoryDao extends Dao {
 				answerhistorybean.setQuestionCount(rs.getInt("a.question_count"));
 				answerhistorybean.setCorrectCount(rs.getInt("correct_count"));
 				
-				QuizBean quizbean = new Quizbean();
+				QuizBean quizbean = new QuizBean();
 				quizbean.setQuizId(rs.getInt("q.quiz_id"));
 				quizbean.setTitle(rs.getString("title"));
 				quizbean.setExplanation(rs.getString("explanation"));
