@@ -1,7 +1,8 @@
 {
 	"POST":[
-		"test"
+		"test","login"
 	],
 	"GET":[
+		
 	]
 }
