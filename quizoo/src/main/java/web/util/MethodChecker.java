@@ -15,6 +15,7 @@ public class MethodChecker {
 					req.getServletContext().getResourceAsStream("/WEB-INF/methods.json"))) {
 				Gson gson = new Gson();
 				methods = gson.fromJson(reader, AllowedMethods.class);
+				System.out.println(gson.toJson(methods));
 			} catch (IOException e) {
 				e.printStackTrace();
 				throw e;

@@ -10,6 +10,15 @@
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
   
+  <servlet-mapping>
+  	<servlet-name>default</servlet-name>
+  	<url-pattern>*.css</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>default</servlet-name>
+  	<url-pattern>*.png</url-pattern>
+  </servlet-mapping>
+  
   <servlet>
   	<servlet-name>login-page</servlet-name>
   	<jsp-file>/WEB-INF/jsp/top.jsp</jsp-file>
