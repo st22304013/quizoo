@@ -18,7 +18,7 @@ public class QuizDao extends Dao{
 		try {
 			connect();
 			
-			String sql = "SELECT * FROM quiz"; 
+			String sql = "SELECT * FROM quiz INNER JOIN genre ON quiz.genre_no = genre.genre_no"; 
 			st = cn.prepareStatement(sql);
 			rs = st.executeQuery();
 			
@@ -30,6 +30,7 @@ public class QuizDao extends Dao{
 				quizbean.setTitle(rs.getString("title"));
 				quizbean.setQuestionCount(rs.getInt("question_count"));
 				quizbean.setGenreNo(rs.getInt("genre_no"));
+				quizbean.setGenre(rs.getString("genre"));
 				quizbean.setExplanation(rs.getString("explanation"));
 				quizbean.setCreateTime(rs.getString("create_time"));
 				quizbean.setCorrectRate(rs.getFloat("correct_rate"));
@@ -71,7 +72,7 @@ public class QuizDao extends Dao{
 		try {
 			connect();
 			
-			String sql = "SELECT * FROM quiz WHERE quiz_id = ?"; 
+			String sql = "SELECT * FROM quiz INNER JOIN genre ON quiz.genre_no = genre.genre_no WHERE quiz_id = ?"; 
 			st = cn.prepareStatement(sql);
 			st.setInt(1, quizId);
 			rs = st.executeQuery();
@@ -82,6 +83,7 @@ public class QuizDao extends Dao{
 				quizbean.setTitle(rs.getString("title"));
 				quizbean.setQuestionCount(rs.getInt("question_count"));
 				quizbean.setGenreNo(rs.getInt("genre_no"));
+				quizbean.setGenre(rs.getString("genre"));
 				quizbean.setExplanation(rs.getString("explanation"));
 				quizbean.setCreateTime(rs.getString("create_time"));
 				quizbean.setCorrectRate(rs.getFloat("correct_rate"));
