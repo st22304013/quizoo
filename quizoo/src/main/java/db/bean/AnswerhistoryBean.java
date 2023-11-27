@@ -7,14 +7,15 @@ public class AnswerhistoryBean implements Serializable{
 	private int questionCount;
 	private int correctCount;
 	
-	private QuizBean quizbean;//
+	private QuizBean quizbean;
 
 	public AnswerhistoryBean() {}
 	
-	public AnswerhistoryBean(String answeredTime, int questionCount, int correctCount) {
+	public AnswerhistoryBean(String answeredTime, int questionCount, int correctCount, QuizBean quizbean) {
 		this.answeredTime = answeredTime;
 		this.questionCount = questionCount;
 		this.correctCount = correctCount;
+		this.quizbean = quizbean;
 	}
 
 	public String getAnsweredTime() {
