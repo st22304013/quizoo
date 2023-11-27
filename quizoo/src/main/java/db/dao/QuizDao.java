@@ -18,7 +18,7 @@ public class QuizDao extends Dao{
 		try {
 			connect();
 			
-			String sql = "SELECT * FROM quiz INNER JOIN genre ON quiz.genre_no = genre.genre_no"; 
+			String sql = "SELECT * FROM quiz INNER JOIN genre USING(genre_no)"; 
 			st = cn.prepareStatement(sql);
 			rs = st.executeQuery();
 			
