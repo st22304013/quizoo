@@ -16,7 +16,7 @@ public class QuizQuestionDao extends Dao{
 		try {
 			connect();
 			
-			String quiz_sql = "SELECT * FROM quiz WHERE quiz_id = ?";
+			String quiz_sql = "SELECT * FROM quiz INNER JOIN genre ON quiz.genre_no = genre.genre_no WHERE quiz_id = ?";
 			
 			st = cn.prepareStatement(quiz_sql);
 			st.setInt(1, quizid);
@@ -29,6 +29,7 @@ public class QuizQuestionDao extends Dao{
 			quizBean.setTitle(rs.getString("title"));
 			quizBean.setQuestionCount(rs.getInt("question_count"));
 			quizBean.setGenreNo(rs.getInt("genre_no"));
+			quizBean.setGenre(rs.getString("genre"));
 			quizBean.setExplanation(rs.getString("explanation"));
 			quizBean.setCreateTime(rs.getString("create_time"));
 			quizBean.setCorrectRate(rs.getFloat("correct_rate"));
