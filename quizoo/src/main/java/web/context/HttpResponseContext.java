@@ -39,6 +39,12 @@ public class HttpResponseContext implements ResponseContext{
 	public PrintWriter getWrite() throws IOException {
 		return res.getWriter();
 	}
+
+	@Override
+	public void redirect(String url) throws IOException {
+		res.sendRedirect(url);
+		
+	}
 	
 	
 	
