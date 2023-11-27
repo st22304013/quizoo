@@ -37,6 +37,7 @@ public class HttpResponseContext implements ResponseContext{
 
 	@Override
 	public PrintWriter getWrite() throws IOException {
+		res.setContentType("application/json");
 		return res.getWriter();
 	}
 
