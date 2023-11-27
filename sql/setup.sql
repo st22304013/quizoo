@@ -95,3 +95,12 @@ END;
 //
 DELIMITER ;
 
+DELIMITER //
+CREATE TRIGGER set_question_count
+BEFORE INSERT ON answerhistory
+FOR EACH ROW
+BEGIN
+    SET NEW.question_count = (SELECT question_count FROM quiz WHERE quiz_id = NEW.quiz_id);
+END;
+//
+DELIMITER ;
