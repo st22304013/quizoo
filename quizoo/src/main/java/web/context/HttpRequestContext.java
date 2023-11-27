@@ -7,6 +7,7 @@ import java.io.InputStreamReader;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import db.bean.UserInfoBean;
 import frame.context.RequestContext;
 import frame.exception.ResourceException;
 
@@ -28,14 +29,7 @@ public class HttpRequestContext implements RequestContext{
 	public String[] getParameter(String key) {
 		return req.getParameterValues(key);
 	}
-	@Override
-	public void setId(String userId) {
-		session.setAttribute("id", userId);
-	}
-	@Override
-	public String getId() {
-		return (String) session.getAttribute("id");
-	}
+
 	@Override
 	public String getMessageBody() throws ResourceException {
 		StringBuilder sb = new StringBuilder();
@@ -53,5 +47,14 @@ public class HttpRequestContext implements RequestContext{
 	@Override
 	public String getTargetServiceKey() {
 		return req.getRequestURI().toString().replaceFirst("/quizoo/","");
+	}
+	@Override
+	public void setUser(UserInfoBean user) {
+		session.setAttribute("user",user);
+		
+	}
+	@Override
+	public UserInfoBean getUser() {
+		return (UserInfoBean)session.getAttribute("user");
 	}
 } 
