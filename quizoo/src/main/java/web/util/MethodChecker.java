@@ -29,9 +29,9 @@ public class MethodChecker {
 		
 		return (reqMethod.equals("GET") || reqMethod.equals("POST"))//GET又はPOSTでなかった場合はfalse
 				&&
-				((reqMethod.equals("GET") && methods.get.contains(reqService)) //GETがリクエストされ、GET内にもサービス名がある
-				|| (reqMethod.equals("POST") && methods.post.contains(reqService))  //POSTがリクエストされ、POST内にもサービス名がある
-				||(!methods.post.contains(reqService) && !methods.get.contains(reqService))); //どちらにも無かった場合はどちらも許可
+				((reqMethod.equals("GET") && methods.GET.contains(reqService)) //GETがリクエストされ、GET内にもサービス名がある
+				|| (reqMethod.equals("POST") && methods.POST.contains(reqService))  //POSTがリクエストされ、POST内にもサービス名がある
+				||(!methods.POST.contains(reqService) && !methods.GET.contains(reqService))); //どちらにも無かった場合はどちらも許可
 	}
 
 }
