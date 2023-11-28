@@ -1,6 +1,7 @@
 package quizoo;
 
 import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
 
 import db.bean.UserInfoBean;
 import db.dao.UserInfoDao;
@@ -9,6 +10,7 @@ import frame.context.RequestContext;
 import frame.context.ResponseContext;
 import frame.exception.BadRequestException;
 import frame.exception.ResourceException;
+import frame.util.Hash;
 
 public class Login extends Service{
 
@@ -30,6 +32,15 @@ public class Login extends Service{
 		
 		UserInfoDao dao = new UserInfoDao();
 		UserInfoBean bean = dao.selectUser(userId);
+		
+		//ハッシュ化されたパスワードを取得
+		try {
+			pass = Hash.getHashedString(pass);
+		} catch (NoSuchAlgorithmException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+			throw new ResourceException(e.getMessage(), e);
+		} 
 		
 		//passwordが一致したとき
 		if(pass.equals(bean.getPassword())) {
