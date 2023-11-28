@@ -38,7 +38,6 @@ public class QuizDao extends Dao{
 				
 				quizlist.add(quizbean);
 			
-				cn.commit();
 			}
 		} catch(SQLException e) {
 			try {
