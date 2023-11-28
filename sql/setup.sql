@@ -75,7 +75,8 @@ BEFORE UPDATE ON userinfo
 FOR EACH ROW
 BEGIN
     SET 
-		NEW.total_answer = OLD.total_answer+1 , 
+		NEW.total_answer = OLD.total_answer + NEW.total_answer,
+		NEW.correct_answer = OLD.correct_answer + NEW.correct_answer,
 		NEW.rating = POW(NEW.correct_answer,2) / NEW.total_answer ;
 END;
 //
@@ -96,5 +97,7 @@ END;
 //
 DELIMITER ;
 
-
+/*set_questin_count‚ðƒeƒXƒg‚·‚é•¶*/
 insert into answerhistory(user_no, quiz_id, answered_time, question_count, correct_count) values(3,2,now(),1,1);
+
+/*calculate_rating*/
