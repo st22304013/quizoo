@@ -48,6 +48,7 @@ public abstract class Dao {
 					cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/quizoo","quizoo_app","app");
 					
 					System.out.println("コネクション\u001B[42m" + cn + "\u001B[0mが取得されました");
+					cn.setAutoCommit(false);
 					
 				} catch (ClassNotFoundException | SQLException e1) {
 					System.out.println("\u001B[101m 取得に失敗しました\u001B[0m");
