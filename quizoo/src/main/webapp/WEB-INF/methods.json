@@ -1,0 +1,8 @@
+{
+	"POST":[
+		"test","login"
+	],
+	"GET":[
+		"quizlist"
+	]
+}

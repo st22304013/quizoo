@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context docBase="quizoo" path="/quizoo" reloadable="false"
+    source="org.eclipse.jst.jee.server:quizoo">
+    <Resource name="jdbc/LoginTemplate"
+        auth="Container"
+        type="javax.sql.DataSource"
+        username="quizoo_app"
+        password="app"
+        driverClassName="com.mysql.cj.jdbc.Driver"
+        url="jdbc:mysql://localhost:3306/quizoo"
+        maxWait="5000"
+        maxIdle="2" />
+</Context>

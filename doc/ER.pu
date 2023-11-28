@@ -1,0 +1,43 @@
+@startuml ERD
+!define ENTITY entity
+!define RELATIONSHIP relationship
+
+ENTITY "UserInfo" as user {
+    id:VARCHAR<PK>
+--
+    password:VARBINARY
+    score:MEDIUMINT [UNSIGNED]
+}
+
+
+ENTITY "Quiz" as q {
+    quiz_id:VARCHAR<PK>
+    user_id:VARCHAR<FK>
+--
+    title:VARCHAR
+    genre:VARCHAR
+    create_date:DATE
+}
+
+ENTITY "QuizDetails" as qd {
+    quiz_id:VARCHAR<FK>
+--
+    question:VARCHAR
+    choices:VARCHAR
+    judge:SET [correct,incorrect]
+}
+
+ENTITY "AnswerHistory" as ah {
+    user_id:VARCHAR<FK>
+    quiz_id:VARCHAR<FK>
+--
+    point:SMALLINT [UNSIGNED]
+    clear_date:DATE
+}
+
+user "1" --  "0..n" q
+user "1" -- "0..n" ah
+q "1" -- "1..n" qd
+
+
+@enduml

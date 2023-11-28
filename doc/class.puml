@@ -1,0 +1,295 @@
+@startuml
+' !theme carbon-gray
+top to bottom direction
+' left to right direction
+package javax.servlet{
+    package http{
+        class Httpservlet
+        class HttpServletRequest
+        class HttpServletResponse
+    }
+    package filter{
+        interface Filter{
+            ~ doFilter(request:ServletRequest,response:ServletResponse,chain:FilterChain):void
+        }
+    }
+}
+
+package web{
+    class WebApplicationController{
+        + getRequest(request:Object):RequestContext
+        + handleRequest(request:RequestContext):ResponseContext
+        + handleResponse(request:RequestContext,response:ResponseContext)
+    }
+    class LoginFilter{
+        ~ doFilter(req:HttpRequest,res:HttpResponse,chain:FilterChain):void
+    }
+    class FrontServlet{
+        # service(req:HttpServletRequest,resp:HttpServletResponse):void
+    }
+    package context{
+        class HttpRequestContext{
+            - req:HttpservletRequest
+            + setAttribute(key:String,value:Object):void
+            + setId(id:String):void
+            + getId():String
+            + getMessageBody():String
+        }
+        class HttpResponseContext{
+            - res:HttpServletResponse
+            + forward(url:String,RequestContext):void
+        }
+    }
+    WebApplicationController <.. FrontServlet
+    package util{
+        class MethodChecker{
+            {static} check(req:HttpServletRequest):boolean
+        }
+    }
+}
+
+package frame{
+
+    package exception{
+        note "404" as e404
+        class NotFoundException{
+            + NotFoundException(msg:String):NotFoundException
+        }
+        NotFoundException . e404
+        note "400" as e400
+        class BadRequestException{
+            + (msg:String):BadRequestException
+        }
+        BadRequestException . e400
+    }
+    interface ApplicationController{
+        + getRequest(request:Object):RequestContext
+        + handleRequest(request:RequestContext):ResponseContext
+        + handleResponse(request:RequestContext,response:ResponseContext)
+    }
+    ApplicationController ..> RequestContext
+    ApplicationController ..> ResponseContext
+    abstract class ServiceFactory{
+        + {static} getSevice(req:RequestContext):Service
+    }
+    ServiceFactory .> Service
+    package security{
+        class Hash{
+            + {static} getHashedString(value:String):String
+            + {static} getHashedBytes(value:String):Byte[]
+        }
+    }
+    package context{
+        interface RequestContext{
+            + setAttribute(key:String,value:Onject)
+            + getParameter(key:String):String[]
+            + setId(key:UserId):void
+            + getId():String
+            + getMessageBody():String
+            + getRequestPath():String
+        }
+        interface ResponseContext{
+            + forward(url:String,RequestContext)
+            + getWtite():PrintWriter
+        }
+    }
+    namespace exception{
+        class MethodNotAllowedException{
+
+        }
+    }
+}
+
+package db{
+    package dao{
+        abstract class Dao{
+            ~ {static} cn:Connection
+            ~ connect():void
+            ~ close():void
+        }
+        class UserInfoDao{
+            + selectUser(userId:String):UserInfoBean
+            + insertUser(user:UserInfoBean):void
+            + deleteUser(userId:String):void
+            + updatePassword(id:String,password:byte[]):void
+            + updateScore(answered:int,correct:int):void
+        }
+        class QuizDao{
+            + selectQuiz(quizId:int):QuizBean
+            + insertQuiz(quiz:QuizBean):void
+            + deleteQuiz(quizId:int):void
+            + updateTitle(quizId:int,title:String):void
+            + updateGenre(quizId:int,genreNo:int):void
+            + updateExplanation(quizId:int,explanation:String):void
+            + updateRateAndTotalPaticipants(quizId:int,score:int):void
+        }
+        class QuizQuestionDao{
+            + selectQuizWithQuestion(quizid:int):QuizQuestionBean
+        }
+        class AnswerHistoryDao{
+            + selectAnswerHistory(userId:int):ArrayList<AnswerhistoryBean>
+        }
+        class GenreDao{
+            + selectGenres():ArrayList<String>
+        }
+
+        Dao <|-- UserInfoDao
+        Dao <|-- QuizDao
+        Dao <|-- GenreDao
+        Dao <|-- AnswerHistoryDao
+        Dao <|-- QuizQuestionDao
+
+    }
+
+    package bean {
+        class UserInfoBean {
+            - userId: String
+            - userNo: int
+            - nickname: String
+            - password: String
+            - totalAnswer: int
+            - correctAnswer: int
+            - rating: float
+            + UserInfoBean()
+            + UserInfoBean(all fields as parameters)
+            + Accessors (getters & setters)
+        }
+
+        class QuizBean {
+            - quizId: int
+            - authorNo: int
+            - authorNickname: String
+            - title: String
+            - questionCount: int
+            - genreNo: int
+            - genre: String
+            - explanation: String
+            - createTime: String
+            - correctRate: float
+            - totalParticipants: int
+            + QuizBean()
+            + QuizBean(all fields as parameters)
+            + Accessors (getters & setters)
+        }
+
+        class QuestionBean {
+            - quiz_id: int
+            - question_id: int
+            - question: String
+            - choice_1: String
+            - choice_2: String
+            - choice_3: String
+            - choice_4: String
+            - judge: byte[]
+            + QuestionBean()
+            + QuestionBean(all fields as parameters)
+            + Accessors (getters & setters)
+        }
+
+        class QuizQuestionBean {
+            - quiz: QuizBean
+            - questions: ArrayList<QuestionBean>
+            + QuizQuestionBean()
+            + QuizQuestionBean(all fields as parameters)
+            + Accessors (getters & setters)
+        }
+
+        class AnswerhistoryBean {
+            - userNo: int
+            - quizId: int
+            - answeredTime: String
+            - questionCount: int
+            - correctCount: int
+            + AnswerhistoryBean()
+            + AnswerhistoryBean(all fields as parameters)
+            + Accessors (getters & setters)
+        }
+
+        QuizQuestionBean .left.> QuestionBean
+        QuizQuestionBean .right.> QuizBean
+    }
+
+
+    java.io.Serializable <|.. bean
+    UserInfoDao ..> UserInfoBean
+    QuizDao ..> QuizBean
+    QuizQuestionDao ..> QuizQuestionBean
+    QuizQuestionDao ..> QuizBean
+    QuizQuestionDao ..> QuestionBean
+    AnswerHistoryDao ..> AnswerhistoryBean
+}
+package quizoo{
+    abstract class Service{
+        + do(req:RequestContext,resResponseContext):void
+    }
+    package getter{
+        class HistoryCreator{
+            + do(req:RequestContext,res:ResponseContext):void
+        }
+        class AnswerHistory{
+            + do(req:RequestContext,res:ResponseContext):void
+        }
+        class AccountGetter{
+            + do(req:RequestContext,res:ResponseContext):void
+        }
+        package ajax{
+            class QuizGetter{
+                + do(req:RequestContext,res:ResponseContext):void
+            }
+            class IdCheker{
+                + do(req:RequestContext,res:ResponseContext):void
+            }
+            class QuizListGetter{
+                + do(req:RequestContext,res:ResponseContext):void
+            }
+            class ScoreHistoryGetter{
+                + do(req:RequestContext,res:ResponseContext):void
+            }
+        }
+    }
+    package setter{
+        class AnswerSubmitter{
+            + do(req:RequestContext,res:ResponseContext):void
+        }
+        class QuizCreator{
+            + do(req:RequestContext,res:ResponseContext):void
+        }
+        class NicknameChanger{
+            + do(req:RequestContext,res:ResponseContext):void
+        }
+        class QuizChanger{
+            + do(req:RequestContext,res:ResponseContext):void
+        }
+        class QuizDropper{
+            + do(req:RequestContext,res:ResponseContext):void
+        }
+    }
+    class Login{
+        + do(req:RequestContext,resResponseContext):void
+    }
+    class Logout{
+        + do(req:RequestContext,res:ResponseContext):void
+    }
+    class Signup{
+        + do(req:RequestContext,res:ResponseContext):void
+    }
+    class AccountDropper{
+        + do(req:RequestContext,res:ResponseContext):void
+    }
+}
+RequestContext <.. service
+ResponseContext <.. service
+Service <|-- service
+
+HttpServletRequest <-- HttpRequestContext
+HttpServletResponse <-- HttpResponseContext
+ResponseContext <.. HttpResponseContext
+RequestContext <.. HttpRequestContext
+Httpservlet <|-up- FrontServlet
+ApplicationController <|.. WebApplicationController
+WebApplicationController ..> RequestContext
+WebApplicationController ..> ResponseContext
+WebApplicationController ..> Service
+WebApplicationController ..> ServiceFactory
+LoginFilter .down.|> Filter
+@enduml
