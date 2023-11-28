@@ -78,18 +78,19 @@
 			<li><a href="#">new</a></li>
 			<li><a href="#">favorite</a></li>
 			<li><a href="#">history</a></li>
-			<li><a href="#">ganle</a></li>
+			<li><a href="#">genre</a></li>
 		</ul>
 
 	</header>
 
-
-	<div class="box">
-		<div class="width row">
-			<div class="title col">常識クイズ</div>
-			<div class="d-flex align-items-center col">常識に関するクイズです</div>
+	<div class="quiz_list">
+		<div class="box">
+			<div class="width row">
+				<div class="title col">常識クイズ</div>
+				<div class="d-flex align-items-center col">常識に関するクイズです</div>
+			</div>
+			<div class="information text-right">作成者：たまい 作成日：2023/10/27 ジャンル：雑学 正解率：22.2%</div>
 		</div>
-		<div class="information text-right">作成者：たまい 作成日：2023/10/27 ジャンル：雑学 正解率：22.2%</div>
 	</div>
 
 

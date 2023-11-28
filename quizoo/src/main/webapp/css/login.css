@@ -1,0 +1,138 @@
+@charset "UTF-8";
+
+body {
+	background-color: #fffaef;
+	width: 100%;
+	max-width: 100%;
+	/* ページの最大横幅を画面幅と同じに設定 */
+	margin: 0 auto;
+	/* ページを水平中央に配置するために左右の余白を自動調整 */
+
+}
+
+a {
+	font-size: 1.0em;
+	text-decoration: none;
+}
+
+img {
+	max-width: 1000px;
+}
+
+.row {
+	margin-left:0px;
+	margin-right: 0px;
+}
+
+/* トップ画像のスタイル */
+.left-contents {
+	position: absolute;	
+	margin-top:20px;
+/*	align-items: center;*/
+}
+
+
+.message {
+	text-align: center;
+}
+
+/* 右側のコンテナのスタイル */
+.container {
+	margin-top: 80px;
+	font-size: 1.2em;
+	border: none;
+	border-radius: 0px;
+}
+
+/* 列のスタイル */
+
+.nav-link {
+	font-size: 1.5rem;
+}
+
+.tabs .indicator {
+	background-color: #e0f2f1;
+	height: 60px;
+	opacity: 0.3;
+}
+
+.form-container {
+	padding-top: 10px;
+}
+
+.confirmation-tabs-btn {
+	position: absolute;
+}
+
+/* カードヘッダーとカードボディの背景色 */
+.card-header teal text-white .card-body {
+	background-color: #ffce9e;
+}
+
+.nav-link active {
+	background-color: #ffce9e;
+}
+
+/* タブメニューの背景色 */
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active {
+	background-color: #ffce9e;
+	flex: 1;
+	text-align: center;
+
+}
+
+/* ナビゲーションリンクの背景色とテキストカラー */
+.nav-link {
+	background-color: #ffebcd;
+	color: royalblue;
+}
+
+/* タブメニューのスタイル */
+.nav-tabs .nav-link {
+	display: block;
+	padding: 1.5rem;
+}
+
+/* カードヘッダーのパディング */
+.card-header {
+	padding: 0em;
+}
+
+.fixed-col-md-7 {
+	width: 500px; 
+	margin-top: 20px;
+	margin-right: 2px;
+}
+
+/*送信ボタン*/
+.btn {
+	display: block;
+	text-align: center;
+	vertical-align: middle;
+	text-decoration: none;
+	width: 120px;
+	margin: auto;
+	padding: 1rem 1.5rem;
+	font-weight: bold;
+	border: 2px solid #ffa500;
+	background: #ffa500;
+	color: #fff;
+	transition: 0.5s;
+}
+.btn:hover {
+	color: #ffa500;
+	background: #fff;
+}
+
+.nav-link {
+	color: #001858;
+}
+
+.nav-link:hover {
+	color: #ffd803;
+}
+
+.fixed-col-md-7 {
+	margin-top:20px;
+}
