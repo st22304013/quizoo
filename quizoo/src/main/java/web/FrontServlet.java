@@ -17,7 +17,9 @@ import web.util.MethodChecker;
 public class FrontServlet extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+		
+		resp.setCharacterEncoding("utf-8");
+		
 		WebApplicationController controller = new WebApplicationController();
 		
 		RequestContext reqc = controller.getRequest(req);
