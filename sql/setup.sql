@@ -97,12 +97,10 @@ FOR EACH ROW
 BEGIN
     SET NEW.question_count = (SELECT question_count FROM quiz WHERE quiz_id = NEW.quiz_id);
 
-	IF NEW.question_count IS NOT NULL THEN
-		UPDATE quiz SET 
-			total_participants = total_participants+1,
-			correct_rate = ((correct_rate * total_participants) + (NEW.correct_count / NEW.question_count)) / (total_participants)
-		WHERE quiz_id = NEW.quiz_id;
-	END IF;
+	UPDATE quiz SET 
+		total_participants = total_participants+1,
+		correct_rate = ((correct_rate * total_participants) + (NEW.correct_count / NEW.question_count)) / (total_participants)
+	WHERE quiz_id = NEW.quiz_id;
 END;
 //
 DELIMITER ;
