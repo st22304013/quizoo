@@ -83,15 +83,15 @@
 
 	</header>
 
-
-	<div class="box">
-		<div class="width row">
-			<div class="title col">常識クイズ</div>
-			<div class="d-flex align-items-center col">常識に関するクイズです</div>
+	<div class="quiz_list">
+		<div class="box">
+			<div class="width row">
+				<div class="title col">常識クイズ</div>
+				<div class="d-flex align-items-center col">常識に関するクイズです</div>
+			</div>
+			<div class="information text-right">作成者：<a class="author">たまい</a> 作成日：<a class="create_time">2023/10/27</a> ジャンル：<a class="genre">雑学</a> 正解率：<a class="raito">22.2%</a></div>
 		</div>
-		<div class="information text-right">作成者：たまい 作成日：2023/10/27 ジャンル：雑学 正解率：22.2%</div>
 	</div>
-
 
 	<div class="fixed-bottom text-right">
 		<a href="#" class="js-open-modal btn btn-border-shadow btn-border-shadow--color2" data-toggle="modal"
@@ -184,7 +184,7 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
 		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 		crossorigin="anonymous"></script>
-
+	<script src="js/index.js"></script>
 
 
 </body>
