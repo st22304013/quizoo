@@ -17,7 +17,7 @@ public class UserInfoDao extends Dao {
 
 		try {
 			connect();
-
+			//ログインのSQL
 			String sql = "SELECT * FROM userinfo JOIN nickname USING(user_no) WHERE user_id = ?";
 			st = cn.prepareStatement(sql);
 			st.setString(1, user_id);
@@ -55,24 +55,35 @@ public class UserInfoDao extends Dao {
 		return userbean;
 	}
 
-	public void InsertUser(UserInfoBean user) throws ResourceException {
+	public void insertUser(UserInfoBean user) throws ResourceException {
 		PreparedStatement st = null;
-
+		System.out.println("insertUserにきた");
 		try {
 			connect();
-
-			String sql = " INSERT INTO userinfo VALUES(?,?,?,?,?,?,?)";
+			
+			cn.setAutoCommit(false);
+			//サインアップのSQL
+			String sql = " INSERT INTO userinfo(user_id,password) VALUES(?,?)";
 			st = cn.prepareStatement(sql);
+			
+			System.out.println(user.getUserId());
+			
 
 			st.setString(1, user.getUserId());
-			st.setInt(2, user.getUserNo());
-			st.setString(3, user.getNickname());
-			st.setString(4, user.getPassword());
-			st.setInt(5, user.getTotalAnswer());
-			st.setInt(6, user.getCorrectAnswer());
-			st.setFloat(7, user.getRating());
+			st.setString(2, user.getPassword());
+			st.executeUpdate();
+			
+			sql="INSERT INTO nickname(user_no,nickname) VALUES(last_insert_id(),?)";
+			st = cn.prepareStatement(sql);
+			st.setString(1,user.getNickname());
+			st.executeUpdate();
+			
+			
+			cn.commit();
 		} catch (SQLException e) {
 			throw new ResourceException(e.getMessage(), e);
+		}finally {
+			close();
 		}
 
 	}
@@ -81,7 +92,7 @@ public class UserInfoDao extends Dao {
 		PreparedStatement st = null;
 		try {
 			connect();
-
+			
 			String sql = "DELETE FROM userinfo WHERE user_id = ?";
 			st = cn.prepareStatement(sql);
 			st.setString(1, user_id);

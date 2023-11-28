@@ -52,7 +52,7 @@
                                     </form>
                                 </div>
                                 <div class="tab-pane fade" id="Signup" role="tabpanel">
-                                    <form id="register-form" method="post" action="#">
+                                    <form id="register-form" method="post" action="signup">
                                         <div class="form-group">
                                             <label for="register-userid">UserID</label>
                                             <input type="text" class="form-control" name="id" id="register-userid">
@@ -67,7 +67,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="register-password">Password Again</label>
-                                            <input type="password" class="form-control" name="password" id="register-password">
+                                            <input type="password" class="form-control" name="passwordAgain" id="register-password">
                                         </div>
                                         <div class="text-center">
 											<button type="submit" class="btn btn-primary btn-lg">Sign up</button>
