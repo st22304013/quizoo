@@ -83,10 +83,11 @@ DELIMITER ;
 
 /* answerhistoryにinsertしたときに、quizをupdateするトリガー。 */
 DELIMITER //
-CREATE TRIGGER on_insert_answerhistroy
+CREATE TRIGGER set_question_count
 BEFORE INSERT ON answerhistory
 FOR EACH ROW
 BEGIN
+    SET NEW.question_count = (SELECT question_count FROM quiz WHERE quiz_id = NEW.quiz_id);
 	UPDATE quiz SET 
 			total_participants = total_participants+1,
 			correct_rate = ((correct_rate * total_participants)+(NEW.correct_count / NEW.question_count )) / (total_participants)
@@ -95,14 +96,5 @@ END;
 //
 DELIMITER ;
 
-DELIMITER //
-CREATE TRIGGER set_question_count
-BEFORE INSERT ON answerhistory
-FOR EACH ROW
-BEGIN
-    INSERT INTO answerhistory (question_count) SELECT question_count FROM quiz WHERE quiz_id = quiz_id;
-END;
-//
-DELIMITER ;
 
-insert into answerhistory(user_no, quiz_id, answered_time, correct_count) values(2,2,now(),1);
+insert into answerhistory(user_no, quiz_id, answered_time, question_count, correct_count) values(3,2,now(),1,1);
