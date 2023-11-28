@@ -16,11 +16,16 @@ public class Signup extends Service {
 	@Override
 	public void execute(RequestContext req, ResponseContext res)
 			throws IOException, ResourceException, BadRequestException, NotFoundException {
+		System.out.println("signupにきた");
 		String userId = req.getParameter("id")[0];
 		String nickName = req.getParameter("name")[0];
 		String pass = req.getParameter("password")[0];
 		String passAgain = req.getParameter("passwordAgain")[0];
-		
+
+		System.out.println(userId);
+		System.out.println(nickName);
+		System.out.println(req.getParameter("password")[0]);
+		System.out.println(req.getParameter("passwordAgain")[0]);
 		if(userId == null || userId.isEmpty()) {
 			throw new BadRequestException("userIdが空");
 		}
@@ -38,8 +43,10 @@ public class Signup extends Service {
 		
 		if(pass.equals(passAgain)) {
 			dao.insertUser(bean);
+			res.redirect("index");
 		}else {
 			throw new BadRequestException("パスワードが一致しないから諦めろ");
+			
 		}
 		
 

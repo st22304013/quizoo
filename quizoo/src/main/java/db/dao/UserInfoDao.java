@@ -57,12 +57,17 @@ public class UserInfoDao extends Dao {
 
 	public void insertUser(UserInfoBean user) throws ResourceException {
 		PreparedStatement st = null;
-
+		System.out.println("insertUserにきた");
 		try {
 			connect();
+			
+			cn.setAutoCommit(false);
 			//サインアップのSQL
 			String sql = " INSERT INTO userinfo(user_id,password) VALUES(?,?)";
 			st = cn.prepareStatement(sql);
+			
+			System.out.println(user.getUserId());
+			
 
 			st.setString(1, user.getUserId());
 			st.setString(2, user.getPassword());
@@ -73,6 +78,8 @@ public class UserInfoDao extends Dao {
 			st.setString(1,user.getNickname());
 			st.executeUpdate();
 			
+			
+			cn.commit();
 		} catch (SQLException e) {
 			throw new ResourceException(e.getMessage(), e);
 		}finally {
