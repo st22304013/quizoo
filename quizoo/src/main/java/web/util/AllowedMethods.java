@@ -4,19 +4,19 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class AllowedMethods implements Serializable{
-	public ArrayList<String> get = new ArrayList<String>();
-	public ArrayList<String> post = new ArrayList<String>();
+	public ArrayList<String> GET = new ArrayList<String>();
+	public ArrayList<String> POST = new ArrayList<String>();
 	public ArrayList<String> getGet() {
-		return get;
+		return GET;
 	}
-	public void setGet(ArrayList<String> get) {
-		this.get = get;
+	public void setGET(ArrayList<String> get) {
+		this.GET = get;
 	}
 	public ArrayList<String> getPost() {
-		return post;
+		return POST;
 	}
-	public void setPost(ArrayList<String> post) {
-		this.post = post;
+	public void setPOST(ArrayList<String> post) {
+		this.POST = post;
 	}
 	
 }

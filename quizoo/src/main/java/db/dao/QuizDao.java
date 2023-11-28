@@ -24,13 +24,12 @@ public class QuizDao extends Dao{
 			
 			while(rs.next()) {
 				QuizBean quizbean = new QuizBean();
-				
 				quizbean.setQuizId(rs.getInt("quiz_id"));
 				quizbean.setAuthorNo(rs.getInt("author_no"));
 				quizbean.setTitle(rs.getString("title"));
 				quizbean.setQuestionCount(rs.getInt("question_count"));
 				quizbean.setGenreNo(rs.getInt("genre_no"));
-				quizbean.setGenre(rs.getString("genre"));
+				quizbean.setGenre(rs.getString("genre_title"));
 				quizbean.setExplanation(rs.getString("explanation"));
 				quizbean.setCreateTime(rs.getString("create_time"));
 				quizbean.setCorrectRate(rs.getFloat("correct_rate"));
@@ -38,7 +37,6 @@ public class QuizDao extends Dao{
 				
 				quizlist.add(quizbean);
 			
-				cn.commit();
 			}
 		} catch(SQLException e) {
 			try {
