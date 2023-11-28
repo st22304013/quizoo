@@ -25,7 +25,7 @@ CREATE TABLE userinfo (
 
 CREATE TABLE nickname (
 	user_no MEDIUMINT NOT NULL UNIQUE REFERENCES userinfo(user_no),
-	nickname VARCHAR(50) NOT NULL
+	nickname VARCHAR(50)
 );
 
 CREATE TABLE genre (
@@ -61,7 +61,7 @@ CREATE TABLE answerhistory (
 	user_no MEDIUMINT UNSIGNED NOT NULL REFERENCES userinfo(user_no),
 	quiz_id MEDIUMINT UNSIGNED NOT NULL REFERENCES quiz(quiz_id),
 	answered_time TIMESTAMP NOT NULL DEFAULT  now(0),
-	question_count TINYINT UNSIGNED NOT NULL,
+	question_count TINYINT UNSIGNED,
 	correct_count TINYINT UNSIGNED NOT NULL
 );
 
@@ -74,30 +74,35 @@ CREATE TRIGGER calculate_rating
 BEFORE UPDATE ON userinfo
 FOR EACH ROW
 BEGIN 
-	IF NEW.correct_answer > NEW.total_answer THEN
-        SIGNAL SQLSTATE '45001'
-        SET MESSAGE_TEXT = 'correct_answerがtotal_answerより大きい';
-    END IF;
-	SET
-		NEW.total_answer = OLD.total_answer + NEW.total_answer,
-		NEW.correct_answer = OLD.correct_answer + NEW.correct_answer,
-		NEW.rating = POW(NEW.correct_answer,2) / NEW.total_answer ;
+	IF NEW.total_answer IS NULL OR NEW.correct_answer IS NULL THEN
+		IF NEW.correct_answer > NEW.total_answer THEN
+			SIGNAL SQLSTATE '45001'
+			SET MESSAGE_TEXT = 'correct_answerがtotal_answerより大きい';
+		END IF;
+		SET
+			NEW.total_answer = OLD.total_answer + NEW.total_answer,
+			NEW.correct_answer = OLD.correct_answer + NEW.correct_answer,
+			NEW.rating = POW(NEW.correct_answer,2) / NEW.total_answer ;
+	END IF;
 END;
 //
 DELIMITER ;
 
-/* answerhistoryにinsertしたときに、quizをupdateするトリガー。 */
+
+/* answerhistoryにinsertしたときに、quizをupdateするトリガー。 ログインしているユーザー用*/
 DELIMITER //
 CREATE TRIGGER set_question_count
 BEFORE INSERT ON answerhistory
 FOR EACH ROW
 BEGIN
     SET NEW.question_count = (SELECT question_count FROM quiz WHERE quiz_id = NEW.quiz_id);
-	UPDATE quiz SET 
+
+	IF NEW.question_count IS NOT NULL THEN
+		UPDATE quiz SET 
 			total_participants = total_participants+1,
-			correct_rate = ((correct_rate * total_participants)+(NEW.correct_count / NEW.question_count )) / (total_participants)
-	WHERE quiz_id = NEW.quiz_id;
+			correct_rate = ((correct_rate * total_participants) + (NEW.correct_count / NEW.question_count)) / (total_participants)
+		WHERE quiz_id = NEW.quiz_id;
+	END IF;
 END;
 //
 DELIMITER ;
-
