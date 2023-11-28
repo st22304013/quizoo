@@ -1,3 +1,7 @@
+/*トリガーの削除*/
+DROP TRIGGER calculate_rating;
+DROP TRIGGER set_question_count;
+
 /* 外部キーを持つテーブルを先に削除 */
 DROP TABLE IF EXISTS answerhistory;
 DROP TABLE IF EXISTS question;
