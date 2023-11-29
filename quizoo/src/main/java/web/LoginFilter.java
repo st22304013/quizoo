@@ -12,6 +12,8 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import db.bean.UserInfoBean;
+
 public class LoginFilter implements Filter{
 
 	@Override
@@ -24,11 +26,14 @@ public class LoginFilter implements Filter{
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
 		HttpSession session = ((HttpServletRequest)request).getSession();
-		String id = (String) session.getAttribute("id");
+
+		UserInfoBean bean = (UserInfoBean) session.getAttribute("id");
 		
-		if(id == null || id.isEmpty()) {
-			RequestDispatcher rd = request.getRequestDispatcher("/");
+		if(bean == null || bean.getUserId() == null || bean.getUserId().isEmpty()) {
+			RequestDispatcher rd = request.getRequestDispatcher("login-page");
 			rd.forward(request, response);
+		} else {
+			chain.doFilter(request, response);
 		}
 		
 	}

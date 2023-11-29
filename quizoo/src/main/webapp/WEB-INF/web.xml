@@ -10,6 +10,16 @@
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
   
+	<filter>
+     <filter-name>loginFilter</filter-name>
+     <filter-class>web.LoginFilter</filter-class>
+	</filter>
+
+	<filter-mapping>
+     <filter-name>loginFilter</filter-name>
+     <url-pattern>/index</url-pattern>
+	</filter-mapping>
+  
   <servlet-mapping>
   	<servlet-name>default</servlet-name>
   	<url-pattern>*.css</url-pattern>
@@ -25,7 +35,7 @@
   
   <servlet>
   	<servlet-name>login-page</servlet-name>
-  	<jsp-file>/WEB-INF/jsp/top.jsp</jsp-file>
+  	<jsp-file>/WEB-INF/jsp/login.jsp</jsp-file>
   </servlet>
   <servlet-mapping>
   	<servlet-name>login-page</servlet-name>

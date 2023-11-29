@@ -1,0 +1,120 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>top</title>
+<link rel=”icon” href=“img/favicon.ico”>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+<link rel="stylesheet" href="css/top.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css"
+	rel="stylesheet">
+</head>
+
+<body>
+	<div class="container">
+		<div class="row">
+			<!-- 左側のコンテンツ -->
+			<div class="col-md-6">
+				<div class="left-contents text-center">
+					<div class="top-img flex-shrink-0">
+						<img src="img/quizoo.png" alt="top"><br>
+						<div class="message">welcome to Quizoo!!</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 右側のコンテンツ -->
+			<div class="col-md-6">
+				<div class="container flex-grow-1 ms-3">
+					<div class="row justify-content">
+						<div class="fixed-col-md-7">
+							<div class="card">
+								<div class="card-header teal text-white">
+									<ul class="nav nav-tabs nav-fill" id="myTabs">
+										<li class="nav-item"><a class="nav-link active"
+											id="login-tab" data-toggle="tab" href="#login" role="tab">Login</a>
+										</li>
+										<li class="nav-item"><a class="nav-link" id="signup-tab"
+											data-toggle="tab" href="#Signup" role="tab">Sign up</a></li>
+									</ul>
+								</div>
+								<div class="card-body">
+									<div class="tab-content">
+										<div class="tab-pane fade show active" id="login"
+											role="tabpanel">
+											<form id="login-form" method="post" action="login">
+												<div class="form-group">
+													<label for="login-userid"></label> <input type="text"
+														class="form-control" name="id" id="login-username"
+														placeholder="UserID">
+												</div>
+												<div class="form-group">
+													<label for="login-password"></label> <input type="password"
+														class="form-control" name="password" id="login-password"
+														placeholder="Password">
+												</div>
+												<div class="text-center">
+													<button type="submit" class="btn">Login</button>
+												</div>
+											</form>
+										</div>
+										<div class="tab-pane fade" id="Signup" role="tabpanel">
+											<form id="register-form" method="post" action="#">
+												<div class="form-group">
+													<label for="register-userid"></label> <input type="text"
+														class="form-control" name="id" id="register-userid"
+														placeholder="UserID">
+												</div>
+												<div class="form-group">
+													<label for="register-nickname"></label> <input type="text"
+														class="form-control" name="name" id="register-nickname"
+														placeholder="Nickname">
+												</div>
+												<div class="form-group">
+													<label for="register-password"></label> <input
+														type="password" class="form-control" name="password"
+														id="register-password" placeholder="Password">
+												</div>
+												<div class="form-group">
+													<label for="register-password"></label> <input
+														type="password" class="form-control" name="passwordAgain"
+														id="register-password" placeholder="Password Again">
+												</div>
+												<div class="text-center">
+													<button type="submit" class="btn">Sign up</button>
+												</div>
+											</form>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
