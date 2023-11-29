@@ -71,7 +71,7 @@
 											</form>
 										</div>
 										<div class="tab-pane fade" id="Signup" role="tabpanel">
-											<form id="register-form" method="post" action="#">
+											<form id="register-form" method="post" action="signup">
 												<div class="form-group">
 													<label for="register-userid"></label> <input type="text"
 														class="form-control" name="id" id="register-userid"
