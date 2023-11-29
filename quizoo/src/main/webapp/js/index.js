@@ -1,9 +1,29 @@
 /**
  * 
- */
+*/
+var list_box;
 
-const list_box = document.querySelector(".quiz_list");
-
+window.addEventListener('load',function(){
+    list_box = document.querySelector(".quiz_list");
+    
+    orderBtns = document.querySelectorAll(".order_btn");
+    for(var btn of orderBtns){
+        console.log(btn.innerText);
+        btn.addEventListener("click",function () {
+            history.replaceState(null,null, window.location.pathname + "?" + this.innerText);
+        });
+        
+    }
+    (async ()=>{
+        quizList = await getQuizList();
+    
+        list = await quizlistFactory(quizList);
+    
+    
+        list_box.replaceWith(list); 
+    
+    })();
+})
 
 async function getQuizList() {
     var quizList = await fetch("/quizoo/quizlist");
@@ -68,12 +88,3 @@ async function quizlistFactory(quizList){
     return list;
 }
 
-(async ()=>{
-    quizList = await getQuizList();
-
-    list = await quizlistFactory(quizList);
-
-
-    list_box.replaceWith(list); 
-
-})();
