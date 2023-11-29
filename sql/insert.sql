@@ -7,6 +7,7 @@ INSERT INTO userinfo (user_id, password, total_answer, correct_answer, rating) V
 ('tester', 'test', 0, 0, 0);
 
 
+
 /* nickname テーブルへのデータ挿入 */
 INSERT INTO nickname (user_no, nickname) VALUES
 (1, 'wataru'),
@@ -48,10 +49,9 @@ INSERT INTO question (quiz_id, question_id, question, choise_1, choise_2, choise
 (3, 6, 'オランウータンの握力は何キロ？', '100', '150', '200', '250', b'0010');
 
 
-/* answerhistory テーブルへのデータ挿入 */
-INSERT INTO answerhistory (user_no, quiz_id, answered_time, question_count, correct_count) VALUES
-(1, 2, NOW(), 1, 1),
-(3, 1, NOW(), 3, 2),
-(1, 3, NOW(), 2, 2),
-(4, 3, NOW(), 2, 1);
+INSERT INTO answerhistory (user_no, quiz_id, answered_time, correct_count) VALUES
+(1, 2, NOW(), 1),
+(3, 1, NOW(), 2),
+(1, 3, NOW(), 2),
+(4, 3, NOW(), 1);
 
