@@ -9,8 +9,8 @@ import db.bean.QuizBean;
 import frame.exception.ResourceException;
 
 public class QuizDao extends Dao{
-	public ArrayList<QuizBean> selectQuiz() throws ResourceException {
-		
+	
+	public ArrayList<QuizBean> selectOrderedQuiz(String columnName)throws ResourceException{
 		PreparedStatement st = null;
 		ResultSet rs = null;
 		ArrayList<QuizBean> quizlist = new ArrayList<>();
@@ -18,8 +18,9 @@ public class QuizDao extends Dao{
 		try {
 			connect();
 			
-			String sql = "SELECT * FROM quiz INNER JOIN genre USING(genre_no)"; 
+			String sql = "SELECT * FROM quiz INNER JOIN genre USING(genre_no) ORDER BY ?"; 
 			st = cn.prepareStatement(sql);
+			st.setString(1, columnName);
 			rs = st.executeQuery();
 			
 			while(rs.next()) {
@@ -36,7 +37,7 @@ public class QuizDao extends Dao{
 				quizbean.setTotalParticipants(rs.getInt("total_participants"));	
 				
 				quizlist.add(quizbean);
-			
+				
 			}
 		} catch(SQLException e) {
 			try {
@@ -59,6 +60,10 @@ public class QuizDao extends Dao{
 			}
 		}
 		return quizlist;
+		
+	}	
+	public ArrayList<QuizBean> selectQuiz() throws ResourceException {
+		return selectOrderedQuiz("new");
 	}
 	
 	public QuizBean selectQuiz(int quizId) throws ResourceException {
