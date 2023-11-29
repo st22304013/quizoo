@@ -6,7 +6,7 @@ create user 'quizoo_admin'@'localhost' identified by 'admin';
 
 create user 'quizoo_app'@'%' identified by 'app';
 
-grant select, update, insert, create, drop on quizoo.* to 'quizoo_admin'@'localhost';
+grant select, update, insert, create, delete, drop on quizoo.* to 'quizoo_admin'@'localhost';
 
 grant select, update, insert on quizoo.* to 'quizoo_app'@'%';
 
