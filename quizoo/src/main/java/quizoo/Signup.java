@@ -24,10 +24,6 @@ public class Signup extends Service {
 		String pass = req.getParameter("password")[0];
 		String passAgain = req.getParameter("passwordAgain")[0];
 
-//		System.out.println(userId);
-//		System.out.println(nickName);
-//		System.out.println(req.getParameter("password")[0]);
-//		System.out.println(req.getParameter("passwordAgain")[0]);
 		if(userId == null || userId.isEmpty()) {
 			throw new BadRequestException("userIdが空");
 		}
