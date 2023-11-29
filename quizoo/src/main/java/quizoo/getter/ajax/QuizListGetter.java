@@ -23,16 +23,19 @@ public class QuizListGetter extends Service {
 	@Override
 	public void execute(RequestContext req, ResponseContext res) throws IOException, ResourceException {
 		
-		String order = req.getParameter("order")[0];
+		String[] order = req.getParameter("order");
+		String orderStr = "create_time";
 		
-		order = paramColMap.get(order);
+		if(order != null) {
+			orderStr = paramColMap.get(order[0]);			
+		}
 		
-		System.out.println(order);
+		
+		QuizDao quizDao = new QuizDao();
+		ArrayList quizList = quizDao.selectOrderedQuiz(orderStr);
 		
 		PrintWriter out = res.getWrite();
 		
-		QuizDao quizDao = new QuizDao();
-		ArrayList quizList = quizDao.selectOrderedQuiz(order);
 		Gson gson = new Gson();
 		String result = gson.toJson(quizList);
 		

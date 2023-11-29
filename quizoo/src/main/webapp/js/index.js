@@ -11,6 +11,7 @@ window.addEventListener('load',function(){
         btn.addEventListener("click",function () {
             history.replaceState(null,null, window.location.pathname + "?order=" + this.innerText);
             getQuizList();
+            
         });
         
     }
@@ -32,6 +33,8 @@ async function getQuizList() {
 
     if(param){
         param = "?order="+param;
+    }else{
+        param = "";
     }
 
     var quizList = await fetch("/quizoo/quizlist" + param);
@@ -75,6 +78,10 @@ async function quizlistFactory(quizList){
         create_time = document.createElement('a');
         create_time.setAttribute('class','create_time');
         create_time.innerText = quiz['createTime'];
+
+        genre = document.createElement('a');
+        genre.setAttribute('href',quiz['genre_no']);
+        genre.innerText = quiz['genre'];
         
         ratio = document.createElement('a');
         ratio.setAttribute('class','raito');
@@ -83,6 +90,7 @@ async function quizlistFactory(quizList){
 
         info.appendChild(author);
         info.appendChild(create_time);
+        info.appendChild(genre);
         info.appendChild(ratio);    
 
 
