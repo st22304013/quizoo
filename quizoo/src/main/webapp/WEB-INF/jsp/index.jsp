@@ -17,7 +17,7 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 	<link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
-	<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+	<!-- script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script-->
 
 	<link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
 
@@ -75,10 +75,10 @@
 	<!--	下のヘッダー-->
 	<header class="secondary-header">
 		<ul>
-			<li><a href="#">new</a></li>
-			<li><a href="#">favorite</a></li>
-			<li><a href="#">history</a></li>
-			<li><a href="#">genre</a></li>
+			<li><a class="order_btn">new</a></li>
+			<li><a class="order_btn">favorite</a></li>
+			<li><a class="order_btn">history</a></li>
+			
 		</ul>
 
 	</header>

@@ -9,8 +9,8 @@ import db.bean.QuizBean;
 import frame.exception.ResourceException;
 
 public class QuizDao extends Dao{
-	public ArrayList<QuizBean> selectQuiz() throws ResourceException {
-		
+	
+	public ArrayList<QuizBean> selectOrderedQuiz(String columnName)throws ResourceException{
 		PreparedStatement st = null;
 		ResultSet rs = null;
 		ArrayList<QuizBean> quizlist = new ArrayList<>();
@@ -18,7 +18,8 @@ public class QuizDao extends Dao{
 		try {
 			connect();
 			
-			String sql = "SELECT * FROM quiz INNER JOIN genre USING(genre_no)"; 
+			String sql = "SELECT * FROM quiz INNER JOIN genre USING(genre_no) ORDER BY "; 
+			sql = sql + columnName;
 			st = cn.prepareStatement(sql);
 			rs = st.executeQuery();
 			
@@ -36,7 +37,7 @@ public class QuizDao extends Dao{
 				quizbean.setTotalParticipants(rs.getInt("total_participants"));	
 				
 				quizlist.add(quizbean);
-			
+				
 			}
 		} catch(SQLException e) {
 			try {
@@ -59,6 +60,10 @@ public class QuizDao extends Dao{
 			}
 		}
 		return quizlist;
+		
+	}	
+	public ArrayList<QuizBean> selectQuiz() throws ResourceException {
+		return selectOrderedQuiz("new");
 	}
 	
 	public QuizBean selectQuiz(int quizId) throws ResourceException {
@@ -253,31 +258,6 @@ public class QuizDao extends Dao{
 		
 	}
 	
-	public void updateRateAndTotalPaticipants(int quizId, int score) throws ResourceException {
-		PreparedStatement st = null;
-		
-		try {
-			connect();
-			
-			String sql = "UPDATE quiz SET score = ? WHERE quiz_id = ?";
-			st = cn.prepareStatement(sql);
-			st.setInt(1, score);
-			st.setInt(2, quizId);
-			
-			st.executeUpdate();
-			
-			cn.commit();
-			
-		} catch(SQLException e) {
-            try{
-                cn.rollback();
-            } catch(SQLException e2) {
-            	throw new ResourceException(e2.getMessage(), e2);
-            }
-        } finally {
-        	close();
-        }
-	}
 
 
 }

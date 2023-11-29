@@ -1,12 +1,43 @@
 /**
  * 
- */
+*/
+var list_box;
 
-const list_box = document.querySelector(".quiz_list");
-
+window.addEventListener('load',function(){
+    list_box = document.querySelector(".quiz_list");
+    
+    orderBtns = document.querySelectorAll(".order_btn");
+    for(var btn of orderBtns){
+        btn.addEventListener("click",function () {
+            history.replaceState(null,null, window.location.pathname + "?order=" + this.innerText);
+            getQuizList();
+            
+        });
+        
+    }
+    (async ()=>{
+        quizList = await getQuizList();
+    
+        list = await quizlistFactory(quizList);
+    
+    
+        list_box.replaceWith(list); 
+    
+    })();
+})
 
 async function getQuizList() {
-    var quizList = await fetch("/quizoo/quizlist");
+    params = new URLSearchParams(window.location.search);
+
+    param = params.get("order");
+
+    if(param){
+        param = "?order="+param;
+    }else{
+        param = "";
+    }
+
+    var quizList = await fetch("/quizoo/quizlist" + param);
 
     quizList = await quizList.json();
 
@@ -47,6 +78,10 @@ async function quizlistFactory(quizList){
         create_time = document.createElement('a');
         create_time.setAttribute('class','create_time');
         create_time.innerText = quiz['createTime'];
+
+        genre = document.createElement('a');
+        genre.setAttribute('href',quiz['genre_no']);
+        genre.innerText = quiz['genre'];
         
         ratio = document.createElement('a');
         ratio.setAttribute('class','raito');
@@ -55,6 +90,7 @@ async function quizlistFactory(quizList){
 
         info.appendChild(author);
         info.appendChild(create_time);
+        info.appendChild(genre);
         info.appendChild(ratio);    
 
 
@@ -68,12 +104,3 @@ async function quizlistFactory(quizList){
     return list;
 }
 
-(async ()=>{
-    quizList = await getQuizList();
-
-    list = await quizlistFactory(quizList);
-
-
-    list_box.replaceWith(list); 
-
-})();
