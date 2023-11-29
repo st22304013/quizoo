@@ -253,31 +253,6 @@ public class QuizDao extends Dao{
 		
 	}
 	
-	public void updateRateAndTotalPaticipants(int quizId, int score) throws ResourceException {
-		PreparedStatement st = null;
-		
-		try {
-			connect();
-			
-			String sql = "UPDATE quiz SET score = ? WHERE quiz_id = ?";
-			st = cn.prepareStatement(sql);
-			st.setInt(1, score);
-			st.setInt(2, quizId);
-			
-			st.executeUpdate();
-			
-			cn.commit();
-			
-		} catch(SQLException e) {
-            try{
-                cn.rollback();
-            } catch(SQLException e2) {
-            	throw new ResourceException(e2.getMessage(), e2);
-            }
-        } finally {
-        	close();
-        }
-	}
 
 
 }
