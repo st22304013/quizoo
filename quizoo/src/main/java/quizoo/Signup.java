@@ -1,6 +1,7 @@
 package quizoo;
 
 import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
 
 import db.bean.UserInfoBean;
 import db.dao.UserInfoDao;
@@ -10,6 +11,7 @@ import frame.context.ResponseContext;
 import frame.exception.BadRequestException;
 import frame.exception.NotFoundException;
 import frame.exception.ResourceException;
+import frame.util.Hash;
 
 public class Signup extends Service {
 
@@ -22,10 +24,6 @@ public class Signup extends Service {
 		String pass = req.getParameter("password")[0];
 		String passAgain = req.getParameter("passwordAgain")[0];
 
-		System.out.println(userId);
-		System.out.println(nickName);
-		System.out.println(req.getParameter("password")[0]);
-		System.out.println(req.getParameter("passwordAgain")[0]);
 		if(userId == null || userId.isEmpty()) {
 			throw new BadRequestException("userIdが空");
 		}
@@ -38,13 +36,19 @@ public class Signup extends Service {
 		UserInfoBean bean = new UserInfoBean();
 		bean.setUserId(userId);
 		bean.setNickname(nickName);
-		bean.setPassword(pass);
-		
-		
 		if(pass.equals(passAgain)) {
+			try {
+				//パスワードのハッシュ化
+				pass = Hash.getHashedString(pass);
+				bean.setPassword(pass);
+			} catch (NoSuchAlgorithmException e) {
+				e.printStackTrace();
+				throw new ResourceException(e.getMessage(), e);
+			} 
 			dao.insertUser(bean);
 			res.redirect("index");
 		}else {
+			res.redirect("login-page");
 			throw new BadRequestException("パスワードが一致しないから諦めろ");
 			
 		}
