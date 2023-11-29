@@ -4,8 +4,9 @@ insert into answerhistory(user_no, quiz_id, answered_time, correct_count) values
 
 
 /*calculate_rating*‚ðƒeƒXƒg‚·‚é•¶*/
-update userinfo set total_answer=2, correct_answer=2 where user_no=5;
+update userinfo set total_answer=3, correct_answer=2 where user_no=5;
 
+update userinfo set user_id='test' where user_no=5;
 
 
 insert into userinfo(user_id, password) values("test6","test66");
