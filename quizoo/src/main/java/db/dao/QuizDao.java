@@ -18,9 +18,9 @@ public class QuizDao extends Dao{
 		try {
 			connect();
 			
-			String sql = "SELECT * FROM quiz INNER JOIN genre USING(genre_no) ORDER BY ?"; 
+			String sql = "SELECT * FROM quiz INNER JOIN genre USING(genre_no) ORDER BY "; 
+			sql = sql + columnName;
 			st = cn.prepareStatement(sql);
-			st.setString(1, columnName);
 			rs = st.executeQuery();
 			
 			while(rs.next()) {

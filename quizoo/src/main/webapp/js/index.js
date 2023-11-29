@@ -8,9 +8,9 @@ window.addEventListener('load',function(){
     
     orderBtns = document.querySelectorAll(".order_btn");
     for(var btn of orderBtns){
-        console.log(btn.innerText);
         btn.addEventListener("click",function () {
-            history.replaceState(null,null, window.location.pathname + "?" + this.innerText);
+            history.replaceState(null,null, window.location.pathname + "?order=" + this.innerText);
+            getQuizList();
         });
         
     }
@@ -26,7 +26,15 @@ window.addEventListener('load',function(){
 })
 
 async function getQuizList() {
-    var quizList = await fetch("/quizoo/quizlist");
+    params = new URLSearchParams(window.location.search);
+
+    param = params.get("order");
+
+    if(param){
+        param = "?order="+param;
+    }
+
+    var quizList = await fetch("/quizoo/quizlist" + param);
 
     quizList = await quizList.json();
 
