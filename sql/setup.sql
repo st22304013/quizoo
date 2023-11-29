@@ -74,22 +74,26 @@ CREATE TRIGGER calculate_rating
 BEFORE UPDATE ON userinfo
 FOR EACH ROW
 BEGIN 
-	IF NEW.total_answer IS NULL OR NEW.correct_answer IS NULL THEN
-		IF NEW.correct_answer > NEW.total_answer THEN
-			SIGNAL SQLSTATE '45001'
-			SET MESSAGE_TEXT = 'correct_answerがtotal_answerより大きい';
+	IF NEW.user_id = OLD.user_id THEN
+		IF NEW.total_answer IS NOT NULL AND NEW.correct_answer IS NOT NULL THEN
+			IF NEW.correct_answer > NEW.total_answer THEN
+				SIGNAL SQLSTATE '45001'
+				SET MESSAGE_TEXT = 'correct_answerがtotal_answerより大きい';
+			END IF;
+			SET
+				NEW.total_answer = OLD.total_answer + NEW.total_answer,
+				NEW.correct_answer = OLD.correct_answer + NEW.correct_answer,
+				NEW.rating = POW(NEW.correct_answer,2) / NEW.total_answer;
 		END IF;
-		SET
-			NEW.total_answer = OLD.total_answer + NEW.total_answer,
-			NEW.correct_answer = OLD.correct_answer + NEW.correct_answer,
-			NEW.rating = POW(NEW.correct_answer,2) / NEW.total_answer ;
 	END IF;
 END;
 //
 DELIMITER ;
 
 
-/* answerhistoryにinsertしたときに、quizをupdateするトリガー。 ログインしているユーザー用*/
+
+
+/* answerhistoryにinsertしたときに、quizをupdateするトリガー。*/
 DELIMITER //
 CREATE TRIGGER set_question_count
 BEFORE INSERT ON answerhistory
