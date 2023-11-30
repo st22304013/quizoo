@@ -32,15 +32,15 @@ header {
 
 /*上のヘッダー*/
 
-
 .bg-light {
 	background-color: #DBFAFD !important;
 }
 
 /*ヘッダー画像*/
 .header-img {
+	padding: 4px;
 	margin-top: 0.5em;
-	margin-left: 2em;
+	/*	margin-left: 2em;*/
 	width: 130px;
 }
 
@@ -448,7 +448,7 @@ a.btn-border-shadow--color2:before {
 }
 
 /*モーダル*/
-.modal-dialog  {
+.modal-dialog {
 	width: 2000px;
 	height: 500px;
 }
@@ -457,10 +457,30 @@ a.btn-border-shadow--color2:before {
 	margin-top: 30px;
 }
 
-.modal-backdrop { /* モーダルが開いているときのオーバーレイ */
-    background-color: rgba(0, 0, 0, 0.5); /* 背景の色と透明度を調整 */
+.modal-backdrop {
+	/* モーダルが開いているときのオーバーレイ */
+	background-color: rgba(0, 0, 0, 0.5);
+	/* 背景の色と透明度を調整 */
 }
 
-.modal-open { /* モーダルが開いているときのbodyのスタイル（モーダルを開いたときにスクロールを禁止する） */
-    overflow: hidden;
+.modal-open {
+	/* モーダルが開いているときのbodyのスタイル（モーダルを開いたときにスクロールを禁止する） */
+	overflow: hidden;
+}
+
+
+
+/*quiz.html*/
+.header1 {
+	position: fixed;
+}
+
+.quizlist-header {
+	background-color: silver;
+	width: 300px;
+	height: 100vh;
+}
+
+.d-flex {
+	vertical-align: text-top;
 }
