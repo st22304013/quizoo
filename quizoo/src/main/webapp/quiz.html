@@ -6,7 +6,7 @@
 	<title>quiz</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
 		integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-	<link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" href="css/quiz.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -14,22 +14,52 @@
 </head>
 
 <body>
-	<header class="header1">
-		<nav class="navbar navbar-light fixed-top">
-			<div class="header-img">
-				<img src="img/quizoo_nobackground.png" alt="quizoo">
+	<div class="container">
+		<header>
+			<nav class="navbar navbar-light fixed-top">
+				<div class="header-img">
+					<img src="img/quizoo_nobackground.png" alt="quizoo">
+				</div>
+			</nav>
+		</header>
+
+		<div class="quizlist">
+			<div class="d-flex flex-column">
+				<a>1.20歳</a>
+				<a>2.長野県</a>
+				<a>3.東中野</a>
+				
+				<div class="completion-btn mt-auto">
+					<button type="button" class="btn btn-primary btn-lg">回答完了</button>
+				</div>
 			</div>
-		</nav>
-	</header>
 
-	<header class="quizlist-header">
-		<div class="d-flex flex-column bd-highlight mb-3">
-			<div class="p-2 bd-highlight">1. こまむらえいや</div>
-			<div class="p-2 bd-highlight">2. 駒村英也</div>
+			<div class="Problem-statement">
+				<div class="text-right">
+					<a>5/5</a>
+				</div>
+				<span class="border border-dark rounded bg-white">
+					<div class="sentence">
+						こまむらえいやの誕生日は何月何日でしょう？
+					</div>
+					<div class="choices">
+						<a class="choice">1. 1月1日</a>
+						<a class="choice">2. 2月18日</a>
+						<a class="choice">3. 4月5日</a>
+						<a class="choice">4. 5月3日</a>
+					</div>
+				</span>
+
+				<div class="answer">
+					<button type="button" class="btn btn-danger">1</button>
+					<button type="button" class="btn btn-primary">2</button>
+					<button type="button" class="btn btn-warning">3</button>
+					<button type="button" class="btn btn-success">4</button>
+				</div>
+			</div>
+
 		</div>
-	</header>
-
-
+	</div>
 
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>

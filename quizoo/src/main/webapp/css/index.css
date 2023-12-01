@@ -1,5 +1,6 @@
 @charset "UTF-8";
 
+/*全画面共通body*/
 body {
 	background-color: #fffaef;
 	width: 100%;
@@ -10,16 +11,19 @@ body {
 
 }
 
+/*全画面共通a*/
 a {
 	font-size: 1.0em;
 	text-decoration: none;
 }
 
+/*全画面共通img*/
 img {
 	max-width: 100%;
 	vertical-align: bottom;
 }
 
+/*全画面共通header*/
 header {
 	background-color: #DBFAFD;
 	display: flex;
@@ -28,15 +32,7 @@ header {
 	align-items: center;
 }
 
-/*index.html*/
-
-/*上のヘッダー*/
-
-.bg-light {
-	background-color: #DBFAFD !important;
-}
-
-/*ヘッダー画像*/
+/*全画面共通ヘッダー画像*/
 .header-img {
 	padding: 4px;
 	margin-top: 0.5em;
@@ -44,7 +40,8 @@ header {
 	width: 130px;
 }
 
-/*ハンバーガーリスト*/
+/*index.html*/
+
 
 /*下のヘッダー*/
 .secondary-header {
@@ -466,21 +463,4 @@ a.btn-border-shadow--color2:before {
 .modal-open {
 	/* モーダルが開いているときのbodyのスタイル（モーダルを開いたときにスクロールを禁止する） */
 	overflow: hidden;
-}
-
-
-
-/*quiz.html*/
-.header1 {
-	position: fixed;
-}
-
-.quizlist-header {
-	background-color: silver;
-	width: 300px;
-	height: 100vh;
-}
-
-.d-flex {
-	vertical-align: text-top;
 }
