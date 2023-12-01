@@ -112,7 +112,12 @@
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
-				<div class="modal-body">
+				<div class="modal-body create-modal-body">
+					<div class="question">
+						<div class="create-question-text">
+							<textarea class=""></textarea>
+						</div>
+					</div>
 					<button type="button" class="btn btn-primary btn-circle create-btn-primary ">＋</button>
 				</div>
 			</div>
