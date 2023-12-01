@@ -117,6 +117,26 @@
 						<div class="create-question-text">
 							<textarea class=""></textarea>
 						</div>
+						<div class="create-question-choises">
+							<fieldset>
+								<div class="choise-wrap">
+									<input type="radio" id="choise1" name="choise"/>
+									<label for="choise1" ><input type="text" name="choise-text1"><label>
+								</div>
+								<div class="choise-wrap">
+									<input type="radio" id="choise2" name="choise"/>
+									<label for="choise3" ><input type="text" name="choise-text2"><label>
+								</div>
+								<div class="choise-wrap">
+									<input type="radio" id="choise3" name="choise"/>
+									<label for="choise3" ><input type="text" name="choise-text3"><label>
+								</div>
+								<div class="choise-wrap">
+									<input type="radio" id="choise4" name="choise"/>
+									<label for="choise4" ><input type="text" name="choise-text4"><label>
+								</div>
+							</fieldset>
+						<div>
 					</div>
 					<button type="button" class="btn btn-primary btn-circle create-btn-primary ">＋</button>
 				</div>

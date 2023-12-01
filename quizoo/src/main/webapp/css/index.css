@@ -519,3 +519,17 @@ button.create-btn-primary{
 	bottom: 70px;
 	right: 70px;
 }
+
+.choise-wrap{
+	border:solid #b3a830;
+	margin:10px 0;
+}
+
+.choise-wrap label{
+	margin: 0;
+	height: 100%;
+}
+
+.choise-wrap input{
+	border:none;
+}
