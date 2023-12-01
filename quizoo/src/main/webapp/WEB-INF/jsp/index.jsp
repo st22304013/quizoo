@@ -113,27 +113,35 @@
 					</button>
 				</div>
 				<div class="modal-body create-modal-body">
-					<div class="question">
-						<div class="create-question-text">
-							<textarea class=""></textarea>
+					<div id="questions-wrap" class="questions-wrap">
+						<div class="question1">
+							<div class="question-overview">
+								<h6>問題文の最初...</h6>
+							</div>
+						</div>
+					</div>
+						<button id="add-question-btn" type="button" class="add-question-btn">＋</button>
+					<div id="question" class="question-wrap">
+						<div id="create-question-text" class="create-question-text">
+							<textarea></textarea>
 						</div>
 						<div class="create-question-choises">
 							<fieldset>
 								<div class="choise-wrap">
 									<input type="radio" id="choise1" name="choise"/>
-									<label for="choise1" ><input type="text" name="choise-text1"><label>
+									<label id="choise-label1" for="choise1" ><input type="text" name="choise-text1"><label>
 								</div>
 								<div class="choise-wrap">
 									<input type="radio" id="choise2" name="choise"/>
-									<label for="choise3" ><input type="text" name="choise-text2"><label>
+									<label id="choise-label2" for="choise3" ><input type="text" name="choise-text2"><label>
 								</div>
 								<div class="choise-wrap">
 									<input type="radio" id="choise3" name="choise"/>
-									<label for="choise3" ><input type="text" name="choise-text3"><label>
+									<label id="choise-label3" for="choise3" ><input type="text" name="choise-text3"><label>
 								</div>
 								<div class="choise-wrap">
 									<input type="radio" id="choise4" name="choise"/>
-									<label for="choise4" ><input type="text" name="choise-text4"><label>
+									<label id="choise-label3" for="choise4" ><input type="text" name="choise-text4"><label>
 								</div>
 							</fieldset>
 						<div>
@@ -204,6 +212,8 @@
 		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 		crossorigin="anonymous"></script>
 	<script src="js/index.js"></script>
+	<script src="js/createQuiz.js"></script>
+
 
 
 </body>
