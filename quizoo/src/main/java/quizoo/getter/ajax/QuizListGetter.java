@@ -19,6 +19,7 @@ public class QuizListGetter extends Service {
 	static {
 		paramColMap.put("new", "create_time");
 		paramColMap.put("ganle", "genre_no");
+		paramColMap.put("popular", "total_participants");
 	}
 	@Override
 	public void execute(RequestContext req, ResponseContext res) throws IOException, ResourceException {

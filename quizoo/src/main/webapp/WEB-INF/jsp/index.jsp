@@ -77,6 +77,7 @@
 		<ul>
 			<li><a class="order_btn">new</a></li>
 			<li><a class="order_btn">genre</a></li>
+			<li><a class="order_btn">popular</a></li>
 		</ul>
 
 	</header>
