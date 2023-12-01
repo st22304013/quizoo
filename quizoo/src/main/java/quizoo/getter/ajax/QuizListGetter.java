@@ -7,6 +7,7 @@ import java.util.HashMap;
 
 import com.google.gson.Gson;
 
+import db.bean.QuizBean;
 import db.dao.QuizDao;
 import frame.Service;
 import frame.context.RequestContext;
@@ -18,28 +19,49 @@ public class QuizListGetter extends Service {
 	private static HashMap<String, String> paramColMap = new HashMap<String, String>();
 	static {
 		paramColMap.put("new", "create_time");
-		paramColMap.put("ganle", "genre_no");
+		paramColMap.put("genre", "genre_no");//order by句に入るだけ
+
 	}
 	@Override
 	public void execute(RequestContext req, ResponseContext res) throws IOException, ResourceException {
 		
+		ArrayList<QuizBean> quizList = new ArrayList<>();
+		
 		String[] order = req.getParameter("order");
 		String orderStr = "create_time";
+		
+		String[] genreNo = req.getParameter("genreNo");
+		Integer genreNoInteger = Integer.parseInt(genreNo[0]);
 		
 		if(order != null) {
 			orderStr = paramColMap.get(order[0]);			
 		}
 		
+		int genreNoInt = genreNoInteger.intValue();
 		
 		QuizDao quizDao = new QuizDao();
-		ArrayList quizList = quizDao.selectOrderedQuiz(orderStr);
 		
+		if(genreNoInteger != null && orderStr != null) {
+			
+			quizList = quizDao.selectOrderedQuiz(orderStr, genreNoInt);
+			
+		} else if(genreNoInteger == null && order != null) {
+			
+			quizList = quizDao.selectOrderedQuiz(orderStr);
+			
+		} else {
+			quizList = quizDao.searchQuiz(genreNoInt);
+		}
+		
+		
+
 		PrintWriter out = res.getWrite();
 		
 		Gson gson = new Gson();
 		String result = gson.toJson(quizList);
 		
 		out.println(result);
+
 	}
 
 }
