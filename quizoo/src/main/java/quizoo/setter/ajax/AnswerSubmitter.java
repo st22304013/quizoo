@@ -18,14 +18,14 @@ import frame.exception.ResourceException;
 public class AnswerSubmitter extends Service {
 
 	@Override
-	public void execute(RequestContext treq, ResponseContext tres) throws IOException, ResourceException, BadRequestException, NotFoundException {
+	public void execute(RequestContext req, ResponseContext res) throws IOException, ResourceException, BadRequestException, NotFoundException {
 		// TODO 自動生成されたメソッド・スタブ
         
         Gson gson = new Gson();
 
-        UserInfoBean bean = treq.getUser();
+        UserInfoBean bean = req.getUser();
         
-        AnswerhistoryWithUserinfoBean historyWithUserinfoBean = gson.fromJson(treq.getMessageBody(), AnswerhistoryWithUserinfoBean.class);
+        AnswerhistoryWithUserinfoBean historyWithUserinfoBean = gson.fromJson(req.getMessageBody(), AnswerhistoryWithUserinfoBean.class);
         
         
         AnswerHistoryDao answerhistoryDao = new AnswerHistoryDao();
@@ -38,7 +38,7 @@ public class AnswerSubmitter extends Service {
         
         
         //userinfoへのupdate
-        userinfoDao.updateScore(historyWithUserinfoBean.getTotalAnswer(), historyWithUserinfoBean.getCorrectAnswer());
+        userinfoDao.updateScore(bean.getUserNo(), historyWithUserinfoBean.getTotalAnswer(), historyWithUserinfoBean.getCorrectAnswer());
         
     }
 }
