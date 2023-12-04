@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import com.google.gson.Gson;
 
-import db.bean.AnswerhistoryBean;
+import db.bean.AnswerhistoryWithUserinfoBean;
 import db.bean.UserInfoBean;
 import db.dao.AnswerHistoryDao;
 import db.dao.UserInfoDao;
@@ -18,27 +18,27 @@ import frame.exception.ResourceException;
 public class AnswerSubmitter extends Service {
 
 	@Override
-	public void execute(RequestContext req, ResponseContext res) throws IOException, ResourceException, BadRequestException, NotFoundException {
+	public void execute(RequestContext treq, ResponseContext res) throws IOException, ResourceException, BadRequestException, NotFoundException {
 		// TODO 自動生成されたメソッド・スタブ
-         
+        
         Gson gson = new Gson();
-     
-        AnswerhistoryBean historybean = gson.fromJson(req.getMessageBody(), AnswerhistoryBean.class);
-        UserInfoBean userinfobean = gson.fromJson(req.getMessageBody(), UserInfoBean.class);
+
+        UserInfoBean bean = treq.getUser();
+        
+        AnswerhistoryWithUserinfoBean historyWithUserinfoBean = gson.fromJson(treq.getMessageBody(), AnswerhistoryWithUserinfoBean.class);
+        
         
         AnswerHistoryDao answerhistoryDao = new AnswerHistoryDao();
         UserInfoDao userinfoDao = new UserInfoDao();
-        //ここまでは多分良いが、Beanのインスタンス化がわからない
-        
         
         
         //ここからanswerhistoryへのinsertやuserInfoのupdateを考える
-        //answerhistoryへのisnert
-        answerhistoryDao.insertAnswerHistory(0, 0, historybean.getAnsweredTime(), historybean.getCorrectCount());
+        //answerhistoryへのisnert  userNoはsessionから持ってくる
+        answerhistoryDao.insertAnswerHistory(bean.getUserNo(), historyWithUserinfoBean.getQuizId(), historyWithUserinfoBean.getAnsweredTime(), historyWithUserinfoBean.getCorrectCount());
         
         
         //userinfoへのupdate
-        userinfoDao.updateScore(userinfobean.getTotalAnswer(), userinfobean.getCorrectAnswer());
+        userinfoDao.updateScore(historyWithUserinfoBean.getTotalAnswer(), historyWithUserinfoBean.getCorrectAnswer());
         
     }
 }
