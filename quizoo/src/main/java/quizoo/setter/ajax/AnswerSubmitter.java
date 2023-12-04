@@ -18,7 +18,7 @@ import frame.exception.ResourceException;
 public class AnswerSubmitter extends Service {
 
 	@Override
-	public void execute(RequestContext treq, ResponseContext res) throws IOException, ResourceException, BadRequestException, NotFoundException {
+	public void execute(RequestContext treq, ResponseContext tres) throws IOException, ResourceException, BadRequestException, NotFoundException {
 		// TODO 自動生成されたメソッド・スタブ
         
         Gson gson = new Gson();
