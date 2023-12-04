@@ -10,13 +10,13 @@ public class QuestionBean implements Serializable {
 	private String choice_2;
 	private String choice_3;
 	private String choice_4;
-	private byte[] judge;
+	private boolean[] judge;
 	
 	
 	public QuestionBean() {}
 	
 	public QuestionBean(int quiz_id,int question_id, String choice_1,String choice_2,String choice_3
-						,String choice_4,byte[] judge) {
+						,String choice_4,boolean[] judge) {
 		this.quizId=quiz_id;
 		this.questionId=question_id;
 		this.choice_1=choice_1;
@@ -82,11 +82,11 @@ public class QuestionBean implements Serializable {
 		this.choice_4 = choice_4;
 	}
 
-	public byte[] getJudge() {
+	public boolean[] getJudge() {
 		return judge;
 	}
 
-	public void setJudge(byte[] judge) {
+	public void setJudge(boolean[] judge) {
 		this.judge = judge;
 	}
 	
