@@ -130,19 +130,22 @@ public class UserInfoDao extends Dao {
 		}
 	}
 
-	public void updateScore(int answered, int correct) throws ResourceException {
+	public void updateScore(int userNo, int answered, int correct) throws ResourceException {
 		PreparedStatement st = null;
 		try {
 			connect();
-			String sql = "UPDATE userinfo SET total_answered = total_answered + ?,correct_ansewerd = correct_answered + ?";
+			String sql = "UPDATE userinfo SET total_answer = ?,correct_answer =? WHERE user_no = ?";
 			st = cn.prepareStatement(sql);
 			st.setInt(1, answered);
 			st.setInt(2, correct);
+			st.setInt(3, userNo);
 			st.executeUpdate();
 
 			cn.commit();
 		} catch (SQLException e) {
 			throw new ResourceException(e.getMessage(), e);
 		}
+		
+		close();
 	}
 }
