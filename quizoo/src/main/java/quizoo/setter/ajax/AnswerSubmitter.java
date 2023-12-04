@@ -5,7 +5,9 @@ import java.io.IOException;
 import com.google.gson.Gson;
 
 import db.bean.AnswerhistoryBean;
+import db.bean.UserInfoBean;
 import db.dao.AnswerHistoryDao;
+import db.dao.UserInfoDao;
 import frame.Service;
 import frame.context.RequestContext;
 import frame.context.ResponseContext;
@@ -21,20 +23,22 @@ public class AnswerSubmitter extends Service {
          
         Gson gson = new Gson();
      
-        AnswerhistoryBean bean = gson.fromJson(req.getMessageBody(), AnswerhistoryBean.class);
+        AnswerhistoryBean historybean = gson.fromJson(req.getMessageBody(), AnswerhistoryBean.class);
+        UserInfoBean userinfobean = gson.fromJson(req.getMessageBody(), UserInfoBean.class);
         
         AnswerHistoryDao answerhistoryDao = new AnswerHistoryDao();
-        //ここまでは多分確定
+        UserInfoDao userinfoDao = new UserInfoDao();
+        //ここまでは多分良いが、Beanのインスタンス化がわからない
         
         
         
         //ここからanswerhistoryへのinsertやuserInfoのupdateを考える
-        //isnert
+        //answerhistoryへのisnert
+        answerhistoryDao.insertAnswerHistory(0, 0, historybean.getAnsweredTime(), historybean.getCorrectCount());
         
         
+        //userinfoへのupdate
+        userinfoDao.updateScore(userinfobean.getTotalAnswer(), userinfobean.getCorrectAnswer());
         
-        
-        //update
-
     }
 }
