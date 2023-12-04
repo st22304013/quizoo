@@ -128,28 +128,33 @@
 							<div class="create-question-choises">
 								<fieldset>
 									<div class="choise-wrap">
-										<input type="radio" id="choise1" name="choise"/>
-										<label id="choise-label1" for="choise1" ><input type="text" name="choise-text1"><label>
+										<input type="radio" id="choise1" name="choise" />
+										<label id="choise-label1" for="choise1" ><input type="text" name="choise-text1" /></label>
 									</div>
 									<div class="choise-wrap">
-										<input type="radio" id="choise2" name="choise"/>
-										<label id="choise-label2" for="choise3" ><input type="text" name="choise-text2"><label>
+										<input type="radio" id="choise2" name="choise" />
+										<label id="choise-label2" for="choise3" ><input type="text" name="choise-text2" /></label>
 									</div>
 									<div class="choise-wrap">
-										<input type="radio" id="choise3" name="choise"/>
-										<label id="choise-label3" for="choise3" ><input type="text" name="choise-text3"><label>
+										<input type="radio" id="choise3" name="choise" />
+										<label id="choise-label3" for="choise3" ><input type="text" name="choise-text3" /></label>
 									</div>
 									<div class="choise-wrap">
-										<input type="radio" id="choise4" name="choise"/>
-										<label id="choise-label3" for="choise4" ><input type="text" name="choise-text4"><label>
+										<input type="radio" id="choise4" name="choise" />
+										<label id="choise-label3" for="choise4" ><input type="text" name="choise-text4" /></label>
 									</div>
 								</fieldset>
-							<div>
+							</div>
 						</div>
-						<button type="button" class="btn btn-primary btn-circle create-btn-primary ">＋</button>
+						<button type="button" id="create-btn-primary" class="btn btn-primary btn-circle create-btn-primary ">＋</button>
 					</div>
 				</div>
 			</div>
+		</div>
+
+		<div id="post-roading" class="post-roading-back">
+			<h1 class="post-roading-msg">問題を投稿しています</h1>
+			<div class="post-roading-anime"></div>
 		</div>
 
 
