@@ -32,7 +32,14 @@ function addQuestionList() {
         "choise2":questionNode.querySelector('input[name="choise-text2"]').value,
         "choise3":questionNode.querySelector('input[name="choise-text3"]').value,
         "choise4":questionNode.querySelector('input[name="choise-text4"]').value,
+        "judge":[
+            questionNode.querySelector('#choise1').checked,
+            questionNode.querySelector('#choise2').checked,
+            questionNode.querySelector('#choise3').checked,
+            questionNode.querySelector('#choise4').checked
+        ]
     }
+
     questions.push(quiz);
 }
 

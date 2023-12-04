@@ -543,3 +543,14 @@ button.create-btn-primary{
 .question-overview{
 	height:30px;
 }
+
+.add-question-btn{
+    position: absolute;
+    background-color: #9E9E9E;
+    border-radius: 50%;
+    border: none;
+    height: 50px;
+    width: 50px;
+    padding: 0;
+    bottom: 30px;
+}
