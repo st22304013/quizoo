@@ -82,6 +82,8 @@ public class AnswerHistoryDao extends Dao {
 			
 			st.executeUpdate();
 			
+			cn.commit();
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 			throw new ResourceException(e.getMessage(), e);
