@@ -40,11 +40,11 @@ function showAllQuestions(){
 }
 
 
-function createNewCuestion() {
+async function createNewCuestion() {
     addQuestionList();
     resetQuestion();
     updateQuestions();
-    showAllQuestions();
+    // showAllQuestions();
 }
 
 
