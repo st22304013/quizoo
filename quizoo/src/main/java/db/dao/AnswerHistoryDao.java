@@ -70,7 +70,7 @@ public class AnswerHistoryDao extends Dao {
 		
 		connect();
 		
-		String sql = "INSERT INTO answeredhistory (user_no, quiz_id, answered_time, correct_count)"
+		String sql = "INSERT INTO answerhistory (user_no, quiz_id, answered_time, correct_count)"
 				+ "VALUES(?, ?, now(0), ?)";
 		
 		try {
@@ -78,8 +78,7 @@ public class AnswerHistoryDao extends Dao {
 			
 			st.setInt(1, userNo);
 			st.setInt(2, quizId);
-			st.setString(3, answeredTime);
-			st.setInt(4,correctCount);
+			st.setInt(3,correctCount);
 			
 			st.executeUpdate();
 			
