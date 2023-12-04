@@ -26,13 +26,13 @@ public class TestRequestContext implements RequestContext{
 	}
 
 	public String getMessageBody() throws ResourceException {
-		json = "{\n"
-				+ "	\"userNo\":1,\n"
-				+ "	\"quizId\":1,\n"
-				+ "	\"answeredTime\":\"now()\",\n"
-				+ "	\"correctCount\":\"1\",\n"
-				+ "	\"totalAnswer\":\"1\"\n"
-				+ "}";
+//		json = "{\n"
+//				+ "	\"userNo\":1,\n"
+//				+ "	\"quizId\":1,\n"
+//				+ "	\"answeredTime\":\"now()\",\n"
+//				+ "	\"correctCount\":\"1\",\n"
+//				+ "	\"totalAnswer\":\"1\"\n"
+//				+ "}";
 		return json;
 	}
 	
