@@ -94,8 +94,7 @@
 		</div>
 
 		<div class="fixed-bottom text-right">
-			<a href="#" class="js-open-modal btn btn-border-shadow btn-border-shadow--color2" data-toggle="modal"
-				data-target="#myModal1" data-slide-index="1">
+			<a href="#" id="myModal1-open" class="btn btn-border-shadow btn-border-shadow--color2" data-slide-index="1">
 				<i class="fa-solid fa-pen"></i>
 			</a>
 		</div>
