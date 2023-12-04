@@ -15,10 +15,11 @@ public class QuestionBean implements Serializable {
 	
 	public QuestionBean() {}
 	
-	public QuestionBean(int quiz_id,int question_id, String choice_1,String choice_2,String choice_3
+	public QuestionBean(int quiz_id,int question_id, String question, String choice_1,String choice_2,String choice_3
 						,String choice_4,boolean[] judge) {
 		this.quizId=quiz_id;
 		this.questionId=question_id;
+		this.question = question;
 		this.choice_1=choice_1;
 		this.choice_2=choice_2;
 		this.choice_3=choice_3;
