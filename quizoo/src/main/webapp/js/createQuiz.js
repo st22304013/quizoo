@@ -5,6 +5,12 @@
 let emptyQuestion;
 let emptyModal;
 let questions = [];
+let quizData = {   
+    "title":null,
+    "genreNo":0,
+    "explanation":null,
+    "questions":questions
+}
 var modalElement;
 var myModal;
 var confirmModalElement;
@@ -53,6 +59,7 @@ window.addEventListener("load",function () {
     });
 
     this.document.querySelector("#confirm-btn-primary").addEventListener("click",function(){
+        setMetadata();
         sendQuiz();
         confirmModal.hide();
     });
@@ -83,10 +90,10 @@ function addQuestionList() {
         "choise3":questionNode.querySelector('input[name="choise-text3"]').value,
         "choise4":questionNode.querySelector('input[name="choise-text4"]').value,
         "judge":[
-            questionNode.querySelector('#choise1').checked,
-            questionNode.querySelector('#choise2').checked,
-            questionNode.querySelector('#choise3').checked,
-            questionNode.querySelector('#choise4').checked
+            questionNode.querySelector('#choise1').cloneNode(true).checked,
+            questionNode.querySelector('#choise2').cloneNode(true).checked,
+            questionNode.querySelector('#choise3').cloneNode(true).checked,
+            questionNode.querySelector('#choise4').cloneNode(true).checked
         ]
     }
 
@@ -128,7 +135,7 @@ async function sendQuiz(){
         const response = await fetch(url,{
             method:"POST",
             credentials:"include",
-            body:JSON.stringify(questions)
+            body:JSON.stringify(quizData)
         });
         if(await response.ok){
             console.log("問題の投稿が成功しました");
@@ -158,4 +165,14 @@ function confirmSubmit(){
     myModal.hide();
     confirmModal.show();
     return false;
+}
+
+
+function setMetadata(){
+    title = document.querySelector("#quiz-metadata");
+    quizData['title'] = title.querySelector("[name = 'title']").value;
+
+    quizData['genreNo'] = title.querySelector("[name = genre]").value;
+
+    console.log(quizData);
 }
