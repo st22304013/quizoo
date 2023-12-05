@@ -2,6 +2,8 @@ package db.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.naming.Context;
@@ -14,6 +16,8 @@ import frame.exception.ResourceException;
 
 public abstract class Dao {
 	protected Connection cn;
+	protected PreparedStatement st = null;
+	protected ResultSet rs = null;
 
 	protected void connect() throws ResourceException {
 		

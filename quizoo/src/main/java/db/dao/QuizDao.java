@@ -1,7 +1,5 @@
 package db.dao;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -11,8 +9,7 @@ import frame.exception.ResourceException;
 public class QuizDao extends Dao{
 	
 	public ArrayList<QuizBean> selectOrderedQuiz(String columnName)throws ResourceException{
-		PreparedStatement st = null;
-		ResultSet rs = null;
+
 		ArrayList<QuizBean> quizlist = new ArrayList<>();
 		
 		try {
@@ -68,8 +65,6 @@ public class QuizDao extends Dao{
 	
 	public QuizBean selectQuiz(int quizId) throws ResourceException {
 		
-		PreparedStatement st = null;
-		ResultSet rs = null;
 		QuizBean quizbean = new QuizBean();
 		
 		try {
@@ -90,7 +85,7 @@ public class QuizDao extends Dao{
 				quizbean.setExplanation(rs.getString("explanation"));
 				quizbean.setCreateTime(rs.getString("create_time"));
 				quizbean.setCorrectRate(rs.getFloat("correct_rate"));
-				quizbean.setTotalParticipants(rs.getInt("total_participants"));		
+				quizbean.setTotalParticipants(rs.getInt("total_participants"));	
 			
 			}
 		} catch(SQLException e) {
@@ -117,8 +112,7 @@ public class QuizDao extends Dao{
 	}
 	
 	public ArrayList<QuizBean> selectOrderedQuiz(String columnName, int genreNo)throws ResourceException{
-		PreparedStatement st = null;
-		ResultSet rs = null;
+		
 		ArrayList<QuizBean> quizlist = new ArrayList<>();
 		
 		try {
@@ -172,8 +166,6 @@ public class QuizDao extends Dao{
 	
 	public ArrayList<QuizBean> searchQuiz(int genreNo) throws ResourceException {
 		
-		PreparedStatement st = null;
-		ResultSet rs = null;
 		QuizBean quizbean = new QuizBean();
 		ArrayList<QuizBean> quizList = new ArrayList<>();
 		
@@ -224,7 +216,6 @@ public class QuizDao extends Dao{
 	}
 	
 	public void insertQuiz(QuizBean quiz) throws ResourceException {
-		PreparedStatement st = null;
 		
 		try {
 			connect();
@@ -259,7 +250,6 @@ public class QuizDao extends Dao{
 	}
 	
 	public void deleteQuiz(int quizId) throws ResourceException {
-		PreparedStatement st = null;
 		
 		try {
 			connect();
@@ -285,7 +275,6 @@ public class QuizDao extends Dao{
 	}
 	
 	public void updateTitle(int quizId, String title) throws ResourceException {
-		PreparedStatement st = null;
 		
 		try {
 			connect();
@@ -312,7 +301,6 @@ public class QuizDao extends Dao{
 	}
 	
 	public void updateGenre(int quizId, int genreNo) throws ResourceException{
-		PreparedStatement st = null;
 		
 		try {
 			connect();
@@ -338,7 +326,6 @@ public class QuizDao extends Dao{
 	}
 	
 	public void updateExplanation(int quizId, String explanation) throws ResourceException {
-		PreparedStatement st = null;
 		
 		try {
 			connect();
@@ -363,7 +350,4 @@ public class QuizDao extends Dao{
         }
 		
 	}
-	
-
-
 }
