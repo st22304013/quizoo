@@ -9,6 +9,7 @@ public class QuestionBeanForJSON {
     private boolean[] judge;
 
 	private int quizId;
+	private int questionId;
 
     // コンストラクタ、ゲッター、セッターなどを追加する
 
@@ -68,6 +69,14 @@ public class QuestionBeanForJSON {
 
 	public void setQuizId(int quizId) {
 		this.quizId = quizId;
+	}
+
+	public int getQuestionId() {
+		return questionId;
+	}
+
+	public void setQuestionId(int questionId) {
+		this.questionId = questionId;
 	}
 
 }

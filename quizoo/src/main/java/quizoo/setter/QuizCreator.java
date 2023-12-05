@@ -3,10 +3,9 @@ package quizoo.setter;
 import java.io.IOException;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonObject;
 
-import db.bean.QuestionBean;
-import db.bean.QuizBean;
+import db.bean.QuestionBeanForJSON;
+import db.bean.QuizBeanForJSON;
 import db.dao.QuizDao;
 import db.dao.QuizQuestionDao;
 import frame.Service;
@@ -18,34 +17,64 @@ import frame.exception.ResourceException;
 
 public class QuizCreator extends Service {
 
-	@Override
-	public void execute(RequestContext req, ResponseContext res)
-			throws IOException, ResourceException, BadRequestException, NotFoundException {
+    @Override
+    public void execute(RequestContext req, ResponseContext res)
+            throws IOException, ResourceException, BadRequestException, NotFoundException {
         
-        Gson gson = new Gson();
+    	// JSONからQuizBeanForJSONに変換
+	    String jsonString = "{   \n"
+	            + "    \"quizId\": 11,\n"
+	            + "    \"authorNo\": 123,\n"
+	            + "    \"title\": \"Sample Quiz\",\n"
+	            + "    \"questionCount\": 5,\n"
+	            + "    \"genreNo\":1,\n"
+	            + "    \"explanation\": \"Sample Explanation\",\n"
+	            + "    \"createTime\": \"2023-12-04\",\n"
+	            + "    \"correctRate\": 0.0,\n"
+	            + "    \"totalParticipants\": 0,\n"
+	            + "    \"questions\":[\n"
+	            + "        {\n"
+	            + "            \"quizId\": 10,\n"
+	            + "            \"question\": \"問題文１\",\n"
+	            + "            \"choice1\": \"回答１\",\n"
+	            + "            \"choice2\": \"正解\",\n"
+	            + "            \"choice3\": \"回答２\",\n"
+	            + "            \"choice4\": \"回答３\",\n"
+	            + "            \"judge\": [false, true, false, false]\n"
+	            + "        },\n"
+	            + "        {\n"
+	            + "            \"quizId\": 10,\n"
+	            + "            \"question\": \"問題文２\",\n"
+	            + "            \"choice1\": \"回答１\",\n"
+	            + "            \"choice2\": \"正解２\",\n"
+	            + "            \"choice3\": \"回答２\",\n"
+	            + "            \"choice4\": \"回答３\",\n"
+	            + "            \"judge\": [true, false, false, false]\n"
+	            + "        }\n"
+	            + "    ]\n"
+	            + "}";; // 与えられたJSONデータを文字列として設定する
+    	
+    	Gson gson = new Gson();
+    	QuizBeanForJSON quizBean = gson.fromJson(jsonString, QuizBeanForJSON.class);
+    	// 変換されたオブジェクトをコンソールに出力
+    	System.out.println("QuizBeanForJSON: " + quizBean);
+    	
+//        Gson gson = new Gson();
+//        String requestBody = req.getMessageBody();
+//        
+//        // JSONからQuizBeanForJSONに変換
+//        QuizBeanForJSON quizBean = gson.fromJson(requestBody, QuizBeanForJSON.class);
         
-        
-        JsonObject jsonObject = gson.fromJson(req.getMessageBody(), JsonObject.class);
+    	// QuizBeanForJSONをQuizDaoに挿入
+    	QuizDao quizDao = new QuizDao();
+    	quizDao.insertQuiz(quizBean);
 
-        JsonObject quizJson = jsonObject.getAsJsonObject("quiz");
-        QuizBean quizBean = gson.fromJson(quizJson, QuizBean.class);
-
-        JsonObject questionJson = jsonObject.getAsJsonObject("question");
-        QuestionBean questionBean = gson.fromJson(questionJson, QuestionBean.class);
-
-        // JSONからQuizBeanに変換
-        quizBean = gson.fromJson(req.getMessageBody(), QuizBean.class);
-        // JSONからQuestionBeanに変換
-        questionBean = gson.fromJson(req.getMessageBody(), QuestionBean.class);
-        
-        
-        QuizDao quizDao = new QuizDao();
-        QuizQuestionDao quizQuestionDao = new QuizQuestionDao();
-        
-
-        quizDao.insertQuiz(quizBean);
-        quizQuestionDao.insertQuestion(questionBean);
-        
+    	// クイズの質問をQuizQuestionDaoに挿入
+    	if (quizBean.getQuestions() != null) {
+    	    QuizQuestionDao quizQuestionDao = new QuizQuestionDao();
+    	    for (QuestionBeanForJSON question : quizBean.getQuestions()) {
+    	        quizQuestionDao.insertQuestion(question);
+    	    }
+    	}
     }
-
 }
