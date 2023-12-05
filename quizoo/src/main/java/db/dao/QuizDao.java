@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import db.bean.QuizBean;
+import db.bean.QuizBeanForJSON;
 import frame.exception.ResourceException;
 
 public class QuizDao extends Dao{
@@ -115,7 +116,6 @@ public class QuizDao extends Dao{
 		}
 		return quizbean;
 	}
-	
 	public ArrayList<QuizBean> selectOrderedQuiz(String columnName, int genreNo)throws ResourceException{
 		PreparedStatement st = null;
 		ResultSet rs = null;
@@ -245,6 +245,8 @@ public class QuizDao extends Dao{
 			st.executeUpdate();
 			
 			cn.commit();
+            System.out.println("quizの挿入完了");
+			
 	
 		} catch(SQLException e) {
             try{
@@ -363,7 +365,4 @@ public class QuizDao extends Dao{
         }
 		
 	}
-	
-
-
 }
