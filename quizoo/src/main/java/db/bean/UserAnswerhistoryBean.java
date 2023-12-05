@@ -2,7 +2,7 @@ package db.bean;
 
 import java.io.Serializable;
 
-public class AnswerhistoryWithUserinfoBean implements Serializable{
+public class UserAnswerhistoryBean implements Serializable{
 	private int quizId;
 	private String answeredTime;
 	private int questionCount;
