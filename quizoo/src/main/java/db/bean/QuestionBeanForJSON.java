@@ -2,11 +2,13 @@ package db.bean;
 
 public class QuestionBeanForJSON {
     private String question;
-    private String choise1;
-    private String choise2;
-    private String choise3;
-    private String choise4;
+    private String choice1;
+    private String choice2;
+    private String choice3;
+    private String choice4;
     private boolean[] judge;
+
+	private int quizId;
 
     // コンストラクタ、ゲッター、セッターなどを追加する
 
@@ -19,41 +21,37 @@ public class QuestionBeanForJSON {
         this.question = question;
     }
 
-    // 回答1
-    public String getChoise1() {
-        return choise1;
-    }
+    public String getChoice1() {
+		return choice1;
+	}
 
-    public void setChoise1(String choise1) {
-        this.choise1 = choise1;
-    }
+	public void setChoice1(String choice1) {
+		this.choice1 = choice1;
+	}
 
-    // 正解
-    public String getChoise2() {
-        return choise2;
-    }
+	public String getChoice2() {
+		return choice2;
+	}
 
-    public void setChoise2(String choise2) {
-        this.choise2 = choise2;
-    }
+	public void setChoice2(String choice2) {
+		this.choice2 = choice2;
+	}
 
-    // 回答2
-    public String getChoise3() {
-        return choise3;
-    }
+	public String getChoice3() {
+		return choice3;
+	}
 
-    public void setChoise3(String choise3) {
-        this.choise3 = choise3;
-    }
+	public void setChoice3(String choice3) {
+		this.choice3 = choice3;
+	}
 
-    // 回答3
-    public String getChoise4() {
-        return choise4;
-    }
+	public String getChoice4() {
+		return choice4;
+	}
 
-    public void setChoise4(String choise4) {
-        this.choise4 = choise4;
-    }
+	public void setChoice4(String choice4) {
+		this.choice4 = choice4;
+	}
 
     // 正解の判定
     public boolean[] getJudge() {
@@ -63,4 +61,13 @@ public class QuestionBeanForJSON {
     public void setJudge(boolean[] judge) {
         this.judge = judge;
     }
+
+	public int getQuizId() {
+		return quizId;
+	}
+
+	public void setQuizId(int quizId) {
+		this.quizId = quizId;
+	}
+
 }
