@@ -42,7 +42,7 @@ window.addEventListener("load",function () {
     document.querySelector("#create-btn-primary").addEventListener("click",async function () {
         document.querySelector("#post-roading").style.display = "block";
         await addQuestionList();
-        await sendQuiz();
+        confirmSubmit();
         console.log("create-btn clicked");
         document.querySelector("#post-roading").style.display = "none";
         modalElement.replaceWith(emptyModal.cloneNode(true));
@@ -52,6 +52,10 @@ window.addEventListener("load",function () {
         myModal.show();
     });
 
+    this.document.querySelector("#confirm-btn-primary").addEventListener("click",function(){
+        sendQuiz();
+        confirmModal.hide();
+    });
     setGenre();
 });
 
@@ -119,23 +123,21 @@ function updateQuestions(){
 }
 
 async function sendQuiz(){
-    if(confirmSubmit()){
-        try{
-            var url = location.protocol +"//" +location.host + "/quizoo/submitquiz"
-            const response = await fetch(url,{
-                method:"POST",
-                credentials:"include",
-                body:JSON.stringify(questions)
-            });
-            if(await response.ok){
-                console.log("問題の投稿が成功しました");
-            }else{
-                console.log(await response.status);
-            }
-    
-        }catch(error){
-            console.error("fetch中にエラー発生",error);
+    try{
+        var url = location.protocol +"//" +location.host + "/quizoo/submitquiz"
+        const response = await fetch(url,{
+            method:"POST",
+            credentials:"include",
+            body:JSON.stringify(questions)
+        });
+        if(await response.ok){
+            console.log("問題の投稿が成功しました");
+        }else{
+            console.log(await response.status);
         }
+
+    }catch(error){
+        console.error("fetch中にエラー発生",error);
     }
     myModal.hide();
 }
@@ -153,6 +155,7 @@ function setGenre(){
 }
 
 function confirmSubmit(){
+    myModal.hide();
     confirmModal.show();
     return false;
 }
