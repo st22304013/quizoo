@@ -174,5 +174,6 @@ function setMetadata(){
 
     quizData['genreNo'] = title.querySelector("[name = genre]").value;
 
+    quizData['explanation'] = title.querySelector("[name='explanation']").value;
     console.log(quizData);
 }

@@ -173,6 +173,9 @@
 						</div>
 						<select name="genre">
 						</select>
+						<div id="explanation">
+							<input type="text" name="explanation"/>
+						</div>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-secondary" data-dismiss="modal">修正する</button>
