@@ -21,7 +21,7 @@ public class QuizQuestionDao extends Dao{
 		
 		try {
 			connect();
-			
+			//quiz表とgenre表をgenre_noで内部結合しデータを取得
 			String quiz_sql = "SELECT * FROM quiz INNER JOIN genre USING(genre_no) WHERE quiz_id = ?";
 			
 			st = cn.prepareStatement(quiz_sql);
@@ -30,6 +30,7 @@ public class QuizQuestionDao extends Dao{
 			
 			QuizBean  quizBean = new QuizBean();
 			
+			//QuizBeanにデータセット
 			quizBean.setQuizId(rs.getInt("quiz_id"));
 			quizBean.setAuthorNo(rs.getInt("author_no"));
 			quizBean.setTitle(rs.getString("title"));
@@ -43,6 +44,7 @@ public class QuizQuestionDao extends Dao{
 			
 			quizQuestionBean.setQuiz(quizBean);
 			
+			//question表からデータを取得
 			String question_sql = "SELECT * FROM question WHERE quiz_id = ?";
 			
 			st = cn.prepareStatement(question_sql);
@@ -51,9 +53,10 @@ public class QuizQuestionDao extends Dao{
 			
 			while(rs.next()) {
 				QuestionBean questionBean = new QuestionBean();
-				
-				questionBean.setQuiz_id(rs.getInt("quiz_id"));
-				questionBean.setQuestion_id(rs.getInt("question_id"));
+
+				//QuestionBeanにデータセット
+				questionBean.setQuizId(rs.getInt("quiz_id"));
+				questionBean.setQuestionId(rs.getInt("question_id"));
 				questionBean.setQuestion(rs.getString("question"));
 				questionBean.setChoice_1(rs.getString("choice_1"));
 				questionBean.setChoice_1(rs.getString("choice_2"));
