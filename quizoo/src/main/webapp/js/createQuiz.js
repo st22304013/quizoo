@@ -124,7 +124,7 @@ function updateQuestions(){
 
 async function sendQuiz(){
     try{
-        var url = location.protocol +"//" +location.host + "/quizoo/submitquiz"
+        var url = "/quizoo/submitquiz"
         const response = await fetch(url,{
             method:"POST",
             credentials:"include",
