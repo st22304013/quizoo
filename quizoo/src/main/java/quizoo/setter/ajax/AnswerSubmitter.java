@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import com.google.gson.Gson;
 
-import db.bean.AnswerhistoryWithUserinfoBean;
+import db.bean.UserAnswerhistoryBean;
 import db.bean.UserInfoBean;
 import db.dao.AnswerHistoryDao;
 import db.dao.UserInfoDao;
@@ -25,7 +25,7 @@ public class AnswerSubmitter extends Service {
 
         UserInfoBean bean = req.getUser();
         
-        AnswerhistoryWithUserinfoBean historyWithUserinfoBean = gson.fromJson(req.getMessageBody(), AnswerhistoryWithUserinfoBean.class);
+        UserAnswerhistoryBean historyWithUserinfoBean = gson.fromJson(req.getMessageBody(), UserAnswerhistoryBean.class);
         
         
         AnswerHistoryDao answerhistoryDao = new AnswerHistoryDao();
