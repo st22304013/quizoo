@@ -161,24 +161,25 @@
 
 		<!-- Modal -->
 		<div class="modal fade confirm-modal" id="comfirm-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-body">
-					<h5>以下の内容で投稿します</h5>
-				</div>
-				<div id="quiz-metadata" >
-					<div id="quiz-title">
-						<input type="text" name="title" />
+			<div class="modal-dialog confirm-modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-body">
+						<h5>以下の内容で投稿します</h5>
 					</div>
-					<select name="genre">
-					</select>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">修正する</button>
-					<button type="button" class="btn btn-primary">作問に戻る</button>
+					<div id="quiz-metadata" >
+						<div id="quiz-title">
+							<h6>タイトルを入力</h6>
+							<input type="text" name="title" />
+						</div>
+						<select name="genre">
+						</select>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">修正する</button>
+						<button type="button" class="btn btn-primary">投稿する</button>
+					</div>
 				</div>
 			</div>
-		</div>
 		</div>
 
 

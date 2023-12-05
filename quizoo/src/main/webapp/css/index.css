@@ -591,8 +591,12 @@ button.create-btn-primary{
 	top:25%;	
 }
 
-.confirm-modal{
+.confirm-modal-dialog{
 	z-index: 1070;
+	width: 60vw;
+	max-width: 60vw;
+	height: 70vh;
+	max-height: 70vh;
 }
 
 @keyframes spiner{
