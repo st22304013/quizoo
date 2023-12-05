@@ -6,7 +6,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import db.bean.QuestionBean;
-import db.bean.QuestionBeanForJSON;
 import db.bean.QuizBean;
 import db.bean.QuizQuestionBean;
 import frame.exception.ResourceException;
@@ -53,15 +52,22 @@ public class QuizQuestionDao extends Dao{
 			
 			while(rs.next()) {
 				QuestionBean questionBean = new QuestionBean();
+<<<<<<< Updated upstream
 
 				//QuestionBeanにデータセット
+=======
+				
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 				questionBean.setQuizId(rs.getInt("quiz_id"));
 				questionBean.setQuestionId(rs.getInt("question_id"));
 				questionBean.setQuestion(rs.getString("question"));
-				questionBean.setChoice_1(rs.getString("choice_1"));
-				questionBean.setChoice_1(rs.getString("choice_2"));
-				questionBean.setChoice_1(rs.getString("choice_3"));
-				questionBean.setChoice_1(rs.getString("choice_4"));
+				questionBean.setChoice1(rs.getString("choice_1"));
+				questionBean.setChoice2(rs.getString("choice_2"));
+				questionBean.setChoice3(rs.getString("choice_3"));
+				questionBean.setChoice4(rs.getString("choice_4"));
 				byte judgeByte = rs.getByte("judge");
 	            // ビット列をboolean[]に変換するメソッドを呼び出してセット
 	            boolean[] judgeArray = byteToBooleanArray(judgeByte);
@@ -99,7 +105,7 @@ public class QuizQuestionDao extends Dao{
 		return quizQuestionBean;
 	}
 	
-	public void insertQuestion(QuestionBeanForJSON question) throws ResourceException {
+	public void insertQuestion(QuestionBean question) throws ResourceException {
 	    PreparedStatement st = null;
 
 	    try {
