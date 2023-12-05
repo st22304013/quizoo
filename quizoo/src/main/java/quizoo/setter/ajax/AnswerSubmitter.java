@@ -25,7 +25,7 @@ public class AnswerSubmitter extends Service {
 
         UserInfoBean bean = req.getUser();
         
-        UserAnswerhistoryBean historyWithUserinfoBean = gson.fromJson(req.getMessageBody(), UserAnswerhistoryBean.class);
+        UserAnswerhistoryBean userhistoryBean = gson.fromJson(req.getMessageBody(), UserAnswerhistoryBean.class);
         
         
         AnswerHistoryDao answerhistoryDao = new AnswerHistoryDao();
@@ -34,11 +34,11 @@ public class AnswerSubmitter extends Service {
         
         //ここからanswerhistoryへのinsertやuserInfoのupdateを考える
         //answerhistoryへのisnert  userNoはsessionから持ってくる
-        answerhistoryDao.insertAnswerHistory(bean.getUserNo(), historyWithUserinfoBean.getQuizId(), historyWithUserinfoBean.getAnsweredTime(), historyWithUserinfoBean.getCorrectCount());
+        answerhistoryDao.insertAnswerHistory(bean.getUserNo(), userhistoryBean.getQuizId(), userhistoryBean.getAnsweredTime(), userhistoryBean.getCorrectCount());
         
         
         //userinfoへのupdate
-        userinfoDao.updateScore(bean.getUserNo(), historyWithUserinfoBean.getTotalAnswer(), historyWithUserinfoBean.getCorrectAnswer());
+        userinfoDao.updateScore(bean.getUserNo(), userhistoryBean.getTotalAnswer(), userhistoryBean.getCorrectAnswer());
         
     }
 }
