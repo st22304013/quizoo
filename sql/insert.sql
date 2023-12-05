@@ -17,7 +17,7 @@ INSERT INTO nickname (user_no, nickname) VALUES
 
 
 /* genre テーブルへのデータ挿入 */
-INSERT INTO genre (genre_no, genre_title) VALUES
+INSERT INTO  genre(genre_no, genre_title) VALUES
 (1, 'スポーツ'),
 (2, '音楽'),
 (3, '映画'),
@@ -29,7 +29,16 @@ INSERT INTO genre (genre_no, genre_title) VALUES
 (9, '生き物'),
 (10, '歴史'),
 (11, '数学'),
-(12, '漫画');
+(12, '漫画'),
+(13, '生活'),
+(14, '地理'),
+(15, 'お酒'),
+(16, '美術'),
+(17, 'ことば'),
+(18, '文化'),
+(19, '料理'),
+(20, 'アニメ');
+
 
 
 /* quiz テーブルへのデータ挿入 */
