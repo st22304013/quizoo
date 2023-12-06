@@ -59,6 +59,7 @@ public class QuizDao extends Dao{
 		return quizlist;
 		
 	}	
+	
 	public ArrayList<QuizBean> selectQuiz() throws ResourceException {
 		return selectOrderedQuiz("create_time");
 	}
