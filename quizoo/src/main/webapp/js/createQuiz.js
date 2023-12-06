@@ -5,11 +5,13 @@
 let emptyQuestion;
 let emptyModal;
 let questions = [];
-let quizData = {   
-    "title":null,
-    "genreNo":0,
-    "explanation":null,
-    "questions":questions
+let quizData = {
+    "quiz":{
+        "title":null,
+        "genreNo":0,
+        "explanation":null,
+    },
+    "question":questions
 }
 var modalElement;
 var myModal;
@@ -84,7 +86,7 @@ async function createNewCuestion() {
 function addQuestionList() {
     let questionNode = document.querySelector("#question");
     let quiz = {
-        "quiz":questionNode.querySelector("#create-question-text textarea").value,
+        "question":questionNode.querySelector("#create-question-text textarea").value,
         "choise1":questionNode.querySelector('input[name="choise-text1"]').value,
         "choise2":questionNode.querySelector('input[name="choise-text2"]').value,
         "choise3":questionNode.querySelector('input[name="choise-text3"]').value,
@@ -170,10 +172,10 @@ function confirmSubmit(){
 
 function setMetadata(){
     title = document.querySelector("#quiz-metadata");
-    quizData['title'] = title.querySelector("[name = 'title']").value;
+    quizData['quiz']['title'] = title.querySelector("[name = 'title']").value;
 
-    quizData['genreNo'] = title.querySelector("[name = genre]").value;
+    quizData['quiz']['genreNo'] = title.querySelector("[name = genre]").value;
 
-    quizData['explanation'] = title.querySelector("[name='explanation']").value;
+    quizData['quiz']['explanation'] = title.querySelector("[name='explanation']").value;
     console.log(quizData);
 }
