@@ -52,15 +52,9 @@ public class QuizQuestionDao extends Dao{
 			
 			while(rs.next()) {
 				QuestionBean questionBean = new QuestionBean();
-<<<<<<< Updated upstream
 
 				//QuestionBeanにデータセット
-=======
-				
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+
 				questionBean.setQuizId(rs.getInt("quiz_id"));
 				questionBean.setQuestionId(rs.getInt("question_id"));
 				questionBean.setQuestion(rs.getString("question"));
