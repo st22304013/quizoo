@@ -50,7 +50,7 @@ public class QuizListGetter extends Service {
 			
 			quizList = quizDao.selectOrderedQuiz(orderStr, (int)genreNoInteger);
 			
-		} else if(genreNo == null && order != null) {
+		} else if(genreNoInteger == null && order != null) {
 			
 			quizList = quizDao.selectOrderedQuiz(orderStr);
 			
