@@ -19,8 +19,8 @@ public class QuizListGetter extends Service {
 	private static HashMap<String, String> paramColMap = new HashMap<String, String>();
 	static {
 		paramColMap.put("new", "create_time");
-		paramColMap.put("genre", "genre_no");//order by句に入るだけ
-
+		paramColMap.put("ganle", "genre_no");
+		paramColMap.put("popular", "total_participants");
 	}
 	@Override
 	public void execute(RequestContext req, ResponseContext res) throws IOException, ResourceException {

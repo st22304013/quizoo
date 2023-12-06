@@ -168,9 +168,7 @@ public class QuizDao extends Dao{
 		return quizlist;
 		
 	}
-	
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
+
 	public ArrayList<QuizBean> searchQuiz(int genreNo) throws ResourceException {
 		
 		PreparedStatement st = null;
@@ -224,10 +222,6 @@ public class QuizDao extends Dao{
 		return quizList;
 	}
 	
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 	public void insertQuiz(QuizBean quiz) throws ResourceException {
 		PreparedStatement st = null;
 		
@@ -250,7 +244,7 @@ public class QuizDao extends Dao{
 			st.executeUpdate();
 			
 			cn.commit();
-            System.out.println("quizの挿入完了");
+            System.out.println("quizのcommit完了");
 			
 	
 		} catch(SQLException e) {
