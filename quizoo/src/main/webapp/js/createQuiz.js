@@ -98,7 +98,6 @@ function addQuestionList() {
             questionNode.querySelector('#choise4').cloneNode(true).checked
         ]
     }
-
     questions.push(quiz);
 }
 
@@ -115,7 +114,7 @@ function updateQuestions(){
     for(let i=0 ; i<  questions.length ; i++){
         question = questions[i];
         quiz = document.createElement('h6');
-        quiz.innerText = question["quiz"];
+        quiz.innerText = questions[i]["question"];
         over = document.createElement('div');
         over.setAttribute('class','question-overview');
         questionI = document.createElement('div');
