@@ -6,7 +6,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import db.bean.QuizBean;
-import db.bean.QuizBeanForJSON;
 import frame.exception.ResourceException;
 
 public class QuizDao extends Dao{
@@ -170,6 +169,8 @@ public class QuizDao extends Dao{
 		
 	}
 	
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
 	public ArrayList<QuizBean> searchQuiz(int genreNo) throws ResourceException {
 		
 		PreparedStatement st = null;
@@ -223,6 +224,10 @@ public class QuizDao extends Dao{
 		return quizList;
 	}
 	
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 	public void insertQuiz(QuizBean quiz) throws ResourceException {
 		PreparedStatement st = null;
 		
