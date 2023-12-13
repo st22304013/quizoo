@@ -49,7 +49,7 @@ INSERT INTO quiz (author_no, title, question_count, genre_no, explanation, creat
 
 
 /* question テーブルへのデータ挿入 */
-INSERT INTO question (quiz_id, question_id, question, choise_1, choise_2, choise_3, choise_4, judge) VALUES
+INSERT INTO question (quiz_id, question_id, question, choice_1, choice_2, choice_3, choice_4, judge) VALUES
 (1, 1, '亘の好きな食べ物は？', 'ラーメン', '寿司', 'カツオ', 'プリン', b'1100'),
 (1, 2, '亘の嫌いな食べ物は？', 'カツオ', 'プリン', 'カリフラワー', '大根', b'0010'),
 (1, 3, '亘の身長は？', '169', '170', '171', '172', b'0010'),
