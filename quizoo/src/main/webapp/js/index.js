@@ -51,7 +51,6 @@ async function quizlistFactory(quizList){
     list.setAttribute('class','quiz_list');
     
     for(quiz of quizList){
-        console.log(quiz);
 
         box = document.createElement('div');
         box.setAttribute('class','box');

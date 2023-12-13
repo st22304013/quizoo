@@ -111,7 +111,6 @@ public class QuizDao extends Dao{
 		}
 		return quizbean;
 	}
-	
 	public ArrayList<QuizBean> selectOrderedQuiz(String columnName, int genreNo)throws ResourceException{
 		
 		ArrayList<QuizBean> quizlist = new ArrayList<>();
@@ -164,7 +163,7 @@ public class QuizDao extends Dao{
 		return quizlist;
 		
 	}
-	
+
 	public ArrayList<QuizBean> searchQuiz(int genreNo) throws ResourceException {
 		
 		QuizBean quizbean = new QuizBean();
@@ -237,6 +236,8 @@ public class QuizDao extends Dao{
 			st.executeUpdate();
 			
 			cn.commit();
+            System.out.println("quizのcommit完了");
+			
 	
 		} catch(SQLException e) {
             try{

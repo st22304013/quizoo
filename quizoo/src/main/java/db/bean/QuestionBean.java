@@ -6,42 +6,43 @@ public class QuestionBean implements Serializable {
 	private int quizId;
 	private int questionId;
 	private String question;
-	private String choice_1;
-	private String choice_2;
-	private String choice_3;
-	private String choice_4;
-	private byte[] judge;
+	private String choice1;
+	private String choice2;
+	private String choice3;
+	private String choice4;
+	private boolean[] judge;
 	
 	
 	public QuestionBean() {}
 	
-	public QuestionBean(int quiz_id,int question_id, String choice_1,String choice_2,String choice_3
-						,String choice_4,byte[] judge) {
-		this.quizId=quiz_id;
-		this.questionId=question_id;
-		this.choice_1=choice_1;
-		this.choice_2=choice_2;
-		this.choice_3=choice_3;
-		this.choice_4=choice_4;
+	public QuestionBean(int quizId, int questionId, String question, String choice1, String choice2, String choice3
+						, String choice4, boolean[] judge) {
+		this.setQuizId(quizId);
+		this.setQuestionId(questionId);
+		this.question = question;
+		this.setChoice1(choice1);
+		this.setChoice2(choice2);
+		this.setChoice3(choice3);
+		this.setChoice4(choice4);
 		this.judge=judge;
 	}
 
-	public int getQuiz_id() {
+	public int getQuizId() {
 		return quizId;
 	}
 
-	public void setQuiz_id(int quiz_id) {
-		this.quizId = quiz_id;
+	public void setQuizId(int quizId) {
+		this.quizId = quizId;
 	}
 
-	public int getQuestion_id() {
+	public int getQuestionId() {
 		return questionId;
 	}
 
-	public void setQuestion_id(int question_id) {
-		this.questionId = question_id;
+	public void setQuestionId(int questionId) {
+		this.questionId = questionId;
 	}
-
+	
 	public String getQuestion() {
 		return question;
 	}
@@ -49,46 +50,45 @@ public class QuestionBean implements Serializable {
 	public void setQuestion(String question) {
 		this.question = question;
 	}
-
-	public String getChoice_1() {
-		return choice_1;
+	
+	public String getChoice1() {
+		return choice1;
 	}
 
-	public void setChoice_1(String choice_1) {
-		this.choice_1 = choice_1;
+	public void setChoice1(String choice1) {
+		this.choice1 = choice1;
 	}
 
-	public String getChoice_2() {
-		return choice_2;
+	public String getChoice2() {
+		return choice2;
 	}
 
-	public void setChoice_2(String choice_2) {
-		this.choice_2 = choice_2;
+	public void setChoice2(String choice2) {
+		this.choice2 = choice2;
 	}
 
-	public String getChoice_3() {
-		return choice_3;
+	public String getChoice3() {
+		return choice3;
 	}
 
-	public void setChoice_3(String choice_3) {
-		this.choice_3 = choice_3;
+	public void setChoice3(String choice3) {
+		this.choice3 = choice3;
 	}
 
-	public String getChoice_4() {
-		return choice_4;
+	public String getChoice4() {
+		return choice4;
 	}
 
-	public void setChoice_4(String choice_4) {
-		this.choice_4 = choice_4;
+	public void setChoice4(String choice4) {
+		this.choice4 = choice4;
 	}
 
-	public byte[] getJudge() {
+	public boolean[] getJudge() {
 		return judge;
 	}
 
-	public void setJudge(byte[] judge) {
+	public void setJudge(boolean[] judge) {
 		this.judge = judge;
 	}
 	
-
 }
