@@ -19,6 +19,7 @@ public class QuizListGetter extends Service {
 	private static HashMap<String, String> paramColMap = new HashMap<String, String>();
 	static {
 		paramColMap.put("new", "create_time");
+		paramColMap.put("genre", "genre_no");//order by句に入るだけ
 		paramColMap.put("ganle", "genre_no");
 		paramColMap.put("popular", "total_participants");
 	}
@@ -32,9 +33,11 @@ public class QuizListGetter extends Service {
 		
 		String[] genreNo = req.getParameter("genreNo");
 		Integer genreNoInteger = null;
-		
+		 
+
 		if (genreNo != null) {
             genreNoInteger = Integer.valueOf(genreNo[0]);
+            //genreNoInt = genreNoInteger.intValue();
         }
 		
 		
@@ -42,20 +45,21 @@ public class QuizListGetter extends Service {
 			orderStr = paramColMap.get(order[0]);			
 		}
 		
-		int genreNoInt = genreNoInteger.intValue();
 		
 		QuizDao quizDao = new QuizDao();
 		
 		if(genreNoInteger != null && orderStr != null) {
 			
-			quizList = quizDao.selectOrderedQuiz(orderStr, genreNoInt);
+			quizList = quizDao.selectOrderedQuiz(orderStr, (int)genreNoInteger);
 			
-		} else if(genreNo == null && order != null) {
+		} else if(genreNoInteger == null && order != null) {
 			
 			quizList = quizDao.selectOrderedQuiz(orderStr);
 			
+		} else if(genreNoInteger != null && orderStr == null){
+			quizList = quizDao.searchQuiz((int)genreNoInteger);
 		} else {
-			quizList = quizDao.searchQuiz(genreNoInt);
+			quizList = quizDao.selectQuiz();
 		}
 		
 		
