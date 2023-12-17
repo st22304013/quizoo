@@ -87,10 +87,10 @@ function addQuestionList() {
     let questionNode = document.querySelector("#question");
     let quiz = {
         "question":questionNode.querySelector("#create-question-text textarea").value,
-        "choise1":questionNode.querySelector('input[name="choise-text1"]').value,
-        "choise2":questionNode.querySelector('input[name="choise-text2"]').value,
-        "choise3":questionNode.querySelector('input[name="choise-text3"]').value,
-        "choise4":questionNode.querySelector('input[name="choise-text4"]').value,
+        "choice1":questionNode.querySelector('input[name="choise-text1"]').value,
+        "choice2":questionNode.querySelector('input[name="choise-text2"]').value,
+        "choice3":questionNode.querySelector('input[name="choise-text3"]').value,
+        "choice4":questionNode.querySelector('input[name="choise-text4"]').value,
         "judge":[
             questionNode.querySelector('#choise1').cloneNode(true).checked,
             questionNode.querySelector('#choise2').cloneNode(true).checked,

@@ -3,6 +3,7 @@ package db.dao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 import db.bean.QuestionBean;
@@ -100,12 +101,14 @@ public class QuizQuestionDao extends Dao{
 	
 	public void insertQuizQuestion(QuizQuestionBean quizQuestionBean) throws ResourceException {
 	    PreparedStatement st = null;
+	    
+	    System.out.println(quizQuestionBean.toString());
 
 	    try {
 	        connect();
 	        
 	        String sqlQuiz = "INSERT INTO quiz(quiz_id, author_no, title, question_count, genre_no, explanation) VALUES(?, ?, ?, ?, ?, ?)";
-			st = cn.prepareStatement(sqlQuiz);
+			st = cn.prepareStatement(sqlQuiz,Statement.RETURN_GENERATED_KEYS);
 			
             QuizBean quiz = quizQuestionBean.getQuiz();
             
@@ -122,42 +125,53 @@ public class QuizQuestionDao extends Dao{
 			st.executeUpdate();
 			
             System.out.println("quizのcommit完了");
-
-	        String sqlQuestion = "INSERT INTO question (quiz_id, question_id, question, choice_1, choice_2, choice_3, choice_4, judge) " +
-                    "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-			st = cn.prepareStatement(sqlQuestion);
-			
-			for (QuestionBean question : quizQuestionBean.getQuestion()) {
-				st.setInt(1, question.getQuizId());
-				st.setInt(2, question.getQuestionId());
-				st.setString(3, question.getQuestion());
-				st.setString(4, question.getChoice1());
-				st.setString(5, question.getChoice2());
-				st.setString(6, question.getChoice3());
-				st.setString(7, question.getChoice4());
-				
+            
+            try(ResultSet geneletedKeys = st.getGeneratedKeys()){
+            	if(geneletedKeys.next()) {
+            		int quizId = geneletedKeys.getInt(1);
+            		System.out.println(quizId);
+            		String sqlQuestion = "INSERT INTO question (quiz_id,question_id, question, choice_1, choice_2, choice_3, choice_4, judge) " +
+            				"VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            		st = cn.prepareStatement(sqlQuestion);
+            		
+            		
+            		ArrayList<QuestionBean> questions = quizQuestionBean.getQuestion();
+            		for(int i = 0 ; i< questions.size() ; i++) {
+            			QuestionBean question = questions.get(i);
+            			st.setInt(1, quizId);
+            			st.setInt(2, i);
+            			st.setString(3, question.getQuestion());
+            			st.setString(4, question.getChoice1());
+            			st.setString(5, question.getChoice2());
+            			st.setString(6, question.getChoice3());
+            			st.setString(7, question.getChoice4());
+            			
 //				//boolean[]からビット文字列に変換してセット
 //				String bitString = booleanArrayToBitString(question.getJudge());
 //				st.setString(8, bitString);
-				
-				// boolean[]からbyteに変換するメソッドを呼び出してセット
-	            byte judgeByte = booleanArrayToByte(question.getJudge());
-	            st.setByte(8, judgeByte);
-				
-				System.out.println("Quiz ID: " + question.getQuizId());
-				System.out.println("Question ID: " + question.getQuestionId());
-				System.out.println("Question: " + question.getQuestion());
-				System.out.println("Choice 1: " + question.getChoice1());
-				System.out.println("Choice 2: " + question.getChoice2());
-				System.out.println("Choice 3: " + question.getChoice3());
-				System.out.println("Choice 4: " + question.getChoice4());
-				System.out.println("Judge: " + judgeByte);
-	            
-	            System.out.println("executeUpdate直前");
-	
-		        st.executeUpdate();
-	            System.out.println("executeUpdate完了");
-			}
+            			
+            			// boolean[]からbyteに変換するメソッドを呼び出してセット
+            			byte judgeByte = booleanArrayToByte(question.getJudge());
+            			st.setByte(8, judgeByte);
+            			
+            			System.out.println("Quiz ID: " + question.getQuizId());
+            			System.out.println("Question ID: " + question.getQuestionId());
+            			System.out.println("Question: " + question.getQuestion());
+            			System.out.println("Choice 1: " + question.getChoice1());
+            			System.out.println("Choice 2: " + question.getChoice2());
+            			System.out.println("Choice 3: " + question.getChoice3());
+            			System.out.println("Choice 4: " + question.getChoice4());
+            			System.out.println("Judge: " + judgeByte);
+            			
+            			System.out.println("executeUpdate直前");
+            			
+            			st.executeUpdate();
+            			System.out.println("executeUpdate完了");
+            		}
+            		
+            	}
+            	
+            }
 
 	        cn.commit();
             System.out.println("questionのcommit完了");
