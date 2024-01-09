@@ -273,3 +273,14 @@ header {
 .edit-btn {
 	margin-top: 20px;
 }
+
+/*createhistory.html*/
+
+.quiz_list {
+	padding: 20px;
+	margin-top: 120px;
+}
+
+.createhistory {
+	text-align: center;
+}
