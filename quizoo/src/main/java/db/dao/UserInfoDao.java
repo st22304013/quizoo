@@ -9,6 +9,7 @@ import frame.exception.ResourceException;
 
 public class UserInfoDao extends Dao {
 
+	//ログイン
 	public UserInfoBean selectUser(String user_id) throws ResourceException {
 
 		PreparedStatement st = null;
@@ -17,12 +18,13 @@ public class UserInfoDao extends Dao {
 
 		try {
 			connect();
-			//ログインのSQL
+			//userinfo表とnickname表を結合
 			String sql = "SELECT * FROM userinfo JOIN nickname USING(user_no) WHERE user_id = ?";
 			st = cn.prepareStatement(sql);
 			st.setString(1, user_id);
 			rs = st.executeQuery();
 			if (rs.next()) {
+				//UserInfoBeanに追加
 				userbean.setUserId(rs.getString("user_id"));
 				userbean.setUserNo(rs.getInt("user_no"));
 				userbean.setNickname(rs.getString("nickname"));
@@ -54,25 +56,22 @@ public class UserInfoDao extends Dao {
 		}
 		return userbean;
 	}
-
+	//新規登録
 	public void insertUser(UserInfoBean user) throws ResourceException {
 		PreparedStatement st = null;
-		System.out.println("insertUserにきた");
 		try {
 			connect();
 			
 			cn.setAutoCommit(false);
-			//サインアップのSQL
+			//userinfo表にidとpasswordを追加する、サインアップのSQL
 			String sql = " INSERT INTO userinfo(user_id,password) VALUES(?,?)";
 			st = cn.prepareStatement(sql);
-			
-			System.out.println(user.getUserId());
-			
-
+		
 			st.setString(1, user.getUserId());
 			st.setString(2, user.getPassword());
 			st.executeUpdate();
 			
+			//nickname表にuserNoとnicknameを追加する、サインアップのSQL
 			sql="INSERT INTO nickname(user_no,nickname) VALUES(last_insert_id(),?)";
 			st = cn.prepareStatement(sql);
 			st.setString(1,user.getNickname());
@@ -87,12 +86,12 @@ public class UserInfoDao extends Dao {
 		}
 
 	}
-
+	//ユーザー削除
 	public void deleteUser(String user_id) throws ResourceException {
 		PreparedStatement st = null;
 		try {
 			connect();
-			
+			//ユーザー削除のSQL
 			String sql = "DELETE FROM userinfo WHERE user_id = ?";
 			st = cn.prepareStatement(sql);
 			st.setString(1, user_id);
@@ -109,12 +108,12 @@ public class UserInfoDao extends Dao {
 			close();
 		}
 	}
-
+	//パスワードの変更
 	public void updatePassword(String user_id, String password) throws ResourceException {
 		PreparedStatement st = null;
 		try {
 			connect();
-
+			//パスワードの変更処理のSQL
 			String sql = "UPDATE userinfo SET password =? WHERE user_id =?";
 			st = cn.prepareStatement(sql);
 			st.setString(1, password);
@@ -130,19 +129,25 @@ public class UserInfoDao extends Dao {
 		}
 	}
 
+	//スコアの更新
 	public void updateScore(int answered, int correct) throws ResourceException {
 		PreparedStatement st = null;
 		try {
 			connect();
-			String sql = "UPDATE userinfo SET total_answered = total_answered + ?,correct_ansewerd = correct_answered + ?";
+			//合計回答数と合計正解数のアップデートのSQL
+			String sql = "UPDATE userinfo SET total_answered = ?, correct_ansewerd = ?";
+      
 			st = cn.prepareStatement(sql);
 			st.setInt(1, answered);
 			st.setInt(2, correct);
+			st.setInt(3, userNo);
 			st.executeUpdate();
 
 			cn.commit();
 		} catch (SQLException e) {
 			throw new ResourceException(e.getMessage(), e);
 		}
+		
+		close();
 	}
 }

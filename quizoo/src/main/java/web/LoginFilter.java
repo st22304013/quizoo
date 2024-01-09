@@ -27,7 +27,7 @@ public class LoginFilter implements Filter{
 			throws IOException, ServletException {
 		HttpSession session = ((HttpServletRequest)request).getSession();
 
-		UserInfoBean bean = (UserInfoBean) session.getAttribute("id");
+		UserInfoBean bean = (UserInfoBean) session.getAttribute("user");
 		
 		if(bean == null || bean.getUserId() == null || bean.getUserId().isEmpty()) {
 			RequestDispatcher rd = request.getRequestDispatcher("login-page");
