@@ -383,6 +383,12 @@ public class QuizDao extends Dao{
         }
 	}
 	
+	/**
+	 * クイズの説明を変更します
+	 * @param quizId 変更するデータのtitle
+	 * @param explanation クイズの新しい説明
+	 * @throws ResourceException 説明の変更時に例外が発生した場合
+	 */
 	public void updateExplanation(int quizId, String explanation) throws ResourceException {
 		
 		try {
