@@ -12,7 +12,7 @@ import frame.exception.ResourceException;
 public class QuizDao extends Dao{
 	
 	/**
-	 * columnNameの列でソートされたQuiz一覧を取得します
+	 * ソートされたQuiz一覧を取得します
 	 * @param columnName 並べ替えに使用する列名。quiz表に存在しない列名が渡された場合は例外が発生します
 	 * @return ArrayListに格納されたQuizBeanを返します
 	 * @throws ResourceException データ取得時に例外が発生した場合
