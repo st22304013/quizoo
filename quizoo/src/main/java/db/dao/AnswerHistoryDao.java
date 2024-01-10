@@ -9,7 +9,16 @@ import db.bean.AnswerhistoryBean;
 import db.bean.QuizBean;
 import frame.exception.ResourceException;
 
+/**
+ * AnswerHistory表にアクセスします
+ */
 public class AnswerHistoryDao extends Dao {
+	/**
+	 * userNoに対する回答履歴をすべて取得します
+	 * @param userNo userinfo表user_no列に対応した値を渡します
+	 * @return 回答履歴。存在しない場合は空のArrayList
+	 * @throws ResourceException データ取得時に例外が発生した場合
+	 */
 	public ArrayList<AnswerhistoryBean> selectAnswerHistory(int userNo) throws ResourceException {
 		
 		PreparedStatement st = null;
