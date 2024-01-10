@@ -197,14 +197,6 @@ public class QuizQuestionDao extends Dao{
         return result;
     }
 	
-//	// boolean[]をビット文字列に変換するメソッド
-//    private String booleanArrayToBitString(boolean[] boolArray) {
-//        StringBuilder builder = new StringBuilder();
-//        for (boolean b : boolArray) {
-//            builder.append(b ? "1" : "0");
-//        }
-//        return builder.toString();
-//    }
 
     // boolean[]をバイトに変換するメソッド
     private byte booleanArrayToByte(boolean[] boolArray) {
