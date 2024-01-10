@@ -320,6 +320,12 @@ public class QuizDao extends Dao{
 		
 	}
 	
+	/**
+	 * クイズのタイトルを変更します
+	 * @param quizId 変更するデータのquiz_id
+	 * @param title クイズの新しいタイトル
+	 * @throws ResourceException タイトル変更時に例外が発生した場合
+	 */
 	public void updateTitle(int quizId, String title) throws ResourceException {
 		
 		try {
