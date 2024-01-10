@@ -137,7 +137,7 @@ public class QuizDao extends Dao{
 	 * @param columnName 並べ替えに使用する列名。quiz表に存在しない列名が渡された場合は例外が発生します
 	 * @param genreNo genre表genre_no列に対応した値。存在しない場合は結果が0件
 	 * @return ArrayListに格納されたQuizBeanを返します
-	 * @throws ResourceException
+	 * @throws ResourceException ResourceException データ取得時に例外が発生した場合
 	 */
 	public ArrayList<QuizBean> selectOrderedQuiz(String columnName, int genreNo)throws ResourceException{
 		
