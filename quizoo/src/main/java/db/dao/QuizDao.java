@@ -352,6 +352,12 @@ public class QuizDao extends Dao{
 		
 	}
 	
+	/**
+	 * クイズのジャンルを変更します
+	 * @param quizId 変更するデータのquiz_id
+	 * @param genreNo クイズの新しいジャンル
+	 * @throws ResourceException ジャンルの変更時に例外が発生した場合
+	 */
 	public void updateGenre(int quizId, int genreNo) throws ResourceException{
 		
 		try {
