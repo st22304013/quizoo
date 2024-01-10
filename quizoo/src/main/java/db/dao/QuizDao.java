@@ -249,6 +249,11 @@ public class QuizDao extends Dao{
 		return quizList;
 	}
 	
+	/**
+	 * quiz表にQuizBeanのデーターを挿入します
+	 * @param quiz 挿入するQuizのBean
+	 * @throws ResourceException データ挿入時に例外が発生した場合
+	 */
 	public void insertQuiz(QuizBean quiz) throws ResourceException {
 		
 		try {
