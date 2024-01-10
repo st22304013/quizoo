@@ -69,6 +69,10 @@ public class QuizDao extends Dao{
 		
 	}	
 	
+	/**
+	 * @return create_time列でソートされたQuiz一覧を取得します
+	 * @throws ResourceException
+	 */
 	public ArrayList<QuizBean> selectQuiz() throws ResourceException {
 		return selectOrderedQuiz("create_time");
 	}
