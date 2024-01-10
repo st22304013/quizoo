@@ -192,6 +192,12 @@ public class QuizDao extends Dao{
 		
 	}
 
+	/**
+	 * 指定されたジャンルに登録されているQuiz一覧を指定されている列名で並び変えて取得します
+	 * @param genreNo 絞り込むジャンルを指定します
+	 * @return ArrayListに格のされたQuizBeanを返します
+	 * @throws ResourceException ResourceException データ取得時に例外が発生した場合
+	 */
 	public ArrayList<QuizBean> searchQuiz(int genreNo) throws ResourceException {
 		
 		QuizBean quizbean = new QuizBean();
