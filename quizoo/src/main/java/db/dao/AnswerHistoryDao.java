@@ -1,7 +1,6 @@
 package db.dao;
 
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -20,9 +19,6 @@ public class AnswerHistoryDao extends Dao {
 	 * @throws ResourceException データ取得時に例外が発生した場合
 	 */
 	public ArrayList<AnswerhistoryBean> selectAnswerHistory(int userNo) throws ResourceException {
-		
-		PreparedStatement st = null;
-		ResultSet rs = null;
 		ArrayList<AnswerhistoryBean> Answerhistory = new ArrayList<>();
 		
 
