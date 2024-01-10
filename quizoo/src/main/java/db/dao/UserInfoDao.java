@@ -7,9 +7,17 @@ import java.sql.SQLException;
 import db.bean.UserInfoBean;
 import frame.exception.ResourceException;
 
+/**
+ * UserInfo表にアクセスします
+ */
 public class UserInfoDao extends Dao {
 
-	//ログイン
+	/**
+	 * user_idからユーザデータを取得する
+	 * @param user_id 取得するユーザーのuser_id
+	 * @return 取得されたユーザーデータ
+	 * @throws ResourceException データ取得時に例外が発生した場合
+	 */
 	public UserInfoBean selectUser(String user_id) throws ResourceException {
 
 		PreparedStatement st = null;
@@ -56,7 +64,12 @@ public class UserInfoDao extends Dao {
 		}
 		return userbean;
 	}
-	//新規登録
+	
+	/**
+	 * ユーザーデータを挿入します
+	 * @param user 挿入するデーター
+	 * @throws ResourceException データ挿入時に例外が発生した場合
+	 */
 	public void insertUser(UserInfoBean user) throws ResourceException {
 		PreparedStatement st = null;
 		try {
@@ -86,7 +99,13 @@ public class UserInfoDao extends Dao {
 		}
 
 	}
-	//ユーザー削除
+
+	
+	/**
+	 * ユーザーデータを削除します
+	 * @param user_id
+	 * @throws ResourceException
+	 */
 	public void deleteUser(String user_id) throws ResourceException {
 		PreparedStatement st = null;
 		try {
@@ -108,7 +127,13 @@ public class UserInfoDao extends Dao {
 			close();
 		}
 	}
-	//パスワードの変更
+
+	/**
+	 * ユーザーのパスワードを変更します
+	 * @param user_id 変更するユーザーのuser_id
+	 * @param password 新しいパスワード
+	 * @throws ResourceException 変更時に例外が発生した場合
+	 */
 	public void updatePassword(String user_id, String password) throws ResourceException {
 		PreparedStatement st = null;
 		try {
@@ -129,7 +154,14 @@ public class UserInfoDao extends Dao {
 		}
 	}
 
-	//スコアの更新
+	
+	/**
+	 * ユーザー毎のスコアを更新します
+	 * XXX: コンパイルエラー有り、要修正
+	 * @param answered 回答した問題数
+	 * @param correct 正解した問題数
+	 * @throws ResourceException 更新時に例外が発生した場合
+	 */
 	public void updateScore(int answered, int correct) throws ResourceException {
 		PreparedStatement st = null;
 		try {

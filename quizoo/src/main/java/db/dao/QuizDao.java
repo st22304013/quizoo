@@ -6,8 +6,17 @@ import java.util.ArrayList;
 import db.bean.QuizBean;
 import frame.exception.ResourceException;
 
+/**
+ * quiz表にアクセスします
+ */
 public class QuizDao extends Dao{
 	
+	/**
+	 * ソートされたQuiz一覧を取得します
+	 * @param columnName 並べ替えに使用する列名。quiz表に存在しない列名が渡された場合は例外が発生します
+	 * @return ArrayListに格納されたQuizBeanを返します
+	 * @throws ResourceException データ取得時に例外が発生した場合
+	 */
 	public ArrayList<QuizBean> selectOrderedQuiz(String columnName)throws ResourceException{
 
 		ArrayList<QuizBean> quizlist = new ArrayList<>();
@@ -60,10 +69,20 @@ public class QuizDao extends Dao{
 		
 	}	
 	
+	/**
+	 * @return create_time列でソートされたQuiz一覧を取得します
+	 * @throws ResourceException データ取得時に例外が発生した場合
+	 */
 	public ArrayList<QuizBean> selectQuiz() throws ResourceException {
 		return selectOrderedQuiz("create_time");
 	}
 	
+	/**
+	 * 指定されたクイズを取得します。
+	 * @param quizId quiz表quiz_id列に対応した値。存在しない場合は例外が空のQuizBeanが帰る
+	 * @return 取得されたクイズのQuizBean
+	 * @throws ResourceException データ取得時に例外が発生した場合
+	 */
 	public QuizBean selectQuiz(int quizId) throws ResourceException {
 		
 		QuizBean quizbean = new QuizBean();
@@ -111,6 +130,15 @@ public class QuizDao extends Dao{
 		}
 		return quizbean;
 	}
+	
+	
+	/**
+	 * 指定されたジャンルの指定された列で並び変えられたQuiz一覧を取得します
+	 * @param columnName 並べ替えに使用する列名。quiz表に存在しない列名が渡された場合は例外が発生します
+	 * @param genreNo genre表genre_no列に対応した値。存在しない場合は結果が0件
+	 * @return ArrayListに格納されたQuizBeanを返します
+	 * @throws ResourceException ResourceException データ取得時に例外が発生した場合
+	 */
 	public ArrayList<QuizBean> selectOrderedQuiz(String columnName, int genreNo)throws ResourceException{
 		
 		ArrayList<QuizBean> quizlist = new ArrayList<>();
@@ -164,6 +192,12 @@ public class QuizDao extends Dao{
 		
 	}
 
+	/**
+	 * 指定されたジャンルに登録されているQuiz一覧を指定されている列名で並び変えて取得します
+	 * @param genreNo 絞り込むジャンルを指定します
+	 * @return ArrayListに格のされたQuizBeanを返します
+	 * @throws ResourceException ResourceException データ取得時に例外が発生した場合
+	 */
 	public ArrayList<QuizBean> searchQuiz(int genreNo) throws ResourceException {
 		
 		QuizBean quizbean = new QuizBean();
@@ -215,6 +249,11 @@ public class QuizDao extends Dao{
 		return quizList;
 	}
 	
+	/**
+	 * quiz表にQuizBeanのデーターを挿入します
+	 * @param quiz 挿入するQuizのBean
+	 * @throws ResourceException データ挿入時に例外が発生した場合
+	 */
 	public void insertQuiz(QuizBean quiz) throws ResourceException {
 		
 		try {
@@ -251,6 +290,11 @@ public class QuizDao extends Dao{
 		
 	}
 	
+	/**
+	 * quiz表からデータを削除します
+	 * @param quizId 削除するQuizのquiz_no
+	 * @throws ResourceException データーの削除時に例外が発生した場合
+	 */
 	public void deleteQuiz(int quizId) throws ResourceException {
 		
 		try {
@@ -276,6 +320,12 @@ public class QuizDao extends Dao{
 		
 	}
 	
+	/**
+	 * クイズのタイトルを変更します
+	 * @param quizId 変更するデータのquiz_id
+	 * @param title クイズの新しいタイトル
+	 * @throws ResourceException タイトル変更時に例外が発生した場合
+	 */
 	public void updateTitle(int quizId, String title) throws ResourceException {
 		
 		try {
@@ -302,6 +352,12 @@ public class QuizDao extends Dao{
 		
 	}
 	
+	/**
+	 * クイズのジャンルを変更します
+	 * @param quizId 変更するデータのquiz_id
+	 * @param genreNo クイズの新しいジャンル
+	 * @throws ResourceException ジャンルの変更時に例外が発生した場合
+	 */
 	public void updateGenre(int quizId, int genreNo) throws ResourceException{
 		
 		try {
@@ -327,6 +383,12 @@ public class QuizDao extends Dao{
         }
 	}
 	
+	/**
+	 * クイズの説明を変更します
+	 * @param quizId 変更するデータのtitle
+	 * @param explanation クイズの新しい説明
+	 * @throws ResourceException 説明の変更時に例外が発生した場合
+	 */
 	public void updateExplanation(int quizId, String explanation) throws ResourceException {
 		
 		try {

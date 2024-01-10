@@ -1,7 +1,6 @@
 package db.dao;
 
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -9,11 +8,17 @@ import db.bean.AnswerhistoryBean;
 import db.bean.QuizBean;
 import frame.exception.ResourceException;
 
+/**
+ * AnswerHistory表にアクセスします
+ */
 public class AnswerHistoryDao extends Dao {
+	/**
+	 * userNoに対する回答履歴をすべて取得します
+	 * @param userNo userinfo表user_no列に対応した値を渡します
+	 * @return 回答履歴。存在しない場合は空のArrayList
+	 * @throws ResourceException データ取得時に例外が発生した場合
+	 */
 	public ArrayList<AnswerhistoryBean> selectAnswerHistory(int userNo) throws ResourceException {
-		
-		PreparedStatement st = null;
-		ResultSet rs = null;
 		ArrayList<AnswerhistoryBean> Answerhistory = new ArrayList<>();
 		
 
@@ -64,7 +69,14 @@ public class AnswerHistoryDao extends Dao {
 		return Answerhistory;
 	}
 	
-	public void insertAnswerHistory(int userNo, int quizId, String answeredTime, int correctCount) throws ResourceException {
+	/**
+	 * AnswerHistoryに回答履歴を追加します
+	 * @param userNo userinfo表user_no列に存在する値を渡します。値がデータベースに存在しない場合は例外が発生します
+	 * @param quizId quiz表quiz_id列に対応した値を渡します。値がデータベースに存在しない場合は例外が発生します
+	 * @param correctCount 回答したquizの正解数
+	 * @throws ResourceException データ追加時に例が発生した場合	
+	 */
+	public void insertAnswerHistory(int userNo, int quizId,int correctCount) throws ResourceException {
 		
 		PreparedStatement st = null;
 		
