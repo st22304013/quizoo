@@ -130,6 +130,15 @@ public class QuizDao extends Dao{
 		}
 		return quizbean;
 	}
+	
+	
+	/**
+	 * 指定されたジャンルの指定された列で並び変えられたQuiz一覧を取得します
+	 * @param columnName 並べ替えに使用する列名。quiz表に存在しない列名が渡された場合は例外が発生します
+	 * @param genreNo genre表genre_no列に対応した値。存在しない場合は結果が0件
+	 * @return ArrayListに格納されたQuizBeanを返します
+	 * @throws ResourceException
+	 */
 	public ArrayList<QuizBean> selectOrderedQuiz(String columnName, int genreNo)throws ResourceException{
 		
 		ArrayList<QuizBean> quizlist = new ArrayList<>();
