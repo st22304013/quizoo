@@ -290,6 +290,11 @@ public class QuizDao extends Dao{
 		
 	}
 	
+	/**
+	 * quiz表からデータを削除します
+	 * @param quizId 削除するQuizのquiz_no
+	 * @throws ResourceException データーの削除時に例外が発生した場合
+	 */
 	public void deleteQuiz(int quizId) throws ResourceException {
 		
 		try {
