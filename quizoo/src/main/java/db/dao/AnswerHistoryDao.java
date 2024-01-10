@@ -73,11 +73,10 @@ public class AnswerHistoryDao extends Dao {
 	 * AnswerHistoryに回答履歴を追加します
 	 * @param userNo userinfo表user_no列に存在する値を渡します。値がデータベースに存在しない場合は例外が発生します
 	 * @param quizId quiz表quiz_id列に対応した値を渡します。値がデータベースに存在しない場合は例外が発生します
-	 * @param answeredTime
 	 * @param correctCount 回答したquizの正解数
-	 * @throws ResourceException データ追加時に例が発生した場合
+	 * @throws ResourceException データ追加時に例が発生した場合	
 	 */
-	public void insertAnswerHistory(int userNo, int quizId, String answeredTime, int correctCount) throws ResourceException {
+	public void insertAnswerHistory(int userNo, int quizId,int correctCount) throws ResourceException {
 		
 		PreparedStatement st = null;
 		
