@@ -77,6 +77,12 @@ public class QuizDao extends Dao{
 		return selectOrderedQuiz("create_time");
 	}
 	
+	/**
+	 * 指定されたクイズを取得します。
+	 * @param quizId quiz表quiz_id列に対応した値。存在しない場合は例外が空のQuizBeanが帰る
+	 * @return 取得されたクイズのQuizBean
+	 * @throws ResourceException データ取得時に例外が発生した場合
+	 */
 	public QuizBean selectQuiz(int quizId) throws ResourceException {
 		
 		QuizBean quizbean = new QuizBean();
