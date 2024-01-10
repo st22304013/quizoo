@@ -11,7 +11,16 @@ import db.bean.QuizBean;
 import db.bean.QuizQuestionBean;
 import frame.exception.ResourceException;
 
+/**
+ * QuizQuestionDao表にアクセスします
+ */
 public class QuizQuestionDao extends Dao{
+	/**
+	 * 指定されたQuizと関連付けられた全てのQuestionを同時に取得します
+	 * @param quizid 取得するquizのquiz_id
+	 * @return 取得するqiuz,questionのquiz_id
+	 * @throws ResourceException データ取得時に例外が発生した場合
+	 */
 	public QuizQuestionBean selectQuizWithQuestion(int quizid) throws ResourceException{
 		
 		PreparedStatement st = null;
@@ -99,6 +108,11 @@ public class QuizQuestionDao extends Dao{
 		return quizQuestionBean;
 	}
 	
+	/**
+	 * QuizとQustionを同時に挿入します
+	 * @param quizQuestionBean 挿入するデータ
+	 * @throws ResourceException 挿入時に例外が発生した場合
+	 */
 	public void insertQuizQuestion(QuizQuestionBean quizQuestionBean) throws ResourceException {
 	    PreparedStatement st = null;
 	    
@@ -188,7 +202,11 @@ public class QuizQuestionDao extends Dao{
 	    }
 	}
 	
-	// バイトをboolean[]に変換するメソッド
+    /**
+	 * バイトをboolean[]に変換するメソッド
+     * @param b 変換前のデータ
+     * @return ビット毎にbooleanにしたデータ
+     */
     private boolean[] byteToBooleanArray(byte b) {
         boolean[] result = new boolean[8];
         for (int i = 0; i < 8; i++) {
@@ -198,7 +216,11 @@ public class QuizQuestionDao extends Dao{
     }
 	
 
-    // boolean[]をバイトに変換するメソッド
+    /**
+     * boolean[]をバイトに変換するメソッド
+     * @param boolArray 変換前のデータ
+     * @return booleanを各bitに変換したデーター
+     */
     private byte booleanArrayToByte(boolean[] boolArray) {
         if (boolArray.length > 8) {
             throw new IllegalArgumentException("Boolean array size should not exceed 8 elements.");
