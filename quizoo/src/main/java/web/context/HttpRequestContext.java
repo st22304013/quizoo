@@ -42,7 +42,7 @@ public class HttpRequestContext implements RequestContext{
         	throw new ResourceException(e.getMessage(), e);
         }
         
-        return line;
+        return sb.toString();
 	}
 	@Override
 	public String getTargetServiceKey() {
