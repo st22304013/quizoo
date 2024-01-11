@@ -162,12 +162,12 @@ public class UserInfoDao extends Dao {
 	 * @param correct 正解した問題数
 	 * @throws ResourceException 更新時に例外が発生した場合
 	 */
-	public void updateScore(int answered, int correct) throws ResourceException {
+	public void updateScore(int userNo, int answered, int correct) throws ResourceException {
 		PreparedStatement st = null;
 		try {
 			connect();
 			//合計回答数と合計正解数のアップデートのSQL
-			String sql = "UPDATE userinfo SET total_answered = ?, correct_ansewerd = ?";
+			String sql = "UPDATE userinfo SET total_answered = ?, correct_ansewerd = ? WHERE user_no = ?";
       
 			st = cn.prepareStatement(sql);
 			st.setInt(1, answered);
