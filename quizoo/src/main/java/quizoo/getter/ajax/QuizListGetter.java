@@ -37,7 +37,7 @@ public class QuizListGetter extends Service {
 
 		if (genreNo != null) {
             genreNoInteger = Integer.valueOf(genreNo[0]);
-            //genreNoInt = genreNoInteger.intValue();
+            
         }
 		
 		

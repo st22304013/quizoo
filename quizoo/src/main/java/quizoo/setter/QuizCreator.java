@@ -22,10 +22,6 @@ public class QuizCreator extends Service {
     	Gson gson = new Gson();
         QuizQuestionBean quizQuestionBean = gson.fromJson(req.getMessageBody(), QuizQuestionBean.class);
 
-//        QuizBean quizBean = quizQuestionBean.getQuiz();
-//        
-//        QuizDao quizDao = new QuizDao();
-//        quizDao.insertQuiz(quizBean);
 
         QuizQuestionDao quizQuestionDao = new QuizQuestionDao();
         quizQuestionDao.insertQuizQuestion(quizQuestionBean);
