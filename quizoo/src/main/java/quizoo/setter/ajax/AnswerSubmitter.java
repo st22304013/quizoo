@@ -20,6 +20,8 @@ public class AnswerSubmitter extends Service {
 	@Override
 	public void execute(RequestContext req, ResponseContext res) throws IOException, ResourceException, BadRequestException, NotFoundException {
 		// TODO 自動生成されたメソッド・スタブ
+		
+
         
         Gson gson = new Gson();
 
@@ -34,7 +36,7 @@ public class AnswerSubmitter extends Service {
         
         //ここからanswerhistoryへのinsertやuserInfoのupdateを考える
         //answerhistoryへのisnert  userNoはsessionから持ってくる
-        answerhistoryDao.insertAnswerHistory(bean.getUserNo(), userhistoryBean.getQuizId(), userhistoryBean.getAnsweredTime(), userhistoryBean.getCorrectCount());
+        answerhistoryDao.insertAnswerHistory(bean.getUserNo(), userhistoryBean.getQuizId(), userhistoryBean.getCorrectCount());
         
         
         //userinfoへのupdate
