@@ -25,6 +25,9 @@ img {
 
 /*全画面共通header*/
 header {
+	z-index: 9999;
+	top:0;
+	position:fixed;
 	background-color: #DBFAFD;
 	display: flex;
 	width: 100%;
@@ -44,6 +47,7 @@ header {
 
 /*下のヘッダー*/
 .secondary-header {
+	top:120px;
 	background-color: #BCFAF3;
 	display: flex;
 	width: 100%;
