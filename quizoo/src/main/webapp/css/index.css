@@ -63,6 +63,7 @@ header {
 	display: inline-block;
 	transition: .3s;
 	text-decoration: none;
+	cursor: pointer;
 }
 
 .secondary-header a::after {
