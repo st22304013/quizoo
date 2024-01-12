@@ -47,6 +47,7 @@ header {
 
 /*下のヘッダー*/
 .secondary-header {
+	z-index: 97;
 	top:120px;
 	background-color: #BCFAF3;
 	display: flex;
