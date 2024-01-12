@@ -2,8 +2,6 @@ package quizoo.setter.ajax;
 
 import java.io.IOException;
 
-import javax.servlet.http.HttpSession;
-
 import com.google.gson.Gson;
 
 import db.bean.UserAnswerhistoryBean;
@@ -23,8 +21,7 @@ public class AnswerSubmitter extends Service {
 	public void execute(RequestContext req, ResponseContext res) throws IOException, ResourceException, BadRequestException, NotFoundException {
 		// TODO 自動生成されたメソッド・スタブ
 		
-		HttpSession session = req.getSession();
-        int userNo = session.getAttribute("userNo");
+
         
         Gson gson = new Gson();
 
@@ -39,7 +36,7 @@ public class AnswerSubmitter extends Service {
         
         //ここからanswerhistoryへのinsertやuserInfoのupdateを考える
         //answerhistoryへのisnert  userNoはsessionから持ってくる
-        answerhistoryDao.insertAnswerHistory(userNo, userhistoryBean.getQuizId(), userhistoryBean.getCorrectCount());
+        answerhistoryDao.insertAnswerHistory(bean.getUserNo(), userhistoryBean.getQuizId(), userhistoryBean.getCorrectCount());
         
         
         //userinfoへのupdate
