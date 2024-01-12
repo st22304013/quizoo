@@ -19,11 +19,13 @@ public class AnswerHistoryDao extends Dao {
 	 * @throws ResourceException データ取得時に例外が発生した場合
 	 */
 	public ArrayList<AnswerhistoryBean> selectAnswerHistory(int userNo) throws ResourceException {
+		//回答履歴を格納するArrayList
 		ArrayList<AnswerhistoryBean> Answerhistory = new ArrayList<>();
 		
 
 		connect();
 		
+		//SQL文の定義
 		String sql = "SELECT q.quiz_id, title, answered_time, a.question_count,correct_count, explanation, create_time, correct_rate, total_participants "
 				+ " FROM answerhistory a"
 				+ " INNER JOIN quiz q"
@@ -39,12 +41,13 @@ public class AnswerHistoryDao extends Dao {
 			
 			
 			while(rs.next()) {
-			
+				//結果セットからデータを取得してAnswerhistoryBeanにセット
 				AnswerhistoryBean answerhistorybean = new AnswerhistoryBean();
 				answerhistorybean.setAnsweredTime(rs.getString("answered_time"));
 				answerhistorybean.setQuestionCount(rs.getInt("a.question_count"));
 				answerhistorybean.setCorrectCount(rs.getInt("correct_count"));
 				
+				//QuizBeanの作成とセット
 				QuizBean quizbean = new QuizBean();
 				quizbean.setQuizId(rs.getInt("q.quiz_id"));
 				quizbean.setTitle(rs.getString("title"));
@@ -55,6 +58,7 @@ public class AnswerHistoryDao extends Dao {
 				
 				answerhistorybean.setQuizBean(quizbean);
 				
+				//Listに追加
 				Answerhistory.add(answerhistorybean);
 			}
 			
@@ -88,6 +92,7 @@ public class AnswerHistoryDao extends Dao {
 		try {
 			st = cn.prepareStatement(sql);
 			
+			//パラメータの設定
 			st.setInt(1, userNo);
 			st.setInt(2, quizId);
 			st.setInt(3,correctCount);
