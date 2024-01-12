@@ -369,6 +369,10 @@ section:nth-child(even) {
 
 /*作成ボタン*/
 
+.fixed-bottom{
+	z-index: 96;
+}
+
 *,
 *:before,
 *:after {
