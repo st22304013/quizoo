@@ -132,9 +132,6 @@ public class QuizQuestionDao extends Dao{
 			st.setInt(4, quiz.getQuestionCount());
 			st.setInt(5, quiz.getGenreNo());
 			st.setString(6, quiz.getExplanation());
-//			st.setString(7, quiz.getCreateTime());
-//			st.setFloat(8, quiz.getCorrectRate());
-//			st.setInt(9, quiz.getTotalParticipants());
 			
 			st.executeUpdate();
 			
@@ -160,9 +157,6 @@ public class QuizQuestionDao extends Dao{
             			st.setString(6, question.getChoice3());
             			st.setString(7, question.getChoice4());
             			
-//				//boolean[]からビット文字列に変換してセット
-//				String bitString = booleanArrayToBitString(question.getJudge());
-//				st.setString(8, bitString);
             			
             			// boolean[]からbyteに変換するメソッドを呼び出してセット
             			byte judgeByte = booleanArrayToByte(question.getJudge());
