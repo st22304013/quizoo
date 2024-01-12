@@ -42,7 +42,6 @@ header {
 
 /*index.html*/
 
-
 /*下のヘッダー*/
 .secondary-header {
 	background-color: #BCFAF3;
@@ -79,6 +78,7 @@ header {
 }
 
 .secondary-header ul {
+	position: fixed;
 	display: flex;
 	margin: 0 auto;
 	padding-left: 0;
