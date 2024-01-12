@@ -82,6 +82,7 @@ header {
 }
 
 .secondary-header ul {
+	width: 100%;
 	position: fixed;
 	display: flex;
 	margin: 0 auto;
@@ -89,6 +90,7 @@ header {
 }
 
 .secondary-header li {
+	text-align: center;
 	font-size: 2em;
 	width: 100%;
 	list-style: none;
