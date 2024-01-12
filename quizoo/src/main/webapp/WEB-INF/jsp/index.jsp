@@ -46,11 +46,11 @@
 					</div>
 				</div>
 				<!-- ハンバーガーメニュー -->
-				<buttom class="drawer__button">
+				<button class="drawer__button">
 					<span></span>
 					<span></span>
 					<span></span>
-				</buttom>
+				</button>
 				<nav class="drawer__nav">
 					<div class="drawer__nav__inner">
 						<ul class="drawer__nav__menu">
