@@ -4,7 +4,7 @@
 var list_box;
 
 window.addEventListener('load',function(){
-    list_box = document.querySelector(".quiz_list");
+    list_box = document.querySelector("#quiz_list");
     
     orderBtns = document.querySelectorAll(".order_btn");
     for(var btn of orderBtns){

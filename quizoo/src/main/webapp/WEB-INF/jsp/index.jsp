@@ -82,7 +82,7 @@
 
 		</header>
 
-		<div class="quiz_list">
+		<div class="quiz_list" id="quiz_list">
 			<div class="box">
 				<div class="width row">
 					<div class="title col">常識クイズ</div>
