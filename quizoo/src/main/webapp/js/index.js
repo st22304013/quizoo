@@ -82,11 +82,18 @@ async function quizlistFactory(quizList){
         
         ratio = document.createElement('a');
         ratio.setAttribute('class','raito');
-        ratio.innerText = ' ' + (parseFloat(quiz['correctRate'])/parseFloat(quiz['questionCount'])).toFixed(2);
+        if(quiz['questionCount'] ==  0){
+            ratio.innerText = '回答者なし'
+        }else{
+            ratio.innerText = ' ' + (parseFloat(quiz['correctRate'])/parseFloat(quiz['questionCount'])).toFixed(2)
+        }
         
         author = document.createElement('a');
         author.setAttribute('class','author');
         author.innerText = quiz['nickname'];
+        if(author.innerText){
+            author.innerText = '名無しさん'
+        }
         
         info.appendChild(author);
         info.appendChild(create_time);
