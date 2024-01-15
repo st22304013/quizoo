@@ -126,7 +126,14 @@ header {
 }
 
 .quiz .information {
-	margin-right: 200px;
+	position: absolute;
+	z-index: 10;
+	width: 100%;
+	text-align: center!important;
+}
+
+.quiz .information a{
+	margin:0 0.5rem;
 }
 
 .quiz .answer-link{
