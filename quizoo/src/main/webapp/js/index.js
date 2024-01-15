@@ -54,6 +54,11 @@ async function quizlistFactory(quizList){
 
         box = document.createElement('div');
         box.setAttribute('class','box');
+        link = document.createElement('a');
+        link.setAttribute('href','answer?quiz_id='+quiz['quizId']);
+        link.setAttribute('class','answer-link')
+        box.appendChild(link);
+
         row = document.createElement('div');
         row.setAttribute('class','width row');
         title = document.createElement('div');
