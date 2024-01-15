@@ -90,6 +90,7 @@ async function quizlistFactory(quizList){
 
         let nickname = quiz['authorNickname'];
         author.innerText = nickname ? nickname : "名無しさん";
+        author.setAttribute('href','profile?user_no='+quiz['authorNo']);
         
         info.appendChild(author);
         info.appendChild(create_time);
