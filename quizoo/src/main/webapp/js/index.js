@@ -46,12 +46,9 @@ async function getQuizList() {
 }
 
 async function quizlistFactory(quizList){
-
     var list = document.createElement('div');
     list.setAttribute('class','quiz_list');
-    
     for(quiz of quizList){
-
         box = document.createElement('div');
         box.setAttribute('class','quiz');
         
@@ -90,10 +87,9 @@ async function quizlistFactory(quizList){
         
         author = document.createElement('a');
         author.setAttribute('class','author');
-        author.innerText = quiz['nickname'];
-        if(author.innerText){
-            author.innerText = '名無しさん'
-        }
+
+        let nickname = quiz['authorNickname'];
+        author.innerText = nickname ? nickname : "名無しさん";
         
         info.appendChild(author);
         info.appendChild(create_time);
