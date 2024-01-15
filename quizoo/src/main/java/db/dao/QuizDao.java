@@ -24,7 +24,7 @@ public class QuizDao extends Dao{
 		try {
 			connect();
 			
-			String sql = "SELECT * FROM quiz INNER JOIN genre USING(genre_no) ORDER BY "; 
+			String sql = "SELECT * FROM quiz INNER JOIN genre USING(genre_no) LEFT OUTER JOIN nickname on quiz.author_no = nickname.user_no ORDER BY "; 
 			sql = sql + columnName;
 			st = cn.prepareStatement(sql);
 			rs = st.executeQuery();
@@ -41,7 +41,7 @@ public class QuizDao extends Dao{
 				quizbean.setCreateTime(rs.getString("create_time"));
 				quizbean.setCorrectRate(rs.getFloat("correct_rate"));
 				quizbean.setTotalParticipants(rs.getInt("total_participants"));	
-				
+				quizbean.setAuthorNickname(rs.getString("nickname"));
 				quizlist.add(quizbean);
 				
 			}
