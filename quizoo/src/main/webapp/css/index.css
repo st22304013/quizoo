@@ -110,12 +110,12 @@ header {
 }
 
 
-.title {
+.quiz .title {
 	font-size: 30px;
 	margin-left: 100px;
 }
 
-.information {
+.quiz .information {
 	margin-right: 200px;
 }
 
