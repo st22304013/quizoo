@@ -82,8 +82,8 @@
 
 		</header>
 
-		<div class="quiz_list">
-			<div class="box">
+		<div class="quiz_list" id="quiz_list">
+			<div class="quiz">
 				<div class="width row">
 					<div class="title col">常識クイズ</div>
 					<div class="d-flex align-items-center col">常識に関するクイズです</div>

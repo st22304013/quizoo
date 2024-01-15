@@ -1,5 +1,6 @@
 @charset "UTF-8";
 
+/* --全画面共通-- */
 /*全画面共通body*/
 body {
 	background-color: #fffaef;
@@ -43,9 +44,11 @@ header {
 	width: 130px;
 }
 
-/*index.html*/
 
-/*下のヘッダー*/
+
+/*--index.html--*/
+
+/*-並び替えメニュー-*/
 .secondary-header {
 	z-index: 97;
 	top:120px;
@@ -99,7 +102,15 @@ header {
 	margin:0 120px;
 }
 
-.box {
+/* -クイズ- */
+
+/* クイズ一覧 */
+.quiz_list{
+	margin-top: 260px;
+}
+
+/* 各クイズ */
+.quiz {
 	position: relative;
 	padding: 25px;
 	margin: 60px;
@@ -109,19 +120,26 @@ header {
 	background-color: #ffff99;
 }
 
-
-.title {
+.quiz .title {
 	font-size: 30px;
 	margin-left: 100px;
 }
 
-.information {
+.quiz .information {
 	margin-right: 200px;
 }
 
-/*テスト*/
+.quiz .answer-link{
+	position: absolute;
+	top:0;
+	left:0;
+	width: 100%;
+	height: 100%;
+}
 
-/* ハンバーガーボタンのデザイン */
+/* -ハンバーガーメニュー- */
+
+/* ボタンのデザイン */
 .drawer__button {
 	margin-right: 30px;
 	position: relative;
@@ -134,7 +152,7 @@ header {
 	/* メニューを開いている時もクリックできるよう設定 */
 }
 
-/* ハンバーガーボタン内の線 */
+/* ボタンを区切る線 */
 .drawer__button>span {
 	display: block;
 	position: absolute;
@@ -614,15 +632,3 @@ button.create-btn-primary{
 }
 
 
-/* 回答リンク */
-.answer-link{
-	position: absolute;
-	top:0;
-	left:0;
-	width: 100%;
-	height: 100%;
-}
-
-.quiz_list{
-	margin-top: 260px;
-}

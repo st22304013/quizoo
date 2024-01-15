@@ -4,7 +4,7 @@
 var list_box;
 
 window.addEventListener('load',function(){
-    list_box = document.querySelector(".quiz_list");
+    list_box = document.querySelector("#quiz_list");
     
     orderBtns = document.querySelectorAll(".order_btn");
     for(var btn of orderBtns){
@@ -53,7 +53,7 @@ async function quizlistFactory(quizList){
     for(quiz of quizList){
 
         box = document.createElement('div');
-        box.setAttribute('class','box');
+        box.setAttribute('class','quiz');
         link = document.createElement('a');
         link.setAttribute('href','answer?quiz_id='+quiz['quizId']);
         link.setAttribute('class','answer-link')
