@@ -53,7 +53,7 @@ async function quizlistFactory(quizList){
     for(quiz of quizList){
 
         box = document.createElement('div');
-        box.setAttribute('class','box');
+        box.setAttribute('class','quiz');
         link = document.createElement('a');
         link.setAttribute('href','answer?quiz_id='+quiz['quizId']);
         link.setAttribute('class','answer-link')
