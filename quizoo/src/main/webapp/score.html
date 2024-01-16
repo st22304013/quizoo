@@ -3,14 +3,15 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>quiz</title>
+	<title>スコア</title>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
 		integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-	<link rel="stylesheet" href="css/profile.css">
+	<link rel="stylesheet" href="css/score.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 	<script src="https://kit.fontawesome.com/c82cac4dcf.js" crossorigin="anonymous"></script>
 	<link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css" rel="stylesheet">
+	
 </head>
 
 <body>
@@ -45,20 +46,24 @@
 				</div>
 			</nav>
 		</nav>
+		
 	</header>
-
-	<div class="profile text-center">
-		<form id="login-form" method="post" action="#">
-			<img src="img/quizoo.png" class="img-thumbnail" alt="icon"><br>
-			<div class="custom-file-input">
-				<input type="file" class="img" name="img" id="profile-img">
-				<label for="profile-img"><i class="fa-solid fa-camera-rotate"></i></label>
+	<div class="container">
+		<div class="score_accuracyrate row">
+			<div class="score col-sm-6">
+				<span class="border border-primary-subtle border-4">
+					score
+					10050
+				</span>
 			</div>
-			nickname <input type="text" class="nickname" name="nickname" id="profile-nickname" value="今のニックネーム入れる"><br>
-			password <input type="password" class="password" name="password" id="profile-password"><br>
-
-			<button type="submit" class="edit-btn btn btn-outline-secondary">編集</button>
-		</form>
+	
+			<div class="accuracyrate col-sm-6">
+				<span class="border border-primary-subtle border-4">
+					正解率
+					70.5%
+				</span>
+			</div>
+		</div>
 	</div>
 	
 	<!--	ハンバーガー -->
@@ -87,8 +92,7 @@
 			// function
 		});
 	</script>
-
-
+	
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
 		crossorigin="anonymous"></script>
