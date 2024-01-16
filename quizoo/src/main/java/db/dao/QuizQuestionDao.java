@@ -40,18 +40,21 @@ public class QuizQuestionDao extends Dao{
 			QuizBean  quizBean = new QuizBean();
 			
 			//QuizBeanにデータセット
-			quizBean.setQuizId(rs.getInt("quiz_id"));
-			quizBean.setAuthorNo(rs.getInt("author_no"));
-			quizBean.setTitle(rs.getString("title"));
-			quizBean.setQuestionCount(rs.getInt("question_count"));
-			quizBean.setGenreNo(rs.getInt("genre_no"));
-			quizBean.setGenre(rs.getString("genre"));
-			quizBean.setExplanation(rs.getString("explanation"));
-			quizBean.setCreateTime(rs.getString("create_time"));
-			quizBean.setCorrectRate(rs.getFloat("correct_rate"));
-			quizBean.setTotalParticipants(rs.getInt("total_participants"));
+			if(rs.next()) {
+				quizBean.setQuizId(rs.getInt("quiz_id"));
+				quizBean.setAuthorNo(rs.getInt("author_no"));
+				quizBean.setTitle(rs.getString("title"));
+				quizBean.setQuestionCount(rs.getInt("question_count"));
+				quizBean.setGenreNo(rs.getInt("genre_no"));
+				quizBean.setGenre(rs.getString("genre_title"));
+				quizBean.setExplanation(rs.getString("explanation"));
+				quizBean.setCreateTime(rs.getString("create_time"));
+				quizBean.setCorrectRate(rs.getFloat("correct_rate"));
+				quizBean.setTotalParticipants(rs.getInt("total_participants"));				
+			}
 			
 			quizQuestionBean.setQuiz(quizBean);
+			
 			
 			//question表からデータを取得
 			String question_sql = "SELECT * FROM question WHERE quiz_id = ?";
