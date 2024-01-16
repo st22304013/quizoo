@@ -31,7 +31,7 @@ public class Login extends Service{
 		}
 		
 		UserInfoDao dao = new UserInfoDao();
-		UserInfoBean bean = dao.selectUser(userId);
+		UserInfoBean bean = dao.selectSearchedUserByUserId(userId);
 		
 		//ハッシュ化されたパスワードを取得
 		try {
