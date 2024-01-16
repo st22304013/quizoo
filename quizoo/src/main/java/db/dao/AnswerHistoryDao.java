@@ -82,8 +82,8 @@ public class AnswerHistoryDao extends Dao {
 		
 		connect();
 		
-		String sql = "INSERT INTO answerhistory (user_no, quiz_id, answered_time, correct_count)"
-				+ "VALUES(?, ?, now(0), ?)";
+		String sql = "INSERT INTO answerhistory (user_no, quiz_id, correct_count)"
+				+ "VALUES(?, ?, ?)";
 		
 		try {
 			st = cn.prepareStatement(sql);
