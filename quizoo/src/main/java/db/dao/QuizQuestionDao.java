@@ -85,7 +85,6 @@ public class QuizQuestionDao extends Dao{
 			
 			quizQuestionBean.setQuestion(questionList);
 			
-			cn.commit();
 			
 		} catch(SQLException e) {
             try{
