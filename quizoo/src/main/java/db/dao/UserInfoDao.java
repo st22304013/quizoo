@@ -62,7 +62,7 @@ public class UserInfoDao extends Dao {
 				close();
 			}
 		}
-		return userbean;
+		return userbean != null ? userbean : null;
 	}
 	
 	/**
