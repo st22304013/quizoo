@@ -128,7 +128,7 @@ public class QuizDao extends Dao{
 				close();
 			}
 		}
-		return quizbean != null ? quizbean : null;
+		return quizbean;
 	}
 	
 	

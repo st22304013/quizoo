@@ -105,7 +105,7 @@ public class QuizQuestionDao extends Dao{
                 close();
             }
         }
-		return quizQuestionBean != null  ? null : quizQuestionBean;
+		return quizQuestionBean;
 	}
 	
 	/**
