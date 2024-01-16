@@ -50,19 +50,19 @@ public class QuizListGetter extends Service {
 		
 		if(genreNoInteger != null && orderStr != null) {
 			
-			quizList = quizDao.selectOrderedQuiz(orderStr, (int)genreNoInteger);
+			quizList = quizDao.selectQuizByColumnNameAndGenreNo(orderStr, (int)genreNoInteger);
 			
 		} else if(genreNoInteger == null && order != null) {
 			
-			quizList = quizDao.selectOrderedQuiz(orderStr);
+			quizList = quizDao.selectOrderedQuizByColumnName(orderStr);
 			
 		} else if(genreNoInteger != null && orderStr == null){
-			quizList = quizDao.searchQuiz((int)genreNoInteger);
+			quizList = quizDao.selectSearchedQuizByGenreNo((int)genreNoInteger);
 		} else {
 			quizList = quizDao.selectQuiz();
 		}
 		
-		
+		//quizIdによる検索のメソッドは？
 
 		PrintWriter out = res.getWrite();
 		
