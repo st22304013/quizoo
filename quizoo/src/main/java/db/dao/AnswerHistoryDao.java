@@ -70,7 +70,7 @@ public class AnswerHistoryDao extends Dao {
 		
 		close();
 		
-		return Answerhistory;
+		return Answerhistory.isEmpty() ? null : Answerhistory;
 	}
 	
 	/**

@@ -68,7 +68,7 @@ public class QuizDao extends Dao{
 				close();
 			}
 		}
-		return quizlist;
+		return quizlist.isEmpty() ? null : quizlist;
 		
 	}	
 	
@@ -195,7 +195,7 @@ public class QuizDao extends Dao{
 				close();
 			}
 		}
-		return quizlist;
+		return quizlist.isEmpty() ? null : quizlist;
 		
 	}
 
@@ -254,7 +254,7 @@ public class QuizDao extends Dao{
 				close();
 			}
 		}
-		return quizList;
+		return quizList.isEmpty() ? null : quizList;
 	}
 	
 	/**
