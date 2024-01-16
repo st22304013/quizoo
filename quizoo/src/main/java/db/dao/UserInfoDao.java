@@ -18,7 +18,7 @@ public class UserInfoDao extends Dao {
 	 * @return 取得されたユーザーデータ
 	 * @throws ResourceException データ取得時に例外が発生した場合
 	 */
-	public UserInfoBean selectUser(String user_id) throws ResourceException {
+	public UserInfoBean selectSearchedUserByUserId(String user_id) throws ResourceException {
 
 		PreparedStatement st = null;
 		ResultSet rs = null;
