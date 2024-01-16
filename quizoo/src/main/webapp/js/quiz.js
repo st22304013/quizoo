@@ -15,7 +15,7 @@ window.addEventListener('load',async function(){
 
     quizAndQuestions = await loadQuiz(quiz_id);
 
-    await displayQuestionsList(quizAndQuestions['question']);
+    await displayQuestionsList();
 })
 
 
@@ -30,11 +30,11 @@ async function loadQuiz(quiz_id){
     }
 }
 
-async function displayQuestionsList(questions){
+async function displayQuestionsList(){
     var newQuestionlist = document.createElement('ol');
     newQuestionlist.setAttribute('id','question_list');
 
-    for(var question of questions){
+    for(var question of quizAndQuestions['question']){
         var questionElement = document.createElement('li');
         questionElement.innerText = question['question'];
         newQuestionlist.appendChild(questionElement);
@@ -43,7 +43,6 @@ async function displayQuestionsList(questions){
     questionlist.replaceWith(newQuestionlist);
 }
 
+async function displayQuiestionDetails(questionNo){
 
-function redirect(url){
-    location.href = url;
 }
