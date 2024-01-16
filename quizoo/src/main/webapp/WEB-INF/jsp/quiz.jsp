@@ -24,12 +24,14 @@
 	</header>
 	<div class="container">
 
-		<div class="quizlist" id="quizlist">
+		<div class="quizlist">
 			<div class="d-flex flex-column">
-				<a>1.20歳</a>
-				<a>2.長野県</a>
-				<a>3.東中野</a>
-				<a>4.東中野</a>
+				<ol  id="question_list">
+					<li>20歳</li>
+					<li>長野県</li>
+					<li>東中野</li>
+					<li>東中野</li>
+				</ol>
 
 				<!-- Button trigger modal -->
 				<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
