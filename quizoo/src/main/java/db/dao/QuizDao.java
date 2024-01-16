@@ -17,7 +17,7 @@ public class QuizDao extends Dao{
 	 * @return ArrayListに格納されたQuizBeanを返します
 	 * @throws ResourceException データ取得時に例外が発生した場合
 	 */
-	public ArrayList<QuizBean> selectOrderedQuiz(String columnName)throws ResourceException{
+	public ArrayList<QuizBean> selectOrderedQuizByColumnName(String columnName)throws ResourceException{
 
 		ArrayList<QuizBean> quizlist = new ArrayList<>();
 		
@@ -74,7 +74,7 @@ public class QuizDao extends Dao{
 	 * @throws ResourceException データ取得時に例外が発生した場合
 	 */
 	public ArrayList<QuizBean> selectQuiz() throws ResourceException {
-		return selectOrderedQuiz("create_time");
+		return selectOrderedQuizByColumnName("create_time");
 	}
 	
 	/**
@@ -83,7 +83,7 @@ public class QuizDao extends Dao{
 	 * @return 取得されたクイズのQuizBean
 	 * @throws ResourceException データ取得時に例外が発生した場合
 	 */
-	public QuizBean selectQuiz(int quizId) throws ResourceException {
+	public QuizBean selectSearchedQuizByQuizId(int quizId) throws ResourceException {
 		
 		QuizBean quizbean = new QuizBean();
 		
@@ -139,7 +139,7 @@ public class QuizDao extends Dao{
 	 * @return ArrayListに格納されたQuizBeanを返します
 	 * @throws ResourceException ResourceException データ取得時に例外が発生した場合
 	 */
-	public ArrayList<QuizBean> selectOrderedQuiz(String columnName, int genreNo)throws ResourceException{
+	public ArrayList<QuizBean> selectQuizByColumnNameAndGenreNo(String columnName, int genreNo)throws ResourceException{
 		
 		ArrayList<QuizBean> quizlist = new ArrayList<>();
 		
@@ -198,7 +198,7 @@ public class QuizDao extends Dao{
 	 * @return ArrayListに格のされたQuizBeanを返します
 	 * @throws ResourceException ResourceException データ取得時に例外が発生した場合
 	 */
-	public ArrayList<QuizBean> searchQuiz(int genreNo) throws ResourceException {
+	public ArrayList<QuizBean> selectSearchedQuizByGenreNo(int genreNo) throws ResourceException {
 		
 		QuizBean quizbean = new QuizBean();
 		ArrayList<QuizBean> quizList = new ArrayList<>();
