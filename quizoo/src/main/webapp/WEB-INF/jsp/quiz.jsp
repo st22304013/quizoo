@@ -89,7 +89,7 @@
 					<a>5/5</a>
 				</div>
 				<div class="border border-dark rounded bg-white">
-					<div class="sentence">
+					<div class="sentence" id="question-sentence">
 						こまむらえいやの誕生日は何月何日でしょう？
 						ああああああああああああああああああああああああああああああああああああああああああああ
 						ああああああああああああああああああああああああああああああああああああああああああああ

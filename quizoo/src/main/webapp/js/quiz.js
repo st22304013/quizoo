@@ -4,9 +4,11 @@
 
 let quizAndQuestions;
 let quiz_id;
+let currentQuestionNo;
 
-window.addEventListener('load',async function(){
+window.addEventListener('load', async function () {
     questionlist = this.document.querySelector('#question_list');
+
 
     // quiz_id‚ðƒNƒGƒŠ•¶Žš—ñ‚©‚çŽæ“¾
     var currentURL = new URL(this.window.location.href);
@@ -19,30 +21,55 @@ window.addEventListener('load',async function(){
 })
 
 
-async function loadQuiz(quiz_id){
-    var fetchResponse = await fetch('/quizoo/quizquestion?quiz_id='+quiz_id);
-    if(fetchResponse.ok){
+async function loadQuiz(quiz_id) {
+    var fetchResponse = await fetch('/quizoo/quizquestion?quiz_id=' + quiz_id);
+    if (fetchResponse.ok) {
         quizQuestionJson = fetchResponse.json();
         return quizQuestionJson;
-    }else{
+    } else {
         // redirect('/quizoo/error');
         alert('fetchError!! \n ');
     }
 }
 
-async function displayQuestionsList(){
-    var newQuestionlist = document.createElement('ol');
-    newQuestionlist.setAttribute('id','question_list');
+async function displayQuestionsList() {
+    const newQuestionlist = document.createElement('ol');
+    newQuestionlist.setAttribute('id', 'question_list');
 
-    for(var question of quizAndQuestions['question']){
-        var questionElement = document.createElement('li');
+    for (const question of quizAndQuestions['question']) {
+        const questionElement = document.createElement('li');
         questionElement.innerText = question['question'];
+
+        questionElement.addEventListener('click', () => {
+            return displayQuestionDetails(question.questionId);
+        });
+        
         newQuestionlist.appendChild(questionElement);
     }
 
     questionlist.replaceWith(newQuestionlist);
 }
 
-async function displayQuiestionDetails(questionNo){
+function displayQuestionDetails(questionNo) {
+    if (questionNo === currentQuestionNo) {
+        return;
+    }
+
+    saveCurrentAnswer();
+
+
+    var willDisplay = quizAndQuestions['question'][questionNo - 1];
+
+    oldSentence = document.querySelector('#question-sentence');
+    newSnetence = document.createElement('div');
+    newSnetence.setAttribute('class', 'sentence');
+    newSnetence.setAttribute('id', 'question-sentence');
+    newSnetence.innerText = willDisplay['question'];
+
+    oldSentence.replaceWith(newSnetence);
+
+}
+
+async function saveCurrentAnswer() {
 
 }
