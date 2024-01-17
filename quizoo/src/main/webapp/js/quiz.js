@@ -56,20 +56,28 @@ function displayQuestionDetails(questionNo) {
     }
 
     saveCurrentAnswer();
+    
+    let newSnetence = createSentence(questionNo);
+    oldSentence.replaceWith(newSnetence);
+    
+}
 
 
-    var willDisplay = quizAndQuestions['question'][questionNo - 1];
+async function saveCurrentAnswer() {
+    
+}
 
+
+function createSentence(questionNo) {
+    let willDisplay = quizAndQuestions['question'][questionNo - 1];
     oldSentence = document.querySelector('#question-sentence');
-    newSnetence = document.createElement('div');
+    let newSnetence = document.createElement('div');
     newSnetence.setAttribute('class', 'sentence');
     newSnetence.setAttribute('id', 'question-sentence');
     newSnetence.innerText = willDisplay['question'];
 
-    oldSentence.replaceWith(newSnetence);
-
+    return newSnetence;
 }
-
-async function saveCurrentAnswer() {
-
+async function createChoiseNodes(quiz_id) {
+    
 }
