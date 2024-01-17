@@ -8,7 +8,7 @@ body {
 	/* ページの最大横幅を画面幅と同じに設定 */
 	margin: 0;
 	/* ページを水平中央に配置するために左右の余白を自動調整 */
-	margin-top: 200px;
+	margin-top: 150px;
 
 }
 
@@ -46,6 +46,10 @@ header {
 	margin-left: 10px;
 	width: 130px;
 	top: 0;
+}
+
+.container {
+	margin-top: 20px;
 }
 
 .score {
