@@ -1,3 +1,6 @@
+/* コマンドプロンプトから接続 */
+/*mysql --local-infile=1 -u root -p*/
+
 /* データベース */
 create database quizoo;
 
@@ -106,3 +109,51 @@ BEGIN
 END;
 //
 DELIMITER ;
+
+
+LOAD DATA LOCAL INFILE 'C:/repos/QuiZoo/quizoo/testdata/userinfo.csv' 
+	INTO TABLE userinfo
+	FIELDS TERMINATED BY ','
+	LINES TERMINATED BY '\r\n'
+	IGNORE 1 ROWS
+    (user_id,password,total_answer,correct_answer,rating);
+
+
+LOAD DATA LOCAL INFILE 'C:/repos/QuiZoo/quizoo/testdata/quiz.csv' 
+	INTO TABLE quiz
+	FIELDS TERMINATED BY ','
+	LINES TERMINATED BY '\r\n'
+	IGNORE 1 ROWS
+    (author_no,title,question_count,genre_no,explanation,create_time,total_participants);
+
+
+LOAD DATA LOCAL INFILE 'C:/repos/QuiZoo/quizoo/testdata/question.csv' 
+	INTO TABLE question
+	FIELDS TERMINATED BY ','
+	LINES TERMINATED BY '\r\n'
+	IGNORE 1 ROWS
+    (quiz_id,question_id,question,choice_1,choice_2,choice_3,choice_4,judge);
+
+
+LOAD DATA LOCAL INFILE 'C:/repos/QuiZoo/quizoo/testdata/nickname.csv' 
+	INTO TABLE nickname
+	FIELDS TERMINATED BY ','
+	LINES TERMINATED BY '\r\n'
+	IGNORE 1 ROWS
+    (user_no,nickname);
+
+
+LOAD DATA LOCAL INFILE 'C:/repos/QuiZoo/quizoo/testdata/genre.csv' 
+	INTO TABLE genre
+	FIELDS TERMINATED BY ','
+	LINES TERMINATED BY '\r\n'
+	IGNORE 1 ROWS
+    (genre_no,genre_title);
+
+
+LOAD DATA LOCAL INFILE 'C:/repos/QuiZoo/quizoo/testdata/answerhistory.csv' 
+	INTO TABLE answerhistory
+	FIELDS TERMINATED BY ','
+	LINES TERMINATED BY '\r\n'
+	IGNORE 1 ROWS
+    (user_no,quiz_id,answered_time,question_count,correct_count);
