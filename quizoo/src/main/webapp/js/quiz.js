@@ -57,7 +57,7 @@ function displayQuestionDetails(questionNo) {
 
     saveCurrentAnswer();
     
-    let newSnetence = createSentence(questionNo);
+    let newSnetence = createSentenceNode(questionNo);
     oldSentence.replaceWith(newSnetence);
     
 }
@@ -68,7 +68,7 @@ async function saveCurrentAnswer() {
 }
 
 
-function createSentence(questionNo) {
+function createSentenceNode(questionNo) {
     let willDisplay = quizAndQuestions['question'][questionNo - 1];
     oldSentence = document.querySelector('#question-sentence');
     let newSnetence = document.createElement('div');
