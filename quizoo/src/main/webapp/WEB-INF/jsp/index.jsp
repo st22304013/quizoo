@@ -31,7 +31,7 @@
 		<header>
 			<nav class="navbar navbar-light fixed-top">
 				<div class="header-img">
-					<img src="img/quizoo_nobackground.png" alt="quizoo">
+					<a href="index"><img src="img/quizoo_nobackground.png" alt="quizoo"></a>
 				</div>
 				<div class="input-group" style="width: 30%;">
 					<input type="text" class="form-control" placeholder="Search">
@@ -55,13 +55,13 @@
 					<div class="drawer__nav__inner">
 						<ul class="drawer__nav__menu">
 							<li class="drawer__nav__item">
-								<a class="drawer__nav__link" href="#">プロフィール編集</a>
+								<a class="drawer__nav__link" href="profile">プロフィール編集</a>
 							</li>
 							<li class="drawer__nav__item">
-								<a class="drawer__nav__link" href="#">作成履歴</a>
+								<a class="drawer__nav__link" href="createhistory">作成履歴</a>
 							</li>
 							<li class="drawer__nav__item">
-								<a class="drawer__nav__link" href="#">スコア詳細</a>
+								<a class="drawer__nav__link" href="score">スコア詳細</a>
 							</li>
 							<li class="drawer__nav__item">
 								<a class="drawer__nav__link" href="#">ログアウト</a>
