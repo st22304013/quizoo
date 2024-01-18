@@ -33,7 +33,7 @@ window.addEventListener('load', async function () {
     });
 
     this.document.querySelector("#sendAnswerButton").addEventListener('click', async ()=>{
-        // await sendAnswer();
+        await sendAnswer();
         this.location.href = 'index';
     });
 
@@ -128,4 +128,18 @@ function createChoiseNodes(questionNo) {
 
     return newChoicesWrapper;
 
+}
+
+async function sendAnswer(){
+    let response = await fetch('/quizoo/submitanswer', {
+        method: 'POST',
+        credentials: 'include',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            'quiz_id': quiz_id,
+            'answers': selectedAnswers
+        })
+    });
 }
