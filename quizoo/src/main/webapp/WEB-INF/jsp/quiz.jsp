@@ -102,7 +102,7 @@
 						ああああああああああああああああああああああああああああああああああああああああああああ
 						ああああああああああああああああああああああああああああああああああああああああああああ
 					</div>
-					<div class="choices">
+					<div class="choices"  id="question-choices">
 						<div class="choice">1. 1月1日</div>
 						<div class="choice">2. 2月18日</div>
 						<div class="choice">3. 4月5日</div>
