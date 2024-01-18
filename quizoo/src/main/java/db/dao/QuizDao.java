@@ -30,6 +30,7 @@ public class QuizDao extends Dao{
 			rs = st.executeQuery();
 			
 			while(rs.next()) {
+				//ResultSetからQuizBeanにプロパティを設定
 				QuizBean quizbean = new QuizBean();
 				quizbean.setQuizId(rs.getInt("quiz_id"));
 				quizbean.setAuthorNo(rs.getInt("author_no"));
@@ -46,12 +47,14 @@ public class QuizDao extends Dao{
 				
 			}
 		} catch(SQLException e) {
+			//SQL例外を処理、必要に応じてロールバック
 			try {
 				cn.rollback();
 			} catch(SQLException e2) {
 				throw new ResourceException(e2.getMessage(), e2);
 			}
 		} finally {
+			//リソースを閉じる
 			try {
 				if(rs != null) {
 					rs.close();
@@ -65,7 +68,7 @@ public class QuizDao extends Dao{
 				close();
 			}
 		}
-		return quizlist;
+		return quizlist.isEmpty() ? null : quizlist;
 		
 	}	
 	
@@ -96,6 +99,7 @@ public class QuizDao extends Dao{
 			rs = st.executeQuery();
 			
 			while(rs.next()) {
+				//ResultSetからQuizBeanのプロパティを設定
 				quizbean.setQuizId(rs.getInt("quiz_id"));
 				quizbean.setAuthorNo(rs.getInt("author_no"));
 				quizbean.setTitle(rs.getString("title"));
@@ -109,12 +113,14 @@ public class QuizDao extends Dao{
 			
 			}
 		} catch(SQLException e) {
+			//SQL例外を処理、必要に応じてロールバック
 			try {
 				cn.rollback();
 			} catch(SQLException e2) {
 				throw new ResourceException(e2.getMessage(), e2);
 			}
 		} finally {
+			//リソースを閉じる
 			try {
 				if(rs != null) {
 					rs.close();
@@ -153,6 +159,7 @@ public class QuizDao extends Dao{
 			rs = st.executeQuery();
 			
 			while(rs.next()) {
+				//ResultSetからQuizBeanのプロパティを設定
 				QuizBean quizbean = new QuizBean();
 				quizbean.setQuizId(rs.getInt("quiz_id"));
 				quizbean.setAuthorNo(rs.getInt("author_no"));
@@ -188,7 +195,7 @@ public class QuizDao extends Dao{
 				close();
 			}
 		}
-		return quizlist;
+		return quizlist.isEmpty() ? null : quizlist;
 		
 	}
 
@@ -212,6 +219,7 @@ public class QuizDao extends Dao{
 			rs = st.executeQuery();
 			
 			while(rs.next()) {
+				//ResultSetからQuizBeanのプロパティを設定
 				quizbean.setQuizId(rs.getInt("quiz_id"));
 				quizbean.setAuthorNo(rs.getInt("author_no"));
 				quizbean.setTitle(rs.getString("title"));
@@ -246,7 +254,7 @@ public class QuizDao extends Dao{
 				close();
 			}
 		}
-		return quizList;
+		return quizList.isEmpty() ? null : quizList;
 	}
 	
 	/**
