@@ -34,7 +34,7 @@
 				</ol>
 
 				<!-- Button trigger modal -->
-				<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+				<button type="button" id="endButton" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
 					回答完了
 				</button>
 			</div>
@@ -48,9 +48,9 @@
 							本当に終了しますか？
 						</div>
 						<div class="modal-footer">
-							<button type="button" class="no-btn btn btn-secondary" data-bs-dismiss="modal">いいえ</button>
-							<button type="button" class="yes-btn btn btn-primary" id="endButton"
-								data-bs-target="#secondModal">はい</button>
+							<button type="button" class="no-btn btn btn-secondary" data-bs-dismiss="modal" id="dontSendButton">いいえ</button>
+							<button type="button" class="yes-btn btn btn-primary" id="sendAnswerButton" 
+								data-bs-target="#secondModal" >はい</button>
 						</div>
 					</div>
 				</div>
@@ -110,7 +110,7 @@
 					</div>
 				</div>
 
-				<div class="answer">
+				<div class="answer" id="answer_btn">
 					<button type="button" class="btn btn-danger">1</button>
 					<button type="button" class="btn btn-primary">2</button>
 					<button type="button" class="btn btn-warning">3</button>
@@ -120,20 +120,6 @@
 
 		</div>
 	</div>
-
-	<script>
-		document.getElementById('endButton').addEventListener('click', function () {
-			// 現在のモーダルを閉じる
-			$('#exampleModal').modal('hide');
-
-			// 新しいモーダルを表示
-			$('#secondModal').modal('show');
-		});
-		document.getElementById('closeButton').addEventListener('click', function () {
-			// closeButtonがクリックされたらindex.htmlに遷移
-			window.location.href = 'index';
-		});
-	</script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
 		crossorigin="anonymous"></script>

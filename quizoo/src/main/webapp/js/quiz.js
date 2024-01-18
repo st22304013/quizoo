@@ -5,6 +5,7 @@
 let quizAndQuestions;
 let quiz_id;
 let currentQuestionNo;
+let selectedAnswers = [];
 
 window.addEventListener('load', async function () {
     questionlist = this.document.querySelector('#question_list');
@@ -16,6 +17,30 @@ window.addEventListener('load', async function () {
     quiz_id = params.get('quiz_id');
 
     quizAndQuestions = await loadQuiz(quiz_id);
+
+    // 選択肢ボタンを設定
+    let answerBtns = document.querySelectorAll('#answer_btn button');
+
+    for(let i = 0; i < answerBtns.length; i++) {
+        answerBtns[i].addEventListener('click', function() {
+            choiceBtnClickHandler(i);
+        });
+    }
+
+    // 回答送信の確認画面を表示
+    document.querySelector('#endButton').addEventListener('click', ()=>{
+        this.document.querySelector('#exampleModal').classList.add('show');
+    });
+
+    this.document.querySelector("#sendAnswerButton").addEventListener('click', async ()=>{
+        // await sendAnswer();
+        this.location.href = 'index';
+    });
+
+    this.document.querySelector("#dontSendButton").addEventListener('click', ()=>{
+        this.document.querySelector('#secondModal').classList.remove('show');
+    });
+
 
     await displayQuestionsList();
 })
@@ -51,11 +76,10 @@ async function displayQuestionsList() {
 }
 
 function displayQuestionDetails(questionNo) {
-    if (questionNo === currentQuestionNo) {
-        return;
-    }
+    if (questionNo === currentQuestionNo)  return;
+    if (questionNo > quizAndQuestions['question'].length || questionNo < 0) return;
 
-    saveCurrentAnswer();
+    currentQuestionNo = questionNo;
     
     let newSnetence = createSentenceNode(questionNo);
     oldSentence.replaceWith(newSnetence);
@@ -68,8 +92,9 @@ function displayQuestionDetails(questionNo) {
 }
 
 
-async function saveCurrentAnswer() {
-    
+function choiceBtnClickHandler(ClickedNo){
+    selectedAnswers[currentQuestionNo - 1] = ClickedNo;
+    displayQuestionDetails(currentQuestionNo + 1);
 }
 
 
