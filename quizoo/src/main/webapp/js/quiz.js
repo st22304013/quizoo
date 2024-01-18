@@ -94,7 +94,7 @@ function createChoiseNodes(questionNo) {
     // ˆêŽž“I‚É‚È‚µ
     // choiceBtn.setAttribute('class', '');
     
-    for(let i in 10){
+    for(let i = 1; i <= 4; i++) {
         let choiceBtn = document.createElement('div');
         choiceBtn.setAttribute('class','choice');
         choiceBtn.innerText = question['choice'+i];
