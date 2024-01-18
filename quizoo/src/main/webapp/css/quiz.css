@@ -89,6 +89,16 @@ header {
 	color: #ff0000;
 }
 
+/*回答完了ボタン*/
+.close-btn {
+	color: #404040;
+	background-color: #ffa500;
+	width: 270px;
+	height: 40px;
+	border: none;
+	border-radius: 5%;
+}
+
 /*回答する欄*/
 .Problem-statement {
 	background-color: #fffaef;
@@ -222,10 +232,4 @@ a.btn--orange:hover {
 
 .score>h3 {
 	margin-right: 20px;
-}
-
-.close-btn {
-	font-size: 30px;
-	width: 150px;
-	height: 70px;
 }

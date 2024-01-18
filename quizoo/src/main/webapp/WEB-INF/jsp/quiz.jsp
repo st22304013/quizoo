@@ -33,10 +33,10 @@
 
 		<div class="quizlist">
 			<div class="d-flex flex-column">
-				<a>1.20歳</a> <a>2.長野県</a> <a>3.東中野</a> <a>4.東中野</a><a class="active_question">5.未回答</a>
+				<a>1.20歳</a> <a>2.長野県</a> <a>3.東中野</a> <a>4.東中野</a><a class="active_question">5.</a>
 
 				<!-- Button trigger modal -->
-				<button type="button" class="btn btn-primary" data-bs-toggle="modal"
+				<button type="button" class="close-btn" data-bs-toggle="modal"
 					data-bs-target="#exampleModal">回答完了</button>
 			</div>
 
