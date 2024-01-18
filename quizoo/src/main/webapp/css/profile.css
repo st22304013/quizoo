@@ -170,12 +170,13 @@ section:nth-child(even) {
 .profile {
 	padding: 20px;
 	margin-top: 120px;
+	font-size: 20px;
 }
 
 /*プロフィール画像*/
-.img-thumbnail {
-	margin-top: 50px;
-	border-radius: 50%;
+.prof-img {
+	margin-top: 30px;
+/*	border-radius: 50%;*/
 	width: 200px;
 	height: 200px;
 }
@@ -230,6 +231,34 @@ section:nth-child(even) {
 	border-bottom-color: #ffa500;
 }
 
-.edit-btn {
-	margin-top: 20px;
+/* ボタンのスタイル */
+.buttonRound {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 320px;
+  height: 64px;
+  padding: 8px 24px;
+  font-family: sans-serif;
+  font-size: 20px;
+  text-align: center;
+  overflow-wrap: anywhere;
+  color: #ffffff;
+  background-color: #f39700;
+  border-radius: 32px; /* (buttonの高さ / 2) の値 */
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 40px;
+  border: none;
+}
+
+@media (any-hover: hover) {
+  .buttonRound {
+    transition: background-color 0.2s;
+  }
+
+  .buttonRound:hover {
+    background-color: #54802f;
+  }
 }

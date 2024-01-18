@@ -60,6 +60,33 @@
   	<url-pattern>/answer</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+  	<servlet-name>createhistory-page</servlet-name>
+  	<jsp-file>/WEB-INF/jsp/createhistory.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>createhistory-page</servlet-name>
+  	<url-pattern>/createhistory</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>profile-page</servlet-name>
+  	<jsp-file>/WEB-INF/jsp/profile.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>profile-page</servlet-name>
+  	<url-pattern>/profile</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>score-page</servlet-name>
+  	<jsp-file>/WEB-INF/jsp/score.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>score-page</servlet-name>
+  	<url-pattern>/score</url-pattern>
+  </servlet-mapping>
+  
   
   
   <servlet>
