@@ -92,7 +92,7 @@ function displayQuestionDetails(questionNo) {
     let newChoicesWrapper = createChoiseNodes(questionNo);
     oldChoicesWrapper.replaceWith(newChoicesWrapper);
     
-    
+    chengeSelected(selectedAnswers[currentQuestionNo - 1]);
 }
 
 
