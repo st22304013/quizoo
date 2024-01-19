@@ -512,7 +512,9 @@ a.btn-border-shadow--color2:before {
     overflow: hidden;
 }
 
-
+.quiz-metadata div {
+	padding: 10px;
+}
 	
 
 /* 作問制御 */
@@ -523,8 +525,8 @@ a.btn-border-shadow--color2:before {
 
 .create-question-text{
 	min-width: 0;
-	width: 95%;
-	height: 400px;
+	width: 85%;
+	height: 50%;
 	border-radius: 40px;
 	border: solid ;
 	background-color: #fff;
@@ -536,6 +538,10 @@ a.btn-border-shadow--color2:before {
 	height: 100%;
 	resize: none;
 	outline: none;
+}
+
+.create-question-choises {
+	height: 50%;
 }
 
 .create-modal-body{
@@ -550,7 +556,7 @@ a.btn-border-shadow--color2:before {
 }
 
 .create-modal-content{
-	background-color: #ffff99;
+	background-color: #ffffcc;
 	margin: 0;
 }
 

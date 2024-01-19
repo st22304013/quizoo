@@ -167,15 +167,15 @@
 					<div class="modal-body">
 						<h5>以下の内容で投稿します</h5>
 					</div>
-					<div id="quiz-metadata" >
+					<div id="quiz-metadata" class="quiz-metadata text-center">
 						<div id="quiz-title">
-							<h6>タイトルを入力</h6>
-							<input type="text" name="title" />
+							<!-- <h6>タイトルを入力</h6> -->
+							<input type="text" name="title" placeholder="タイトル"/>
 						</div>
 						<select name="genre">
 						</select>
 						<div id="explanation">
-							<input type="text" name="explanation"/>
+							<input type="text" name="explanation" placeholder="説明"/>
 						</div>
 					</div>
 					<div class="modal-footer">
