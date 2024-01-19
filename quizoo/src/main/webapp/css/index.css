@@ -56,10 +56,11 @@ header {
 	background-color: #BCFAF3;
 	display: flex;
 	width: 100%;
-	height: 80px;
+	height: 60px;
 	/* セカンダリーヘッダーの高さを設定 */
 	align-items: center;
 	/* 他のスタイルプロパティを追加 */
+	
 }
 
 .secondary-header a {
@@ -107,23 +108,25 @@ header {
 
 /* クイズ一覧 */
 .quiz_list{
-	margin-top: 260px;
+	margin-bottom: 0px;
 }
-
 /* 各クイズ */
 .quiz {
 	position: relative;
-	padding: 25px;
-	margin: 60px;
-	margin-bottom: 10px;
+	padding: 30px 0px;
+	padding-bottom: 40px;
+	margin: 0px 60px;
+	margin-bottom: 40px;
 	border: 1px solid #333333;
-	border-radius: 10px;
-	background-color: #ffff99;
+	border-radius: 80px;
+	background-color: rgb(215, 248, 215);
+	max-width: 60%;
 }
 
 .quiz .title {
 	font-size: 30px;
 	margin-left: 100px;
+	font-family: cursive;
 }
 
 .quiz .information {
@@ -131,6 +134,7 @@ header {
 	z-index: 10;
 	width: 100%;
 	text-align: center!important;
+	margin-top: 10px;
 }
 
 .quiz .information a{
@@ -143,6 +147,11 @@ header {
 	left:0;
 	width: 100%;
 	height: 100%;
+}
+
+.ex {
+	color: rgba( 255, 255, 255, 0.5);
+	opacity: 0.8;
 }
 
 /* -ハンバーガーメニュー- */
