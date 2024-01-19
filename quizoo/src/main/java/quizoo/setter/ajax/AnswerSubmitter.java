@@ -22,6 +22,7 @@ public class AnswerSubmitter extends Service {
 		// TODO 自動生成されたメソッド・スタブ
 		
 
+		System.out.println(req.getMessageBody());
         
         Gson gson = new Gson();
 

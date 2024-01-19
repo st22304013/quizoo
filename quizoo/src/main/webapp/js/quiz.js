@@ -6,6 +6,7 @@ let quizAndQuestions;
 let quiz_id;
 let currentQuestionNo;
 let selectedAnswers = [];
+let answerBtns;
 
 window.addEventListener('load', async function () {
     questionlist = this.document.querySelector('#question_list');
@@ -19,11 +20,12 @@ window.addEventListener('load', async function () {
     quizAndQuestions = await loadQuiz(quiz_id);
 
     // ‘I‘ğˆƒ{ƒ^ƒ“‚ğİ’è
-    let answerBtns = document.querySelectorAll('#answer_btn button');
+    answerBtns = document.querySelectorAll('#answer_btn button');
 
     for(let i = 0; i < answerBtns.length; i++) {
         answerBtns[i].addEventListener('click', function() {
             choiceBtnClickHandler(i);
+            chengeSelected(i);
         });
     }
 
@@ -43,6 +45,8 @@ window.addEventListener('load', async function () {
 
 
     await displayQuestionsList();
+
+    await displayQuestionDetails(1);
 })
 
 
@@ -142,4 +146,15 @@ async function sendAnswer(){
             'answers': selectedAnswers
         })
     });
+}
+
+
+function chengeSelected(selectedNo = 0) {
+    for(let i = 0; i < answerBtns.length; i++) {
+        if(selectedNo === i){
+            answerBtns[i].classList.add('selected');
+        }else{
+            answerBtns[i].classList.remove('selected');
+        }
+    }
 }

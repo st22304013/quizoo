@@ -273,3 +273,11 @@ header {
 .edit-btn {
 	margin-top: 20px;
 }
+
+.selected{
+	border:solid 3px #ff0000;	
+}
+
+.selected:hover{
+	border:solid 3px #ff0000;	
+}
