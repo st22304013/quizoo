@@ -5,21 +5,23 @@
 let quizAndQuestions;
 let quiz_id;
 let currentQuestionNo;
-let selectedAnswers = [];
+let selectedAnswers;
 let answerBtns;
 
 window.addEventListener('load', async function () {
     questionlist = this.document.querySelector('#question_list');
 
 
-    // quiz_id‚ğƒNƒGƒŠ•¶š—ñ‚©‚çæ“¾
+    // quiz_idã‚’ã‚¯ã‚¨ãƒªæ–‡å­—åˆ—ã‹ã‚‰å–å¾—
     var currentURL = new URL(this.window.location.href);
     var params = currentURL.searchParams;
     quiz_id = params.get('quiz_id');
 
     quizAndQuestions = await loadQuiz(quiz_id);
 
-    // ‘I‘ğˆƒ{ƒ^ƒ“‚ğİ’è
+    selectedAnswers = new Array(quizAndQuestions['question'].length);
+
+    // é¸æŠè‚¢ãƒœã‚¿ãƒ³ã‚’è¨­å®š
     answerBtns = document.querySelectorAll('#answer_btn button');
 
     for(let i = 0; i < answerBtns.length; i++) {
@@ -29,14 +31,15 @@ window.addEventListener('load', async function () {
         });
     }
 
-    // ‰ñ“š‘—M‚ÌŠm”F‰æ–Ê‚ğ•\¦
+    // å›ç­”é€ä¿¡ã®ç¢ºèªç”»é¢ã‚’è¡¨ç¤º
     document.querySelector('#endButton').addEventListener('click', ()=>{
         this.document.querySelector('#exampleModal').classList.add('show');
     });
 
     this.document.querySelector("#sendAnswerButton").addEventListener('click', async ()=>{
         await sendAnswer();
-        this.location.href = 'index';
+        scoring();
+        // this.location.href = 'index';
     });
 
     this.document.querySelector("#dontSendButton").addEventListener('click', ()=>{
@@ -47,6 +50,8 @@ window.addEventListener('load', async function () {
     await displayQuestionsList();
 
     await displayQuestionDetails(1);
+
+    scoring();
 })
 
 
@@ -120,7 +125,7 @@ function createChoiseNodes(questionNo) {
 
     let question = quizAndQuestions['question'][questionNo - 1];
 
-    // ˆê“I‚É‚È‚µ
+    // ä¸€æ™‚çš„ã«ãªã—
     // choiceBtn.setAttribute('class', '');
     
     for(let i = 1; i <= 4; i++) {
@@ -157,4 +162,14 @@ function chengeSelected(selectedNo = 0) {
             answerBtns[i].classList.remove('selected');
         }
     }
+}
+
+function scoring() {
+    let score = 0;
+    for(let i = 0; i < selectedAnswers.length; i++) {
+        if(quizAndQuestions['question'][i]['judge'][selectedAnswers[i]]) {
+            score++;
+        }
+    }
+    console.log(score);
 }

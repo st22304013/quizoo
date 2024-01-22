@@ -72,7 +72,7 @@
 								<p>4. 〇</p>
 								<p>5. ✕</p>
 							</div>
-							<div class="score text-end">
+							<div class="score text-end" id="score">
 								<h3>Points earned</h3>
 								<h1>200</h1>
 							</div>
