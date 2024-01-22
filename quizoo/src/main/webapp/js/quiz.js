@@ -2,6 +2,8 @@
  * 
  */
 
+import {Modal} from "bootstrap"
+
 let quizAndQuestions;
 let quiz_id;
 let currentQuestionNo;
