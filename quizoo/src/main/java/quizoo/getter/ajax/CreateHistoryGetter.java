@@ -21,19 +21,20 @@ public class CreateHistoryGetter extends Service {
 	public void execute(RequestContext req, ResponseContext res)
 			throws IOException, ResourceException, BadRequestException, NotFoundException {
 
-		ArrayList<QuizBean> createhistoryList = new ArrayList<>();
+		
 
 		int userNo = req.getUser().getUserNo();
 		
 		CreateHistoryDao createhistoryDao = new CreateHistoryDao();
 		
-		createhistoryList = createhistoryDao.selectcreateHistory(userNo);
+		ArrayList<QuizBean> createhistoryList = createhistoryDao.selectCreateHistory(userNo);
 		PrintWriter out = res.getWrite();
 
 		Gson gson = new Gson();
 		String result = gson.toJson(createhistoryList);
 
 		out.println(result);
+		
 
 	}
 
