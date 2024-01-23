@@ -34,7 +34,7 @@
 				</ol>
 
 				<!-- Button trigger modal -->
-				<button type="button" id="endButton" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+				<button type="button" id="endButton" class="btn btn-primary">
 					回答完了
 				</button>
 			</div>
@@ -46,7 +46,7 @@
 					<div class="modal-content">
 						<div class="modal-body">
 							本当に終了しますか？
-						</div>
+						</div>	
 						<div class="modal-footer">
 							<button type="button" class="no-btn btn btn-secondary" data-bs-dismiss="modal" id="dontSendButton">いいえ</button>
 							<button type="button" class="yes-btn btn btn-primary" id="sendAnswerButton" 
