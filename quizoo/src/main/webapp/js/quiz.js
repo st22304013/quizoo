@@ -52,7 +52,7 @@ window.addEventListener('load', async function () {
         // await sendAnswer();
         confirmModal.hide();
         resultModal.show();
-        // scoring();
+        scoring();
         // this.location.href = 'index';
     });
 
@@ -64,7 +64,6 @@ window.addEventListener('load', async function () {
 
     await displayQuestionDetails(1);
 
-    scoring();
 })
 
 // Rest of the code remains unchanged
