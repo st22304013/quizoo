@@ -14,8 +14,12 @@ let currentQuestionNo;
 let selectedAnswers;
 let answerBtns;
 let questionlist; // Declare questionlist variable
+let confirmModal; //送信確認のモーダル
 
 window.addEventListener('load', async function () {
+    // モーダルを取得
+    confirmModal = new Modal(this.document.querySelector("#exampleModal"));
+
     questionlist = this.document.querySelector('#question_list');
 
     // quiz_idをクエリ文字列から取得
@@ -39,12 +43,13 @@ window.addEventListener('load', async function () {
 
     // 回答送信の確認画面を表示
     document.querySelector('#endButton').addEventListener('click', ()=>{
-        this.document.querySelector('#exampleModal').classList.add('show');
+        confirmModal.show();
     });
 
     this.document.querySelector("#sendAnswerButton").addEventListener('click', async ()=>{
-        await sendAnswer();
-        scoring();
+        // await sendAnswer();
+        confirmModal.hide();
+        // scoring();
         // this.location.href = 'index';
     });
 
