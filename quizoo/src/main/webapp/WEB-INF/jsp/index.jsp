@@ -82,7 +82,7 @@
 
 		</header>
 		<!--　クイズリスト  -->
-		<div class="quiz_list" id="quiz_list">
+		<div class="quiz_list mx-auto" id="quiz_list">
 			<div class="quiz">
 				<div class="width row">
 					<div class="title col"><p class="ex">常識クイズ</p></div>
@@ -146,7 +146,7 @@
 								</fieldset>
 							</div>
 						</div>
-						<button type="button" id="create-btn-primary" class="btn btn-primary btn-circle create-btn-primary ">＋</button>
+						<button type="button" id="create-btn-primary" class="confirmation-btn">確認画面へ</button>
 					</div>
 				</div>
 			</div>
