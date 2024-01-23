@@ -49,7 +49,6 @@ window.addEventListener('load', async function () {
     });
 
     this.document.querySelector("#sendAnswerButton").addEventListener('click', async ()=>{
-        // await sendAnswer();
         confirmModal.hide();
         resultModal.show();
         scoring();
@@ -152,19 +151,6 @@ function createChoiseNodes(questionNo) {
 
 }
 
-async function sendAnswer(){
-    let response = await fetch('/quizoo/submitanswer', {
-        method: 'POST',
-        credentials: 'include',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            'quiz_id': quiz_id,
-            'answers': selectedAnswers
-        })
-    });
-}
 
 
 function chengeSelected(selectedNo = 0) {
@@ -192,7 +178,25 @@ function scoring() {
         }
         questionResult.appendChild(result);
     }
-
+    
     document.querySelector("#question-result").replaceWith(questionResult);
     document.querySelector("#score h1").innerText = score;
+    sendAnswer(score);
+    
+    
+}
+
+async function sendAnswer(score){
+    let response = await fetch('/quizoo/submitanswer', {
+        method: 'POST',
+        credentials: 'include',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            'quiz_id': quiz_id,
+            'score': score,
+            'question_num':quizAndQuestions['question'].length,
+        })
+    });
 }
