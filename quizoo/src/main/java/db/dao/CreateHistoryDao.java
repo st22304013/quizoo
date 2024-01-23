@@ -3,15 +3,14 @@ package db.dao;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import db.bean.AnswerhistoryBean;
 import db.bean.QuizBean;
 import frame.exception.ResourceException;
 
 public class CreateHistoryDao extends Dao {
 	
-	public ArrayList<AnswerhistoryBean> selectAnswerHistory(int userNo) throws ResourceException {
+	public ArrayList<QuizBean> selectcreateHistory(int userNo) throws ResourceException {
 		//回答履歴を格納するArrayList
-		ArrayList<AnswerhistoryBean> Answerhistory = new ArrayList<>();
+		ArrayList<QuizBean> createhistory = new ArrayList<>();
 		
 
 		connect();
@@ -32,11 +31,6 @@ public class CreateHistoryDao extends Dao {
 			
 			
 			while(rs.next()) {
-				//結果セットからデータを取得してAnswerhistoryBeanにセット
-				AnswerhistoryBean answerhistorybean = new AnswerhistoryBean();
-				answerhistorybean.setAnsweredTime(rs.getString("answered_time"));
-				answerhistorybean.setQuestionCount(rs.getInt("q_count"));
-				answerhistorybean.setCorrectCount(rs.getInt("correct_count"));
 				
 				//QuizBeanの作成とセット
 				QuizBean quizbean = new QuizBean();
@@ -50,10 +44,10 @@ public class CreateHistoryDao extends Dao {
 				quizbean.setTotalParticipants(rs.getInt("total_participants"));
 				quizbean.setGenreNo(rs.getInt("genre_no"));
 				
-				answerhistorybean.setQuizBean(quizbean);
+				quizbean.setQuizBean(quizbean);
 				
 				//Listに追加
-				Answerhistory.add(answerhistorybean);
+				createhistory.add(quizbean);
 			}
 			
 			
@@ -64,6 +58,6 @@ public class CreateHistoryDao extends Dao {
 		
 		close();
 		
-		return Answerhistory.isEmpty() ? null : Answerhistory;
+		return createhistory.isEmpty() ? null : createhistory;
 	}
 }
