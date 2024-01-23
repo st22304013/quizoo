@@ -53,7 +53,6 @@ window.addEventListener('load', async function () {
         confirmModal.hide();
         resultModal.show();
         scoring();
-        // this.location.href = 'index';
     });
 
     this.document.querySelector("#dontSendButton").addEventListener('click', ()=>{
@@ -66,7 +65,6 @@ window.addEventListener('load', async function () {
 
 })
 
-// Rest of the code remains unchanged
 
 
 
