@@ -58,6 +58,11 @@ window.addEventListener('load', async function () {
         confirmModal.hide();
     });
 
+
+    this.document.querySelector("#closeButton").addEventListener('click',()=>{
+        this.window.location.href = '/quizoo/index';
+    })
+
     await displayQuestionsList();
 
     await displayQuestionDetails(1);
@@ -182,7 +187,6 @@ function scoring() {
     document.querySelector("#question-result").replaceWith(questionResult);
     document.querySelector("#score h1").innerText = score;
     sendAnswer(score);
-    
     
 }
 
