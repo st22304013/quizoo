@@ -2,17 +2,21 @@
  * 
  */
 
-import {Modal} from "bootstrap"
+/**
+ * 
+ */
+
+import { Modal } from "bootstrap";
 
 let quizAndQuestions;
 let quiz_id;
 let currentQuestionNo;
 let selectedAnswers;
 let answerBtns;
+let questionlist; // Declare questionlist variable
 
 window.addEventListener('load', async function () {
     questionlist = this.document.querySelector('#question_list');
-
 
     // quiz_idをクエリ文字列から取得
     var currentURL = new URL(this.window.location.href);
@@ -48,7 +52,6 @@ window.addEventListener('load', async function () {
         this.document.querySelector('#secondModal').classList.remove('show');
     });
 
-
     await displayQuestionsList();
 
     await displayQuestionDetails(1);
@@ -56,11 +59,14 @@ window.addEventListener('load', async function () {
     scoring();
 })
 
+// Rest of the code remains unchanged
+
+
 
 async function loadQuiz(quiz_id) {
     var fetchResponse = await fetch('/quizoo/quizquestion?quiz_id=' + quiz_id);
     if (fetchResponse.ok) {
-        quizQuestionJson = fetchResponse.json();
+        var quizQuestionJson = fetchResponse.json();
         return quizQuestionJson;
     } else {
         // redirect('/quizoo/error');
@@ -89,6 +95,7 @@ async function displayQuestionsList() {
 function displayQuestionDetails(questionNo) {
     if (questionNo === currentQuestionNo)  return;
     if (questionNo > quizAndQuestions['question'].length || questionNo < 0) return;
+    let oldSentence = document.querySelector('#question-sentence');
 
     currentQuestionNo = questionNo;
     
@@ -111,7 +118,6 @@ function choiceBtnClickHandler(ClickedNo){
 
 function createSentenceNode(questionNo) {
     let willDisplay = quizAndQuestions['question'][questionNo - 1];
-    oldSentence = document.querySelector('#question-sentence');
     let newSnetence = document.createElement('div');
     newSnetence.setAttribute('class', 'sentence');
     newSnetence.setAttribute('id', 'question-sentence');
