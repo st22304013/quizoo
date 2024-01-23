@@ -15,10 +15,12 @@ let selectedAnswers;
 let answerBtns;
 let questionlist; // Declare questionlist variable
 let confirmModal; //送信確認のモーダル
+let resultModal;
 
 window.addEventListener('load', async function () {
     // モーダルを取得
     confirmModal = new Modal(this.document.querySelector("#exampleModal"));
+    resultModal = new Modal(this.document.querySelector("#secondModal"));
 
     questionlist = this.document.querySelector('#question_list');
 
@@ -49,6 +51,7 @@ window.addEventListener('load', async function () {
     this.document.querySelector("#sendAnswerButton").addEventListener('click', async ()=>{
         // await sendAnswer();
         confirmModal.hide();
+        resultModal.show();
         // scoring();
         // this.location.href = 'index';
     });
