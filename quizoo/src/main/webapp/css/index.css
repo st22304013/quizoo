@@ -528,9 +528,9 @@ a.btn-border-shadow--color2:before {
 .create-question-text {
 	min-width: 0;
 	width: 85%;
-	height: 50%;
+	height: 45%;
 	border-radius: 40px;
-	border: solid;
+	border: solid 2px #808080;
 	background-color: #fff;
 	padding: 20px;
 }
@@ -561,13 +561,13 @@ a.btn-border-shadow--color2:before {
 
 .create-modal-content {
 	border-bottom: 1px solid #d1d5db;
-	background-color: #ffffcc;
+	background-color: #ffffe5;
 	margin: 0;
 }
 
 /*次へボタン*/
 .confirmation-btn {
-	display: inline-block;;
+	display: inline-block;
 	width: 200px;
 	height: 50px;
 	/* ボタン幅 */
@@ -631,7 +631,15 @@ a.btn-border-shadow--color2:before {
 }
 
 .choise-wrap input {
+	background-color: #ffffe5;
 	border: none;
+	outline: none;
+	border-bottom: 2px solid #999;
+	padding: 5px 10px;
+}
+
+.choise-wrap input:focus {
+	border-bottom-color: #ffa500;
 }
 
 .questions-wrap {
@@ -692,13 +700,65 @@ a.btn-border-shadow--color2:before {
 
 .confirm-modal-dialog {
 	z-index: 1070;
-	width: 60vw;
-	max-width: 60vw;
+	width: 40vw;
+	max-width: 40vw;
 	height: 70vh;
 	max-height: 70vh;
 }
 
 
+.modal-footer {
+	height: 100px;
+}
+
+
+/*作問確認画面*/
+
+.quiz_title, .genre, .explanation{
+	width: 500px;
+}
+
+/*修正ボタン、投稿ボタン*/
+.correction, .post {
+	display: inline-block;
+	width: 100px;
+	height: 30px;
+	/* ボタン幅 */
+	background: #4D9BC1;
+	/* 背景色 */
+	border: 2px solid #4D9BC1;
+	padding: 1em 2em;
+	font-weight: bold;
+	color: #ffffff;
+	/* 文字 */
+	font-size: 15px;
+	text-decoration: none;
+	text-align: center;
+	transition-duration: 0.3s;
+	font-weight: normal;
+	/* 位置 */
+/*	position: absolute;*/
+}
+
+.correction:before, .post:before {
+	content: '';
+	width: 8px;
+	height: 8px;
+	border: 0;
+	transform: rotate(45deg);
+	position: absolute;
+	top: 50%;
+	left: 25px;
+	margin-top: -6px;
+	
+}
+
+.correction:hover, .post:hover {
+	background: #fff;
+	/* 背景色 */
+	color: #4D9BC1;
+	/* 文字色 */
+}
 
 @keyframes spiner {
 	0% {

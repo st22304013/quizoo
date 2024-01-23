@@ -123,13 +123,13 @@
 							<button id="add-question-btn" type="button" class="add-question-btn">＋</button>
 						<div id="question" class="question-wrap">
 							<div id="create-question-text" class="create-question-text">
-								<textarea></textarea>
+								<textarea placeholder="問題文を入力"></textarea>
 							</div>
 							<div class="create-question-choises">
 								<fieldset>
 									<div class="choise-wrap">
 										<input type="radio" id="choise1" name="choise" />
-										<label id="choise-label1" for="choise1" ><input type="text" name="choise-text1" /></label>
+										<label id="choise-label1" for="choise1" ><input type="text" name="choise-text1" placeholder="選択肢を入力" /></label>
 									</div>
 									<div class="choise-wrap">
 										<input type="radio" id="choise2" name="choise" />
@@ -170,17 +170,17 @@
 					<div id="quiz-metadata" class="quiz-metadata text-center">
 						<div id="quiz-title">
 							<!-- <h6>タイトルを入力</h6> -->
-							<input type="text" name="title" placeholder="タイトル"/>
+							<input type="text" name="title" class="quiz_title" placeholder="タイトル"/>
 						</div>
-						<select name="genre">
+						<select name="genre" class="genre">
 						</select>
 						<div id="explanation">
-							<input type="text" name="explanation" placeholder="説明"/>
+							<input type="text" name="explanation" class="explanation" placeholder="説明"/>
 						</div>
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-dismiss="modal">修正する</button>
-						<button type="button" id="confirm-btn-primary" class="btn btn-primary">投稿する</button>
+							<button type="button" class="correction" data-dismiss="modal">修正する</button>
+							<button type="button" id="confirm-btn-primary" class="post">投稿する</button>
 					</div>
 				</div>
 			</div>
