@@ -57,7 +57,7 @@ window.addEventListener('load', async function () {
     });
 
     this.document.querySelector("#dontSendButton").addEventListener('click', ()=>{
-        this.document.querySelector('#secondModal').classList.remove('show');
+        confirmModal.hide();
     });
 
     await displayQuestionsList();
@@ -181,11 +181,21 @@ function chengeSelected(selectedNo = 0) {
 }
 
 function scoring() {
+    let questionResult = document.createElement('div');
+    questionResult.setAttribute('class','question-result');
+    questionResult.setAttribute('id','question-result');
     let score = 0;
-    for(let i = 0; i < selectedAnswers.length; i++) {
+    for(let i = 0; i < quizAndQuestions['question'].length; i++) {
+        var result = document.createElement('p');
         if(quizAndQuestions['question'][i]['judge'][selectedAnswers[i]]) {
+            result.innerText= "〇";
             score++;
+        }else{
+            result.innerText = "✕";
         }
+        questionResult.appendChild(result);
     }
-    console.log(score);
+
+    document.querySelector("#question-result").replaceWith(questionResult);
+    document.querySelector("#score h1").innerText = score;
 }

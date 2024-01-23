@@ -65,7 +65,7 @@
 							<h1 class="modal-title fs-7" id="exampleModalLabel">score</h1>
 						</div>
 						<div class="modal-body">
-							<div class="question-result">
+							<div class="question-result" id="question-result">
 								<p>1. 〇</p>
 								<p>2. ✕</p>
 								<p>3. 〇</p>
