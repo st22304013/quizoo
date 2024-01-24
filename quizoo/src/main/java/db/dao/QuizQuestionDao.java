@@ -50,6 +50,7 @@ public class QuizQuestionDao extends Dao{
 			quizBean.setCreateTime(rs.getString("create_time"));
 			quizBean.setCorrectRate(rs.getFloat("correct_rate"));
 			quizBean.setTotalParticipants(rs.getInt("total_participants"));
+			quizBean.setDeleted(rs.getBoolean("deleted"));
 			
 			quizQuestionBean.setQuiz(quizBean);
 			
