@@ -6,14 +6,16 @@ window.addEventListener('load', async () => {
 	});
 	historyList = await historyList.json();
 	console.log(historyList);
-	
+	let correctCount = 0;
+	let questionCount = 0;
 	for(var i = 0; i < historyList.length; i++) {
-		var correctCount = historyList[i].correctCount;
-		var questionCount = historyList[i].questionCount;
+		
+		correctCount += historyList[i].correctCount;
+		questionCount += historyList[i].questionCount;
+
 		var quizCount = i;
 
-		var rate = correctCount / questionCount;
-		console.log(rate);
+		var rate = (correctCount / questionCount) * 100;
 
 		config.data.datasets[0].data.push(rate);
 		config.data.labels.push(quizCount);
@@ -21,6 +23,9 @@ window.addEventListener('load', async () => {
 
 	const ctx = document.getElementById('chart').getContext('2d');
 	const myChart = new Chart(ctx, config);
+
+
+
 });
 
 let config = {
@@ -48,12 +53,26 @@ let config = {
 			}
 		},
 		scales: {
-			y: {
-				ticks: {        
-					Min:0,
-					Max:1,
-					stepSize: 0.1
-				}
+			x: {
+				min:0,
+				stepSize: 1,
+				title: {
+					display: true,
+					text: '回答数',
+				},
+			},
+			y: {				   
+				min:0,
+				max:100,
+				stepSize: 1,
+				title: {
+					display: true,
+					text: '正答率(%)',
+					padding: {
+						top: 0,
+						bottom: 0,
+					},
+				},	
 			}
 		}
 	}
