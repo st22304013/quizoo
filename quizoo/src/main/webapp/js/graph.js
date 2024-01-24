@@ -10,12 +10,13 @@ window.addEventListener('load', async () => {
 	for(var i = 0; i < historyList.length; i++) {
 		var correctCount = historyList[i].correctCount;
 		var questionCount = historyList[i].questionCount;
+		var quizCount = i;
 
 		var rate = correctCount / questionCount;
 		console.log(rate);
 
 		config.data.datasets[0].data.push(rate);
-		config.data.labels.push(correctCount);
+		config.data.labels.push(quizCount);
 	}
 
 	const ctx = document.getElementById('chart').getContext('2d');
@@ -44,6 +45,15 @@ let config = {
 			title: {
 				display: true,
 				text: 'グラフ'
+			}
+		},
+		scales: {
+			y: {
+				ticks: {        
+					Min:0,
+					Max:1,
+					stepSize: 0.1
+				}
 			}
 		}
 	}
