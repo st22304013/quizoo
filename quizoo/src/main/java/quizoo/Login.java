@@ -45,7 +45,7 @@ public class Login extends Service{
 		//passwordが一致したとき
 		if(pass.equals(bean.getPassword().replaceAll(" ", ""))) {
 			req.setUser(bean);
-			res.forward("index", req);
+			res.redirect("index");
 		}else {
 			res.redirect("login-page?faild");
 		}
