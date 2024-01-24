@@ -1,6 +1,6 @@
 /* コマンドプロンプトから接続 */
 /*mysql --local-infile=1 -u root -p*/
-
+SET GLOBAL local_infile = 1;
 /* データベース */
 create database quizoo;
 
