@@ -43,6 +43,7 @@ public class QuizDao extends Dao{
 				quizbean.setCorrectRate(rs.getFloat("correct_rate"));
 				quizbean.setTotalParticipants(rs.getInt("total_participants"));	
 				quizbean.setAuthorNickname(rs.getString("nickname"));
+				quizbean.setDeleted(rs.getBoolean("deleted"));
 				quizlist.add(quizbean);
 				
 			}
@@ -110,6 +111,7 @@ public class QuizDao extends Dao{
 				quizbean.setCreateTime(rs.getString("create_time"));
 				quizbean.setCorrectRate(rs.getFloat("correct_rate"));
 				quizbean.setTotalParticipants(rs.getInt("total_participants"));	
+				quizbean.setDeleted(rs.getBoolean("deleted"));
 			
 			}
 		} catch(SQLException e) {
@@ -171,6 +173,7 @@ public class QuizDao extends Dao{
 				quizbean.setCreateTime(rs.getString("create_time"));
 				quizbean.setCorrectRate(rs.getFloat("correct_rate"));
 				quizbean.setTotalParticipants(rs.getInt("total_participants"));	
+				quizbean.setDeleted(rs.getBoolean("deleted"));
 				
 				quizlist.add(quizbean);
 				
@@ -230,6 +233,7 @@ public class QuizDao extends Dao{
 				quizbean.setCreateTime(rs.getString("create_time"));
 				quizbean.setCorrectRate(rs.getFloat("correct_rate"));
 				quizbean.setTotalParticipants(rs.getInt("total_participants"));	
+				quizbean.setDeleted(rs.getBoolean("deleted"));
 				
 				quizList.add(quizbean);
 
