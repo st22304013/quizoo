@@ -308,7 +308,7 @@ public class QuizDao extends Dao{
 		try {
 			connect();
 			
-			String sql = "DELETE FROM quiz WHERE quiz_id = ?";
+			String sql = "UPDATE quiz SET deleted = 1 WHERE quiz_id =?";
 			st = cn.prepareStatement(sql);
 			st.setInt(1, quizId);
 			
