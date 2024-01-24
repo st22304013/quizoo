@@ -24,7 +24,8 @@ public class CreateHistoryDao extends Dao {
 				+ "q.create_time AS create_time,"
 				+ "q.correct_rate AS correct_rate ,"
 				+ "q.total_participants AS total_participants,"
-				+ "g.genre_title AS genre_title"	 
+				+ "g.genre_title AS genre_title, "
+				+ "q.deleted AS deleted"	 
 				+ " FROM genre g "
 				+ " INNER JOIN quiz q"
 				+ " USING (genre_no)"
@@ -52,6 +53,7 @@ public class CreateHistoryDao extends Dao {
 				quizbean.setCorrectRate(rs.getFloat("correct_rate"));
 				quizbean.setTotalParticipants(rs.getInt("total_participants"));
 				quizbean.setGenreNo(rs.getInt("genre_no"));
+				quizbean.setDeleted(rs.getBoolean("deleted"));
 				
 				
 				
