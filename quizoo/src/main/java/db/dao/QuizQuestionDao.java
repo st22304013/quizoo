@@ -40,17 +40,18 @@ public class QuizQuestionDao extends Dao{
 			QuizBean  quizBean = new QuizBean();
 			
 			//QuizBeanにデータセット
-			if(rs.next()) {
-				quizBean.setQuizId(rs.getInt("quiz_id"));
-				quizBean.setAuthorNo(rs.getInt("author_no"));
-				quizBean.setTitle(rs.getString("title"));
-				quizBean.setQuestionCount(rs.getInt("question_count"));
-				quizBean.setGenreNo(rs.getInt("genre_no"));
-				quizBean.setGenre(rs.getString("genre_title"));
-				quizBean.setExplanation(rs.getString("explanation"));
-				quizBean.setCreateTime(rs.getString("create_time"));
-				quizBean.setCorrectRate(rs.getFloat("correct_rate"));
-				quizBean.setTotalParticipants(rs.getInt("total_participants"));				
+			if(rs.next()) {			
+        quizBean.setQuizId(rs.getInt("quiz_id"));
+        quizBean.setAuthorNo(rs.getInt("author_no"));
+        quizBean.setTitle(rs.getString("title"));
+        quizBean.setQuestionCount(rs.getInt("question_count"));
+        quizBean.setGenreNo(rs.getInt("genre_no"));
+        quizBean.setGenre(rs.getString("genre"));
+        quizBean.setExplanation(rs.getString("explanation"));
+        quizBean.setCreateTime(rs.getString("create_time"));
+        quizBean.setCorrectRate(rs.getFloat("correct_rate"));
+        quizBean.setTotalParticipants(rs.getInt("total_participants"));
+        quizBean.setDeleted(rs.getBoolean("deleted"));
 			}
 			
 			quizQuestionBean.setQuiz(quizBean);
@@ -87,6 +88,7 @@ public class QuizQuestionDao extends Dao{
 			
 			
 		} catch(SQLException e) {
+			//例外処理、必要に応じてロールバック
             try{
                 cn.rollback();
             } catch(SQLException e2) {
@@ -95,6 +97,7 @@ public class QuizQuestionDao extends Dao{
             throw new ResourceException(e.getMessage(), e);
         } finally {
             try {
+            	//リソースを閉じる
                 if(rs != null) {
                     rs.close();
                 }
@@ -127,7 +130,7 @@ public class QuizQuestionDao extends Dao{
 			st = cn.prepareStatement(sqlQuiz,Statement.RETURN_GENERATED_KEYS);
 			
             QuizBean quiz = quizQuestionBean.getQuiz();
-            
+          //QuestionBeanにデータセット
 			st.setInt(1, quiz.getQuizId());
 			st.setInt(2, quiz.getAuthorNo());
 			st.setString(3, quiz.getTitle());
@@ -140,17 +143,22 @@ public class QuizQuestionDao extends Dao{
             System.out.println("quizのcommit完了");
             
             try(ResultSet geneletedKeys = st.getGeneratedKeys()){
+            	//ResultSetから生成されたキーが存在する場合
             	if(geneletedKeys.next()) {
+            		//生成されたキー(quiz-id)を取得
             		int quizId = geneletedKeys.getInt(1);
             		System.out.println(quizId);
+            		//新しいSQL文を作成
             		String sqlQuestion = "INSERT INTO question (quiz_id,question_id, question, choice_1, choice_2, choice_3, choice_4, judge) " +
             				"VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
             		st = cn.prepareStatement(sqlQuestion);
             		
             		
             		ArrayList<QuestionBean> questions = quizQuestionBean.getQuestion();
+            		//Questionの数だけ繰り返し
             		for(int i = 0 ; i< questions.size() ; i++) {
             			QuestionBean question = questions.get(i);
+            			//各列にデータをセット
             			st.setInt(1, quizId);
             			st.setInt(2, i);
             			st.setString(3, question.getQuestion());
@@ -175,6 +183,7 @@ public class QuizQuestionDao extends Dao{
             			
             			System.out.println("executeUpdate直前");
             			
+            			//新しいQuestionを挿入
             			st.executeUpdate();
             			System.out.println("executeUpdate完了");
             		}

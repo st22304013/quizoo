@@ -17,7 +17,7 @@ public class QuizDao extends Dao{
 	 * @return ArrayListに格納されたQuizBeanを返します
 	 * @throws ResourceException データ取得時に例外が発生した場合
 	 */
-	public ArrayList<QuizBean> selectOrderedQuiz(String columnName)throws ResourceException{
+	public ArrayList<QuizBean> selectOrderedQuizByColumnName(String columnName)throws ResourceException{
 
 		ArrayList<QuizBean> quizlist = new ArrayList<>();
 		
@@ -30,6 +30,7 @@ public class QuizDao extends Dao{
 			rs = st.executeQuery();
 			
 			while(rs.next()) {
+				//ResultSetからQuizBeanにプロパティを設定
 				QuizBean quizbean = new QuizBean();
 				quizbean.setQuizId(rs.getInt("quiz_id"));
 				quizbean.setAuthorNo(rs.getInt("author_no"));
@@ -42,16 +43,19 @@ public class QuizDao extends Dao{
 				quizbean.setCorrectRate(rs.getFloat("correct_rate"));
 				quizbean.setTotalParticipants(rs.getInt("total_participants"));	
 				quizbean.setAuthorNickname(rs.getString("nickname"));
+				quizbean.setDeleted(rs.getBoolean("deleted"));
 				quizlist.add(quizbean);
 				
 			}
 		} catch(SQLException e) {
+			//SQL例外を処理、必要に応じてロールバック
 			try {
 				cn.rollback();
 			} catch(SQLException e2) {
 				throw new ResourceException(e2.getMessage(), e2);
 			}
 		} finally {
+			//リソースを閉じる
 			try {
 				if(rs != null) {
 					rs.close();
@@ -65,7 +69,7 @@ public class QuizDao extends Dao{
 				close();
 			}
 		}
-		return quizlist;
+		return quizlist.isEmpty() ? null : quizlist;
 		
 	}	
 	
@@ -74,7 +78,7 @@ public class QuizDao extends Dao{
 	 * @throws ResourceException データ取得時に例外が発生した場合
 	 */
 	public ArrayList<QuizBean> selectQuiz() throws ResourceException {
-		return selectOrderedQuiz("create_time");
+		return selectOrderedQuizByColumnName("create_time");
 	}
 	
 	/**
@@ -83,7 +87,7 @@ public class QuizDao extends Dao{
 	 * @return 取得されたクイズのQuizBean
 	 * @throws ResourceException データ取得時に例外が発生した場合
 	 */
-	public QuizBean selectQuiz(int quizId) throws ResourceException {
+	public QuizBean selectSearchedQuizByQuizId(int quizId) throws ResourceException {
 		
 		QuizBean quizbean = new QuizBean();
 		
@@ -96,6 +100,7 @@ public class QuizDao extends Dao{
 			rs = st.executeQuery();
 			
 			while(rs.next()) {
+				//ResultSetからQuizBeanのプロパティを設定
 				quizbean.setQuizId(rs.getInt("quiz_id"));
 				quizbean.setAuthorNo(rs.getInt("author_no"));
 				quizbean.setTitle(rs.getString("title"));
@@ -106,15 +111,18 @@ public class QuizDao extends Dao{
 				quizbean.setCreateTime(rs.getString("create_time"));
 				quizbean.setCorrectRate(rs.getFloat("correct_rate"));
 				quizbean.setTotalParticipants(rs.getInt("total_participants"));	
+				quizbean.setDeleted(rs.getBoolean("deleted"));
 			
 			}
 		} catch(SQLException e) {
+			//SQL例外を処理、必要に応じてロールバック
 			try {
 				cn.rollback();
 			} catch(SQLException e2) {
 				throw new ResourceException(e2.getMessage(), e2);
 			}
 		} finally {
+			//リソースを閉じる
 			try {
 				if(rs != null) {
 					rs.close();
@@ -139,7 +147,7 @@ public class QuizDao extends Dao{
 	 * @return ArrayListに格納されたQuizBeanを返します
 	 * @throws ResourceException ResourceException データ取得時に例外が発生した場合
 	 */
-	public ArrayList<QuizBean> selectOrderedQuiz(String columnName, int genreNo)throws ResourceException{
+	public ArrayList<QuizBean> selectQuizByColumnNameAndGenreNo(String columnName, int genreNo)throws ResourceException{
 		
 		ArrayList<QuizBean> quizlist = new ArrayList<>();
 		
@@ -153,6 +161,7 @@ public class QuizDao extends Dao{
 			rs = st.executeQuery();
 			
 			while(rs.next()) {
+				//ResultSetからQuizBeanのプロパティを設定
 				QuizBean quizbean = new QuizBean();
 				quizbean.setQuizId(rs.getInt("quiz_id"));
 				quizbean.setAuthorNo(rs.getInt("author_no"));
@@ -164,6 +173,7 @@ public class QuizDao extends Dao{
 				quizbean.setCreateTime(rs.getString("create_time"));
 				quizbean.setCorrectRate(rs.getFloat("correct_rate"));
 				quizbean.setTotalParticipants(rs.getInt("total_participants"));	
+				quizbean.setDeleted(rs.getBoolean("deleted"));
 				
 				quizlist.add(quizbean);
 				
@@ -188,7 +198,7 @@ public class QuizDao extends Dao{
 				close();
 			}
 		}
-		return quizlist;
+		return quizlist.isEmpty() ? null : quizlist;
 		
 	}
 
@@ -198,7 +208,7 @@ public class QuizDao extends Dao{
 	 * @return ArrayListに格のされたQuizBeanを返します
 	 * @throws ResourceException ResourceException データ取得時に例外が発生した場合
 	 */
-	public ArrayList<QuizBean> searchQuiz(int genreNo) throws ResourceException {
+	public ArrayList<QuizBean> selectSearchedQuizByGenreNo(int genreNo) throws ResourceException {
 		
 		QuizBean quizbean = new QuizBean();
 		ArrayList<QuizBean> quizList = new ArrayList<>();
@@ -212,6 +222,7 @@ public class QuizDao extends Dao{
 			rs = st.executeQuery();
 			
 			while(rs.next()) {
+				//ResultSetからQuizBeanのプロパティを設定
 				quizbean.setQuizId(rs.getInt("quiz_id"));
 				quizbean.setAuthorNo(rs.getInt("author_no"));
 				quizbean.setTitle(rs.getString("title"));
@@ -222,6 +233,7 @@ public class QuizDao extends Dao{
 				quizbean.setCreateTime(rs.getString("create_time"));
 				quizbean.setCorrectRate(rs.getFloat("correct_rate"));
 				quizbean.setTotalParticipants(rs.getInt("total_participants"));	
+				quizbean.setDeleted(rs.getBoolean("deleted"));
 				
 				quizList.add(quizbean);
 
@@ -246,7 +258,7 @@ public class QuizDao extends Dao{
 				close();
 			}
 		}
-		return quizList;
+		return quizList.isEmpty() ? null : quizList;
 	}
 	
 	/**

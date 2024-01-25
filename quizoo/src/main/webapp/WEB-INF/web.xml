@@ -10,6 +10,15 @@
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
   
+  <error-page>
+  	<error-code>404</error-code>
+  	<location>/WEB-INF/jsp/notfound.jsp</location>
+  </error-page>
+  <error-page>
+  	<error-code>500</error-code>
+  	<location>/WEB-INF/jsp/unexpected.jsp</location>
+  </error-page>
+  
 	<filter>
      <filter-name>loginFilter</filter-name>
      <filter-class>web.LoginFilter</filter-class>
@@ -58,6 +67,33 @@
   <servlet-mapping>
   	<servlet-name>answer-page</servlet-name>
   	<url-pattern>/answer</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>createhistory-page</servlet-name>
+  	<jsp-file>/WEB-INF/jsp/createhistory.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>createhistory-page</servlet-name>
+  	<url-pattern>/createhistory</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>profile-page</servlet-name>
+  	<jsp-file>/WEB-INF/jsp/profile.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>profile-page</servlet-name>
+  	<url-pattern>/profile</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>score-page</servlet-name>
+  	<jsp-file>/WEB-INF/jsp/score.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>score-page</servlet-name>
+  	<url-pattern>/score</url-pattern>
   </servlet-mapping>
   
   

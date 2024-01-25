@@ -12,7 +12,9 @@ public class TestRequestContext implements RequestContext{
 	}
 
 	public String[] getParameter(String key) {
-		return null;
+		String[] params = new String[1];
+		params[0] = "1";
+		return params;
 	}
 
 	public void setUser(UserInfoBean user) {
@@ -37,5 +39,11 @@ public class TestRequestContext implements RequestContext{
 	
 	public String getTargetServiceKey() {
 		return null;
+	}
+
+	@Override
+	public void invalidatekeUser() {
+		// TODO 自動生成されたメソッド・スタブ
+		
 	}
 }

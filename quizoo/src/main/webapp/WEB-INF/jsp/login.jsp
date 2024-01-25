@@ -20,6 +20,7 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css"
 	rel="stylesheet">
+	
 </head>
 
 <body>
@@ -58,12 +59,15 @@
 												<div class="form-group">
 													<label for="login-userid"></label> <input type="text"
 														class="form-control" name="id" id="login-username"
-														placeholder="UserID">
+														placeholder="UserID" required>
 												</div>
 												<div class="form-group">
 													<label for="login-password"></label> <input type="password"
 														class="form-control" name="password" id="login-password"
-														placeholder="Password">
+														placeholder="Password" required>
+												</div>
+												<div class="miss none" id="miss">
+													<p>IDまたはPASSWORDが違います</p>
 												</div>
 												<div class="text-center">
 													<button type="submit" class="btn">Login</button>
@@ -75,22 +79,22 @@
 												<div class="form-group">
 													<label for="register-userid"></label> <input type="text"
 														class="form-control" name="id" id="register-userid"
-														placeholder="UserID">
+														placeholder="UserID" required>
 												</div>
 												<div class="form-group">
 													<label for="register-nickname"></label> <input type="text"
 														class="form-control" name="name" id="register-nickname"
-														placeholder="Nickname">
+														placeholder="Nickname" required>
 												</div>
 												<div class="form-group">
 													<label for="register-password"></label> <input
 														type="password" class="form-control" name="password"
-														id="register-password" placeholder="Password">
+														id="register-password" placeholder="Password" required>
 												</div>
 												<div class="form-group">
 													<label for="register-password"></label> <input
 														type="password" class="form-control" name="passwordAgain"
-														id="register-password" placeholder="Password Again">
+														id="register-password" placeholder="Password Again" required>
 												</div>
 												<div class="text-center">
 													<button type="submit" class="btn">Sign up</button>
@@ -107,7 +111,7 @@
 		</div>
 	</div>
 
-
+	<script src="js/login.js"></script>
 
 
 

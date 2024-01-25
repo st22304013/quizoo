@@ -1,3 +1,6 @@
+/* コマンドプロンプトから接続 */
+/*mysql --local-infile=1 -u root -p*/
+
 /* データベース */
 create database quizoo;
 
@@ -37,13 +40,15 @@ CREATE TABLE quiz (
     quiz_id MEDIUMINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     author_no MEDIUMINT UNSIGNED NOT NULL REFERENCES userinfo(user_no),
     title VARCHAR(100) NOT NULL,
-	question_count TINYINT NOT NULL,
+    question_count TINYINT NOT NULL,
     genre_no TINYINT UNSIGNED NOT NULL REFERENCES genre(genre_no),
     explanation VARCHAR(200) DEFAULT NULL,
-    create_time TIMESTAMP NOT NULL DEFAULT now(0),
-	correct_rate FLOAT UNSIGNED NOT NULL DEFAULT 0,
-	total_participants MEDIUMINT UNSIGNED NOT NULL DEFAULT 0
+    create_time TIMESTAMP NOT NULL DEFAULT NOW(0),
+    correct_rate FLOAT UNSIGNED NOT NULL DEFAULT 0,
+    total_participants MEDIUMINT UNSIGNED NOT NULL DEFAULT 0,
+    deleted BIT(1) DEFAULT b'0'
 );
+
 
 CREATE TABLE question (
 	quiz_id MEDIUMINT UNSIGNED REFERENCES quiz(quiz_id),
@@ -106,3 +111,4 @@ BEGIN
 END;
 //
 DELIMITER ;
+

@@ -1,17 +1,24 @@
-	<%@ page language="java" contentType="text/html; charset=UTF-8"
-		pageEncoding="UTF-8"%>
+
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 
 <head>
-	<meta charset="UTF-8">
-	<title>quiz</title>
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
-		integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-	<link rel="stylesheet" href="css/quiz.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-	<link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css" rel="stylesheet">
+<meta charset="UTF-8">
+<title>quiz</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+	crossorigin="anonymous">
+<link rel="stylesheet" href="css/quiz.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css"
+	rel="stylesheet">
 </head>
 
 <body>
@@ -37,11 +44,16 @@
 				<button type="button" id="endButton" class="btn btn-primary">
 					回答完了
 				</button>
+
+				<!-- Button trigger modal -->
+				<button type="button" class="close-btn" data-bs-toggle="modal"
+					data-bs-target="#exampleModal">回答完了</button>
 			</div>
 
 			<!-- 1番目のモーダル -->
-			<div class="modal fade text-center" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-				aria-hidden="true" data-bs-backdrop="static">
+			<div class="modal fade text-center" id="exampleModal" tabindex="-1"
+				aria-labelledby="exampleModalLabel" aria-hidden="true"
+				data-bs-backdrop="static">
 				<div class="modal-dialog modal-dialog-centered">
 					<div class="modal-content">
 						<div class="modal-body">
@@ -57,8 +69,9 @@
 			</div>
 
 			<!-- 2番目のモーダル -->
-			<div class="modal fade" id="secondModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-				aria-hidden="true" data-bs-backdrop="static">
+			<div class="modal fade" id="secondModal" tabindex="-1"
+				aria-labelledby="exampleModalLabel" aria-hidden="true"
+				data-bs-backdrop="static">
 				<div class="modal-dialog modal-dialog-centered">
 					<div class="modal-content">
 						<div class="modal-header text-center">
@@ -78,7 +91,8 @@
 							</div>
 						</div>
 						<div class="modal-footer">
-							<button type="button" class="close-btn btn btn-primary" id="closeButton">close</button>
+							<button type="button" class="close-btn btn btn-primary"
+								id="closeButton">close</button>
 						</div>
 					</div>
 				</div>
@@ -102,20 +116,39 @@
 						ああああああああああああああああああああああああああああああああああああああああああああ
 						ああああああああああああああああああああああああああああああああああああああああああああ
 					</div>
-					<div class="choices"  id="question-choices">
-						<div class="choice">1. 1月1日</div>
-						<div class="choice">2. 2月18日</div>
-						<div class="choice">3. 4月5日</div>
-						<div class="choice">4. 5月3日</div>
-					</div>
+
 				</div>
 
-				<div class="answer" id="answer_btn">
-					<button type="button" class="btn btn-danger">1</button>
-					<button type="button" class="btn btn-primary">2</button>
-					<button type="button" class="btn btn-warning">3</button>
-					<button type="button" class="btn btn-success">4</button>
-				</div>
+				<table class="answers">
+					<tr>
+						<td>
+							<button type="button" class="btn btn--orange">1</button>
+						</td>
+						<td>
+							<div class="choice">1月1日</div>
+						</td>
+						<td>
+							<button type="button" class="btn btn--orange">2</button>
+						</td>
+						<td>
+							<div class="choice">2月18日</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<button type="button" class="btn btn--orange">3</button>
+						</td>
+						<td>
+							<div class="choice">4月5日</div>
+						</td>
+						<td>
+							<button type="button" class="btn btn--orange">4</button>
+						</td>
+						<td>
+							<div class="choice">5月3日</div>
+						</td>
+					</tr>
+				</table>
 			</div>
 
 		</div>
@@ -135,6 +168,7 @@
     }
     </script>
 	<script type="module" src="js/quiz.js"></script>
+
 </body>
 
 </html>

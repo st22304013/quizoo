@@ -18,7 +18,7 @@ public class UserInfoDao extends Dao {
 	 * @return 取得されたユーザーデータ
 	 * @throws ResourceException データ取得時に例外が発生した場合
 	 */
-	public UserInfoBean selectUser(String user_id) throws ResourceException {
+	public UserInfoBean selectSearchedUserByUserId(String user_id) throws ResourceException {
 
 		PreparedStatement st = null;
 		ResultSet rs = null;
@@ -26,13 +26,13 @@ public class UserInfoDao extends Dao {
 
 		try {
 			connect();
-			//userinfo表とnickname表を結合
+			//userinfo表とnickname表をuser_no列で結合
 			String sql = "SELECT * FROM userinfo JOIN nickname USING(user_no) WHERE user_id = ?";
 			st = cn.prepareStatement(sql);
 			st.setString(1, user_id);
 			rs = st.executeQuery();
 			if (rs.next()) {
-				//UserInfoBeanに追加
+				//結果セットから取得したデータをUserInfoBeanに追加
 				userbean.setUserId(rs.getString("user_id"));
 				userbean.setUserNo(rs.getInt("user_no"));
 				userbean.setNickname(rs.getString("nickname"));
@@ -43,12 +43,15 @@ public class UserInfoDao extends Dao {
 			}
 
 		} catch (SQLException e) {
+			//SQL実行時に例外が発生した場合の処理
 			try {
 				cn.rollback();
 			} catch (SQLException e2) {
+				//ロールバック時に例外が発生した場合の処理
 				throw new ResourceException(e2.getMessage(), e2);
 			}
 		} finally {
+			//リソースを閉じる
 			try {
 				if (rs != null) {
 					rs.close();
@@ -93,6 +96,7 @@ public class UserInfoDao extends Dao {
 			
 			cn.commit();
 		} catch (SQLException e) {
+			//SQL実行時に例外が発生した場合の処理
 			throw new ResourceException(e.getMessage(), e);
 		}finally {
 			close();

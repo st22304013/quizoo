@@ -19,12 +19,13 @@ public class AnswerHistoryDao extends Dao {
 	 * @throws ResourceException データ取得時に例外が発生した場合
 	 */
 	public ArrayList<AnswerhistoryBean> selectAnswerHistory(int userNo) throws ResourceException {
+		//回答履歴を格納するArrayList
 		ArrayList<AnswerhistoryBean> Answerhistory = new ArrayList<>();
 		
 
 		connect();
 		
-		String sql = "SELECT q.quiz_id, title, answered_time, a.question_count,correct_count, explanation, create_time, correct_rate, total_participants "
+		String sql = "SELECT quiz_id, title, author_no, answered_time, a.question_count AS q_count, q.question_count AS now_count,genre_no,correct_count, explanation, create_time, correct_rate, total_participants, deleted "
 				+ " FROM answerhistory a"
 				+ " INNER JOIN quiz q"
 				+ " USING (quiz_id)"
@@ -39,22 +40,28 @@ public class AnswerHistoryDao extends Dao {
 			
 			
 			while(rs.next()) {
-			
+				//結果セットからデータを取得してAnswerhistoryBeanにセット
 				AnswerhistoryBean answerhistorybean = new AnswerhistoryBean();
 				answerhistorybean.setAnsweredTime(rs.getString("answered_time"));
-				answerhistorybean.setQuestionCount(rs.getInt("a.question_count"));
+				answerhistorybean.setQuestionCount(rs.getInt("q_count"));
 				answerhistorybean.setCorrectCount(rs.getInt("correct_count"));
 				
+				//QuizBeanの作成とセット
 				QuizBean quizbean = new QuizBean();
-				quizbean.setQuizId(rs.getInt("q.quiz_id"));
+				quizbean.setQuizId(rs.getInt("quiz_id"));
+				quizbean.setQuestionCount(rs.getInt("now_count"));
 				quizbean.setTitle(rs.getString("title"));
+				quizbean.setAuthorNo(rs.getInt("author_no"));
 				quizbean.setExplanation(rs.getString("explanation"));
 				quizbean.setCreateTime(rs.getString("create_time"));
 				quizbean.setCorrectRate(rs.getFloat("correct_rate"));
-				quizbean.setTotalParticipants(rs.getInt("totle_participants"));
+				quizbean.setTotalParticipants(rs.getInt("total_participants"));
+				quizbean.setGenreNo(rs.getInt("genre_no"));
+				quizbean.setDeleted(rs.getBoolean("deleted"));
 				
 				answerhistorybean.setQuizBean(quizbean);
 				
+				//Listに追加
 				Answerhistory.add(answerhistorybean);
 			}
 			
@@ -66,7 +73,7 @@ public class AnswerHistoryDao extends Dao {
 		
 		close();
 		
-		return Answerhistory;
+		return Answerhistory.isEmpty() ? null : Answerhistory;
 	}
 	
 	/**
@@ -82,12 +89,13 @@ public class AnswerHistoryDao extends Dao {
 		
 		connect();
 		
-		String sql = "INSERT INTO answerhistory (user_no, quiz_id, answered_time, correct_count)"
-				+ "VALUES(?, ?, now(0), ?)";
+		String sql = "INSERT INTO answerhistory (user_no, quiz_id, correct_count)"
+				+ "VALUES(?, ?, ?)";
 		
 		try {
 			st = cn.prepareStatement(sql);
 			
+			//パラメータの設定
 			st.setInt(1, userNo);
 			st.setInt(2, quizId);
 			st.setInt(3,correctCount);
