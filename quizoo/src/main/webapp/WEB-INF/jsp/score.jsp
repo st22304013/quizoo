@@ -67,8 +67,9 @@
 	</div>
 
 	<div class="graph-container">
+		
 		<canvas id="chart" class="graph"></canvas>
-
+		<canvas id="chart2" class="graph"></canvas>
 	</div>
 
 	<!--	ハンバーガー -->
