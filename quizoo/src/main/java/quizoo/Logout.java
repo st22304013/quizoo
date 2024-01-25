@@ -14,7 +14,9 @@ public class Logout extends Service {
 	@Override
 	public void execute(RequestContext req, ResponseContext res)
 			throws IOException, ResourceException, BadRequestException, NotFoundException {
+		req.invalidatekeUser();
 		
+		res.forward("login-page", req);
 
 	}
 
