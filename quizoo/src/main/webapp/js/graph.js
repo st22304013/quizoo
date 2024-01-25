@@ -24,14 +24,16 @@ window.addEventListener('load', async () => {
 		config2.data.labels.push(quizCount);
 		console.log(rate);
 	}
-	// スコアのChart 
+	// 正解率のChart 
 	const ctx = document.getElementById('chart').getContext('2d');
 	const myChart = new Chart(ctx, config);
+	document.getElementById('rate').innerHTML = 'レート' + rate;
+
 
 	// レートのChart 
 	const ctx2 = document.getElementById('chart2').getContext('2d');
 	const myChart2 = new Chart(ctx2, config2);
-
+	document.getElementById('correctRate').innerHTML = '正解率 ' + correctRate + '%';
 });
 
 let config = {
@@ -40,7 +42,7 @@ let config = {
 		labels: [],
 		datasets: [
 			{
-				label: 'score',
+				label: '正解率',
 				data: [],
 				borderColor: 'rgba(255, 99, 132, 1)',
 				backgroundColor: 'rgba(255, 99, 132, 0.2)',
@@ -58,7 +60,6 @@ let config = {
 			},
 			title: {
 				display: true,
-				text: 'グラフ'
 			}
 		},
 		scales: {
@@ -112,7 +113,6 @@ let config2 = {
 			},
 			title: {
 				display: true,
-				text: 'グラフ'
 			}
 		},
 		scales: {
