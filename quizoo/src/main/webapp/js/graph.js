@@ -5,7 +5,7 @@ window.addEventListener('load', async () => {
 		credentials: "include"
 	});
 	historyList = await historyList.json();
-	console.log(historyList);
+
 	let correctCount = 0;
 	let questionCount = 0;
 	// 正解率をだすfor文
@@ -13,21 +13,25 @@ window.addEventListener('load', async () => {
 		
 		correctCount += historyList[i].correctCount;
 		questionCount += historyList[i].questionCount;
-		var quizCount = i;
+		var quizCount = i+1;
 
 		var correctRate = (correctCount / questionCount) * 100;
 		config.data.datasets[0].data.push(correctRate);
 		config.data.labels.push(quizCount);
+		console.log("正解数"+correctCount);
+		console.log("質問数："+questionCount)
+		console.log("クイズ数："+quizCount);
+		console.log("率："+correctRate);
 
 		var rate = (correctCount * correctCount) / questionCount; 
 		config2.data.datasets[0].data.push(rate);
 		config2.data.labels.push(quizCount);
-		console.log(rate);
+
 	}
 	// 正解率のChart 
 	const ctx = document.getElementById('chart').getContext('2d');
 	const myChart = new Chart(ctx, config);
-	document.getElementById('rate').innerHTML = 'レート' + rate;
+	document.getElementById('rate').innerHTML = 'レート ' + rate;
 
 
 	// レートのChart 
