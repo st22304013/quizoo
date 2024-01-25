@@ -55,21 +55,20 @@
 	<div class="container">
 		<div class="score_accuracyrate row">
 			<div class="score col-sm-6">
-				<span class="border border-primary-subtle border-4"> score
-					10050 </span>
+				<span class="border border-primary-subtle border-4" id="rate">
+					 </span>
 			</div>
 
 			<div class="accuracyrate col-sm-6">
-				<span class="border border-primary-subtle border-4"> 正解率
-					70.5% </span>
+				<span class="border border-primary-subtle border-4" id="correctRate">
+					</span>
 			</div>
 		</div>
 	</div>
 
 	<div class="graph-container">
-		
-		<canvas id="chart" class="graph"></canvas>
 		<canvas id="chart2" class="graph"></canvas>
+		<canvas id="chart" class="graph"></canvas>
 	</div>
 
 	<!--	ハンバーガー -->
