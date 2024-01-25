@@ -33,7 +33,17 @@
 
 		<div class="quizlist">
 			<div class="d-flex flex-column">
-				<a>1.20歳</a> <a>2.長野県</a> <a>3.東中野</a> <a>4.東中野</a><a class="active_question">5.</a>
+				<ol  id="question_list">
+					<li>20歳</li>
+					<li>長野県</li>
+					<li>東中野</li>
+					<li>東中野</li>
+				</ol>
+
+				<!-- Button trigger modal -->
+				<button type="button" id="endButton" class="btn btn-primary">
+					回答完了
+				</button>
 
 				<!-- Button trigger modal -->
 				<button type="button" class="close-btn" data-bs-toggle="modal"
@@ -46,12 +56,13 @@
 				data-bs-backdrop="static">
 				<div class="modal-dialog modal-dialog-centered">
 					<div class="modal-content">
-						<div class="modal-body">本当に終了しますか？</div>
+						<div class="modal-body">
+							本当に終了しますか？
+						</div>	
 						<div class="modal-footer">
-							<button type="button" class="no-btn btn btn-secondary"
-								data-bs-dismiss="modal">いいえ</button>
-							<button type="button" class="yes-btn btn btn-primary"
-								id="endButton" data-bs-target="#secondModal">はい</button>
+							<button type="button" class="no-btn btn btn-secondary" data-bs-dismiss="modal" id="dontSendButton">いいえ</button>
+							<button type="button" class="yes-btn btn btn-primary" id="sendAnswerButton" 
+								data-bs-target="#secondModal" >はい</button>
 						</div>
 					</div>
 				</div>
@@ -67,14 +78,14 @@
 							<h1 class="modal-title fs-7" id="exampleModalLabel">score</h1>
 						</div>
 						<div class="modal-body">
-							<div class="question-result">
+							<div class="question-result" id="question-result">
 								<p>1. 〇</p>
 								<p>2. ✕</p>
 								<p>3. 〇</p>
 								<p>4. 〇</p>
 								<p>5. ✕</p>
 							</div>
-							<div class="score text-end">
+							<div class="score text-end" id="score">
 								<h3>Points earned</h3>
 								<h1>200</h1>
 							</div>
@@ -92,7 +103,8 @@
 					<a>5/5</a>
 				</div>
 				<div class="border border-dark rounded bg-white">
-					<div class="sentence">こまむらえいやの誕生日は何月何日でしょう？
+					<div class="sentence" id="question-sentence">
+						こまむらえいやの誕生日は何月何日でしょう？
 						ああああああああああああああああああああああああああああああああああああああああああああ
 						ああああああああああああああああああああああああああああああああああああああああああああ
 						ああああああああああああああああああああああああああああああああああああああああああああ
@@ -102,8 +114,8 @@
 						ああああああああああああああああああああああああああああああああああああああああああああ
 						ああああああああああああああああああああああああああああああああああああああああああああ
 						ああああああああああああああああああああああああああああああああああああああああああああ
-						ああああああああああああああああああああああああああああああああああああああああああああ</div>
-
+						ああああああああああああああああああああああああああああああああああああああああああああ
+					</div>
 
 				</div>
 
@@ -141,31 +153,22 @@
 
 		</div>
 	</div>
-
-	<script>
-		document.getElementById('endButton').addEventListener('click',
-				function() {
-					// 現在のモーダルを閉じる
-					$('#exampleModal').modal('hide');
-
-					// 新しいモーダルを表示
-					$('#secondModal').modal('show');
-				});
-		document.getElementById('closeButton').addEventListener('click',
-				function() {
-					// closeButtonがクリックされたらindex.htmlに遷移
-					window.location.href = 'index';
-				});
-	</script>
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
 		crossorigin="anonymous"></script>
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-	<script
-		src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+	<script type="importmap">
+    {
+      "imports": {
+        "@popperjs/core": "https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/esm/popper.min.js",
+        "bootstrap": "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.esm.min.js"
+      }
+    }
+    </script>
+	<script type="module" src="js/quiz.js"></script>
+
 </body>
 
 </html>
