@@ -40,4 +40,10 @@ public class TestRequestContext implements RequestContext{
 	public String getTargetServiceKey() {
 		return null;
 	}
+
+	@Override
+	public void invalidatekeUser() {
+		// TODO 自動生成されたメソッド・スタブ
+		
+	}
 }
