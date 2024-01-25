@@ -16,17 +16,11 @@ public class QuizDeleter extends Service {
 	public void execute(RequestContext req, ResponseContext res)
 			throws IOException, ResourceException, BadRequestException, NotFoundException {
 		
+		int quizId = Integer.parseInt(req.getParameter("quiz_id")[0]);
 		int userNo = req.getUser().getUserNo();
-		String[] quiz_id = req.getParameter("quiz_id");
-		
-		
-		
-		
-		
-		
 		
 		QuizDao quizDao = new QuizDao();
-		quizDao.deleteQuiz(quizId);
+		quizDao.deleteQuiz(quizId,userNo);
 		
 		
 		
