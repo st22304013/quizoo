@@ -54,16 +54,9 @@
 		<h1>プロフィール編集</h1>
 		<form id="login-form" method="post" action="#">
 			<img src="img/prof.png" class="prof-img" alt="icon"><br>
-			<!--<div class="custom-file-input">
-				<input type="file" class="img" name="img" id="profile-img">
-				<label for="profile-img"><i
-					class="fa-solid fa-camera-rotate"></i></label>
-			</div>  -->
 			nickname <input type="text" class="nickname" name="nickname"
-				id="profile-nickname" value="今のニックネーム入れる"><br> password
-			<input type="password" class="password" name="password"
-				id="profile-password"><br>
-
+				id="profile-nickname" value="今のニックネーム入れる"><br>
+				
 			<button type="submit" class="buttonRound">編集</button>
 		</form>
 	</div>
