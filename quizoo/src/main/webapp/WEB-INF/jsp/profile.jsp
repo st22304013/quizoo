@@ -52,10 +52,10 @@
 
 	<div class="profile text-center">
 		<h1>プロフィール編集</h1>
-		<form id="login-form" method="post" action="#">
+		<form id="login-form" method="post" action="updatenickname">
 			<img src="img/prof.png" class="prof-img" alt="icon"><br>
 			nickname <input type="text" class="nickname" name="nickname"
-				id="profile-nickname" value="今のニックネーム入れる"><br>
+				id="profile-nickname" value=""><br>
 				
 			<button type="submit" class="buttonRound">編集</button>
 		</form>
@@ -100,6 +100,7 @@
 		src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="js/profile.js"></script>
 </body>
 
 </html>
