@@ -6,6 +6,7 @@ html {
 
 /*全画面共通body*/
 body {
+	font-family: 'Zen Maru Gothic', serif;
 	background-color: #fffaef;
 	width: 100%;
 	max-width: 100%;
