@@ -19,8 +19,9 @@ public class NickNameUpdater extends Service {
         
 
     	UserInfoBean user = req.getUser();
+    	String[] nickName = req.getParameter("nickname");
 
         UserInfoDao userinfoDao = new UserInfoDao();
-        userinfoDao.updateNickName(user.getUserNo(), nickName);
+        userinfoDao.updateNickName(user.getUserNo(), nickName[0]);
     }
 }
