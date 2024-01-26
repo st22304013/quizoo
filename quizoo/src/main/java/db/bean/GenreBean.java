@@ -3,29 +3,29 @@ package db.bean;
 import java.io.Serializable;
 
 public class GenreBean implements Serializable {
-	private int genreNo;
-	private String genre;
+	private int genre_no;
+	private String genre_title;
 	
 	public GenreBean() {}
 	
-	public GenreBean(int genreNo, String genre) {
-		this.setGenreNo(genreNo);
-		this.setGenre(genre);
+	public GenreBean(int genre_no, String genre_title) {
+		this.setGenre_no(genre_no);
+		this.setGenre_title(genre_title);
 	}
 
-	public int getGenreNo() {
-		return genreNo;
+	public int getGenre_no() {
+		return genre_no;
 	}
 
-	public void setGenreNo(int genreNo) {
-		this.genreNo = genreNo;
+	public void setGenre_no(int genre_no) {
+		this.genre_no = genre_no;
 	}
 
-	public String getGenre() {
-		return genre;
+	public String getGenre_title() {
+		return genre_title;
 	}
 
-	public void setGenre(String genre) {
-		this.genre = genre;
+	public void setGenre_title(String genre_title) {
+		this.genre_title = genre_title;
 	}
 }
