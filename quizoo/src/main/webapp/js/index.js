@@ -56,15 +56,10 @@ window.addEventListener('load',function(){
 async function getQuizList() {
     params = new URLSearchParams(window.location.search);
 
-    param = params.get("order");
+    console.log(params.toString());
 
-    if(param){
-        param = "?order="+param;
-    }else{
-        param = "";
-    }
 
-    var quizList = await fetch("/quizoo/quizlist" + param);
+    var quizList = await fetch("/quizoo/quizlist?" + params);
 
     quizList = await quizList.json();
 

@@ -26,6 +26,7 @@ public class QuizListGetter extends Service {
 	@Override
 	public void execute(RequestContext req, ResponseContext res) throws IOException, ResourceException {
 		
+		
 		ArrayList<QuizBean> quizList = new ArrayList<>();
 		
 		String[] order = req.getParameter("order");
