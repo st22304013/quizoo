@@ -20,11 +20,11 @@ public class GenreDao extends Dao {
 			rs = st.executeQuery();
 			
 			while (rs.next()) {
-				GenreBean quiz = new GenreBean();
-                quiz.setGenreNo(rs.getInt("genre_no"));
-                quiz.setGenre(rs.getString("genre"));
+				GenreBean genre = new GenreBean();
+				genre.setGenre_no(rs.getInt("genre_no"));
+                genre.setGenre_title(rs.getString("genre_title"));
 
-                genreList.add(quiz);
+                genreList.add(genre);
             }
 			
 		} catch (SQLException e) {
