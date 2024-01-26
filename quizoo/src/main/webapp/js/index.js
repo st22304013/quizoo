@@ -5,18 +5,27 @@ var list_box;
 
 window.addEventListener('load',function(){
     // gneres = fetch("/quizoo/genres");
-
-
-    genreSelector = document.querySelector("#genre_selector");
-
+    
+    var genreSelector = document.querySelector("#genre_selector");
+    
+    var emptyChoice = document.createElement("option");
+    emptyChoice.innerText = "ジャンルを指定しない";
+    genreSelector.appendChild(emptyChoice);
+    
     for(var i = 0 ; i < genres.length ; i++){
         var genreChoce = document.createElement("option");
         genreChoce.innerText = genres[i].genre_title;
-
+        genreChoce.value = genres[i].genre_no;
         genreSelector.appendChild(genreChoce);
     }
-      
-
+    
+    
+    genreSelector.addEventListener("change",()=>{
+        let url = new URL(this.window.location.href);
+        console.log(genreSelector.value);
+        url.searchParams.set("genre_no",genreSelector.value);
+        this.history.pushState(null,null,url);
+    })
     
     list_box = document.querySelector("#quiz_list");
     
