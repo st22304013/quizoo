@@ -77,8 +77,11 @@
 			<ul>
 				<li><a class="order_btn">new</a></li>
 				<li><a class="order_btn">popular</a></li>
+				<li>
+					<select id="genre_selector">
+					<select>
+				</li>
 			</ul>
-
 		</header>
 		<!--　クイズリスト  -->
 		<div class="quiz_list mx-auto" id="quiz_list">

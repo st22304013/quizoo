@@ -4,6 +4,20 @@
 var list_box;
 
 window.addEventListener('load',function(){
+    // gneres = fetch("/quizoo/genres");
+
+
+    genreSelector = document.querySelector("#genre_selector");
+
+    for(var i = 0 ; i < genres.length ; i++){
+        var genreChoce = document.createElement("option");
+        genreChoce.innerText = genres[i].genre_title;
+
+        genreSelector.appendChild(genreChoce);
+    }
+      
+
+    
     list_box = document.querySelector("#quiz_list");
     
     orderBtns = document.querySelectorAll(".order_btn");
@@ -80,7 +94,7 @@ async function quizlistFactory(quizList){
         ratio = document.createElement('a');
         ratio.setAttribute('class','raito');
         if(quiz['questionCount'] ==  0){
-            ratio.innerText = '回答者なし'
+            ratio.innerText = '蝗樒ｭ碑�縺ｪ縺�'
         }else{
             ratio.innerText = ' ' + (parseFloat(quiz['correctRate'])/parseFloat(quiz['questionCount'])).toFixed(2)
         }
@@ -89,7 +103,7 @@ async function quizlistFactory(quizList){
         author.setAttribute('class','author');
 
         let nickname = quiz['authorNickname'];
-        author.innerText = nickname ? nickname : "名無しさん";
+        author.innerText = nickname ? nickname : "蜷咲┌縺励＆繧�";
         author.setAttribute('href','profile?user_no='+quiz['authorNo']);
         
         info.appendChild(author);
