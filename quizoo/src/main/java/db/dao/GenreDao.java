@@ -3,12 +3,12 @@ package db.dao;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import db.bean.QuizBean;
+import db.bean.GenreBean;
 import frame.exception.ResourceException;
 
 public class GenreDao extends Dao {
-	public ArrayList<QuizBean> selectGenre() throws ResourceException {
-		ArrayList<QuizBean> genreList = new ArrayList<>();
+	public ArrayList<GenreBean> selectGenre() throws ResourceException {
+		ArrayList<GenreBean> genreList = new ArrayList<>();
 		
 		connect();
 		
@@ -20,7 +20,7 @@ public class GenreDao extends Dao {
 			rs = st.executeQuery();
 			
 			while (rs.next()) {
-                QuizBean quiz = new QuizBean();
+				GenreBean quiz = new GenreBean();
                 quiz.setGenreNo(rs.getInt("genre_no"));
                 quiz.setGenre(rs.getString("genre"));
 
