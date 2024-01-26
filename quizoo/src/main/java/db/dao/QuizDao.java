@@ -8,29 +8,26 @@ import frame.exception.ResourceException;
 
 /**
  * quiz表にアクセスします
+ * @param orderColumn 並び替えに使用する列を指定します。nullを渡すとcreate_timeの降順でソートします。
+ * @param genreNo ジャンルを指定します。-1を指定するとすべてのジャンルから取得します
+ * @param searchStr タイトルによる検索用文字列。nullを指定するとすべてのクイズを取得。
  */
 public class QuizDao extends Dao{
 	
-	/**
-	 * ソートされたQuiz一覧を取得します
-	 * @param columnName 並べ替えに使用する列名。quiz表に存在しない列名が渡された場合は例外が発生します
-	 * @return ArrayListに格納されたQuizBeanを返します
-	 * @throws ResourceException データ取得時に例外が発生した場合
-	 */
-	public ArrayList<QuizBean> selectOrderedQuizByColumnName(String columnName)throws ResourceException{
-
+	public ArrayList<QuizBean> selectQuiz(String orderColumn, int genreNo, String searchStr) throws ResourceException{
 		ArrayList<QuizBean> quizlist = new ArrayList<>();
 		
 		try {
 			connect();
 			
-			String sql = "SELECT * FROM quiz INNER JOIN genre USING(genre_no) LEFT OUTER JOIN nickname on quiz.author_no = nickname.user_no ORDER BY "; 
-			sql = sql + columnName;
+			String sql = "SELECT * FROM quiz INNER JOIN genre USING(genre_no) WHERE genre_no = ? ORDER BY "; 
+			sql = sql + orderColumn;
 			st = cn.prepareStatement(sql);
+			st.setInt(1,genreNo);
 			rs = st.executeQuery();
 			
 			while(rs.next()) {
-				//ResultSetからQuizBeanにプロパティを設定
+				//ResultSetからQuizBeanのプロパティを設定
 				QuizBean quizbean = new QuizBean();
 				quizbean.setQuizId(rs.getInt("quiz_id"));
 				quizbean.setAuthorNo(rs.getInt("author_no"));
@@ -42,20 +39,18 @@ public class QuizDao extends Dao{
 				quizbean.setCreateTime(rs.getString("create_time"));
 				quizbean.setCorrectRate(rs.getFloat("correct_rate"));
 				quizbean.setTotalParticipants(rs.getInt("total_participants"));	
-				quizbean.setAuthorNickname(rs.getString("nickname"));
 				quizbean.setDeleted(rs.getBoolean("deleted"));
+				
 				quizlist.add(quizbean);
 				
 			}
 		} catch(SQLException e) {
-			//SQL例外を処理、必要に応じてロールバック
 			try {
 				cn.rollback();
 			} catch(SQLException e2) {
 				throw new ResourceException(e2.getMessage(), e2);
 			}
 		} finally {
-			//リソースを閉じる
 			try {
 				if(rs != null) {
 					rs.close();
@@ -70,15 +65,6 @@ public class QuizDao extends Dao{
 			}
 		}
 		return quizlist.isEmpty() ? null : quizlist;
-		
-	}	
-	
-	/**
-	 * @return create_time列でソートされたQuiz一覧を取得します
-	 * @throws ResourceException データ取得時に例外が発生した場合
-	 */
-	public ArrayList<QuizBean> selectQuiz() throws ResourceException {
-		return selectOrderedQuizByColumnName("create_time");
 	}
 	
 	/**
@@ -139,128 +125,7 @@ public class QuizDao extends Dao{
 		return quizbean;
 	}
 	
-	
-	/**
-	 * 指定されたジャンルの指定された列で並び変えられたQuiz一覧を取得します
-	 * @param columnName 並べ替えに使用する列名。quiz表に存在しない列名が渡された場合は例外が発生します
-	 * @param genreNo genre表genre_no列に対応した値。存在しない場合は結果が0件
-	 * @return ArrayListに格納されたQuizBeanを返します
-	 * @throws ResourceException ResourceException データ取得時に例外が発生した場合
-	 */
-	public ArrayList<QuizBean> selectQuizByColumnNameAndGenreNo(String columnName, int genreNo)throws ResourceException{
-		
-		ArrayList<QuizBean> quizlist = new ArrayList<>();
-		
-		try {
-			connect();
-			
-			String sql = "SELECT * FROM quiz INNER JOIN genre USING(genre_no) WHERE genre_no = ? ORDER BY "; 
-			sql = sql + columnName;
-			st = cn.prepareStatement(sql);
-			st.setInt(1,genreNo);
-			rs = st.executeQuery();
-			
-			while(rs.next()) {
-				//ResultSetからQuizBeanのプロパティを設定
-				QuizBean quizbean = new QuizBean();
-				quizbean.setQuizId(rs.getInt("quiz_id"));
-				quizbean.setAuthorNo(rs.getInt("author_no"));
-				quizbean.setTitle(rs.getString("title"));
-				quizbean.setQuestionCount(rs.getInt("question_count"));
-				quizbean.setGenreNo(rs.getInt("genre_no"));
-				quizbean.setGenre(rs.getString("genre_title"));
-				quizbean.setExplanation(rs.getString("explanation"));
-				quizbean.setCreateTime(rs.getString("create_time"));
-				quizbean.setCorrectRate(rs.getFloat("correct_rate"));
-				quizbean.setTotalParticipants(rs.getInt("total_participants"));	
-				quizbean.setDeleted(rs.getBoolean("deleted"));
-				
-				quizlist.add(quizbean);
-				
-			}
-		} catch(SQLException e) {
-			try {
-				cn.rollback();
-			} catch(SQLException e2) {
-				throw new ResourceException(e2.getMessage(), e2);
-			}
-		} finally {
-			try {
-				if(rs != null) {
-					rs.close();
-				}
-				if(st != null) {
-					st.close();
-				}
-			} catch(SQLException e2) {
-				throw new ResourceException(e2.getMessage(), e2);
-			} finally {
-				close();
-			}
-		}
-		return quizlist.isEmpty() ? null : quizlist;
-		
-	}
 
-	/**
-	 * 指定されたジャンルに登録されているQuiz一覧を指定されている列名で並び変えて取得します
-	 * @param genreNo 絞り込むジャンルを指定します
-	 * @return ArrayListに格のされたQuizBeanを返します
-	 * @throws ResourceException ResourceException データ取得時に例外が発生した場合
-	 */
-	public ArrayList<QuizBean> selectSearchedQuizByGenreNo(int genreNo) throws ResourceException {
-		
-		QuizBean quizbean = new QuizBean();
-		ArrayList<QuizBean> quizList = new ArrayList<>();
-		
-		try {
-			connect();
-			
-			String sql = "SELECT * FROM quiz INNER JOIN genre USING(genre_no) WHERE genre_no = ?"; 
-			st = cn.prepareStatement(sql);
-			st.setInt(1, genreNo);
-			rs = st.executeQuery();
-			
-			while(rs.next()) {
-				//ResultSetからQuizBeanのプロパティを設定
-				quizbean.setQuizId(rs.getInt("quiz_id"));
-				quizbean.setAuthorNo(rs.getInt("author_no"));
-				quizbean.setTitle(rs.getString("title"));
-				quizbean.setQuestionCount(rs.getInt("question_count"));
-				quizbean.setGenreNo(rs.getInt("genre_no"));
-				quizbean.setGenre(rs.getString("genre"));
-				quizbean.setExplanation(rs.getString("explanation"));
-				quizbean.setCreateTime(rs.getString("create_time"));
-				quizbean.setCorrectRate(rs.getFloat("correct_rate"));
-				quizbean.setTotalParticipants(rs.getInt("total_participants"));	
-				quizbean.setDeleted(rs.getBoolean("deleted"));
-				
-				quizList.add(quizbean);
-
-			}
-		} catch(SQLException e) {
-			try {
-				cn.rollback();
-			} catch(SQLException e2) {
-				throw new ResourceException(e2.getMessage(), e2);
-			}
-		} finally {
-			try {
-				if(rs != null) {
-					rs.close();
-				}
-				if(st != null) {
-					st.close();
-				}
-			} catch(SQLException e2) {
-				throw new ResourceException(e2.getMessage(), e2);
-			} finally {
-				close();
-			}
-		}
-		return quizList.isEmpty() ? null : quizList;
-	}
-	
 	/**
 	 * quiz表にQuizBeanのデーターを挿入します
 	 * @param quiz 挿入するQuizのBean

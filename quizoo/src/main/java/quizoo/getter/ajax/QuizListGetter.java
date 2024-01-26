@@ -32,7 +32,7 @@ public class QuizListGetter extends Service {
 		String[] order = req.getParameter("order");
 		String orderStr = "create_time";
 		
-		String[] genreNo = req.getParameter("genreNo");
+		String[] genreNo = req.getParameter("genre_no");
 		Integer genreNoInteger = null;
 		 
 
@@ -45,6 +45,9 @@ public class QuizListGetter extends Service {
 		if(order != null) {
 			orderStr = paramColMap.get(order[0]);			
 		}
+		
+		System.out.println(genreNoInteger);
+		System.out.println(orderStr);
 		
 		
 		QuizDao quizDao = new QuizDao();
