@@ -186,4 +186,25 @@ public class UserInfoDao extends Dao {
 		
 		close();
 	}
+	
+	public void updateNickName(int userNo, String nickname) throws ResourceException {
+		PreparedStatement st = null;
+		try {
+			connect();
+			
+			String sql = "UPDATE nickname SET nickname = ? WHERE user_no = ?";
+      
+			st = cn.prepareStatement(sql);
+
+			st.setString(1, nickname);
+			st.setInt(2, userNo);
+			st.executeUpdate();
+
+			cn.commit();
+		} catch (SQLException e) {
+			throw new ResourceException(e.getMessage(), e);
+		}
+		
+		close();
+	}
 }
