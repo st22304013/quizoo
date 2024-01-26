@@ -207,4 +207,29 @@ public class UserInfoDao extends Dao {
 		
 		close();
 	}
+	
+	public String selectNickName(int userNo) throws ResourceException {
+		PreparedStatement st = null;
+		String nickname;
+		try {
+			connect();
+			
+			String sql = "SELECT nickname FROM nickname WHERE user_no = ?";
+      
+			st = cn.prepareStatement(sql);
+
+			st.setInt(1, userNo);
+			rs = st.executeQuery();
+			
+			nickname = rs.getString(1);
+
+			cn.commit();
+		} catch (SQLException e) {
+			throw new ResourceException(e.getMessage(), e);
+		}
+		
+		close();
+		
+		return nickname;
+	}
 }
