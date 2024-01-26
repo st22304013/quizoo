@@ -96,6 +96,15 @@
   	<url-pattern>/score</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+  	<servlet-name>othersprofile-page</servlet-name>
+  	<jsp-file>/WEB-INF/jsp/othersprofile.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>othersprofile-page</servlet-name>
+  	<url-pattern>/othersprofile</url-pattern>
+  </servlet-mapping>
+  
   
   
   <servlet>
