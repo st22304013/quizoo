@@ -14,7 +14,7 @@ import frame.exception.ResourceException;
  */
 public class QuizDao extends Dao{
 	
-	public ArrayList<QuizBean> selectQuiz(String orderColumn, int genreNo, String searchStr) throws ResourceException{
+	public ArrayList<QuizBean> selectQuiz(String orderColumn, String genreNo, String searchStr) throws ResourceException{
 		ArrayList<QuizBean> quizlist = new ArrayList<>();
 		
 		try {
@@ -23,7 +23,7 @@ public class QuizDao extends Dao{
 			String sql = "SELECT * FROM quiz INNER JOIN genre USING(genre_no) WHERE genre_no = ? ORDER BY "; 
 			sql = sql + orderColumn;
 			st = cn.prepareStatement(sql);
-			st.setInt(1,genreNo);
+			st.setString(1,genreNo);
 			rs = st.executeQuery();
 			
 			while(rs.next()) {
