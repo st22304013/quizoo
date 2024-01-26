@@ -22,9 +22,8 @@ window.addEventListener('load',function(){
     
     genreSelector.addEventListener("change",()=>{
         let url = new URL(this.window.location.href);
-        console.log(genreSelector.value);
         url.searchParams.set("genre_no",genreSelector.value);
-        this.history.pushState(null,null,url);
+        window.history.pushState(null,null,url);
 
         getQuizList();
     })
@@ -34,7 +33,10 @@ window.addEventListener('load',function(){
     orderBtns = document.querySelectorAll(".order_btn");
     for(var btn of orderBtns){
         btn.addEventListener("click",function () {
-            history.replaceState(null,null, window.location.pathname + "?order=" + this.innerText);
+
+            let url = new URL(window.location.href);
+            url.searchParams.set("order",this.innerText);
+            window.history.pushState(null,null,url);
             getQuizList();
             
         });
