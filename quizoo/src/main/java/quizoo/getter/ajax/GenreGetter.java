@@ -20,15 +20,15 @@ public class GenreGetter extends Service {
 	public void execute(RequestContext req, ResponseContext res)
 			throws IOException, ResourceException, BadRequestException, NotFoundException {
 		// TODO 自動生成されたメソッド・スタブ
-		ArrayList<GenreBean> genre = new ArrayList<>();
+		ArrayList<GenreBean> genreList = new ArrayList<>();
 		
 		GenreDao genreDao = new GenreDao();
-		genre = genreDao.selectGenre();
+		genreList = genreDao.selectGenre();
 		
 		PrintWriter out = res.getWrite();
 		
 		Gson gson = new Gson();
-		String result = gson.toJson(genre);
+		String result = gson.toJson(genreList);
 		
 		out.println(result);
 		
