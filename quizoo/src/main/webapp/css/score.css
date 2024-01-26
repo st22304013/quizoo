@@ -187,15 +187,15 @@ section:nth-child(even) {
 .graph-container {
     position: relative;
     width:  calc(100% - 40px);
-    height: 300px;
+    height: 500px;
     overflow: hidden;
     margin:20px;
     display: flex;
 }
 .graph {
     /* margin: 0 350px; */
-    max-width: 40%;
+    max-width: 30%;
     max-height: 300px;
-    margin-left: 70px;
+    margin-left: 12%;
     display: block;
 }
