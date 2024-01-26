@@ -12,14 +12,12 @@ public class GenreDao extends Dao {
 		
 		connect();
 		
-		String sql = "SELECT * FROM quiz ORDER BY genre_no ASC";
+		String sql = "SELECT * FROM genre ORDER BY genre_no ASC";
 		
 		
 		try {
 			st = cn.prepareStatement(sql);
-			
 			rs = st.executeQuery();
-			
 			
 			while (rs.next()) {
                 QuizBean quiz = new QuizBean();
@@ -28,8 +26,6 @@ public class GenreDao extends Dao {
 
                 genreList.add(quiz);
             }
-			
-			
 			
 		} catch (SQLException e) {
 			throw new ResourceException(e.getMessage(), e);
