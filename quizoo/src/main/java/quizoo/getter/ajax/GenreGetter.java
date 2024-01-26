@@ -29,6 +29,7 @@ public class GenreGetter extends Service {
 		
 		Gson gson = new Gson();
 		String result = gson.toJson(genreList);
+		System.out.println(result);
 		
 		out.println(result);
 		
