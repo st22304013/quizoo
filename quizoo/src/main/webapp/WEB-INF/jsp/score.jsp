@@ -13,6 +13,7 @@
 	integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
 	crossorigin="anonymous">
 <link rel="stylesheet" href="css/score.css">
+<link rel="stylesheet" href="css/header.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script
@@ -28,32 +29,9 @@
 </head>
 
 <body>
-	<header>
-		<nav class="navbar navbar-light fixed-top">
-			<div class="header-img">
-				<a href="index"><img src="img/quizoo_nobackground.png" alt="quizoo"></a>
-			</div>
-
-			<!-- ハンバーガーメニュー -->
-			<buttom class="drawer__button"> <span></span> <span></span>
-			<span></span> </buttom>
-			<nav class="drawer__nav">
-				<div class="drawer__nav__inner">
-					<ul class="drawer__nav__menu">
-						<li class="drawer__nav__item"><a class="drawer__nav__link"
-							href="profile">プロフィール編集</a></li>
-						<li class="drawer__nav__item"><a class="drawer__nav__link"
-							href="createhistory">作成履歴</a></li>
-						<li class="drawer__nav__item"><a class="drawer__nav__link"
-							href="score">スコア詳細</a></li>
-						<li class="drawer__nav__item"><a class="drawer__nav__link"
-							href="#">ログアウト</a></li>
-					</ul>
-				</div>
-			</nav>
-		</nav>
-
-	</header>
+	<!-- ヘッダー -->
+	<%@ include file="header.jsp" %>
+	
 	<h1 style="text-align: center">スコア詳細</h1>
 	<div class="container">
 		<div class="score_accuracyrate row">
