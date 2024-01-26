@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 import com.google.gson.Gson;
 
-import db.bean.QuizBean;
+import db.bean.GenreBean;
 import db.dao.GenreDao;
 import frame.Service;
 import frame.context.RequestContext;
@@ -20,7 +20,7 @@ public class GenreGetter extends Service {
 	public void execute(RequestContext req, ResponseContext res)
 			throws IOException, ResourceException, BadRequestException, NotFoundException {
 		// TODO 自動生成されたメソッド・スタブ
-		ArrayList<QuizBean> genre = new ArrayList<>();
+		ArrayList<GenreBean> genre = new ArrayList<>();
 		
 		GenreDao genreDao = new GenreDao();
 		genre = genreDao.selectGenre();
