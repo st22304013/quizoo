@@ -51,7 +51,7 @@
 		</nav>
 
 	</header>
-	<h1 style="text-align: center">スコア詳細</h1>
+	<h1 style="text-align: center">スコア詳細</h1><br>
 	<div class="container">
 		<div class="score_accuracyrate row">
 			<div class="score col-sm-6">
