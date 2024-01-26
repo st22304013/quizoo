@@ -25,6 +25,8 @@ window.addEventListener('load',function(){
         console.log(genreSelector.value);
         url.searchParams.set("genre_no",genreSelector.value);
         this.history.pushState(null,null,url);
+
+        getQuizList();
     })
     
     list_box = document.querySelector("#quiz_list");
