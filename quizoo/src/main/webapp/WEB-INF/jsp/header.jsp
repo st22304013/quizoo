@@ -6,7 +6,7 @@
 			<a href="index"><img src="img/quizoo_nobackground.png"
 				alt="quizoo"></a>
 		</div>
-		<div class="input-group" style="width: 30%;">
+		<div class="input-group">
 			<input type="text" class="form-control" placeholder="Search">
 			<div class="input-group-append">
 				<span class="input-group-text"> <svg

@@ -7,22 +7,28 @@ header {
 	position: fixed;
 	background-color: #DBFAFD;
 	display: flex;
-	width: 100%;
+	width: 100em;
 	height: 120px;
 	align-items: center;
 }
 
 /*全画面共通ヘッダー画像*/
-img {
-	max-width: 100%;
-	vertical-align: bottom;
+.header-img {
+	margin-top: 0.5em;
+	width: 120px;
+	height: 85px;
 }
 
-.header-img {
-	padding: 4px;
-	margin-top: 0.5em;
-	/*	margin-left: 2em;*/
-	width: 130px;
+.navbar {
+	padding-left: 15px;
+	padding-right: 15px;
+	height: 16px;
+	width: 1600px;
+}
+
+.input-group {
+	width: 30%;
+	height: 50px;
 }
 
 /* -ハンバーガーメニュー- */
