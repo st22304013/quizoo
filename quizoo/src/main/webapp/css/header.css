@@ -13,6 +13,11 @@ header {
 }
 
 /*全画面共通ヘッダー画像*/
+img {
+	max-width: 100%;
+	vertical-align: bottom;
+}
+
 .header-img {
 	padding: 4px;
 	margin-top: 0.5em;
