@@ -769,3 +769,13 @@ a.btn-border-shadow--color2:before {
 		transform: rotate(360deg);
 	}
 }
+
+.noquizdata {
+	margin-top: 30px;
+	font-size: 40px;
+	text-align: center;
+}
+
+.none {
+	display: none;
+}
