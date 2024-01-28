@@ -1,4 +1,5 @@
 @charset "UTF-8";
+
 :root {
   --bgColor: #f7f7f7;
   --jaggedDistance: 32px;
@@ -39,28 +40,6 @@
   }
 }
 
-@mixin border-bottom-jagged($size, $color-outer) {
-  position: relative;
-  padding-bottom: $size;
-
-  &::after {
-    content: '';
-    display: block;
-    position: absolute;
-    left: calc(-1 * $size / 1.7);
-    bottom: calc(-1 * var(--jaggedDistance) / 3.85);
-    width: calc(100% + #{$size});
-    height: $size;
-    background-repeat: repeat-x;
-    background-size: $size $size;
-    background-position: left bottom;
-    background-image: linear-gradient(-45deg, $color-outer ($size / 2), transparent 0),
-                      linear-gradient(45deg, $color-outer ($size / 2), transparent 0),
-                      linear-gradient(-45deg, var(--booFaceColor) ($size / 1.7), transparent 0),
-                      linear-gradient(45deg, var(--booFaceColor) ($size / 1.7), transparent 0);
-  }
-}
-
 body {
   background-color: var(--bgColor);
 }
@@ -72,11 +51,11 @@ body {
   height: 100vh;
   text-align: center;
   font-size: calc(var(--jaggedDistance) / 2);
+}
 
-  h1 {
-    font-size: var(--jaggedDistance);
-    margin-top: var(--jaggedDistance);
-  }
+.container h1 {
+  font-size: var(--jaggedDistance);
+  margin-top: var(--jaggedDistance);
 }
 
 .boo-wrapper {
@@ -100,39 +79,38 @@ body {
   overflow: hidden;
   border-radius: calc(var(--booSize) / 2) calc(var(--booSize) / 2) 0 0;
   box-shadow: calc(-1 * var(--jaggedDistance) / 2) 0 0 2px rgba(var(--booShadow), .5) inset;
-  @include border-bottom-jagged(var(--jaggedDistance), var(--bgColor));
   animation: floating 3s ease-in-out infinite;
+}
 
-  .face {
-    width: var(--booFaceSize);
-    height: calc(var(--jaggedDistance) / 10);
-    border-radius: 5px;
-    background-color: var(--booFaceColor);
-    position: absolute;
-    left: 50%;
-    bottom: calc(var(--jaggedDistance) + var(--booFaceSize));
-    transform: translateX(-50%);
+.boo .face {
+  width: var(--booFaceSize);
+  height: calc(var(--jaggedDistance) / 10);
+  border-radius: 5px;
+  background-color: var(--booFaceColor);
+  position: absolute;
+  left: 50%;
+  bottom: calc(var(--jaggedDistance) + var(--booFaceSize));
+  transform: translateX(-50%);
+}
 
-    &::before,
-    &::after {
-      content: '';
-      display: block;
-      width: calc(var(--booFaceSize) / 4);
-      height: calc(var(--booFaceSize) / 4);
-      background-color: var(--booFaceColor);
-      border-radius: 50%;
-      position: absolute;
-      bottom: calc(var(--jaggedDistance) + (var(--booFaceSize) / 3));
-    }
+.boo .face::before,
+.boo .face::after {
+  content: '';
+  display: block;
+  width: calc(var(--booFaceSize) / 4);
+  height: calc(var(--booFaceSize) / 4);
+  background-color: var(--booFaceColor);
+  border-radius: 50%;
+  position: absolute;
+  bottom: calc(var(--jaggedDistance) + (var(--booFaceSize) / 3));
+}
 
-    &::before {
-      left: calc(-1 * var(--booFaceSize));
-    }
+.boo .face::before {
+  left: calc(-1 * var(--booFaceSize));
+}
 
-    &::after {
-      right: calc(-1 * var(--booFaceSize));
-    }
-  }
+.boo .face::after {
+  right: calc(-1 * var(--booFaceSize));
 }
 
 .shadow {
