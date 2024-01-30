@@ -183,6 +183,19 @@ section {
 section:nth-child(even) {
     background-color: skyblue;
 }
-
-
-
+ 
+.graph-container {
+    position: relative;
+    width:  calc(100% - 40px);
+    height: 500px;
+    overflow: hidden;
+    margin:20px;
+    display: flex;
+}
+.graph {
+    /* margin: 0 350px; */
+    max-width: 30%;
+    max-height: 300px;
+    margin-left: 12%;
+    display: block;
+}
