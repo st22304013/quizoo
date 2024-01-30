@@ -145,3 +145,19 @@ async function quizlistFactory(quizList){
     return list;
 }
 
+
+// チェックボックスを一つしか選ばせないようにする
+function limitCheckbox(clickedCheckbox) {
+    // クリックされたチェックボックスの親要素からグループを取得
+    var checkboxGroup = clickedCheckbox.closest('.clickedCheckbox');
+
+    // グループ内の他のチェックボックスを取得
+    var otherCheckboxes = checkboxGroup.querySelectorAll('.form-check-input');
+
+    // クリックされたチェックボックス以外の選択を解除
+    otherCheckboxes.forEach(function (checkbox) {
+        if (checkbox !== clickedCheckbox) {
+            checkbox.checked = false;
+        }
+    });
+}
