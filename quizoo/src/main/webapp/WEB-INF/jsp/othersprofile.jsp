@@ -3,10 +3,9 @@
 
 <!DOCTYPE html>
 <html>
-
 <head>
 <meta charset="UTF-8">
-<title>プロフィール</title>
+<title>クリエイター</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -50,7 +49,7 @@
 			</nav>
 		</nav>
 	</header>
-	<h1 class="profle-title">プロフィール</h1><br>
+	<h1 class="profle-title">クリエイター</h1><br>
 	<div class="nickname">ニックネーム:(ここに作成者を表示)</div><br>
 	<div class="quiz_list mx-auto" id="quiz_list">
 		<div class="quiz">
@@ -108,5 +107,5 @@
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>
+

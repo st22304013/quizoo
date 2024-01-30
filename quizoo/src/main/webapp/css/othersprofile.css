@@ -255,6 +255,7 @@ section:nth-child(even) {
 
 .quiz_list {
 	margin-bottom: 0px;
+	animation: fadeIn 2s ease 1s 1 normal backwards;
 }
 
 /* 各クイズ */
@@ -269,20 +270,11 @@ section:nth-child(even) {
 	background-color: rgb(215, 248, 215);
 	max-width: 70%;
 
-	padding: 10px;
-  animation: fadeIn 5s ease 1s 1 normal backwards;
+	padding: 20px;
+
 }
  
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}	
+	
 
 .quiz .title {
 	font-size: 30px;
@@ -317,6 +309,8 @@ section:nth-child(even) {
 
 .profle-title{
 	text-align: center;
+	font-family: 'M PLUS Rounded 1c', sans-serif;
+	font-weight: bold;
 }
 
 .nickname{
@@ -330,6 +324,17 @@ section:nth-child(even) {
 
   .buttonRound:hover {
     background-color: #ee7800;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
