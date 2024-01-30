@@ -86,34 +86,6 @@
 		</div>
 	</div>
 
-	<!--	ハンバーガー -->
-	<script>
-		$(function() {
-			// ハンバーガーボタンクリックで実行
-			$(".drawer__button").click(function() {
-				$(this).toggleClass("active");
-				$(".drawer__nav").toggleClass("active");
-			});
-
-			$(".drawer__nav__link").click(function() {
-				$(".drawer__button").removeClass("active");
-				$(".drawer__nav").removeClass("active");
-			});
-
-			// ページ内スクロール
-			$('a[href^="#"]').click(function() {
-				const speed = 400;
-				let href = $(this).attr("href");
-				let target = $(href == "#" || href == "" ? "html" : href);
-				let position = target.offset().top;
-				$("body,html").animate({
-					scrollTop : position
-				}, speed, "swing");
-				return false;
-			});
-			// function
-		});
-	</script>
 
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
@@ -124,6 +96,7 @@
 		src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="js/header.js"></script>
 </body>
 
 </html>
