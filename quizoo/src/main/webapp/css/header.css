@@ -255,10 +255,6 @@ section:nth-child(even) {
 	animation: pulse2 .3s 2;
 }
 
-.modal-content {
-	margin-top: 165px;
-	font-size: 20px;
-}
 
 @keyframes pulse {
 	0% {
