@@ -1,5 +1,8 @@
 @charset "UTF-8";
-/*quiz.html*/
+
+html {
+	width: 100%;
+}
 
 /*全画面共通body*/
 body {
@@ -60,8 +63,8 @@ header {
 
 /*クイズ回答履歴*/
 .quizlist {
-	background-color: silver;
-	height: 80%;
+	background-color: #d3d3d3;
+	min-height: 100vh;
 	display: flex;
 	justify-content: space-between;
 }
@@ -76,11 +79,25 @@ header {
 	font-size: 20px;
 }
 
+/*回答履歴*/
 .d-flex a {
 	padding: 7px;
 }
 
+/*今解いている問題の回答*/
+.active_question {
+	color: #ff0000;
+}
 
+/*回答完了ボタン*/
+.close-btn {
+	color: #404040;
+	background-color: #ffa500;
+	width: 270px;
+	height: 40px;
+	border: none;
+	border-radius: 5%;
+}
 
 /*回答する欄*/
 .Problem-statement {
@@ -98,46 +115,64 @@ header {
 	margin-right: 20px;
 }
 
+/*問題文を囲う枠*/
 .border {
 	display: block;
 	padding: 20px;
 	width: 1200px;
-	height: 400px;
+	height: 250px;
 	overflow: auto;
 	/* はみ出た内容をスクロールで表示 */
 }
 
-
+/*問題文*/
 .sentence {
-	font-size: 25px;
+	font-size: 20px;
 	overflow: hidden;
 	/* はみ出た部分を非表示にする */
 }
 
-.choices {
-	padding: 20px;
+/*解答群*/
+.answers {
+	margin-top: 30px;
+	width: 100%;
+	transition: height 0.3s;
 }
 
+.answers td {
+	padding: 10px;
+	text-align: center;
+}
+
+/*選択肢*/
 .choice {
-	font-size: 18px;
-	padding: 5px;
+	width: 280px;
+	font-size: 35px;
+	padding: 20px;
+	overflow-wrap: normal;
 }
 
 /*選択肢ボタン*/
-.answer {
-	padding: 15px;
-}
-
-.answer .btn {
+.btn--orange,
+a.btn--orange {
+	color: #fff;
+	background-color: #eb6100;
+	width: 200px;
+	height: 70px;
 	font-size: 30px;
-	color: #000000;
-	width: 250px;
-	height: 80px;
-	margin: 20px;
 }
 
-.answer .btn:focus {
-	color: #ffffff;
+.btn--orange:hover,
+a.btn--orange:hover {
+	color: #fff;
+	background: #f56500;
+}
+
+@media screen and(max-width: 767px) {
+	.answers td {
+		width: 50%;
+		box-sizing: border-box;
+	}
 }
 
 /*回答完了モーダル*/
@@ -203,4 +238,81 @@ header {
 	font-size: 30px;
 	width: 150px;
 	height: 70px;
+}
+
+/*profile.html*/
+
+.profile {
+	padding: 20px;
+	margin-top: 120px;
+}
+
+/*プロフィール画像*/
+.img-thumbnail {
+	margin-top: 50px;
+	border-radius: 50%;
+	width: 200px;
+	height: 200px;
+}
+
+/* スタイルを適用するための親要素 */
+.custom-file-input {
+	position: relative;
+	display: inline-block;
+}
+
+/* 実際のinputは非表示 */
+.custom-file-input input {
+	display: none;
+}
+
+/* カスタムデザインのスタイル */
+.custom-file-input label {
+	display: inline-block;
+	padding: 10px 15px;
+/*	background-color: #3498db;*/
+	color: #0000ff;
+	cursor: pointer;
+	border-radius: 5px;
+}
+
+.title {
+	margin-left: 10px;
+}
+
+.nickname {
+	margin-top: 50px;
+	background-color: #fffaef;
+	border: none;
+	outline: none;
+	border-bottom: 2px solid #999;
+	padding: 5px 10px;
+}
+
+.nickname:focus {
+	border-bottom-color: #ffa500;
+}
+
+.password {
+	background-color: #fffaef;
+	border: none;
+	outline: none;
+	border-bottom: 2px solid #999;
+	padding: 5px 10px;
+}
+
+.password:focus {
+	border-bottom-color: #ffa500;
+}
+
+.edit-btn {
+	margin-top: 20px;
+}
+
+.selected{
+	border:solid 3px #ff0000;	
+}
+
+.selected:hover{
+	border:solid 3px #ff0000;	
 }

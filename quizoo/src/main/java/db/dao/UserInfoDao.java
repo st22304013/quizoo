@@ -172,6 +172,7 @@ public class UserInfoDao extends Dao {
 			connect();
 			//合計回答数と合計正解数のアップデートのSQL
 			String sql = "UPDATE userinfo SET total_answer = ?, correct_ansewer = ? WHERE user_no = ?";
+
       
 			st = cn.prepareStatement(sql);
 			st.setInt(1, answered);

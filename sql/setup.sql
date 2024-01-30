@@ -40,13 +40,15 @@ CREATE TABLE quiz (
     quiz_id MEDIUMINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     author_no MEDIUMINT UNSIGNED NOT NULL REFERENCES userinfo(user_no),
     title VARCHAR(100) NOT NULL,
-	question_count TINYINT NOT NULL,
+    question_count TINYINT NOT NULL,
     genre_no TINYINT UNSIGNED NOT NULL REFERENCES genre(genre_no),
     explanation VARCHAR(200) DEFAULT NULL,
-    create_time TIMESTAMP NOT NULL DEFAULT now(0),
-	correct_rate FLOAT UNSIGNED NOT NULL DEFAULT 0,
-	total_participants MEDIUMINT UNSIGNED NOT NULL DEFAULT 0
+    create_time TIMESTAMP NOT NULL DEFAULT NOW(0),
+    correct_rate FLOAT UNSIGNED NOT NULL DEFAULT 0,
+    total_participants MEDIUMINT UNSIGNED NOT NULL DEFAULT 0,
+    deleted BIT(1) DEFAULT b'0'
 );
+
 
 CREATE TABLE question (
 	quiz_id MEDIUMINT UNSIGNED REFERENCES quiz(quiz_id),
@@ -110,50 +112,3 @@ END;
 //
 DELIMITER ;
 
-
-LOAD DATA LOCAL INFILE 'C:/repos/QuiZoo/quizoo/testdata/userinfo.csv' 
-	INTO TABLE userinfo
-	FIELDS TERMINATED BY ','
-	LINES TERMINATED BY '\r\n'
-	IGNORE 1 ROWS
-    (user_id,password,total_answer,correct_answer,rating);
-
-
-LOAD DATA LOCAL INFILE 'C:/repos/QuiZoo/quizoo/testdata/quiz.csv' 
-	INTO TABLE quiz
-	FIELDS TERMINATED BY ','
-	LINES TERMINATED BY '\r\n'
-	IGNORE 1 ROWS
-    (author_no,title,question_count,genre_no,explanation,create_time,total_participants);
-
-
-LOAD DATA LOCAL INFILE 'C:/repos/QuiZoo/quizoo/testdata/question.csv' 
-	INTO TABLE question
-	FIELDS TERMINATED BY ','
-	LINES TERMINATED BY '\r\n'
-	IGNORE 1 ROWS
-    (quiz_id,question_id,question,choice_1,choice_2,choice_3,choice_4,judge);
-
-
-LOAD DATA LOCAL INFILE 'C:/repos/QuiZoo/quizoo/testdata/nickname.csv' 
-	INTO TABLE nickname
-	FIELDS TERMINATED BY ','
-	LINES TERMINATED BY '\r\n'
-	IGNORE 1 ROWS
-    (user_no,nickname);
-
-
-LOAD DATA LOCAL INFILE 'C:/repos/QuiZoo/quizoo/testdata/genre.csv' 
-	INTO TABLE genre
-	FIELDS TERMINATED BY ','
-	LINES TERMINATED BY '\r\n'
-	IGNORE 1 ROWS
-    (genre_no,genre_title);
-
-
-LOAD DATA LOCAL INFILE 'C:/repos/QuiZoo/quizoo/testdata/answerhistory.csv' 
-	INTO TABLE answerhistory
-	FIELDS TERMINATED BY ','
-	LINES TERMINATED BY '\r\n'
-	IGNORE 1 ROWS
-    (user_no,quiz_id,answered_time,question_count,correct_count);

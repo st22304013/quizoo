@@ -25,7 +25,7 @@ public class AnswerHistoryDao extends Dao {
 
 		connect();
 		
-		String sql = "SELECT quiz_id, title, author_no, answered_time, a.question_count AS q_count, q.question_count AS now_count,genre_no,correct_count, explanation, create_time, correct_rate, total_participants "
+		String sql = "SELECT quiz_id, title, author_no, answered_time, a.question_count AS q_count, q.question_count AS now_count,genre_no,correct_count, explanation, create_time, correct_rate, total_participants, deleted "
 				+ " FROM answerhistory a"
 				+ " INNER JOIN quiz q"
 				+ " USING (quiz_id)"
@@ -57,6 +57,7 @@ public class AnswerHistoryDao extends Dao {
 				quizbean.setCorrectRate(rs.getFloat("correct_rate"));
 				quizbean.setTotalParticipants(rs.getInt("total_participants"));
 				quizbean.setGenreNo(rs.getInt("genre_no"));
+				quizbean.setDeleted(rs.getBoolean("deleted"));
 				
 				answerhistorybean.setQuizBean(quizbean);
 				

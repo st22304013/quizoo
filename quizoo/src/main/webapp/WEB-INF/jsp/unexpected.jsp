@@ -4,9 +4,8 @@ pageEncoding="UTF-8"%>
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="css/notfound.css">
-
-<title>notfound</title>
+<link rel="stylesheet" type="text/css" href="css/unexpected.css">
+<title>unexpected</title>
 </head>
 <body>
     
@@ -16,12 +15,11 @@ pageEncoding="UTF-8"%>
       <div class="face"></div>
     </div>
     <div class="shadow"></div>
-    <h1>404</h1>
+    <h1>予期せぬエラーが発生しました。</h1>
 
     <p>
-      申し訳ございません。
-      <br />
-      お探しのページは見つかりませんでした。
+      ご迷惑をおかけし、申し訳ございません。
+      
     </p>
   </div>
 </div>
