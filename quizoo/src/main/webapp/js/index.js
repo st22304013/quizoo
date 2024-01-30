@@ -113,7 +113,7 @@ async function quizlistFactory(quizList){
         
         explanation = document.createElement('div');
         explanation.setAttribute('class','d-flex align-items-center col');
-        explanation.innerText = quiz['explanation'];
+        explanation.innerText = quiz['explanation'] ? quiz['explanation'] : "";
         
         row.appendChild(explanation);
         
