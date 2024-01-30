@@ -43,28 +43,44 @@ window.addEventListener('load',function(){
         
     }
     
-    this.document.querySelector("#search_btn").addEventListener("click",function(){
-        var searchStr = this.previousElementSibling.value;
-        var url = new URL(window.location.href);
-        if(searchStr == null || searchStr == ""){
-            url.searchParams.delete("search");
-        }else{
-            url.searchParams.set("search",searchStr);
-        }
-        window.history.pushState(null,null,url);
-        updateQuizList();
-    });
-
+    this.document.querySelector("#search_btn").addEventListener("click",searchTitle);
+    this.document.querySelector("#search_text").addEventListener("input",searchTitle);
+    
+    
     updateQuizList();
 })
 
+async function searchTitle(){
+    var searchStr = document.querySelector("#search_text").value;
+    var url = new URL(window.location.href);
+    if(searchStr == null || searchStr == ""){
+        url.searchParams.delete("search");
+    }else{
+        url.searchParams.set("search",searchStr);
+    }
+    window.history.pushState(null,null,url);
+    updateQuizList();
+}
+
 async function updateQuizList() {
     quizList = await getQuizList();
+    var list;
     
-    list = await quizlistFactory(quizList);
-    
+    if(!quizList){
+        var nodata = document.createElement('div');
+        nodata.setAttribute('class','noquizdata');
+        var nodataMsg = document.createElement('p');
+        nodataMsg.innerText = 'クイズがありません。';
+        nodata.appendChild(nodataMsg);
+        list = nodata;
+    }else{
+        list = await quizlistFactory(quizList);
+    }
     
     list_box.replaceWith(list); 
+    list_box = list;
+
+
 }
 
 async function getQuizList() {
