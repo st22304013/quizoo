@@ -44,22 +44,28 @@ window.addEventListener('load',function(){
     }
     
     this.document.querySelector("#search_btn").addEventListener("click",function(){
+        var searchStr = this.previousElementSibling.value;
         var url = new URL(window.location.href);
-        url.searchParams.set("search",this.previousElementSibling.value);
+        if(searchStr == null || searchStr == ""){
+            url.searchParams.delete("search");
+        }else{
+            url.searchParams.set("search",searchStr);
+        }
         window.history.pushState(null,null,url);
-        getQuizList();
+        updateQuizList();
     });
 
-    (async ()=>{
-        quizList = await getQuizList();
-    
-        list = await quizlistFactory(quizList);
-    
-    
-        list_box.replaceWith(list); 
-    
-    })();
+    updateQuizList();
 })
+
+async function updateQuizList() {
+    quizList = await getQuizList();
+    
+    list = await quizlistFactory(quizList);
+    
+    
+    list_box.replaceWith(list); 
+}
 
 async function getQuizList() {
     params = new URLSearchParams(window.location.search);
@@ -78,6 +84,7 @@ async function getQuizList() {
 async function quizlistFactory(quizList){
     var list = document.createElement('div');
     list.setAttribute('class','quiz_list');
+    list.setAttribute('id','quiz_list');
     for(quiz of quizList){
         box = document.createElement('div');
         box.setAttribute('class','quiz');
