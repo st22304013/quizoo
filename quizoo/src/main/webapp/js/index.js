@@ -43,7 +43,6 @@ window.addEventListener('load',function(){
         
     }
     
-    this.document.querySelector("#search_btn").addEventListener("click",searchTitle);
     this.document.querySelector("#search_text").addEventListener("input",searchTitle);
     
     
