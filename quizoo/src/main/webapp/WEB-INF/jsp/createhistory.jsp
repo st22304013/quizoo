@@ -13,6 +13,7 @@
 	integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
 	crossorigin="anonymous">
 <link rel="stylesheet" href="css/createhistory.css">
+<link rel="stylesheet" href="css/header.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script
@@ -21,34 +22,14 @@
 	crossorigin="anonymous"></script>
 <link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css"
 	rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500&display=swap" rel="stylesheet">
 </head>
 
 <body>
-	<header>
-		<nav class="navbar navbar-light fixed-top">
-			<div class="header-img">
-				<a href="index"><img src="img/quizoo_nobackground.png" alt="quizoo"></a>
-			</div>
-
-			<!-- ハンバーガーメニュー -->
-			<buttom class="drawer__button"> <span></span> <span></span>
-			<span></span> </buttom>
-			<nav class="drawer__nav">
-				<div class="drawer__nav__inner">
-					<ul class="drawer__nav__menu">
-						<li class="drawer__nav__item"><a class="drawer__nav__link"
-							href="profile">プロフィール編集</a></li>
-						<li class="drawer__nav__item"><a class="drawer__nav__link"
-							href="createhistory">作成履歴</a></li>
-						<li class="drawer__nav__item"><a class="drawer__nav__link"
-							href="score">スコア詳細</a></li>
-						<li class="drawer__nav__item"><a class="drawer__nav__link"
-							href="#">ログアウト</a></li>
-					</ul>
-				</div>
-			</nav>
-		</nav>
-	</header>
+	<!-- ヘッダー -->
+	<%@ include file="header.jsp" %>
 
 	<div class="quiz_list">
 		<h1 class="createhistory">作成履歴</h1>
@@ -85,35 +66,6 @@
 			</div>
 		</div>
 	</div>
-
-	<!--	ハンバーガー -->
-	<script>
-		$(function() {
-			// ハンバーガーボタンクリックで実行
-			$(".drawer__button").click(function() {
-				$(this).toggleClass("active");
-				$(".drawer__nav").toggleClass("active");
-			});
-
-			$(".drawer__nav__link").click(function() {
-				$(".drawer__button").removeClass("active");
-				$(".drawer__nav").removeClass("active");
-			});
-
-			// ページ内スクロール
-			$('a[href^="#"]').click(function() {
-				const speed = 400;
-				let href = $(this).attr("href");
-				let target = $(href == "#" || href == "" ? "html" : href);
-				let position = target.offset().top;
-				$("body,html").animate({
-					scrollTop : position
-				}, speed, "swing");
-				return false;
-			});
-			// function
-		});
-	</script>
 
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
