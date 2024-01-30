@@ -33,19 +33,21 @@
 	<%@ include file="header.jsp" %>
 	
 	<h1 style="text-align: center">スコア詳細</h1>
+
 	<div class="container">
 		<div class="score_accuracyrate row">
 			<div class="score col-sm-6">
-				<span class="border border-primary-subtle border-4"> score
-					10050 </span>
+				<span class="border border-primary-subtle border-4" id="rate">
+					 </span>
 			</div>
 
 			<div class="accuracyrate col-sm-6">
-				<span class="border border-primary-subtle border-4"> 正解率
-					70.5% </span>
+				<span class="border border-primary-subtle border-4" id="correctRate">
+					</span>
 			</div>
 		</div>
 	</div>
+
 
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
@@ -56,6 +58,10 @@
 		src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<script src="js/graph.js"></script>
+	
+	
 </body>
 
 </html>

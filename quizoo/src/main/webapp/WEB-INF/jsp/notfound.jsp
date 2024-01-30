@@ -4,8 +4,9 @@ pageEncoding="UTF-8"%>
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="css/error.css">
-<title>404</title>
+<link rel="stylesheet" type="text/css" href="css/notfound.css">
+
+<title>notfound</title>
 </head>
 <body>
     
