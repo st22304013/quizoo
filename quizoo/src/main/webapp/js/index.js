@@ -10,6 +10,7 @@ window.addEventListener('load',function(){
     
     var emptyChoice = document.createElement("option");
     emptyChoice.innerText = "ジャンルを指定しない";
+    emptyChoice.value = -1;
     genreSelector.appendChild(emptyChoice);
     
     for(var i = 0 ; i < genres.length ; i++){
@@ -22,9 +23,14 @@ window.addEventListener('load',function(){
     
     genreSelector.addEventListener("change",()=>{
         let url = new URL(this.window.location.href);
-        url.searchParams.set("genre_no",genreSelector.value);
+        
+        if(genreSelector.value == -1){
+            url.searchParams.delete("genre_no");
+        }else{
+            url.searchParams.set("genre_no",genreSelector.value);
+        }
         window.history.pushState(null,null,url);
-
+        
         getQuizList();
     })
     
