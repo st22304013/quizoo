@@ -21,7 +21,10 @@ public class QuizDao extends Dao{
 			connect();
 			ArrayList<String> params = new ArrayList<>();
 			
-			String sql = "SELECT * FROM quiz INNER JOIN genre USING(genre_no)"; 
+			String sql = 
+					"SELECT * FROM quiz "
+					+ "INNER JOIN genre USING(genre_no) "
+					+ "INNER JOIN nickname ON author_no = user_no"; 
 			
 			if(genreNo != null && !genreNo.isEmpty()) {
 				sql += " WHERE genre_no = ? ";
@@ -68,6 +71,7 @@ public class QuizDao extends Dao{
 				quizbean.setCorrectRate(rs.getFloat("correct_rate"));
 				quizbean.setTotalParticipants(rs.getInt("total_participants"));	
 				quizbean.setDeleted(rs.getBoolean("deleted"));
+				quizbean.setAuthorNickname(rs.getString("nickname"));
 				
 				quizlist.add(quizbean);
 				
