@@ -42,6 +42,14 @@ window.addEventListener('load',function(){
         });
         
     }
+    
+    this.document.querySelector("#search_btn").addEventListener("click",function(){
+        var url = new URL(window.location.href);
+        url.searchParams.set("search",this.previousElementSibling.value);
+        window.history.pushState(null,null,url);
+        getQuizList();
+    });
+
     (async ()=>{
         quizList = await getQuizList();
     

@@ -37,8 +37,8 @@ public class QuizDao extends Dao{
 				}else {
 					sql += " WHERE ";
 				}
-				sql += " title LIKE '%?%'";
-				params.add(searchStr);
+				sql += " title LIKE ?";
+				params.add("%"+searchStr+"%");
 			}
 			
 			if(orderColumn != null && !orderColumn.isEmpty()) {

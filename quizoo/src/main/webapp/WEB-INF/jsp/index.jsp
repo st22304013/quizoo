@@ -35,7 +35,7 @@
 				</div>
 				<div class="input-group" style="width: 30%;">
 					<input type="text" class="form-control" placeholder="Search">
-					<div class="input-group-append">
+					<div class="input-group-append" id="search_btn">
 						<span class="input-group-text">
 							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
 								<path
