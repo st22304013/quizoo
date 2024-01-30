@@ -12,18 +12,19 @@ header {
 	align-items: center;
 }
 
-/*全画面共通ヘッダー画像*/
-.header-img {
-	margin-top: 0.5em;
-	width: 120px;
-	height: 85px;
-}
-
 .navbar {
-	padding-left: 15px;
-	padding-right: 15px;
 	height: 16px;
 	width: 1600px;
+	padding: 0;
+}
+
+
+/*全画面共通ヘッダー画像*/
+.header-img {
+	margin-top: 15px;
+	margin-left: 15px;
+	width: 120px;
+	height: 85px;
 }
 
 .input-group {
@@ -31,14 +32,20 @@ header {
 	height: 50px;
 }
 
+.input-group-append svg{
+	height: 35px;
+}
+
 /* -ハンバーガーメニュー- */
 
 /* ボタンのデザイン */
 .drawer__button {
-	margin-right: 30px;
+	margin-top: 15px;
+	margin-right: 40px;
 	position: relative;
-	width: 3rem;
-	height: 3rem;
+	padding: 0;
+	width: 60px;
+	height: 60px;
 	background-color: transparent;
 	border: none;
 	cursor: pointer;
@@ -74,9 +81,7 @@ header {
 }
 
 /* 展開時のデザイン */
-.drawer__button.active {
-	border: none;
-}
+
 .drawer__button.active>span:first-child {
 	transform: translate(-50%, -50%) rotate(-45deg);
 }
