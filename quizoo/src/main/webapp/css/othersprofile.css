@@ -8,7 +8,7 @@ body {
 	/* ページの最大横幅を画面幅と同じに設定 */
 	margin: 0;
 	/* ページを水平中央に配置するために左右の余白を自動調整 */
-	margin-top: 100px;
+	margin-top: 120px;
 
 }
 
@@ -253,6 +253,70 @@ section:nth-child(even) {
   border: none;
 }
 
+.quiz_list {
+	margin-bottom: 0px;
+	animation: fadeIn 2s ease 1s 1 normal backwards;
+}
+
+/* 各クイズ */
+.quiz {
+	position: relative;
+	padding: 30px 0px;
+	padding-bottom: 40px;
+	margin: 0px auto;
+	margin-bottom: 40px;
+	border: 1px solid #333333;
+	border-radius: 80px;
+	background-color: rgb(215, 248, 215);
+	max-width: 70%;
+
+	padding: 20px;
+
+}
+ 
+	
+
+.quiz .title {
+	font-size: 30px;
+	margin-left: 100px;
+	font-family: cursive;
+}
+
+/*.quiz .information {*/
+/*	position: absolute;*/
+/*	z-index: 10;*/
+/*	width: 100%;*/
+/*	text-align: center !important;*/
+/*	margin-top: 10px;*/
+/*}*/
+
+/*.quiz .information a {*/
+/*	margin: 0 0.5rem;*/
+/*}*/
+
+.quiz .answer-link {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.ex {
+	color: rgba(255, 255, 255, 0.5);
+	opacity: 0.8;
+}
+
+.profle-title{
+	text-align: center;
+	font-family: 'M PLUS Rounded 1c', sans-serif;
+	font-weight: bold;
+}
+
+.nickname{
+	font-size: 20px;
+	text-align: center;
+}
 @media (any-hover: hover) {
   .buttonRound {
     transition: background-color 0.2s;
@@ -262,3 +326,15 @@ section:nth-child(even) {
     background-color: #ee7800;
   }
 }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+

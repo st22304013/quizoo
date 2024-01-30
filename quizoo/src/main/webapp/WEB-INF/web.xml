@@ -10,6 +10,15 @@
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
   
+  <error-page>
+  	<error-code>404</error-code>
+  	<location>/WEB-INF/jsp/notfound.jsp</location>
+  </error-page>
+  <error-page>
+  	<error-code>500</error-code>
+  	<location>/WEB-INF/jsp/unexpected.jsp</location>
+  </error-page>
+  
 	<filter>
      <filter-name>loginFilter</filter-name>
      <filter-class>web.LoginFilter</filter-class>
@@ -85,6 +94,15 @@
   <servlet-mapping>
   	<servlet-name>score-page</servlet-name>
   	<url-pattern>/score</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>othersprofile-page</servlet-name>
+  	<jsp-file>/WEB-INF/jsp/othersprofile.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>othersprofile-page</servlet-name>
+  	<url-pattern>/othersprofile</url-pattern>
   </servlet-mapping>
   
   

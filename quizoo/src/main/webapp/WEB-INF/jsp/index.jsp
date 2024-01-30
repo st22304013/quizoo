@@ -64,7 +64,7 @@
 								<a class="drawer__nav__link" href="score">スコア詳細</a>
 							</li>
 							<li class="drawer__nav__item">
-								<a class="drawer__nav__link" href="#">ログアウト</a>
+								<a class="drawer__nav__link" href="logout">ログアウト</a>
 							</li>
 						</ul>
 					</div>
@@ -81,16 +81,11 @@
 			</ul>
 
 		</header>
-
-		<div class="quiz_list" id="quiz_list">
-			<div class="quiz">
-				<div class="width row">
-					<div class="title col">常識クイズ</div>
-					<div class="d-flex align-items-center col">常識に関するクイズです</div>
-				</div>
-				<div class="information text-right">作成者：<a class="author">たまい</a> 作成日：<a class="create_time">2023/10/27</a> ジャンル：<a class="genre">雑学</a> 正解率：<a class="raito">22.2%</a></div>
-
-			</div>
+		<!--　クイズリスト  -->
+		<div class="quiz_list mx-auto" id="quiz_list">
+			<div class="noquizdata">
+			<p>No quiz data...</p>
+		</div>
 		</div>
 
 		<div class="fixed-bottom text-right">
@@ -122,13 +117,13 @@
 							<button id="add-question-btn" type="button" class="add-question-btn">＋</button>
 						<div id="question" class="question-wrap">
 							<div id="create-question-text" class="create-question-text">
-								<textarea></textarea>
+								<textarea placeholder="問題文を入力"></textarea>
 							</div>
 							<div class="create-question-choises">
 								<fieldset>
 									<div class="choise-wrap">
 										<input type="radio" id="choise1" name="choise" />
-										<label id="choise-label1" for="choise1" ><input type="text" name="choise-text1" /></label>
+										<label id="choise-label1" for="choise1" ><input type="text" name="choise-text1" placeholder="選択肢を入力" /></label>
 									</div>
 									<div class="choise-wrap">
 										<input type="radio" id="choise2" name="choise" />
@@ -145,7 +140,7 @@
 								</fieldset>
 							</div>
 						</div>
-						<button type="button" id="create-btn-primary" class="btn btn-primary btn-circle create-btn-primary ">＋</button>
+						<button type="button" id="create-btn-primary" class="confirmation-btn">確認画面へ</button>
 					</div>
 				</div>
 			</div>
@@ -166,20 +161,20 @@
 					<div class="modal-body">
 						<h5>以下の内容で投稿します</h5>
 					</div>
-					<div id="quiz-metadata" >
+					<div id="quiz-metadata" class="quiz-metadata text-center">
 						<div id="quiz-title">
-							<h6>タイトルを入力</h6>
-							<input type="text" name="title" />
+							<!-- <h6>タイトルを入力</h6> -->
+							<input type="text" name="title" class="quiz_title" placeholder="タイトル"/>
 						</div>
-						<select name="genre">
+						<select name="genre" class="genre">
 						</select>
 						<div id="explanation">
-							<input type="text" name="explanation"/>
+							<input type="text" name="explanation" class="explanation" placeholder="説明"/>
 						</div>
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-dismiss="modal">修正する</button>
-						<button type="button" id="confirm-btn-primary" class="btn btn-primary">投稿する</button>
+							<button type="button" class="correction" data-dismiss="modal">修正する</button>
+							<button type="button" id="confirm-btn-primary" class="post">投稿する</button>
 					</div>
 				</div>
 			</div>
@@ -246,7 +241,6 @@
 			crossorigin="anonymous"></script>
 		<script src="js/index.js"></script>
 		<script src="js/createQuiz.js"></script>
-
 
 
 	</body>

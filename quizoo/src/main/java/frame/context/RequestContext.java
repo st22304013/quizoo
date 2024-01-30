@@ -26,6 +26,11 @@ public interface RequestContext {
 	 * @param user 設定するユーザー
 	 */
 	public void setUser(UserInfoBean user);
+	
+	/**
+	 * セッション情報を破棄してログアウト状態にします
+	 */
+	public void invalidatekeUser();
 
 	/**
 	 * 設定されているユーザーを取得します。
