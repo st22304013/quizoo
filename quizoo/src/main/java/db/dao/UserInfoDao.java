@@ -208,7 +208,7 @@ public class UserInfoDao extends Dao {
 		close();
 	}
 	
-	public String selectNickName(int userNo) throws ResourceException {
+	public String selectNickname(int userNo) throws ResourceException {
 		PreparedStatement st = null;
 		String nickname;
 		try {
