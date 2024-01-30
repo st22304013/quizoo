@@ -132,7 +132,7 @@ async function quizlistFactory(quizList){
         ratio = document.createElement('a');
         ratio.setAttribute('class','raito');
         if(quiz['questionCount'] ==  0){
-            ratio.innerText = '蝗樒ｭ碑�縺ｪ縺�'
+            ratio.innerText = 'nodata'
         }else{
             ratio.innerText = ' ' + (parseFloat(quiz['correctRate'])/parseFloat(quiz['questionCount'])).toFixed(2)
         }
@@ -141,7 +141,7 @@ async function quizlistFactory(quizList){
         author.setAttribute('class','author');
 
         let nickname = quiz['authorNickname'];
-        author.innerText = nickname ? nickname : "蜷咲┌縺励＆繧�";
+        author.innerText = nickname ? nickname : "ななし";
         author.setAttribute('href','profile?user_no='+quiz['authorNo']);
         
         info.appendChild(author);
