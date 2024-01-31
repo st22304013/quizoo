@@ -2,6 +2,8 @@ package quizoo.setter;
 
 import java.io.IOException;
 
+import com.google.gson.Gson;
+
 import db.bean.UserInfoBean;
 import db.dao.UserInfoDao;
 import frame.Service;
@@ -17,11 +19,32 @@ public class NickNameUpdater extends Service {
     public void execute(RequestContext req, ResponseContext res)
             throws IOException, ResourceException, BadRequestException, NotFoundException {
         
+    	try {
+    		
+    		UserInfoBean user = req.getUser();
+    		Gson gson = new Gson();
+    		String body = req.getMessageBody();
+    		
+    		Nickname name = gson.fromJson(body, Nickname.class);
+    		
+    		UserInfoDao userinfoDao = new UserInfoDao();
+    		userinfoDao.updateNickName(user.getUserNo(), name.getNickname());
+    	}catch(Throwable e) {
+    		e.printStackTrace();
+    	}
 
-    	UserInfoBean user = req.getUser();
-    	String[] nickName = req.getParameter("nickname");
+    }
+    
+    private class Nickname{
+    	private String nickname;
 
-        UserInfoDao userinfoDao = new UserInfoDao();
-        userinfoDao.updateNickName(user.getUserNo(), nickName[0]);
+		public String getNickname() {
+			return nickname;
+		}
+
+		public void setNickname(String nickname) {
+			this.nickname = nickname;
+		}
+    	
     }
 }
