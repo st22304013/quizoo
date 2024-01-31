@@ -3,13 +3,13 @@
  */
 
 document.addEventListener('DOMContentLoaded', function () {
-    // ƒnƒ“ƒo[ƒK[ƒ{ƒ^ƒ“ƒNƒŠƒbƒN‚ÅÀs
+    // ãƒãƒ³ãƒãƒ¼ã‚¬ãƒ¼ãƒœã‚¿ãƒ³ã‚¯ãƒªãƒƒã‚¯ã§å®Ÿè¡Œ
     document.querySelector(".drawer__button").addEventListener('click', function () {
         this.classList.toggle("active");
         document.querySelector(".drawer__nav").classList.toggle("active");
     });
 
-    // ƒhƒƒ[ƒiƒrƒQ[ƒVƒ‡ƒ“ƒŠƒ“ƒNƒNƒŠƒbƒN‚Å”ñƒAƒNƒeƒBƒu‰»
+    // ãƒ‰ãƒ­ãƒ¯ãƒ¼ãƒŠãƒ“ã‚²ãƒ¼ã‚·ãƒ§ãƒ³ãƒªãƒ³ã‚¯ã‚¯ãƒªãƒƒã‚¯ã§éã‚¢ã‚¯ãƒ†ã‚£ãƒ–åŒ–
     document.querySelectorAll(".drawer__nav__link").forEach(function (link) {
         link.addEventListener('click', function () {
             document.querySelector(".drawer__button").classList.remove("active");
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // ƒy[ƒW“àƒXƒNƒ[ƒ‹
+    // ãƒšãƒ¼ã‚¸å†…ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«
     document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();

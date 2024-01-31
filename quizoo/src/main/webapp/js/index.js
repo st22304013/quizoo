@@ -52,6 +52,7 @@ window.addEventListener('load',function(){
     this.document.querySelector("#search_text").addEventListener("input",searchTitle);
     
     
+    updateQuizList();
 
     // ハンバーガーボタンクリックで実行
     document.querySelector(".drawer__button").addEventListener('click', function () {
