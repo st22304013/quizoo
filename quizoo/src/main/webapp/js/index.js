@@ -4,40 +4,97 @@
 var list_box;
 
 window.addEventListener('load',function(){
+    // gneres = fetch("/quizoo/genres");
+    
+    var genreSelector = document.querySelector("#genre_selector");
+    
+    var emptyChoice = document.createElement("option");
+    emptyChoice.innerText = "ジャンルを指定しない";
+    emptyChoice.value = -1;
+    genreSelector.appendChild(emptyChoice);
+    
+    for(var i = 0 ; i < genres.length ; i++){
+        var genreChoce = document.createElement("option");
+        genreChoce.innerText = genres[i].genre_title;
+        genreChoce.value = genres[i].genre_no;
+        genreSelector.appendChild(genreChoce);
+    }
+    
+    
+    genreSelector.addEventListener("change",()=>{
+        let url = new URL(this.window.location.href);
+        
+        if(genreSelector.value == -1){
+            url.searchParams.delete("genre_no");
+        }else{
+            url.searchParams.set("genre_no",genreSelector.value);
+        }
+        window.history.pushState(null,null,url);
+        
+        updateQuizList();
+    })
+    
     list_box = document.querySelector("#quiz_list");
     
     orderBtns = document.querySelectorAll(".order_btn");
     for(var btn of orderBtns){
         btn.addEventListener("click",function () {
-            history.replaceState(null,null, window.location.pathname + "?order=" + this.innerText);
-            getQuizList();
+
+            let url = new URL(window.location.href);
+            url.searchParams.set("order",this.innerText);
+            window.history.pushState(null,null,url);
+            updateQuizList();
             
         });
         
     }
-    (async ()=>{
-        quizList = await getQuizList();
     
-        list = await quizlistFactory(quizList);
+    this.document.querySelector("#search_text").addEventListener("input",searchTitle);
     
     
-        list_box.replaceWith(list); 
-    
-    })();
+    updateQuizList();
 })
+
+async function searchTitle(){
+    var searchStr = document.querySelector("#search_text").value;
+    var url = new URL(window.location.href);
+    if(searchStr == null || searchStr == ""){
+        url.searchParams.delete("search");
+    }else{
+        url.searchParams.set("search",searchStr);
+    }
+    window.history.pushState(null,null,url);
+    updateQuizList();
+}
+
+async function updateQuizList() {
+    quizList = await getQuizList();
+    var list;
+    
+    if(!quizList){
+        var nodata = document.createElement('div');
+        nodata.setAttribute('class','noquizdata');
+        var nodataMsg = document.createElement('p');
+        nodataMsg.innerText = 'クイズがありません。';
+        nodata.appendChild(nodataMsg);
+        list = nodata;
+    }else{
+        list = quizlistFactory(quizList);
+    }
+    
+    list_box.replaceWith(list); 
+    list_box = list;
+
+
+}
 
 async function getQuizList() {
     params = new URLSearchParams(window.location.search);
 
-    param = params.get("order");
+    console.log(params.toString());
 
-    if(param){
-        param = "?order="+param;
-    }else{
-        param = "";
-    }
 
-    var quizList = await fetch("/quizoo/quizlist" + param);
+    var quizList = await fetch("/quizoo/quizlist?" + params);
 
     quizList = await quizList.json();
 
@@ -45,9 +102,10 @@ async function getQuizList() {
 
 }
 
-async function quizlistFactory(quizList){
+function quizlistFactory(quizList){
     var list = document.createElement('div');
     list.setAttribute('class','quiz_list');
+    list.setAttribute('id','quiz_list');
     for(quiz of quizList){
         box = document.createElement('div');
         box.setAttribute('class','quiz');
@@ -61,7 +119,7 @@ async function quizlistFactory(quizList){
         
         explanation = document.createElement('div');
         explanation.setAttribute('class','d-flex align-items-center col');
-        explanation.innerText = quiz['explanation'];
+        explanation.innerText = quiz['explanation'] ? quiz['explanation'] : "";
         
         row.appendChild(explanation);
         
@@ -80,7 +138,7 @@ async function quizlistFactory(quizList){
         ratio = document.createElement('a');
         ratio.setAttribute('class','raito');
         if(quiz['questionCount'] ==  0){
-            ratio.innerText = '回答者なし'
+            ratio.innerText = 'nodata'
         }else{
             ratio.innerText = ' ' + (parseFloat(quiz['correctRate'])/parseFloat(quiz['questionCount'])).toFixed(2)
         }
@@ -89,7 +147,7 @@ async function quizlistFactory(quizList){
         author.setAttribute('class','author');
 
         let nickname = quiz['authorNickname'];
-        author.innerText = nickname ? nickname : "名無しさん";
+        author.innerText = nickname ? nickname : "ななし";
         author.setAttribute('href','profile?user_no='+quiz['authorNo']);
         
         info.appendChild(author);
