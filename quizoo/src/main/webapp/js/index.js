@@ -31,7 +31,7 @@ window.addEventListener('load',function(){
         }
         window.history.pushState(null,null,url);
         
-        getQuizList();
+        updateQuizList();
     })
     
     list_box = document.querySelector("#quiz_list");
@@ -43,7 +43,7 @@ window.addEventListener('load',function(){
             let url = new URL(window.location.href);
             url.searchParams.set("order",this.innerText);
             window.history.pushState(null,null,url);
-            getQuizList();
+            updateQuizList();
             
         });
         
@@ -79,7 +79,7 @@ async function updateQuizList() {
         nodata.appendChild(nodataMsg);
         list = nodata;
     }else{
-        list = await quizlistFactory(quizList);
+        list = quizlistFactory(quizList);
     }
     
     list_box.replaceWith(list); 
@@ -102,7 +102,7 @@ async function getQuizList() {
 
 }
 
-async function quizlistFactory(quizList){
+function quizlistFactory(quizList){
     var list = document.createElement('div');
     list.setAttribute('class','quiz_list');
     list.setAttribute('id','quiz_list');
