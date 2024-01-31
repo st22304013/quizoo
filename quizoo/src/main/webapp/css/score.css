@@ -2,9 +2,9 @@
 
 /*全画面共通body*/
 body {
+	font-family: 'Zen Maru Gothic', serif;
 	background-color: #fffaef;
-	width: 100%;
-	max-width: 100%;
+	width: 100em;
 	/* ページの最大横幅を画面幅と同じに設定 */
 	margin: 0;
 	/* ページを水平中央に配置するために左右の余白を自動調整 */
@@ -22,30 +22,6 @@ a {
 img {
 	max-width: 100%;
 	vertical-align: bottom;
-}
-
-/*全画面共通header*/
-header {
-	background-color: #DBFAFD;
-	display: flex;
-	width: 100%;
-	height: 120px;
-	align-items: center;
-	position: fixed;
-	/* スクロールしてもヘッダーが固定 */
-	top: 0;
-	z-index: 1000;
-	/* ヘッダーが他の要素の上に表示されるように */
-}
-
-/*全画面共通ヘッダー画像*/
-.header-img {
-	position: fixed;
-	padding: 4px;
-	margin-top: 10px;
-	margin-left: 10px;
-	width: 130px;
-	top: 0;
 }
 
 .container {
@@ -66,7 +42,6 @@ header {
 	padding: 15px;
 	border-radius: 10px;
 }
-
 /* ハンバーガーボタンのデザイン */
 .drawer__button { 
     position: relative;
@@ -183,6 +158,19 @@ section {
 section:nth-child(even) {
     background-color: skyblue;
 }
-
-
-
+ 
+.graph-container {
+    position: relative;
+    width:  calc(100% - 40px);
+    height: 500px;
+    overflow: hidden;
+    margin:20px;
+    display: flex;
+}
+.graph {
+    /* margin: 0 350px; */
+    max-width: 30%;
+    max-height: 300px;
+    margin-left: 12%;
+    display: block;
+}

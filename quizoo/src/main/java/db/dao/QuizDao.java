@@ -204,19 +204,22 @@ public class QuizDao extends Dao{
 	 * @param quizId 削除するQuizのquiz_no
 	 * @throws ResourceException データーの削除時に例外が発生した場合
 	 */
-	public void deleteQuiz(int quizId) throws ResourceException {
+	public void deleteQuiz(int quizId,int userNo) throws ResourceException {
 		
 		try {
 			connect();
 			
-			String sql = "DELETE FROM quiz WHERE quiz_id = ?";
+			String sql = "UPDATE quiz SET deleted = 1 WHERE quiz_id =? AND author_no = ?";
 			st = cn.prepareStatement(sql);
 			st.setInt(1, quizId);
+			st.setInt(2, userNo);
 			
-			st.executeUpdate();
+			if(st.executeUpdate() == 0) {
+				throw new ResourceException("あなたが作った問題じゃないお",null);
+			}
 			
-			cn.commit();
-			
+			cn.commit();	
+		
 		} catch(SQLException e) {
             try{
                 cn.rollback();
