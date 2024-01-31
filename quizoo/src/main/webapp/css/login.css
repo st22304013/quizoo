@@ -1,6 +1,7 @@
 @charset "UTF-8";
 
 body {
+	font-family: 'Zen Maru Gothic', serif;
 	background-color: #fffaef;
 	width: 100%;
 	max-width: 100%;
@@ -20,15 +21,15 @@ img {
 }
 
 .row {
-	margin-left:0px;
+	margin-left: 0px;
 	margin-right: 0px;
 }
 
 /* トップ画像のスタイル */
 .left-contents {
-	position: absolute;	
-	margin-top:20px;
-/*	align-items: center;*/
+	position: absolute;
+	margin-top: 20px;
+	/*	align-items: center;*/
 }
 
 
@@ -38,18 +39,13 @@ img {
 
 /* 右側のコンテナのスタイル */
 .container {
-	margin-top: 80px;
+	margin-top: 75px;
 	font-size: 1.2em;
 	border: none;
 	border-radius: 0px;
 }
 
 /* 列のスタイル */
-
-.nav-link {
-	font-size: 1.5rem;
-}
-
 .tabs .indicator {
 	background-color: #e0f2f1;
 	height: 60px;
@@ -66,17 +62,13 @@ img {
 
 /* カードヘッダーとカードボディの背景色 */
 .card-header teal text-white .card-body {
-	background-color: #ffce9e;
-}
-
-.nav-link active {
-	background-color: #ffce9e;
+	background-color: #FFBB64;
 }
 
 /* タブメニューの背景色 */
 .nav-tabs .nav-item.show .nav-link,
 .nav-tabs .nav-link.active {
-	background-color: #ffce9e;
+	background-color: #FFBB64;
 	flex: 1;
 	text-align: center;
 
@@ -84,8 +76,17 @@ img {
 
 /* ナビゲーションリンクの背景色とテキストカラー */
 .nav-link {
-	background-color: #ffebcd;
-	color: royalblue;
+	font-size: 1.5rem;
+	background-color: #FFE7C1;
+	color: #000000;
+}
+
+.nav-link active {
+	background-color: #FFBB64;
+}
+
+.nav-link:hover {
+	color: #FF6868;
 }
 
 /* タブメニューのスタイル */
@@ -100,13 +101,28 @@ img {
 }
 
 .fixed-col-md-7 {
-	width: 500px; 
+	width: 500px;
 	margin-top: 20px;
 	margin-right: 2px;
 }
 
 .form-group {
 	margin-bottom: 0;
+}
+
+.textbox {
+	margin: 35px 15px 0 20px;
+	width: 400px;
+	border: none;
+	outline: none;
+	border-bottom: 2px solid #a9a9a9;
+}
+
+.textbox:focus {
+	border: none;
+	outline: none;
+	border-bottom: 2px solid #ffa500;
+	
 }
 
 /*送信ボタン*/
@@ -116,7 +132,7 @@ img {
 	vertical-align: middle;
 	text-decoration: none;
 	width: 120px;
-	margin: 55px auto 0 auto;
+	margin: 50px auto 0 auto;
 	padding: 1rem 1.5rem;
 	font-weight: bold;
 	border: 2px solid #ffa500;
@@ -124,30 +140,26 @@ img {
 	color: #fff;
 	transition: 0.5s;
 }
+
 .btn:hover {
 	color: #ffa500;
 	background: #fff;
 }
 
-.nav-link {
-	color: #001858;
-}
 
-.nav-link:hover {
-	color: #ffd803;
-}
 
 .fixed-col-md-7 {
-	margin-top:20px;
+	margin-top: 20px;
 }
 
+
 /*ログインに失敗した時のメッセージ*/
-.miss{
+.miss {
 	font-size: 16px;
 	color: red;
 	text-align: center;
 	margin: 22px;
-	
+
 }
 
 .none {

@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>top</title>
-<link rel=”icon” href=“img/favicon.ico”>
+<link rel=”icon” href= "img/favion.ico">
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
 	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
@@ -20,6 +20,9 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css"
 	rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500&display=swap" rel="stylesheet">
 	
 </head>
 
@@ -58,12 +61,12 @@
 											<form id="login-form" method="post" action="login">
 												<div class="form-group">
 													<label for="login-userid"></label> <input type="text"
-														class="form-control" name="id" id="login-username"
+														class="textbox" name="id" id="login-username"
 														placeholder="UserID" required>
 												</div>
 												<div class="form-group">
 													<label for="login-password"></label> <input type="password"
-														class="form-control" name="password" id="login-password"
+														class="textbox" name="password" id="login-password"
 														placeholder="Password" required>
 												</div>
 												<div class="miss none" id="miss">
@@ -78,22 +81,22 @@
 											<form id="register-form" method="post" action="signup">
 												<div class="form-group">
 													<label for="register-userid"></label> <input type="text"
-														class="form-control" name="id" id="register-userid"
+														class="textbox" name="id" id="register-userid"
 														placeholder="UserID" required>
 												</div>
 												<div class="form-group">
 													<label for="register-nickname"></label> <input type="text"
-														class="form-control" name="name" id="register-nickname"
+														class="textbox" name="name" id="register-nickname"
 														placeholder="Nickname" required>
 												</div>
 												<div class="form-group">
 													<label for="register-password"></label> <input
-														type="password" class="form-control" name="password"
+														type="password" class="textbox" name="password"
 														id="register-password" placeholder="Password" required>
 												</div>
 												<div class="form-group">
 													<label for="register-password"></label> <input
-														type="password" class="form-control" name="passwordAgain"
+														type="password" class="textbox" name="passwordAgain"
 														id="register-password" placeholder="Password Again" required>
 												</div>
 												<div class="text-center">
