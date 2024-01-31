@@ -52,7 +52,7 @@
 
 	<div class="profile text-center">
 		<h1>プロフィール編集</h1>
-		<form id="login-form" method="post" action="updatenickname">
+		<form id="login-form" method="post">
 			<img src="img/prof.png" class="prof-img" alt="icon"><br>
 			nickname <input type="text" class="nickname" name="nickname"
 				id="profile-nickname" value=""><br>
