@@ -15,7 +15,7 @@ window.addEventListener('load', async () => {
 		questionCount += historyList[i].questionCount;
 		var quizCount = i+1;
 
-		var correctRate = (correctCount / questionCount) * 100;
+		var correctRate = Math.round(((correctCount / questionCount) * 100) * 10) / 10;
 		config.data.datasets[0].data.push(correctRate);
 		config.data.labels.push(quizCount);
 		console.log("正解数"+correctCount);
@@ -23,7 +23,7 @@ window.addEventListener('load', async () => {
 		console.log("クイズ数："+quizCount);
 		console.log("率："+correctRate);
 
-		var rate = (correctCount * correctCount) / questionCount; 
+		var rate = Math.round(((correctCount * correctCount) / questionCount) * 10) / 10; 
 		config2.data.datasets[0].data.push(rate);
 		config2.data.labels.push(quizCount);
 
