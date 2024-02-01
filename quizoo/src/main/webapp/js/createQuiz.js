@@ -18,20 +18,11 @@ var myModal;
 var confirmModalElement;
 var confirmModal;
 
-var genres = [
-    { genre_no: 1, genre_title: "スポーツ" },
-    { genre_no: 2, genre_title: "音楽" },
-    { genre_no: 3, genre_title: "映画" },
-    { genre_no: 4, genre_title: "ゲーム" },
-    { genre_no: 5, genre_title: "雑学" },
-    { genre_no: 6, genre_title: "宇宙" },
-    { genre_no: 7, genre_title: "エンタメ・芸能" },
-    { genre_no: 8, genre_title: "なぞなぞ" },
-    { genre_no: 9, genre_title: "生き物" },
-    { genre_no: 10, genre_title: "歴史" },
-    { genre_no: 11, genre_title: "数学" },
-    { genre_no: 12, genre_title: "漫画" }
-];
+var genres;
+
+fetch("/quizoo/genres").then(response => response.json()).then(data => {
+    genres = data;
+})
 
 
 
