@@ -37,8 +37,9 @@
 			<img src="img/prof.png" class="prof-img" alt="icon"><br>
 			nickname <input type="text" class="nickname" name="nickname"
 				id="profile-nickname" value=""><br>
-				
-			<button type="submit" class="buttonRound">編集</button>
+			password <input type="text" class="password" name="password"
+				id="profile-password" value="">
+			<button type="submit" class="buttonRound">変更</button>
 		</form>
 	</div>
 
