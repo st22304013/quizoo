@@ -1,3 +1,21 @@
+/* userinfo テーブルへのデータ挿入 */
+INSERT INTO userinfo (user_id, password, total_answer, correct_answer, rating) VALUES
+('watoru5151@gmail.com', 'password1', 2, 1, 0.5),
+('jibiki@gmail.com', 'password2', 3, 0, 0),
+('eiya@gmail.com', 'password3', 15, 15, 15),
+('niko@gmail.com', 'password4', 100, 80, 64),
+('tester', 'test', 0, 0, 0);
+
+
+
+/* nickname テーブルへのデータ挿入 */
+INSERT INTO nickname (user_no, nickname) VALUES
+(1, 'wataru'),
+(2, 'bikki-daddydirty'),
+(3, 'A8'),
+(4, 'hachiware');
+
+
 /* genre テーブルへのデータ挿入 */
 INSERT INTO  genre(genre_no, genre_title) VALUES
 (1, 'スポーツ'),
