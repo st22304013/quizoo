@@ -133,7 +133,8 @@ function updateQuestions(){
         over = document.createElement('div');
         over.setAttribute('class','question-overview');
         questionI = document.createElement('div');
-        questionI.setAttribute('class','question'+i);
+        questionI.setAttribute('class','question');
+        questionI.setAttribute('id',`question-${i}`);
 
         over.appendChild(quiz);
         questionI.appendChild(over);
