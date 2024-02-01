@@ -34,20 +34,6 @@
 	<div class="quiz_list">
 		<h1 class="createhistory">作成履歴</h1>
 		<div class="box" id="createHistoryContainer">
-			<div class="width row">
-				<div class="title col">常識クイズ</div>
-				<div class="d-flex align-items-center col">常識に関するクイズです</div>
-				<a href="#" id="modalTrigger" class="garbage_can col"
-					data-bs-toggle="modal" data-bs-target="#myModal"> <i
-					class="fa-regular fa-trash-can"></i>
-				</a>
-			</div>
-			<div class="information text-right">
-				作成者：<a class="author">たまい</a> 作成日：<a class="create_time">2023/10/27</a>
-				ジャンル：<a class="genre">雑学</a> 正解率：<a class="raito">22.2%</a>
-			</div>
-
-		</div>
 	</div>
 
 	<!--	モーダル-->
