@@ -303,7 +303,7 @@ section:nth-child(even) {
 }
 
 .ex {
-	color: rgba(255, 255, 255, 0.5);
+	color: #000000;
 	opacity: 0.8;
 }
 

@@ -8,7 +8,7 @@ body {
 	/* ページの最大横幅を画面幅と同じに設定 */
 	margin: 0;
 	/* ページを水平中央に配置するために左右の余白を自動調整 */
-	margin-top: 100px;
+	margin-top: 8%;
 
 }
 
@@ -60,35 +60,44 @@ img {
 
 .quiz_list {
 	padding: 20px;
-	margin-top: 120px;
+/*	margin-top: 8%;*/
 }
 
 .createhistory {
 	text-align: center;
+	margin-bottom: 3%;
 }
 
-.box {
-	padding: 25px;
-	margin: 60px;
-	margin-bottom: 10px;
+.quiz {
+	position: relative;
+	padding: 30px 0px;
+	padding-bottom: 40px;
+	margin: 0px auto;
+	margin-bottom: 40px;
 	border: 1px solid #333333;
-	border-radius: 10px;
-	background-color: #ffff99;
+	border-radius: 80px;
+	background-color: rgb(215, 248, 215);
+	width: 80%;
+/*	max-width: 70%;*/
 }
 
-.title {
+.quiz .title {
 	font-size: 30px;
 	margin-left: 100px;
+	font-family: cursive;
 }
 
-.information {
-	margin-right: 200px;
-}
+
 /*ゴミ箱*/
 .garbage_can {
-	margin: 20px 30px 0 0;
+	margin: 35px 40px 0 0;
     text-align: right;
     color: #000000;
+}
+
+.ex {
+	color: #000000;
+	opacity: 0.8;
 }
 
 /*モーダル*/
