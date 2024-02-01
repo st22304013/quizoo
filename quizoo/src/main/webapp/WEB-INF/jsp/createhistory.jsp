@@ -33,7 +33,7 @@
 
 	<div class="quiz_list">
 		<h1 class="createhistory">作成履歴</h1>
-		<div class="box">
+		<div class="box" id="createHistoryContainer">
 			<div class="width row">
 				<div class="title col">常識クイズ</div>
 				<div class="d-flex align-items-center col">常識に関するクイズです</div>
