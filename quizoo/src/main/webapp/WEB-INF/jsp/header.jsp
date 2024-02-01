@@ -6,7 +6,7 @@
 			<a href="index"><img src="img/quizoo_nobackground.png"
 				alt="quizoo"></a>
 		</div>
-		<div class="input-group">
+		<div class="input-group seach-box" id="input-group">
 			<input type="text" class="form-control" placeholder="Search" id="search_text">
 		</div>
 		<!-- ハンバーガーメニュー -->
