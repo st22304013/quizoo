@@ -19,7 +19,7 @@ window.addEventListener('load', async () => {
 		config.data.datasets[0].data.push(correctRate);
 		config.data.labels.push(quizCount);
 		console.log("正解数"+correctCount);
-		console.log("質問数："+questionCount)
+		console.log("質問数："+questionCount);
 		console.log("クイズ数："+quizCount);
 		console.log("率："+correctRate);
 
