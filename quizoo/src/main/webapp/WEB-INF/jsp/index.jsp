@@ -167,7 +167,7 @@
 					</div>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="correction" data-dismiss="modal">修正する</button>
+					<button type="button" id="confirm-btn-secondary" class="correction" data-dismiss="modal">修正する</button>
 					<button type="button" id="confirm-btn-primary" class="post">投稿する</button>
 				</div>
 			</div>

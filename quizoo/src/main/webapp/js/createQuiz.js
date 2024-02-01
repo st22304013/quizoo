@@ -40,11 +40,17 @@ window.addEventListener("load",function () {
 
     document.querySelector("#create-btn-primary").addEventListener("click",async function () {
         document.querySelector("#post-roading").style.display = "block";
-        await addQuestionList();
-        confirmSubmit();
-        console.log("create-btn clicked");
+        try{
+            await addQuestionList();
+            confirmSubmit();
+            console.log("create-btn clicked");
+            modalElement.replaceWith(emptyModal.cloneNode(true));
+        }catch(e){
+            document.querySelector("#post-roading").style.display = "none";
+            document.querySelector(e.message).setCustomValidity("入力必須です");
+            document.querySelector(e.message).reportValidity();
+        }
         document.querySelector("#post-roading").style.display = "none";
-        modalElement.replaceWith(emptyModal.cloneNode(true));
     });
 
     this.document.querySelector("#myModal1-open").addEventListener("click",function(){
@@ -56,6 +62,12 @@ window.addEventListener("load",function () {
         sendQuiz();
         confirmModal.hide();
     });
+
+    this.document.querySelector("#confirm-btn-secondary").addEventListener("click",function(){
+        confirmModal.hide();
+        myModal.show();
+    })
+
     setGenre();
 });
 
@@ -67,10 +79,14 @@ function showAllQuestions(){
 
 
 async function createNewCuestion() {
-    addQuestionList();
-    resetQuestion();
-    updateQuestions();
-    // showAllQuestions();
+    try{
+        addQuestionList();
+        resetQuestion();
+        updateQuestions();
+    }catch(e){
+        document.querySelector(e.message).setCustomValidity("入力必須です");
+        document.querySelector(e.message).reportValidity();
+    }
 }
 
 
@@ -89,6 +105,14 @@ function addQuestionList() {
             questionNode.querySelector('#choise4').cloneNode(true).checked
         ]
     }
+    if(quiz["question"] == "" || quiz["question"] == null) throw new Error("#question #create-question-text textarea");
+    if(quiz["choice1"] == "" || quiz["choice1"] == null) throw new Error('#question input[name="choise-text1"]');
+    if(quiz["choice2"] == "" || quiz["choice2"] == null) throw new Error('#question input[name="choise-text2"]');
+    if(quiz["choice3"] == "" || quiz["choice3"] == null) throw new Error('#question input[name="choise-text3"]');
+    if(quiz["choice4"] == "" || quiz["choice4"] == null) throw new Error('#question input[name="choise-text4"]');
+    if(quiz["judge"][0] == false && quiz["judge"][1] == false && quiz["judge"][2] == false && quiz["judge"][3] == false){
+        throw new Error("#question input[type='radio']");
+    };
     questions.push(quiz);
 }
 
