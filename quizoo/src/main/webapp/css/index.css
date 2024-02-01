@@ -83,7 +83,10 @@ img {
 }
 
 .genre-selector{
-	border-radius: 1em;	
+	border-style: none;
+	background-color: transparent;
+	text-align: center;
+	outline: none;
 
 }
 
