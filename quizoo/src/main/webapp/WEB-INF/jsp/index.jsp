@@ -93,11 +93,6 @@
 				</div>
 				<div class="modal-body create-modal-body">
 					<div id="questions-wrap" class="questions-wrap">
-						<div class="question1">
-							<div class="question-overview">
-								<h6>問題文の最初...</h6>
-							</div>
-						</div>
 					</div>
 					<button id="add-question-btn" type="button"
 						class="add-question-btn">＋</button>
@@ -167,7 +162,7 @@
 					</div>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="correction" data-dismiss="modal">修正する</button>
+					<button type="button" id="confirm-btn-secondary" class="correction" data-dismiss="modal">修正する</button>
 					<button type="button" id="confirm-btn-primary" class="post">投稿する</button>
 				</div>
 			</div>
