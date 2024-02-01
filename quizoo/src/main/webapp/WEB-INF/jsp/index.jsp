@@ -50,8 +50,11 @@
 	<header class="secondary-header">
 		<ul>
 			<li><a class="order_btn">new</a></li>
-			<li><a class="order_btn">genre</a></li>
 			<li><a class="order_btn">popular</a></li>
+			<li>
+				<select class="genre-selector" id="genre_selector">
+				</select>
+			</li>
 		</ul>
 
 	</header>
@@ -62,62 +65,7 @@
 				<div class="title col">
 					<p class="ex">常識クイズ</p>
 				</div>
-				<div class="input-group" style="width: 30%;">
-					<input type="text" class="form-control" placeholder="Search" id="search_text">
-				</div>
-				<!-- ハンバーガーメニュー -->
-				<button class="drawer__button">
-					<span></span>
-					<span></span>
-					<span></span>
-				</button>
-				<nav class="drawer__nav">
-					<div class="drawer__nav__inner">
-						<ul class="drawer__nav__menu">
-							<li class="drawer__nav__item">
-								<a class="drawer__nav__link" href="profile">プロフィール編集</a>
-							</li>
-							<li class="drawer__nav__item">
-								<a class="drawer__nav__link" href="createhistory">作成履歴</a>
-							</li>
-							<li class="drawer__nav__item">
-								<a class="drawer__nav__link" href="score">スコア詳細</a>
-							</li>
-							<li class="drawer__nav__item">
-								<a class="drawer__nav__link" href="logout">ログアウト</a>
-							</li>
-						</ul>
-					</div>
-				</nav>
-
-			</nav>
-		</header>
-		<!--	下のヘッダー-->
-		<header class="secondary-header">
-			<ul>
-				<li><a class="order_btn">new</a></li>
-				<li><a class="order_btn">popular</a></li>
-				<li>
-					<select id="genre_selector">
-					<select>
-				</li>
-			</ul>
-		</header>
-		<!--　クイズリスト  -->
-		<div class="quiz_list mx-auto" id="quiz_list">
-			<div class="quiz">
-				<div class="width row">
-					<div class="title col"><p class="ex">常識クイズ</p></div>
-				</div>
-				<div class="d-flex align-items-center col">常識に関するクイズです</div>
 			</div>
-			<div class="information text-right">
-				作成者:<a class="author">たまい</a>ジャンル：<a class="genre">雑学</a><br>
-				作成日：<a class="create_time">2023/10/27</a> 正解率：<a class="raito">22.2%</a>
-
-			</div>
-
-
 		</div>
 	</div>
 
