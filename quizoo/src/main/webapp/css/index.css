@@ -542,6 +542,7 @@ a.btn-border-shadow--color2:before {
     top: 0;
     right: 0;
     z-index: 100;
+	overscroll-behavior: none;
 }
 
 .my-modal{
