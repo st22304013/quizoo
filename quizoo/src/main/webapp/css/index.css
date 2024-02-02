@@ -607,8 +607,27 @@ a.btn-border-shadow--color2:before {
     border-radius: 5px;
     background-color: #f1efec;
     width: calc(90% - 2em);
-    height: 40%;
+    height: 50%;
     margin: 5%;
     padding: 1em;
 	resize: none;
+}
+.choices{
+	height: 35%;
+	width: 90%;
+	margin: 5%;
+}
+
+.choice{
+	width: 100%;
+	height: 25%;
+}
+
+
+.choice-text{
+    width: calc(100% - 2em);
+    border-radius: 5px;
+    border: none;
+    background-color: #edeadc;
+    height: 3em;
 }
