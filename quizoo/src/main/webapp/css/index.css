@@ -529,3 +529,131 @@ a.btn-border-shadow--color2:before {
 .none {
 	display: none;
 }
+
+
+/* 作問モーダル用(Bootstrapなし) */
+
+.my-modal-back{
+    display: block;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: #0006;
+    top: 0;
+    right: 0;
+    z-index: 100;
+	overscroll-behavior: none;
+}
+
+.my-modal{
+    display: flex;
+    width: 90vw;
+    height: 90vh;
+    background-color: #ccc4a6;
+	position: absolute;
+	top: 5vh;
+	left: 5vw;
+    border-radius: 20px;
+}
+
+.my-modal::before{
+    width: 90vw;
+    height: 90vh;
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #8d8875;
+    border-radius: 30px;
+	z-index: -1;
+}
+
+.stored-question {
+	padding-top: 30px;
+	width: 30%;
+	height: calc(100% - 30px);
+	overflow: auto;
+}
+
+.stored-question::after{
+	content: "";
+	display: block;
+	position: absolute;
+	top: 5%;
+	left: 30%;
+	width: 0;
+	height: 90%;
+	border-right: 2px solid #818181;
+}
+
+.question_editor{
+	width: 70%;
+	height: 100%;
+}
+
+.question-overview,.add-question{
+    width: 90%;
+    height: 60px;
+    border-bottom: solid 1px #000;
+    margin: 0 auto;
+	cursor: pointer;
+}
+
+.question-overview:hover{
+	background-color: #0000001e;
+}
+
+.add-question{
+	position: sticky;
+	bottom: 0;
+	background-color: #9e9881;
+}
+
+.add-question:hover{
+	background-color: #686456;
+}
+
+.question-text{
+    display: block;
+    border-radius: 5px;
+    background-color: #f1efec;
+    width: calc(90% - 2em);
+    height: 50%;
+    margin: 5%;
+    padding: 1em;
+	resize: none;
+}
+.choices{
+	height: 35%;
+	width: 90%;
+	margin: 5%;
+}
+
+.choice{
+	width: 100%;
+	height: 25%;
+}
+
+
+.choice-text{
+    width: calc(100% - 2em);
+    border-radius: 5px;
+    border: none;
+    background-color: #edeadc;
+    height: 3em;
+}
+
+.submit-quiz-btn{
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    background-color: #84bab8;
+    position: absolute;
+    bottom: -30px;
+    right: -30px;
+	cursor: pointer;
+}
+
+.submit-quiz-btn:hover{
+	background-color: #4D9BC1;
+}

@@ -78,59 +78,43 @@
 
 
 	<!--作問ポップアップ-->
-	<div class="modal fade" id="myModal1" tabindex="-1" role="dialog"
-		aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div
-			class="modal-dialog modal-dialog-centered modal-lg create-modal-wrap "
-			role="document">
-			<div class="modal-content create-modal-content ">
-				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">問題を作成する</h5>
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
+	<div class="my-modal-back">
+		<div class="my-modal">
+			<div class="stored-question">
+				<div class="question-overview">
+					クエスチョンが表示される
 				</div>
-				<div class="modal-body create-modal-body">
-					<div id="questions-wrap" class="questions-wrap">
-					</div>
-					<button id="add-question-btn" type="button"
-						class="add-question-btn">＋</button>
-					<div id="question" class="question-wrap">
-						<div id="create-question-text" class="create-question-text">
-							<textarea placeholder="問題文を入力"></textarea>
-						</div>
-						<div class="create-question-choises">
-							<fieldset>
-								<div class="choise-wrap">
-									<input type="radio" id="choise1" name="choise" /> <label
-										id="choise-label1" for="choise1"><input type="text"
-										name="choise-text1" placeholder="選択肢を入力" /></label>
-								</div>
-								<div class="choise-wrap">
-									<input type="radio" id="choise2" name="choise" /> <label
-										id="choise-label2" for="choise3"><input type="text"
-										name="choise-text2" /></label>
-								</div>
-								<div class="choise-wrap">
-									<input type="radio" id="choise3" name="choise" /> <label
-										id="choise-label3" for="choise3"><input type="text"
-										name="choise-text3" /></label>
-								</div>
-								<div class="choise-wrap">
-									<input type="radio" id="choise4" name="choise" /> <label
-										id="choise-label3" for="choise4"><input type="text"
-										name="choise-text4" /></label>
-								</div>
-							</fieldset>
-						</div>
-					</div>
-					<button type="button" id="create-btn-primary"
-						class="confirmation-btn">確認画面へ</button>
+				<div class="add-question">
+					問題を追加する
 				</div>
 			</div>
-		</div>
+			<div class="question_editor">
+				<textarea type="text" name="question-text" id="question-text" class="question-text"></textarea>
+				<fieldset class="choices">
+					<div class="choice">
+						<input type="radio" name="choice" id="1">
+						<input type="text" name="choice-text" id="choice-text" class="choice-text">
+					</div>
+					<div class="choice">
+						<input type="radio" name="choice" id="2">
+						<input type="text" name="choice-text" id="choice-text" class="choice-text">
+					</div>
+					<div class="choice">
+						<input type="radio" name="choice" id="3">
+						<input type="text" name="choice-text" id="choice-text" class="choice-text">
+					</div>
+					<div class="choice">
+						<input type="radio" name="choice" id="4">
+						<input type="text" name="choice-text" id="choice-text" class="choice-text">
+					</div>
+				</fieldset>
+			</div>
+			<div class="submit-quiz-btn">
+				アイコン
+			</div>
+		</div>	
 	</div>
+	
 
 	<div id="post-roading" class="post-roading-back">
 		<h1 class="post-roading-msg">問題を投稿しています</h1>
