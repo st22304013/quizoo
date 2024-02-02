@@ -529,3 +529,61 @@ a.btn-border-shadow--color2:before {
 .none {
 	display: none;
 }
+
+
+/* 作問モーダル用(Bootstrapなし) */
+
+.my-modal-back{
+    display: block;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: #0006;
+    top: 0;
+    right: 0;
+    z-index: 100;
+}
+
+.my-modal{
+    display: flex;
+    width: 90vw;
+    height: 90vh;
+    background-color: #ccc4a6;
+	position: absolute;
+	top: 5vh;
+	left: 5vw;
+    border-radius: 20px;
+}
+
+.my-modal::before{
+    width: 90vw;
+    height: 90vh;
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #8d8875;
+    border-radius: 30px;
+	z-index: -1;
+}
+
+.question_list {
+	width: 30%;
+	height: 100%;
+}
+
+.question_list::after{
+	content: "";
+	display: block;
+	position: absolute;
+	top: 5%;
+	left: 30%;
+	width: 0;
+	height: 90%;
+	border-right: 2px solid #818181;
+}
+
+.question_editor{
+	width: 70%;
+	height: 100%;
+}
