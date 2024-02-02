@@ -91,6 +91,24 @@
 			<div class="question_editor">
 				<textarea type="text" name="question-text" id="question-text" class="question-text">
 				</textarea>
+				<fieldset class="choices">
+					<div class="choice">
+						<input type="radio" name="choice" id="1">
+						<input type="text" name="choice-text" id="choice-text">
+					</div>
+					<div class="choice">
+						<input type="radio" name="choice" id="2">
+						<input type="text" name="choice-text" id="choice-text">
+					</div>
+					<div class="choice">
+						<input type="radio" name="choice" id="3">
+						<input type="text" name="choice-text" id="choice-text">
+					</div>
+					<div class="choice">
+						<input type="radio" name="choice" id="4">
+						<input type="text" name="choice-text" id="choice-text">
+					</div>
+				</fieldset>
 			</div>
 		</div>	
 	</div>
