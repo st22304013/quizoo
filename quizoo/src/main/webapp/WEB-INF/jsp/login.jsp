@@ -41,7 +41,7 @@
 
 			<!-- 右側のコンテンツ -->
 			<div class="col-md-6">
-				<div class="container flex-grow-1 ms-3">
+				<div class="form container flex-grow-1 ms-3">
 					<div class="row justify-content">
 						<div class="fixed-col-md-7">
 							<div class="card">

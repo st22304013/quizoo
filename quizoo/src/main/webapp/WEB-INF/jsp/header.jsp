@@ -4,7 +4,7 @@
 	<nav class="navbar navbar-light fixed-top">
 		<div class="header-img">
 			<a href="index"><img src="img/quizoo_nobackground.png"
-				alt="quizoo"></a>
+				alt="quizoo" class="icon"></a>
 		</div>
 		<div class="input-group">
 			<input type="text" class="form-control" placeholder="Search" id="search_text">
