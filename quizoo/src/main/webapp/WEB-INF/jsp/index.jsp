@@ -78,8 +78,8 @@
 
 
 	<!--作問ポップアップ-->
-	<div class="create-question-modal-back">
-		<div class="create-question-modal">
+	<div class="create-quiz-modal-back">
+		<div class="create-quiz-modal">
 			<div class="stored-question">
 				<div class="question-overview">
 					クエスチョンが表示される

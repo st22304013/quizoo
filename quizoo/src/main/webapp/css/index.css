@@ -533,7 +533,7 @@ a.btn-border-shadow--color2:before {
 
 /* 作問モーダル用(Bootstrapなし) */
 
-.create-question-modal-back{
+.create-quiz-modal-back{
     display: none;
     position: fixed;
     width: 100vw;
@@ -545,7 +545,7 @@ a.btn-border-shadow--color2:before {
 	overscroll-behavior: none;
 }
 
-.create-question-modal{
+.create-quiz-modal{
     display: flex;
     width: 90vw;
     height: 90vh;
@@ -556,7 +556,7 @@ a.btn-border-shadow--color2:before {
     border-radius: 20px;
 }
 
-.create-question-modal::before{
+.create-quiz-modal::before{
     width: 90vw;
     height: 90vh;
     content: "";
