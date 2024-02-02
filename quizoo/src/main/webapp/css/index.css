@@ -534,7 +534,7 @@ a.btn-border-shadow--color2:before {
 /* 作問モーダル用(Bootstrapなし) */
 
 .my-modal-back{
-    display: block;
+    display: none;
     position: fixed;
     width: 100vw;
     height: 100vh;
