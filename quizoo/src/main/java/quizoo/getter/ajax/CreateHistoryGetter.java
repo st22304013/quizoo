@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 import com.google.gson.Gson;
 
-import db.bean.QuizBean;
+import db.bean.CreateHistoryBean;
 import db.dao.CreateHistoryDao;
 import frame.Service;
 import frame.context.RequestContext;
@@ -21,13 +21,12 @@ public class CreateHistoryGetter extends Service {
 	public void execute(RequestContext req, ResponseContext res)
 			throws IOException, ResourceException, BadRequestException, NotFoundException {
 
-		
-
 		int userNo = req.getUser().getUserNo();
 		
 		CreateHistoryDao createhistoryDao = new CreateHistoryDao();
 		
-		ArrayList<QuizBean> createhistoryList = createhistoryDao.selectCreateHistory(userNo);
+		ArrayList<CreateHistoryBean> createhistoryList = createhistoryDao.selectCreateHistory(userNo);
+		System.out.println(userNo);
 		PrintWriter out = res.getWrite();
 
 		Gson gson = new Gson();
@@ -35,7 +34,6 @@ public class CreateHistoryGetter extends Service {
 
 		out.println(result);
 		
-
 	}
 
 }
