@@ -641,3 +641,18 @@ a.btn-border-shadow--color2:before {
     background-color: #edeadc;
     height: 3em;
 }
+
+.submit-quiz-btn{
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    background-color: #84bab8;
+    position: absolute;
+    bottom: -30px;
+    right: -30px;
+	cursor: pointer;
+}
+
+.submit-quiz-btn:hover{
+	background-color: #4D9BC1;
+}

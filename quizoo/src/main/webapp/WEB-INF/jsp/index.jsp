@@ -109,6 +109,9 @@
 					</div>
 				</fieldset>
 			</div>
+			<div class="submit-quiz-btn">
+				アイコン
+			</div>
 		</div>	
 	</div>
 	
