@@ -567,12 +567,14 @@ a.btn-border-shadow--color2:before {
 	z-index: -1;
 }
 
-.question_list {
+.stored-question {
+	padding-top: 30px;
 	width: 30%;
-	height: 100%;
+	height: calc(100% - 30px);
+	overflow: auto;
 }
 
-.question_list::after{
+.stored-question::after{
 	content: "";
 	display: block;
 	position: absolute;
@@ -586,4 +588,16 @@ a.btn-border-shadow--color2:before {
 .question_editor{
 	width: 70%;
 	height: 100%;
+}
+
+.question-overview{
+    width: 90%;
+    height: 60px;
+    border-bottom: solid 1px #000;
+    margin: 0 auto;
+	cursor: pointer;
+}
+
+.question-overview:hover{
+	background-color: #0000001e;
 }
