@@ -84,45 +84,6 @@
 				<div class="question-overview">
 					クエスチョンが表示される
 				</div>
-				<div class="question-overview">
-					クエスチョンが表示される
-				</div>
-				<div class="question-overview">
-					クエスチョンが表示される
-				</div>
-				<div class="question-overview">
-					クエスチョンが表示される
-				</div>
-				<div class="question-overview">
-					クエスチョンが表示される
-				</div>
-				<div class="question-overview">
-					クエスチョンが表示される
-				</div>
-				<div class="question-overview">
-					クエスチョンが表示される
-				</div>
-				<div class="question-overview">
-					クエスチョンが表示される
-				</div>
-				<div class="question-overview">
-					クエスチョンが表示される
-				</div>
-				<div class="question-overview">
-					クエスチョンが表示される
-				</div>
-				<div class="question-overview">
-					クエスチョンが表示される
-				</div>
-				<div class="question-overview">
-					クエスチョンが表示される
-				</div>
-				<div class="question-overview">
-					クエスチョンが表示される
-				</div>
-				<div class="question-overview">
-					クエスチョンが表示される
-				</div>
 				<div class="add-question">
 					問題を追加する
 				</div>
