@@ -10,6 +10,12 @@ window.addEventListener("load", async () => {
     });
     createHistoryList = await createHistoryList.json();
     
+    // createHistoryData ãŒ null ã¾ãŸã¯ undefined ã§ã‚ã‚‹ã‹ç¢ºèª
+    if (!createHistoryList) {
+        console.error("Error: createHistoryList is null or undefined");
+        return;
+    }
+    
     displayCreateHistory(createHistoryList);
 });
 
@@ -21,16 +27,16 @@ function displayCreateHistory(createHistoryData) {
             <div class="box" id="createHistoryContainer">
                 <div class="width row">
                     <div class="title col">${historyItem.title}</div>
-                    <div class="d-flex align-items-center col">${historyItem.description}</div>
+                    <div class="d-flex align-items-center col">${historyItem.explanation}</div>
                     <a href="#" class="garbage_can col" data-bs-toggle="modal" data-bs-target="#myModal">
                         <i class="fa-regular fa-trash-can"></i>
                     </a>
                 </div>
                 <div class="information text-right">
-                    ì¬ÒF<a class="author">${historyItem.author}</a>
-                    ì¬“úF<a class="create_time">${historyItem.createDate}</a>
-                    ƒWƒƒƒ“ƒ‹F<a class="genre">${historyItem.genre}</a>
-                    ³‰ğ—¦F<a class="raito">${historyItem.accuracy}</a>
+                    ä½œæˆè€…ï¼š<a class="author">${historyItem.author}</a>
+                    ä½œæˆæ—¥ï¼š<a class="create_time">${historyItem.createTime}</a>
+                    ã‚¸ãƒ£ãƒ³ãƒ«ï¼š<a class="genre">${historyItem.genre}</a>
+                    æ­£è§£ç‡ï¼š<a class="raito">${historyItem.correctRate}</a>
                 </div>
             </div>
         `;
