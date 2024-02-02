@@ -590,7 +590,7 @@ a.btn-border-shadow--color2:before {
 	height: 100%;
 }
 
-.question-overview{
+.question-overview,.add-question{
     width: 90%;
     height: 60px;
     border-bottom: solid 1px #000;
@@ -600,6 +600,16 @@ a.btn-border-shadow--color2:before {
 
 .question-overview:hover{
 	background-color: #0000001e;
+}
+
+.add-question{
+	position: sticky;
+	bottom: 0;
+	background-color: #9e9881;
+}
+
+.add-question:hover{
+	background-color: #686456;
 }
 
 .question-text{
