@@ -26,41 +26,30 @@ public class QuizListGetter extends Service {
 	@Override
 	public void execute(RequestContext req, ResponseContext res) throws IOException, ResourceException {
 		
-		ArrayList<QuizBean> quizList = new ArrayList<>();
+		String genreNo = null;
+		String orderColumn = null;
+		String searchStr = null;
 		
-		String[] order = req.getParameter("order");
-		String orderStr = "create_time";
-		
-		String[] genreNo = req.getParameter("genreNo");
-		Integer genreNoInteger = null;
-		 
-
-		if (genreNo != null) {
-            genreNoInteger = Integer.valueOf(genreNo[0]);
-            
-        }
-		
-		
-		if(order != null) {
-			orderStr = paramColMap.get(order[0]);			
+		if(req.getParameter("genre_no") != null) {
+			genreNo = req.getParameter("genre_no")[0];
 		}
 		
+		if(req.getParameter("order") != null) {
+			orderColumn = paramColMap.get(req.getParameter("order")[0]);
+		}
+		
+		if(req.getParameter("search") != null) {
+			searchStr = req.getParameter("search")[0];
+		}
+		
+		
+		System.out.println("genreNo :"+genreNo);
+		System.out.println("orderOol:"+orderColumn);
+		System.out.println("searchStr:"+searchStr);
 		
 		QuizDao quizDao = new QuizDao();
 		
-		if(genreNoInteger != null && orderStr != null) {
-			
-			quizList = quizDao.selectQuizByColumnNameAndGenreNo(orderStr, (int)genreNoInteger);
-			
-		} else if(genreNoInteger == null && order != null) {
-			
-			quizList = quizDao.selectOrderedQuizByColumnName(orderStr);
-			
-		} else if(genreNoInteger != null && orderStr == null){
-			quizList = quizDao.selectSearchedQuizByGenreNo((int)genreNoInteger);
-		} else {
-			quizList = quizDao.selectQuiz();
-		}
+		ArrayList<QuizBean> quizList = quizDao.selectQuiz(orderColumn, genreNo, searchStr);
 		
 		//quizIdによる検索のメソッドは？
 
@@ -68,6 +57,8 @@ public class QuizListGetter extends Service {
 		
 		Gson gson = new Gson();
 		String result = gson.toJson(quizList);
+		
+		System.out.println(result);
 		
 		out.println(result);
 

@@ -5,7 +5,7 @@
 body {
 	font-family: 'Zen Maru Gothic', serif;
 	background-color: #fffaef;
-	width: 100em;
+	width: 100%;
 	/* ページの最大横幅を画面幅と同じに設定 */
 	margin: 0;
 	/* ページを水平中央に配置するために左右の余白を自動調整 */
@@ -33,7 +33,7 @@ img {
 	top: 120px;
 	background-color: #CDF5FD;
 	display: flex;
-	width: 100em;
+	width: 100%;
 	height: 75px;
 	/* セカンダリーヘッダーの高さを設定 */
 	align-items: center;
@@ -82,11 +82,18 @@ img {
 	margin: 0 120px;
 }
 
+.genre-selector{
+	border-radius: 1em;	
+
+}
+
+
 /* -クイズ- */
 
 /* クイズ一覧 */
 .quiz_list {
 	margin-bottom: 0px;
+	width: 100%;
 }
 
 /* 各クイズ */
@@ -99,7 +106,8 @@ img {
 	border: 1px solid #333333;
 	border-radius: 80px;
 	background-color: rgb(215, 248, 215);
-	max-width: 70%;
+	width: 80%;
+/*	max-width: 70%;*/
 }
 
 .quiz .title {
@@ -250,7 +258,25 @@ a.btn-border-shadow--color2:before {
 
 /* 作問制御 */
 
-.question-wrap {
+.questions-wrap {
+	width: 30%;
+}
+
+.questions-wrap .question{
+    border: 3px solid #808080;
+    border-radius: 3px;
+    cursor: pointer;
+    margin: 5px;
+    width: 90%;
+    background-color: #f7f6f5;
+}
+
+.questions-wrap .current{
+    border: 3px solid #aaa;
+	background-color: #f7f6f5;
+}
+
+.question-wrap{
 	width: 100%;
 }
 
@@ -370,11 +396,6 @@ a.btn-border-shadow--color2:before {
 .choise-wrap input:focus {
 	border-bottom-color: #ffa500;
 }
-
-.questions-wrap {
-	width: 20vw;
-}
-
 
 .question-overview {
 	height: 30px;

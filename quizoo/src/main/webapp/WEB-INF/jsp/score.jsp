@@ -47,6 +47,11 @@
 			</div>
 		</div>
 	</div>
+	
+	<div class="graph-container">
+		<canvas id="chart2" class="graph"></canvas>
+		<canvas id="chart" class="graph"></canvas>
+	</div>
 
 
 	<script
@@ -58,10 +63,11 @@
 		src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="js/header.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 	<script src="js/graph.js"></script>
 	
-	
+
 </body>
 
 </html>

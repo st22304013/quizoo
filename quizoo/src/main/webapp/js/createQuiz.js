@@ -18,20 +18,11 @@ var myModal;
 var confirmModalElement;
 var confirmModal;
 
-var genres = [
-    { genre_no: 1, genre_title: "スポーツ" },
-    { genre_no: 2, genre_title: "音楽" },
-    { genre_no: 3, genre_title: "映画" },
-    { genre_no: 4, genre_title: "ゲーム" },
-    { genre_no: 5, genre_title: "雑学" },
-    { genre_no: 6, genre_title: "宇宙" },
-    { genre_no: 7, genre_title: "エンタメ・芸能" },
-    { genre_no: 8, genre_title: "なぞなぞ" },
-    { genre_no: 9, genre_title: "生き物" },
-    { genre_no: 10, genre_title: "歴史" },
-    { genre_no: 11, genre_title: "数学" },
-    { genre_no: 12, genre_title: "漫画" }
-];
+var genres;
+
+fetch("/quizoo/genres").then(response => response.json()).then(data => {
+    genres = data;
+})
 
 
 
@@ -49,11 +40,17 @@ window.addEventListener("load",function () {
 
     document.querySelector("#create-btn-primary").addEventListener("click",async function () {
         document.querySelector("#post-roading").style.display = "block";
-        await addQuestionList();
-        confirmSubmit();
-        console.log("create-btn clicked");
+        try{
+            await addQuestionList();
+            confirmSubmit();
+            console.log("create-btn clicked");
+            modalElement.replaceWith(emptyModal.cloneNode(true));
+        }catch(e){
+            document.querySelector("#post-roading").style.display = "none";
+            document.querySelector(e.message).setCustomValidity("入力必須です");
+            document.querySelector(e.message).reportValidity();
+        }
         document.querySelector("#post-roading").style.display = "none";
-        modalElement.replaceWith(emptyModal.cloneNode(true));
     });
 
     this.document.querySelector("#myModal1-open").addEventListener("click",function(){
@@ -65,6 +62,12 @@ window.addEventListener("load",function () {
         sendQuiz();
         confirmModal.hide();
     });
+
+    this.document.querySelector("#confirm-btn-secondary").addEventListener("click",function(){
+        confirmModal.hide();
+        myModal.show();
+    })
+
     setGenre();
 });
 
@@ -76,10 +79,14 @@ function showAllQuestions(){
 
 
 async function createNewCuestion() {
-    addQuestionList();
-    resetQuestion();
-    updateQuestions();
-    // showAllQuestions();
+    try{
+        addQuestionList();
+        resetQuestion();
+        updateQuestions();
+    }catch(e){
+        document.querySelector(e.message).setCustomValidity("入力必須です");
+        document.querySelector(e.message).reportValidity();
+    }
 }
 
 
@@ -98,6 +105,14 @@ function addQuestionList() {
             questionNode.querySelector('#choise4').cloneNode(true).checked
         ]
     }
+    if(quiz["question"] == "" || quiz["question"] == null) throw new Error("#question #create-question-text textarea");
+    if(quiz["choice1"] == "" || quiz["choice1"] == null) throw new Error('#question input[name="choise-text1"]');
+    if(quiz["choice2"] == "" || quiz["choice2"] == null) throw new Error('#question input[name="choise-text2"]');
+    if(quiz["choice3"] == "" || quiz["choice3"] == null) throw new Error('#question input[name="choise-text3"]');
+    if(quiz["choice4"] == "" || quiz["choice4"] == null) throw new Error('#question input[name="choise-text4"]');
+    if(quiz["judge"][0] == false && quiz["judge"][1] == false && quiz["judge"][2] == false && quiz["judge"][3] == false){
+        throw new Error("#question input[type='radio']");
+    };
     questions.push(quiz);
 }
 
@@ -118,7 +133,8 @@ function updateQuestions(){
         over = document.createElement('div');
         over.setAttribute('class','question-overview');
         questionI = document.createElement('div');
-        questionI.setAttribute('class','question'+i);
+        questionI.setAttribute('class','question');
+        questionI.setAttribute('id',`question-${i}`);
 
         over.appendChild(quiz);
         questionI.appendChild(over);

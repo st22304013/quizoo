@@ -50,8 +50,11 @@
 	<header class="secondary-header">
 		<ul>
 			<li><a class="order_btn">new</a></li>
-			<li><a class="order_btn">genre</a></li>
 			<li><a class="order_btn">popular</a></li>
+			<li>
+				<select class="genre-selector" id="genre_selector">
+				</select>
+			</li>
 		</ul>
 
 	</header>
@@ -62,14 +65,7 @@
 				<div class="title col">
 					<p class="ex">常識クイズ</p>
 				</div>
-				<div class="d-flex align-items-center col">常識に関するクイズです</div>
 			</div>
-			<div class="information text-right">
-				作成者:<a class="author">たまい</a>ジャンル：<a class="genre">雑学</a><br>
-				作成日：<a class="create_time">2023/10/27</a> 正解率：<a class="raito">22.2%</a>
-			</div>
-
-
 		</div>
 	</div>
 
@@ -97,11 +93,6 @@
 				</div>
 				<div class="modal-body create-modal-body">
 					<div id="questions-wrap" class="questions-wrap">
-						<div class="question1">
-							<div class="question-overview">
-								<h6>問題文の最初...</h6>
-							</div>
-						</div>
 					</div>
 					<button id="add-question-btn" type="button"
 						class="add-question-btn">＋</button>
@@ -171,7 +162,7 @@
 					</div>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="correction" data-dismiss="modal">修正する</button>
+					<button type="button" id="confirm-btn-secondary" class="correction" data-dismiss="modal">修正する</button>
 					<button type="button" id="confirm-btn-primary" class="post">投稿する</button>
 				</div>
 			</div>
@@ -187,7 +178,7 @@
 			// グループ内の他のチェックボックスを取得
 			var otherCheckboxes = checkboxGroup
 					.querySelectorAll('.form-check-input');
-
+					
 			// クリックされたチェックボックス以外の選択を解除
 			otherCheckboxes.forEach(function(checkbox) {
 				if (checkbox !== clickedCheckbox) {
@@ -195,30 +186,25 @@
 				}
 			});
 		}
-	</script>
-	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-	<script
-		src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
-	<script
-		src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+		</script>
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-		crossorigin="anonymous"></script>
-	<script
-		src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
-		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-		crossorigin="anonymous"></script>
-	<script
-		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-		crossorigin="anonymous"></script>
-	<script src="js/index.js"></script>
-	<script src="js/createQuiz.js"></script>
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+			integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+			crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+			integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+			crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+			integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+			crossorigin="anonymous"></script>
+		<script src="js/index.js"></script>
+		<script src="js/createQuiz.js"></script>
 
 
-</body>
+	</body>
 
-</html>
+	</html>
