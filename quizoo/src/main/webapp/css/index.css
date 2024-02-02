@@ -601,3 +601,14 @@ a.btn-border-shadow--color2:before {
 .question-overview:hover{
 	background-color: #0000001e;
 }
+
+.question-text{
+    display: block;
+    border-radius: 5px;
+    background-color: #f1efec;
+    width: calc(90% - 2em);
+    height: 40%;
+    margin: 5%;
+    padding: 1em;
+	resize: none;
+}
