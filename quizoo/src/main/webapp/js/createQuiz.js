@@ -12,6 +12,7 @@ function showQreateModal() {
     createModal.style.display = "block";
 }
 
+// 現在
 function storeQuestionEditor() {
     currentEditor = document.querySelector("#question-editor");
 
@@ -33,7 +34,14 @@ function storeQuestionEditor() {
     }
 
     // 追加ボタンをクローン
-    storedQuestion.appendChild(document.querySelector("#add-question").cloneNode(true));
+    var addBtn = document.querySelector("#add-question").cloneNode(true);
+    // イベントはcloneNodeで継承されないので、ここで再設定
+    addBtn.addEventListener("click",storeQuestionEditor);
+    storedQuestion.appendChild(addBtn);
     
-    document.querySelector("#stored-question").replaceWith(storedQuestion.cloneNode(true));
+    // クエスチョン一覧を置き換え
+    document.querySelector("#stored-question").replaceWith(storedQuestion);
+
+
+    
 }
