@@ -2,6 +2,10 @@ let createModal;
 let metadataModal;
 let questionEditors = [];
 let EditingQuestionNo = 0;
+let genres;
+fetch("/quizoo/genres").then(response => response.json()).then(data => {
+    genres = data;
+})
 window.addEventListener("load",function () {
     createModal = this.window.document.querySelector("#create-quiz-modal-back"); 
     metadataModal = this.window.document.querySelector("#metadata-modal-back");
