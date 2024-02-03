@@ -80,15 +80,15 @@
 	<!--作問ポップアップ-->
 	<div class="create-quiz-modal-back" id="create-quiz-modal-back">
 		<div class="create-quiz-modal">
-			<div class="stored-question">
+			<div class="stored-question" id="stored-question">
 				<div class="question-overview">
 					クエスチョンが表示される
 				</div>
-				<div class="add-question">
+				<div class="add-question" id="add-question">
 					問題を追加する
 				</div>
 			</div>
-			<div class="question_editor">
+			<div class="question-editor" id="question-editor">
 				<textarea type="text" name="question-text" id="question-text" class="question-text"></textarea>
 				<fieldset class="choices">
 					<div class="choice">
