@@ -29,7 +29,7 @@ function storeQuestionEditor() {
     storedQuestion.setAttribute("id","stored-question");
 
     // questionEditorsから情報を取り出し、クエスチョン一覧に表示
-    for(let i = 0 ; i < questionEditors.length ; i++) {
+    for(var i = 0 ; i < questionEditors.length ; i++) {
         var overview = document.createElement("div");
         overview.setAttribute("class","question-overview");
         overview.innerText = questionEditors[i].querySelector("#question-text").value;
@@ -50,14 +50,15 @@ function storeQuestionEditor() {
 
 //　編集する問題を切り返す
 function changeQuestionEditor(questionNo){
-    // 現在開いている問題と同じときは何もしない
-    if(EditingQuestionNo == questionNo) return;
     // questionNoが無いときは何もしない
     if(!questionNo) return;
+    // 現在開いている問題と同じときは何もしない
+    if(EditingQuestionNo == questionNo) return;
 
     // 現在開いている問題を保存
     storeQuestionEditor();
 
+    EditingQuestionNo = questionNo;
     document.querySelector("#question-editor").replaceWith(questionEditors[questionNo].cloneNode(true));
 } 
 
