@@ -105,34 +105,12 @@
 
 
 		<!--　作問確認ポップアップ　-->
-
-		<!-- Modal -->
-		<div class="modal fade confirm-modal" id="comfirm-modal" tabindex="-1" role="dialog"
-			aria-labelledby="exampleModalLabel" aria-hidden="true">
-			<div class="modal-dialog confirm-modal-dialog" role="document">
-				<div class="modal-content">
-					<div class="modal-body">
-						<h5>以下の内容で投稿します</h5>
-					</div>
-					<div id="quiz-metadata" class="quiz-metadata text-center">
-						<div id="quiz-title">
-							<!-- <h6>タイトルを入力</h6> -->
-							<input type="text" name="title" class="quiz_title" placeholder="タイトル" />
-						</div>
-						<select name="genre" class="genre">
-						</select>
-						<div id="explanation">
-							<input type="text" name="explanation" class="explanation" placeholder="説明" />
-						</div>
-					</div>
-					<div class="modal-footer">
-						<button type="button" id="confirm-btn-secondary" class="correction"
-							data-dismiss="modal">修正する</button>
-						<button type="button" id="confirm-btn-primary" class="post">投稿する</button>
-					</div>
-				</div>
+		<div class="metadata-modal-back">
+			<div class="metadata-modal">
 			</div>
 		</div>
+		<!-- Modal -->
+		
 		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

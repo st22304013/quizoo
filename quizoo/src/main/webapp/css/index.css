@@ -657,3 +657,24 @@ a.btn-border-shadow--color2:before {
 .submit-quiz-btn:hover{
 	background-color: #4D9BC1;
 }
+
+/* 作問確認モーダル */
+.metadata-modal-back{
+    display: block;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #0006;
+    z-index: 100;
+}
+
+.metadata-modal{
+    display: block;
+    position: absolute;
+    margin: 20vh 20vw;
+    width: 60vw;
+    height: 60vh;
+    background-color: #e2dccd;
+    border-radius: 20px;
+}
