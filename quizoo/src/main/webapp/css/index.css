@@ -672,9 +672,47 @@ a.btn-border-shadow--color2:before {
 .metadata-modal{
     display: block;
     position: absolute;
-    margin: 20vh 20vw;
-    width: 60vw;
-    height: 60vh;
+    margin: 30vh 20vw;
+    width: 50vw;
+    height: 30vh;
     background-color: #e2dccd;
     border-radius: 20px;
+    padding: 5vh 5vw;
+}
+
+.quiz-metadata{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 0 5%;
+}
+
+.quiz-metadata>*{
+    margin: 10px 0;
+    height: 2em;
+    border: solid 2px #88847b;
+    background-color: #faf8f3;
+}
+
+.quiz-metadata>select{
+	margin: 10px 0;
+}
+
+.quiz-metadata option{
+    background-color: #faf8f3;
+}
+
+.metadata-buttons{
+    position: absolute;
+    bottom: 5vh;
+    right: 5vw;
+}
+
+.metadata-buttons>*{
+    font-size: 1.5rem;
+    border-radius: 0.5rem;
+    margin: 0 10px;
+    width: 5em;
+    height: 2em;
+    border: solid 1px #000;
 }

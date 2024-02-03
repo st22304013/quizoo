@@ -107,6 +107,19 @@
 		<!--　作問確認ポップアップ　-->
 		<div class="metadata-modal-back">
 			<div class="metadata-modal">
+				<h5>以下の内容で投稿します</h5>
+				<div id="quiz-metadata" class="quiz-metadata">
+					<input type="text" name="title" id="post-title">
+					<select name="genre" id="post-genres">
+						<option>雑学</option>
+						<option>コンピューター</option>
+					</select>
+					<input type="text" name="explanation" id="post-explanation">
+				</div>
+				<div class="metadata-buttons">
+					<button class="cancel-quiz-btn">修正する</button>
+					<button class="post-quiz-btn">投稿する</button>
+				</div>
 			</div>
 		</div>
 		<!-- Modal -->
