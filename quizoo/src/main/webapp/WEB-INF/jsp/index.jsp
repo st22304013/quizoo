@@ -91,7 +91,7 @@
 						</div>
 					</fieldset>
 				</div>
-				<div class="submit-quiz-btn">
+				<div class="submit-quiz-btn" id="submit-quiz-btn">
 					アイコン
 				</div>
 			</div>
@@ -105,7 +105,7 @@
 
 
 		<!--　作問確認ポップアップ　-->
-		<div class="metadata-modal-back">
+		<div class="metadata-modal-back" id="metadata-modal-back">
 			<div class="metadata-modal">
 				<h5>以下の内容で投稿します</h5>
 				<div id="quiz-metadata" class="quiz-metadata">

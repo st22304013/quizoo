@@ -660,7 +660,7 @@ a.btn-border-shadow--color2:before {
 
 /* 作問確認モーダル */
 .metadata-modal-back{
-    display: block;
+    display: none;
     position: fixed;
     top: 0;
     width: 100vw;

@@ -1,4 +1,5 @@
 let createModal;
+let metadataModal;
 let questionEditors = [];
 let EditingQuestionNo = 0;
 window.addEventListener("load",function () {
@@ -6,10 +7,15 @@ window.addEventListener("load",function () {
 
     this.document.querySelector("#create-quiz-open").addEventListener("click",showQreateModal);
     this.document.querySelector("#add-question").addEventListener("click",addQuestion);
+    this.document.querySelector("#submit-quiz-btn").addEventListener("click",showMetadataModal);
 })
 
 function showQreateModal() {
     createModal.style.display = "block";
+}
+function showMetadataModal(){
+    createModal.style.display = "none";
+    metadataModal.style.display = "block";
 }
 
 // 現在作成中のクエスチョンを保存
