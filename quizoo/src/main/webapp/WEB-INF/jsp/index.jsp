@@ -81,9 +81,6 @@
 	<div class="create-quiz-modal-back" id="create-quiz-modal-back">
 		<div class="create-quiz-modal">
 			<div class="stored-question" id="stored-question">
-				<div class="question-overview">
-					クエスチョンが表示される
-				</div>
 				<div class="add-question" id="add-question">
 					問題を追加する
 				</div>
