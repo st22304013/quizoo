@@ -21,6 +21,13 @@ function showQreateModal() {
     createModal.style.display = "block";
 }
 function showMetadataModal(){
+    for(var genre of genres){
+        var option = document.createElement("option");
+        option.value = genre['genre_no'];
+        option.innerText = genre['genre_title'];
+        document.querySelector("#post-genres").appendChild(option.cloneNode(true));
+    }
+
     createModal.style.display = "none";
     metadataModal.style.display = "block";
 }

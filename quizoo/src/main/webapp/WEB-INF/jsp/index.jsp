@@ -111,8 +111,6 @@
 				<div id="quiz-metadata" class="quiz-metadata">
 					<input type="text" name="title" id="post-title">
 					<select name="genre" id="post-genres">
-						<option>雑学</option>
-						<option>コンピューター</option>
 					</select>
 					<input type="text" name="explanation" id="post-explanation">
 				</div>
