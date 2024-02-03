@@ -70,7 +70,7 @@
 	</div>
 
 	<div class="fixed-bottom text-right">
-		<a href="#" id="myModal1-open"
+		<a href="#" id="create-quiz-open"
 			class="btn btn-border-shadow btn-border-shadow--color2"
 			data-slide-index="1"> <i class="fa-solid fa-pen"></i>
 		</a>
@@ -78,7 +78,7 @@
 
 
 	<!--作問ポップアップ-->
-	<div class="create-quiz-modal-back">
+	<div class="create-quiz-modal-back" id="create-quiz-modal-back">
 		<div class="create-quiz-modal">
 			<div class="stored-question">
 				<div class="question-overview">
