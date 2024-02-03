@@ -12,7 +12,7 @@ function showQreateModal() {
     createModal.style.display = "block";
 }
 
-// 現在
+// 現在作成中のクエスチョンを保存
 function storeQuestionEditor() {
     currentEditor = document.querySelector("#question-editor");
 
@@ -42,6 +42,4 @@ function storeQuestionEditor() {
     // クエスチョン一覧を置き換え
     document.querySelector("#stored-question").replaceWith(storedQuestion);
 
-
-    
 }
