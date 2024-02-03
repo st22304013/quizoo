@@ -4,19 +4,23 @@ let questionEditors = [];
 let EditingQuestionNo = 0;
 window.addEventListener("load",function () {
     createModal = this.window.document.querySelector("#create-quiz-modal-back"); 
+    metadataModal = this.window.document.querySelector("#metadata-modal-back");
 
     this.document.querySelector("#create-quiz-open").addEventListener("click",showQreateModal);
     this.document.querySelector("#add-question").addEventListener("click",addQuestion);
     this.document.querySelector("#submit-quiz-btn").addEventListener("click",showMetadataModal);
+    this.document.querySelector("#cancel-quiz-btn").addEventListener("click",showQreateModal);
 })
 
 function showQreateModal() {
+    metadataModal.style.display = "none";
     createModal.style.display = "block";
 }
 function showMetadataModal(){
     createModal.style.display = "none";
     metadataModal.style.display = "block";
 }
+
 
 // 現在作成中のクエスチョンを保存
 function storeQuestionEditor() {
