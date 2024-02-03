@@ -51,7 +51,7 @@ function storeQuestionEditor() {
 //　編集する問題を切り返す
 function changeQuestionEditor(questionNo){
     // questionNoが無いときは何もしない
-    if(!questionNo) return;
+    if(questionNo == undefined || questionNo == null || questionNo < 0 || questionNo >= questionEditors.length) return;
     // 現在開いている問題と同じときは何もしない
     if(EditingQuestionNo == questionNo) return;
 
