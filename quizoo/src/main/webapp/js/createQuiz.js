@@ -16,6 +16,9 @@ function showQreateModal() {
 function storeQuestionEditor() {
     currentEditor = document.querySelector("#question-editor");
 
+    // 問題文を入力していないときは何もしない
+    if(!currentEditor.querySelector("#question-text").value) return;
+
     // 作成中の情報を保存
     questionEditors[EditingQuestionNo] = currentEditor;
     
