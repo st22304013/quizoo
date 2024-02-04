@@ -151,6 +151,11 @@ function postQuiz(){
             ]
         });
     }
+    let medaData = {
+        "title":metadataModal.querySelector("#post-title").value,
+        "genreNo":metadataModal.querySelector("#post-genres").value,
+        "explanation":metadataModal.querySelector("#post-explanation").value
+    }
     console.log(JSON.stringify(quidatas));
     fetch("/quizoo/submitquiz",{
         method:"POST",
@@ -158,6 +163,7 @@ function postQuiz(){
             "Content-Type":"application/json"
         },
         body:JSON.stringify({
+            "quiz":medaData,
             "question":quidatas
         })
     }).catch((err)=>{
