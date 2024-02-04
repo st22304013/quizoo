@@ -116,7 +116,7 @@
 				</div>
 				<div class="metadata-buttons">
 					<button class="cancel-quiz-btn" id="cancel-quiz-btn">修正する</button>
-					<button class="post-quiz-btn">投稿する</button>
+					<button class="post-quiz-btn" id="post-quiz-btn">投稿する</button>
 				</div>
 			</div>
 		</div>

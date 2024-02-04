@@ -14,6 +14,7 @@ window.addEventListener("load",function () {
     this.document.querySelector("#add-question").addEventListener("click",addQuestion);
     this.document.querySelector("#submit-quiz-btn").addEventListener("click",showMetadataModal);
     this.document.querySelector("#cancel-quiz-btn").addEventListener("click",showQreateModal);
+    this.document.querySelector("#post-quiz-btn").addEventListener("click",postQuiz);
 })
 
 function showQreateModal() {
@@ -21,6 +22,7 @@ function showQreateModal() {
     createModal.style.display = "block";
 }
 function showMetadataModal(){
+    storeQuestionEditor();
     for(var genre of genres){
         var option = document.createElement("option");
         option.value = genre['genre_no'];
@@ -129,4 +131,36 @@ function addQuestion(){
 
     EditingQuestionNo = questionEditors.length;
     document.querySelector("#question-editor").replaceWith(emptyEditor.cloneNode(true));
+}
+
+// 問題を投稿する
+function postQuiz(){
+    let quidatas = [];
+    for(var editor of questionEditors){
+        quidatas.push({
+            "question":editor.querySelector("#question-text").value,
+            "choice1":editor.querySelector("#choice1-text").value,
+            "choice2":editor.querySelector("#choice2-text").value,
+            "choice3":editor.querySelector("#choice3-text").value,
+            "choice4":editor.querySelector("#choice4-text").value,
+            "judge":[
+                editor.querySelectorAll("#choice")[0].checked,
+                editor.querySelectorAll("#choice")[1].checked,
+                editor.querySelectorAll("#choice")[2].checked,
+                editor.querySelectorAll("#choice")[3].checked
+            ]
+        });
+    }
+    console.log(JSON.stringify(quidatas));
+    fetch("/quizoo/submitquiz",{
+        method:"POST",
+        headers:{
+            "Content-Type":"application/json"
+        },
+        body:JSON.stringify({
+            "question":quidatas
+        })
+    }).catch((err)=>{
+        console.log(err);
+    })
 }
