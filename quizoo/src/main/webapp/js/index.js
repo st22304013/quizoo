@@ -122,8 +122,6 @@ async function updateQuizList() {
 async function getQuizList() {
     params = new URLSearchParams(window.location.search);
 
-    console.log(params.toString());
-
 
     var quizList = await fetch("/quizoo/quizlist?" + params);
 
