@@ -139,15 +139,15 @@ function postQuiz(){
     for(var editor of questionEditors){
         quidatas.push({
             "question":editor.querySelector("#question-text").value,
-            "choice1":editor.querySelector("#choice1-text").value,
-            "choice2":editor.querySelector("#choice2-text").value,
-            "choice3":editor.querySelector("#choice3-text").value,
-            "choice4":editor.querySelector("#choice4-text").value,
+            "choice1":editor.querySelector("#choice-text").value,
+            "choice2":editor.querySelector("#choice-text").value,
+            "choice3":editor.querySelector("#choice-text").value,
+            "choice4":editor.querySelector("#choice-text").value,
             "judge":[
-                editor.querySelectorAll("#choice")[0].checked,
-                editor.querySelectorAll("#choice")[1].checked,
-                editor.querySelectorAll("#choice")[2].checked,
-                editor.querySelectorAll("#choice")[3].checked
+                editor.querySelectorAll("[name='choice']")[0].checked,
+                editor.querySelectorAll("[name='choice']")[1].checked,
+                editor.querySelectorAll("[name='choice']")[2].checked,
+                editor.querySelectorAll("[name='choice']")[3].checked
             ]
         });
     }
