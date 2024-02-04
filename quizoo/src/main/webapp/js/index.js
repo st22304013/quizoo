@@ -3,8 +3,8 @@
 */
 var list_box;
 
-window.addEventListener('load',function(){
-    gneres = fetch("/quizoo/genres");
+window.addEventListener('load',async function(){
+    gneres = await fetch("/quizoo/genres");
 
     // メタデータのモーダルが非表示になった時の処理
     const createQuizModalObserver = new MutationObserver(mutations => {

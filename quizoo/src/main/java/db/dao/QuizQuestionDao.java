@@ -118,7 +118,7 @@ public class QuizQuestionDao extends Dao{
 	 * @param quizQuestionBean 挿入するデータ
 	 * @throws ResourceException 挿入時に例外が発生した場合
 	 */
-	public void insertQuizQuestion(QuizQuestionBean quizQuestionBean) throws ResourceException {
+	public void insertQuizQuestion(int user_no,QuizQuestionBean quizQuestionBean) throws ResourceException {
 	    PreparedStatement st = null;
 	    
 	    System.out.println(quizQuestionBean.toString());
@@ -132,7 +132,7 @@ public class QuizQuestionDao extends Dao{
             QuizBean quiz = quizQuestionBean.getQuiz();
           //QuestionBeanにデータセット
 			st.setInt(1, quiz.getQuizId());
-			st.setInt(2, quiz.getAuthorNo());
+			st.setInt(2, user_no);
 			st.setString(3, quiz.getTitle());
 			st.setInt(4, quiz.getQuestionCount());
 			st.setInt(5, quiz.getGenreNo());

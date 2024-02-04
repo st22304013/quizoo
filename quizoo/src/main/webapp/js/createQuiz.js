@@ -196,7 +196,8 @@ async function postQuiz(){
         body:JSON.stringify({
             "quiz":medaData,
             "question":quidatas
-        })
+        }),
+        credentials:"include"
     }).catch((err)=>{
         console.log(err);
     })
