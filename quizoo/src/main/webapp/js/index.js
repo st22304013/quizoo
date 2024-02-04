@@ -4,7 +4,17 @@
 var list_box;
 
 window.addEventListener('load',function(){
-    // gneres = fetch("/quizoo/genres");
+    gneres = fetch("/quizoo/genres");
+
+    // メタデータのモーダルが非表示になった時の処理
+    const createQuizModalObserver = new MutationObserver(mutations => {
+        if (mutations[0].target.style.display == "none") {
+            updateQuizList();
+        }
+    });
+    createQuizModalObserver.observe(document.querySelector("#metadata-modal-back"), {
+        attributes: true
+    });
     
     var genreSelector = document.querySelector("#genre_selector");
     
@@ -84,6 +94,7 @@ window.addEventListener('load',function(){
             });
         });
     });
+    
 })
 
 async function searchTitle(){
