@@ -17,19 +17,23 @@ window.addEventListener("load",function () {
     this.document.querySelector("#post-quiz-btn").addEventListener("click",postQuiz);
 })
 
+// クイズ作成モーダルを表示
 function showQreateModal() {
     metadataModal.style.display = "none";
     createModal.style.display = "block";
 }
-
+// クイズ作成モーダルを非表示
 function hideCreateModal() {
     createModal.style.display = "none";
 }
-
-function hideMetadataModal() {
-    metadataModal.style.display = "none";
+// クイズ作成モーダルを初期化
+function clearCreateModal(){
+    addQuestion();
+    questionEditors = [];
+    EditingQuestionNo = 0;
+    updateQuestions();
 }
-
+// クイズ作成モーダルを表示
 function showMetadataModal(){
     storeQuestionEditor();
     for(var genre of genres){
@@ -42,6 +46,18 @@ function showMetadataModal(){
     createModal.style.display = "none";
     metadataModal.style.display = "block";
 }
+//　クイズ作成モーダルを非表示
+function hideMetadataModal() {
+    metadataModal.style.display = "none";
+}
+// クイズ作成モーダルを初期化
+function clearMetadataModal() {
+    document.querySelector("#post-title").value = "";
+    document.querySelector("#post-explanation").value = "";
+    document.querySelector("#post-genres").value = -1;
+}
+
+
 
 
 // 現在作成中のクエスチョンを保存
@@ -54,12 +70,18 @@ function storeQuestionEditor() {
     // 作成中の情報を保存
     questionEditors[EditingQuestionNo] = currentEditor;
     
+    // 作成中の情報を表示
+    updateQuestions();
+    
+}
 
+// クエスチョン一覧を更新
+function updateQuestions(){
     // 空のクエスチョン一覧を作成
     var storedQuestion = document.createElement("div");
     storedQuestion.setAttribute("class","stored-question");
     storedQuestion.setAttribute("id","stored-question");
-
+    
     // questionEditorsから情報を取り出し、クエスチョン一覧に表示
     for(var i = 0 ; i < questionEditors.length ; i++) {
         var overview = document.createElement("div");
@@ -68,7 +90,7 @@ function storeQuestionEditor() {
         overview.addEventListener("click",changeQuestionEditor.bind(null,i));
         storedQuestion.appendChild(overview);
     }
-
+    
     // 追加ボタンをクローン
     var addBtn = document.querySelector("#add-question").cloneNode(true);
     // イベントはcloneNodeで継承されないので、ここで再設定
@@ -77,10 +99,10 @@ function storeQuestionEditor() {
     
     // クエスチョン一覧を置き換え
     document.querySelector("#stored-question").replaceWith(storedQuestion);
-
+    
 }
 
-//　編集する問題を切り返す
+//　編集する問題を切り変える
 function changeQuestionEditor(questionNo){
     // questionNoが無いときは何もしない
     if(questionNo == undefined || questionNo == null || questionNo < 0 || questionNo >= questionEditors.length) return;
@@ -181,4 +203,6 @@ async function postQuiz(){
 
     hideCreateModal();
     hideMetadataModal();
+    clearCreateModal();
+    clearMetadataModal();
 }
