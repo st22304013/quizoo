@@ -21,6 +21,15 @@ function showQreateModal() {
     metadataModal.style.display = "none";
     createModal.style.display = "block";
 }
+
+function hideCreateModal() {
+    createModal.style.display = "none";
+}
+
+function hideMetadataModal() {
+    metadataModal.style.display = "none";
+}
+
 function showMetadataModal(){
     storeQuestionEditor();
     for(var genre of genres){
@@ -134,7 +143,7 @@ function addQuestion(){
 }
 
 // 問題を投稿する
-function postQuiz(){
+async function postQuiz(){
     let quidatas = [];
     for(var editor of questionEditors){
         quidatas.push({
@@ -157,7 +166,7 @@ function postQuiz(){
         "explanation":metadataModal.querySelector("#post-explanation").value
     }
     console.log(JSON.stringify(quidatas));
-    fetch("/quizoo/submitquiz",{
+    await fetch("/quizoo/submitquiz",{
         method:"POST",
         headers:{
             "Content-Type":"application/json"
@@ -169,4 +178,7 @@ function postQuiz(){
     }).catch((err)=>{
         console.log(err);
     })
+
+    hideCreateModal();
+    hideMetadataModal();
 }
