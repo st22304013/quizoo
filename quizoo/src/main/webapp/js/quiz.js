@@ -136,20 +136,34 @@ function createSentenceNode(questionNo) {
 }
 
 function createChoiseNodes(questionNo) {
-    let newChoicesWrapper = document.createElement('div');
+    let newChoicesWrapper = document.createElement('table');
     newChoicesWrapper.setAttribute('class','answer');
     newChoicesWrapper.setAttribute('id','question-choices');
 
     let question = quizAndQuestions['question'][questionNo - 1];
 
-    // 一時的になし
-    // choiceBtn.setAttribute('class', '');
-    
-    for(let i = 1; i <= 4; i++) {
-        let choiceBtn = document.createElement('div');
-        choiceBtn.setAttribute('class','choice');
-        choiceBtn.innerText = question['choice'+i];
-        newChoicesWrapper.appendChild(choiceBtn);
+    let tr;
+    for(var i = 1; i <= 4; i++) {
+        if((i % 2) === 1){
+            tr = document.createElement('tr');
+            newChoicesWrapper.appendChild(tr);
+        }
+        var td = document.createElement('td');
+        var button = document.createElement('button');
+        button.innerText = i;
+        button.setAttribute('class','btn btn--orange');
+        td.appendChild(button);
+
+        tr.appendChild(td.cloneNode(true));
+
+        var td = document.createElement('td');
+        var div = document.createElement('div');
+        div.setAttribute('class','choice');
+        div.innerText = question['choice'+i];
+
+        td.appendChild(div.cloneNode(true));
+
+        tr.appendChild(td.cloneNode(true));
     }
 
     return newChoicesWrapper;
