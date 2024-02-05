@@ -172,8 +172,14 @@ function quizlistFactory(quizList){
         create_time.innerText = quiz['createTime'];
         
         genre = document.createElement('a');
-        genre.setAttribute('href',quiz['genre_no']);
         genre.innerText = quiz['genre'];
+        genre.setAttribute('class','genre');
+        genre.addEventListener('click',function(){
+            let url = new URL(window.location.href);
+            url.searchParams.set("genre_no",quiz['genreNo']);
+            window.history.pushState(null,null,url);
+            updateQuizList();
+        })
         
         ratio = document.createElement('a');
         ratio.setAttribute('class','raito');
