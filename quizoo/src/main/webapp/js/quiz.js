@@ -34,7 +34,7 @@ window.addEventListener('load', async function () {
     selectedAnswers = new Array(quizAndQuestions['question'].length);
 
     // 選択肢ボタンを設定
-    answerBtns = document.querySelectorAll('#answer_btn button');
+    answerBtns = document.querySelectorAll('#answer_btn');
 
     for(let i = 0; i < answerBtns.length; i++) {
         answerBtns[i].addEventListener('click', function() {
@@ -113,6 +113,9 @@ function displayQuestionDetails(questionNo) {
 
     let oldChoicesWrapper = document.querySelector('#question-choices');
     let newChoicesWrapper = createChoiseNodes(questionNo);
+    for(let i = 0; i < 4; i++) {
+        newChoicesWrapper.querySelectorAll("#answer-btn")[i].addEventListener('click',choiceBtnClickHandler.bind(this,i+1));
+    }
     oldChoicesWrapper.replaceWith(newChoicesWrapper);
     
     chengeSelected(selectedAnswers[currentQuestionNo - 1]);
@@ -136,20 +139,36 @@ function createSentenceNode(questionNo) {
 }
 
 function createChoiseNodes(questionNo) {
-    let newChoicesWrapper = document.createElement('div');
+    let newChoicesWrapper = document.createElement('table');
     newChoicesWrapper.setAttribute('class','answer');
     newChoicesWrapper.setAttribute('id','question-choices');
 
     let question = quizAndQuestions['question'][questionNo - 1];
 
-    // 一時的になし
-    // choiceBtn.setAttribute('class', '');
-    
-    for(let i = 1; i <= 4; i++) {
-        let choiceBtn = document.createElement('div');
-        choiceBtn.setAttribute('class','choice');
-        choiceBtn.innerText = question['choice'+i];
-        newChoicesWrapper.appendChild(choiceBtn);
+    let tr;
+    for(var i = 1; i <= 4; i++) {
+        if((i % 2) === 1){
+            tr = document.createElement('tr');
+            newChoicesWrapper.appendChild(tr);
+        }
+        var td = document.createElement('td');
+        var button = document.createElement('button');
+        button.innerText = i;
+        button.setAttribute('class','btn btn--orange');
+        button.setAttribute('id','answer-btn');
+
+        td.appendChild(button);
+
+        tr.appendChild(td.cloneNode(true));
+
+        var td = document.createElement('td');
+        var div = document.createElement('div');
+        div.setAttribute('class','choice');
+        div.innerText = question['choice'+i];
+
+        td.appendChild(div.cloneNode(true));
+
+        tr.appendChild(td.cloneNode(true));
     }
 
     return newChoicesWrapper;
