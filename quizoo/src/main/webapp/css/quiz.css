@@ -317,3 +317,50 @@ a.btn--orange:hover {
 .selected:hover{
 	border:solid 3px #ff0000;	
 }
+
+
+/* 自作確認モーダル */
+.confirm-modal{
+	display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #0006;
+    z-index: 1100;
+}
+
+.confirm-modal>div{
+    position: absolute;
+    width: 40vw;
+    left: 30vw;
+    height: 20vh;
+    top: 40vh;
+    background-color: #fff;
+    border-radius: 10px;
+	padding: 3vh 5vw;
+}
+
+.confirm-modal>div>div{
+	text-align: center;
+}
+
+.confirm-modal p{
+	text-align: center;
+}
+
+.confirm-modal button{
+    height: 4em;
+    width: 7em;
+    max-width: 100%;
+    border-radius: 1em;
+}
+
+.confirm-modal .send-btn{
+
+}
+
+.confirm-modal .cancel-btn{
+	
+}

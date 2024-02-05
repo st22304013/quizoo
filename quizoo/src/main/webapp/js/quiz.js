@@ -14,12 +14,10 @@ let currentQuestionNo;
 let selectedAnswers;
 let answerBtns;
 let questionlist; // Declare questionlist variable
-let confirmModal; //送信確認のモーダル
 let resultModal;
 
 window.addEventListener('load', async function () {
     // モーダルを取得
-    confirmModal = new Modal(this.document.querySelector("#exampleModal"));
     resultModal = new Modal(this.document.querySelector("#secondModal"));
 
     questionlist = this.document.querySelector('#question_list');
@@ -45,17 +43,17 @@ window.addEventListener('load', async function () {
 
     // 回答送信の確認画面を表示
     document.querySelector('#endButton').addEventListener('click', ()=>{
-        confirmModal.show();
+        showConfirmModal();
     });
 
     this.document.querySelector("#sendAnswerButton").addEventListener('click', async ()=>{
-        confirmModal.hide();
+        hideConfirmModal();
         resultModal.show();
         scoring();
     });
 
     this.document.querySelector("#dontSendButton").addEventListener('click', ()=>{
-        confirmModal.hide();
+        hideConfirmModal();
     });
 
 
@@ -222,4 +220,12 @@ async function sendAnswer(score){
             'question_num':quizAndQuestions['question'].length,
         })
     });
+}
+
+function showConfirmModal() {
+    document.querySelector("#confirm-modal").style.display = "block";
+}
+
+function hideConfirmModal() {
+    document.querySelector("#confirm-modal").style.display = "none";
 }

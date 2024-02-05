@@ -44,13 +44,12 @@
 				</ol>
 
 				<!-- Button trigger modal -->
-				<button type="button" id="endButton" class="btn btn-primary">
+				<button type="button" class="btn btn-primary">
 					回答完了
 				</button>
 
 				<!-- Button trigger modal -->
-				<button type="button" class="close-btn" data-bs-toggle="modal"
-					data-bs-target="#exampleModal">回答完了</button>
+				<button type="button" class="close-btn" id="endButton">回答完了</button>
 			</div>
 
 			<!-- 1番目のモーダル -->
@@ -67,6 +66,17 @@
 							<button type="button" class="yes-btn btn btn-primary" id="sendAnswerButton" 
 								data-bs-target="#secondModal" >はい</button>
 						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 確認モーダル -->
+			<div class="confirm-modal" id="confirm-modal">
+				<div>
+					<p>回答を終了しますか？</p>
+					<div>
+						<button type="button" class="cancel-btn" id="dontSendButton">いいえ</button>
+						<button type="button" class="send-btn" id="sendAnswerButton">はい</button>
 					</div>
 				</div>
 			</div>
