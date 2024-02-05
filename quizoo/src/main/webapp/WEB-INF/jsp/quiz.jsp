@@ -122,7 +122,7 @@
 
 				</div>
 
-				<table class="answers">
+				<table class="answers" id="question-choices">
 					<tr>
 						<td>
 							<button type="button" class="btn btn--orange">1</button>
