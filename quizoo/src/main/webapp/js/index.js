@@ -16,6 +16,8 @@ window.addEventListener('load',async function(){
         attributes: true
     });
     
+
+    // ジャンルのプルダウンを初期化
     var genreSelector = document.querySelector("#genre_selector");
     
     var emptyChoice = document.createElement("option");
@@ -30,7 +32,6 @@ window.addEventListener('load',async function(){
         genreSelector.appendChild(genreChoce);
     }
     
-    
     genreSelector.addEventListener("change",()=>{
         let url = new URL(this.window.location.href);
         
@@ -44,8 +45,11 @@ window.addEventListener('load',async function(){
         updateQuizList();
     })
     
+    
     list_box = document.querySelector("#quiz_list");
     
+
+    // ソートボタンをクリックした時の処理
     orderBtns = document.querySelectorAll(".order_btn");
     for(var btn of orderBtns){
         btn.addEventListener("click",function () {
@@ -75,23 +79,6 @@ window.addEventListener('load',async function(){
         link.addEventListener('click', function () {
             document.querySelector(".drawer__button").classList.remove("active");
             document.querySelector(".drawer__nav").classList.remove("active");
-        });
-    });
-
-    // ページ内スクロール
-    document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-
-            const speed = 400;
-            let href = this.getAttribute("href");
-            let target = document.querySelector(href === "#" || href === "" ? "html" : href);
-            let position = target.offsetTop;
-
-            window.scrollTo({
-                top: position,
-                behavior: "smooth"
-            });
         });
     });
     
