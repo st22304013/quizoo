@@ -32,18 +32,7 @@ window.addEventListener('load',async function(){
         genreSelector.appendChild(genreChoce);
     }
     
-    genreSelector.addEventListener("change",()=>{
-        let url = new URL(this.window.location.href);
-        
-        if(genreSelector.value == -1){
-            url.searchParams.delete("genre_no");
-        }else{
-            url.searchParams.set("genre_no",genreSelector.value);
-        }
-        window.history.pushState(null,null,url);
-        
-        updateQuizList();
-    })
+    genreSelector.addEventListener("change",() => filterGenre(genreSelector.value));
     
     
     list_box = document.querySelector("#quiz_list");
@@ -161,12 +150,7 @@ function quizlistFactory(quizList){
         genre = document.createElement('a');
         genre.innerText = quiz['genre'];
         genre.setAttribute('class','genre');
-        genre.addEventListener('click',function(){
-            let url = new URL(window.location.href);
-            url.searchParams.set("genre_no",quiz['genreNo']);
-            window.history.pushState(null,null,url);
-            updateQuizList();
-        })
+        genre.addEventListener('click',filterGenre.bind(null,quiz['genreNo']));
         
         ratio = document.createElement('a');
         ratio.setAttribute('class','raito');
@@ -220,4 +204,18 @@ function limitCheckbox(clickedCheckbox) {
             checkbox.checked = false;
         }
     });
+}
+
+// ジャンルを指定する
+function filterGenre(genreNo) {
+    let url = new URL(window.location.href);
+    if(genreNo == -1){
+        url.searchParams.delete("genre_no");
+    }else{
+        url.searchParams.set("genre_no",genreNo);
+    }
+    window.history.pushState(null,null,url);
+    var genrePulldown = document.querySelector("#genre_selector");
+    genrePulldown.value = genreNo;
+    updateQuizList();
 }
