@@ -51,25 +51,7 @@
 				<!-- Button trigger modal -->
 				<button type="button" class="close-btn" id="endButton">回答完了</button>
 			</div>
-
-			<!-- 1番目のモーダル -->
-			<div class="modal fade text-center" id="exampleModal" tabindex="-1"
-				aria-labelledby="exampleModalLabel" aria-hidden="true"
-				data-bs-backdrop="static">
-				<div class="modal-dialog modal-dialog-centered">
-					<div class="modal-content">
-						<div class="modal-body">
-							本当に終了しますか？
-						</div>	
-						<div class="modal-footer">
-							<button type="button" class="no-btn btn btn-secondary" data-bs-dismiss="modal" id="dontSendButton">いいえ</button>
-							<button type="button" class="yes-btn btn btn-primary" id="sendAnswerButton" 
-								data-bs-target="#secondModal" >はい</button>
-						</div>
-					</div>
-				</div>
-			</div>
-
+			
 			<!-- 確認モーダル -->
 			<div class="confirm-modal" id="confirm-modal">
 				<div>
