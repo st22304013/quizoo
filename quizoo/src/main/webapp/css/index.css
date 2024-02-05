@@ -531,6 +531,11 @@ a.btn-border-shadow--color2:before {
 }
 
 
+.quiz .information .genre{
+	color: #4D9BC1;
+	cursor: pointer;
+}
+
 /* 作問モーダル用(Bootstrapなし) */
 
 .create-quiz-modal-back{
