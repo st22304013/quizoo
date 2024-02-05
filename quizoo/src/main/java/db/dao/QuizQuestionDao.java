@@ -46,7 +46,7 @@ public class QuizQuestionDao extends Dao{
         quizBean.setTitle(rs.getString("title"));
         quizBean.setQuestionCount(rs.getInt("question_count"));
         quizBean.setGenreNo(rs.getInt("genre_no"));
-        quizBean.setGenre(rs.getString("genre"));
+        quizBean.setGenre(rs.getString("genre_title"));
         quizBean.setExplanation(rs.getString("explanation"));
         quizBean.setCreateTime(rs.getString("create_time"));
         quizBean.setCorrectRate(rs.getFloat("correct_rate"));
