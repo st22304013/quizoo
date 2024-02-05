@@ -125,13 +125,13 @@
 				<table class="answers" id="question-choices">
 					<tr>
 						<td>
-							<button type="button" class="btn btn--orange">1</button>
+							<button type="button" class="btn btn--orange" id="answer-btn">1</button>
 						</td>
 						<td>
 							<div class="choice">1月1日</div>
 						</td>
 						<td>
-							<button type="button" class="btn btn--orange">2</button>
+							<button type="button" class="btn btn--orange" id="answer-btn">2</button>
 						</td>
 						<td>
 							<div class="choice">2月18日</div>
@@ -139,13 +139,13 @@
 					</tr>
 					<tr>
 						<td>
-							<button type="button" class="btn btn--orange">3</button>
+							<button type="button" class="btn btn--orange" id="answer-btn">3</button>
 						</td>
 						<td>
 							<div class="choice">4月5日</div>
 						</td>
 						<td>
-							<button type="button" class="btn btn--orange">4</button>
+							<button type="button" class="btn btn--orange" id="answer-btn">4</button>
 						</td>
 						<td>
 							<div class="choice">5月3日</div>

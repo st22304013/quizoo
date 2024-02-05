@@ -34,7 +34,7 @@ window.addEventListener('load', async function () {
     selectedAnswers = new Array(quizAndQuestions['question'].length);
 
     // 選択肢ボタンを設定
-    answerBtns = document.querySelectorAll('#answer_btn button');
+    answerBtns = document.querySelectorAll('#answer_btn');
 
     for(let i = 0; i < answerBtns.length; i++) {
         answerBtns[i].addEventListener('click', function() {
@@ -113,6 +113,9 @@ function displayQuestionDetails(questionNo) {
 
     let oldChoicesWrapper = document.querySelector('#question-choices');
     let newChoicesWrapper = createChoiseNodes(questionNo);
+    for(let i = 0; i < 4; i++) {
+        newChoicesWrapper.querySelectorAll("#answer-btn")[i].addEventListener('click',choiceBtnClickHandler.bind(this,i+1));
+    }
     oldChoicesWrapper.replaceWith(newChoicesWrapper);
     
     chengeSelected(selectedAnswers[currentQuestionNo - 1]);
@@ -152,6 +155,8 @@ function createChoiseNodes(questionNo) {
         var button = document.createElement('button');
         button.innerText = i;
         button.setAttribute('class','btn btn--orange');
+        button.setAttribute('id','answer-btn');
+
         td.appendChild(button);
 
         tr.appendChild(td.cloneNode(true));
