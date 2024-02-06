@@ -6,17 +6,15 @@ public class CreateHistoryBean implements Serializable {
 	private String title;
 	private String explanation;
 	
-	private String nickname;
 	private String createTime;
 	private String genre;
 	private float correctRate;
 	
 	public CreateHistoryBean() {}
 	
-	public CreateHistoryBean(String title, String explanation, String nickname, String createTime, String genre, float correctRate) {
+	public CreateHistoryBean(String title, String explanation, String createTime, String genre, float correctRate) {
 		this.setTitle(title);
 		this.setExplanation(explanation);
-		this.setNickname(nickname);
 		this.setCreateTime(createTime);
 		this.setGenre(genre);
 		this.setCorrectRate(correctRate);
@@ -36,14 +34,6 @@ public class CreateHistoryBean implements Serializable {
 
 	public void setExplanation(String explanation) {
 		this.explanation = explanation;
-	}
-
-	public String getNickname() {
-		return nickname;
-	}
-
-	public void setNickname(String nickname) {
-		this.nickname = nickname;
 	}
 
 	public String getCreateTime() {
