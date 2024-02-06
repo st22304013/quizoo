@@ -12,9 +12,9 @@
 	rel="stylesheet"
 	integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
 	crossorigin="anonymous">
-<link rel="stylesheet" href="css/index.css">
 <link rel="stylesheet" href="css/createhistory.css">
 <link rel="stylesheet" href="css/header.css">
+<link rel="stylesheet" href="css/index.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script
