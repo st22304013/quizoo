@@ -20,11 +20,11 @@ window.addEventListener("load", async () => {
 });
 
 function displayCreateHistory(createHistoryData) {
-    const container = document.getElementById('createHistoryContainer');
+    const container = document.getElementById('quiz_list');
 
     createHistoryData.forEach(historyItem => {
         const historyHtml = `
-            <div class="box" id="createHistoryContainer">
+            <div class="box" id="quiz_list">
                 <div class="width row">
                     <div class="title col">${historyItem.title}</div>
                     <div class="d-flex align-items-center col">${historyItem.explanation}</div>
