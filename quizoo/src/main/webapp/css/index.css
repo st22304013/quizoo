@@ -82,8 +82,8 @@ img {
 	margin: 0 120px;
 }
 
-.genre-selector{
-	border-radius: 1em;	
+.genre-selector {
+	border-radius: 1em;
 
 }
 
@@ -107,7 +107,7 @@ img {
 	border-radius: 80px;
 	background-color: rgb(215, 248, 215);
 	width: 80%;
-/*	max-width: 70%;*/
+	/*	max-width: 70%;*/
 }
 
 .quiz .title {
@@ -226,51 +226,11 @@ a.btn-border-shadow--color2:before {
 	box-shadow: 3px 3px 0 #78e5e5;
 }
 
-.fa-solid {
+.fixed-bottom > .fa-solid {
 	font-size: 40px;
 }
 
 /*モーダル*/
-
-/*✕ボタン*/
-.close_btn {
-  display: block;
-  position: relative;
-  width: 30px;
-  height: 30px;
-  border: 2px solid #333; /* 枠の調整 */
-  background: #fff; /* ボタンの背景色 */
-}
-
-.create {
-	  margin-left: 90%;
-	  margin-top: 1%;
-}
-
-.metadata {
-	  margin-left: 75%;
-	  margin-top: 10%;
-}
-
- 
-.close_btn::before, .close_btn::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 3px; /* 棒の幅（太さ） */
-  height: 27px; /* 棒の高さ */
-  background: #333; /* バツ印の色 */
-}
- 
-.close_btn::before {
-  transform: translate(-50%,-50%) rotate(45deg);
-}
- 
-.close_btn::after {
-  transform: translate(-50%,-50%) rotate(-45deg);
-}
-
 .modal-dialog {
 	width: 2000px;
 	height: 500px;
@@ -302,21 +262,21 @@ a.btn-border-shadow--color2:before {
 	width: 30%;
 }
 
-.questions-wrap .question{
-    border: 3px solid #808080;
-    border-radius: 3px;
-    cursor: pointer;
-    margin: 5px;
-    width: 90%;
-    background-color: #f7f6f5;
-}
-
-.questions-wrap .current{
-    border: 3px solid #aaa;
+.questions-wrap .question {
+	border: 3px solid #808080;
+	border-radius: 3px;
+	cursor: pointer;
+	margin: 5px;
+	width: 90%;
 	background-color: #f7f6f5;
 }
 
-.question-wrap{
+.questions-wrap .current {
+	border: 3px solid #aaa;
+	background-color: #f7f6f5;
+}
+
+.question-wrap {
 	width: 100%;
 }
 
@@ -399,7 +359,7 @@ a.btn-border-shadow--color2:before {
 	top: 50%;
 	left: 25px;
 	margin-top: -6px;
-	
+
 }
 
 .confirmation-btn:hover {
@@ -504,12 +464,15 @@ a.btn-border-shadow--color2:before {
 
 /*作問確認画面*/
 
-.quiz_title, .genre, .explanation{
+.quiz_title,
+.genre,
+.explanation {
 	width: 500px;
 }
 
 /*修正ボタン、投稿ボタン*/
-.correction, .post {
+.correction,
+.post {
 	display: inline-block;
 	width: 100px;
 	height: 30px;
@@ -527,10 +490,11 @@ a.btn-border-shadow--color2:before {
 	transition-duration: 0.3s;
 	font-weight: normal;
 	/* 位置 */
-/*	position: absolute;*/
+	/*	position: absolute;*/
 }
 
-.correction:before, .post:before {
+.correction:before,
+.post:before {
 	content: '';
 	width: 8px;
 	height: 8px;
@@ -540,10 +504,11 @@ a.btn-border-shadow--color2:before {
 	top: 50%;
 	left: 25px;
 	margin-top: -6px;
-	
+
 }
 
-.correction:hover, .post:hover {
+.correction:hover,
+.post:hover {
 	background: #fff;
 	/* 背景色 */
 	color: #4D9BC1;
@@ -571,46 +536,46 @@ a.btn-border-shadow--color2:before {
 }
 
 
-.quiz .information .genre{
+.quiz .information .genre {
 	color: #4D9BC1;
 	cursor: pointer;
 }
 
 /* 作問モーダル用(Bootstrapなし) */
 
-.create-quiz-modal-back{
-    display: none;
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-    background-color: #0006;
-    top: 0;
-    right: 0;
-    z-index: 100;
+.create-quiz-modal-back {
+	display: none;
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	background-color: #0006;
+	top: 0;
+	right: 0;
+	z-index: 100;
 	overscroll-behavior: none;
 }
 
-.create-quiz-modal{
-    display: flex;
-    width: 90vw;
-    height: 90vh;
-    background-color: #F9F7C9;
+.create-quiz-modal {
+	display: flex;
+	width: 90vw;
+	height: 90vh;
+	background-color: #F9F7C9;
 	position: absolute;
 	top: 5vh;
 	left: 5vw;
-    border-radius: 20px;
-    margin-top: 2%;
+	border-radius: 20px;
+	margin-top: 2%;
 }
 
-.create-quiz-modal::before{
-    width: 90vw;
-    height: 90vh;
-    content: "";
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    background-color: #8d8875;
-    border-radius: 30px;
+.create-quiz-modal::before {
+	width: 90vw;
+	height: 90vh;
+	content: "";
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	background-color: #8d8875;
+	border-radius: 30px;
 	z-index: -1;
 }
 
@@ -621,7 +586,7 @@ a.btn-border-shadow--color2:before {
 	overflow: auto;
 }
 
-.stored-question::after{
+.stored-question::after {
 	content: "";
 	display: block;
 	position: absolute;
@@ -632,164 +597,271 @@ a.btn-border-shadow--color2:before {
 	border-right: 2px solid #818181;
 }
 
-.question-editor{
+.question-editor {
 	width: 70%;
 	height: 100%;
 }
 
-.question-overview,.add-question{
-    width: 90%;
-    height: 60px;
-    border-bottom: solid 1px #000;
-    margin: 0 auto;
+.question-overview,
+.add-question {
+	width: 90%;
+	height: 60px;
+	border-bottom: solid 1px #000;
+	margin: 0 auto;
 	cursor: pointer;
 }
 
-.question-overview:hover{
+.question-overview:hover {
 	background-color: #0000001e;
 }
 
-.add-question{
+.add-question {
 	position: sticky;
 	bottom: 0;
 	background-color: #F9F7C9;
-	padding: auto 0;
+	margin: 0 auto;
+	/*	text-align: center;*/
+	text-decoration: none;
+	/*アニメーションの指定*/
+	transition: all .2s;
 }
 
-.add-question:hover{
-	background-color: #686456;
+/*hoverした際の変化*/
+.add-question:hover {
+	background-color: #F9F7C9;
+	color: #000;
 }
 
-.question-text{
-    display: block;
-    border-radius: 5px;
-    background-color: #ffffff;
-    width: calc(90% - 2em);
-    height: 30%;
-    margin: 5%;
-    padding: 1em;
+.add-question span {
+	/*絶対配置でテキストの位置を決める*/
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	/*アニメーションの指定*/
+	transition: all .5s;
+	/*ブロック要素にしてテキスト折り返しなし*/
+	display: block;
+	white-space: nowrap;
+}
+
+/*差し替わるテキストの設定*/
+.add-question span:nth-child(2) {
+	opacity: 0;
+	/*透過0に*/
+}
+
+/*hoverするとテキストが入れ替わる設定*/
+.add-question:hover span:nth-child(1) {
+	opacity: 0;
+	/*透過0に*/
+}
+
+.add-question:hover span:nth-child(2) {
+	opacity: 1;
+	/*不透明に*/
+}
+
+.question-text {
+	display: block;
+	border-radius: 5px;
+	background-color: #ffffff;
+	width: calc(90% - 2em);
+	height: 30%;
+	margin: 5%;
+	padding: 1em;
 	resize: none;
 }
-.choices{
+
+.choices {
 	height: 35%;
 	width: 90%;
 	margin: 5%;
 }
 
-.choice{
+.choice {
 	width: 100%;
 	height: 25%;
 }
 
 
-.choice-text{
-    width: 70%;
-    border-radius: 5px;
-    border: none;
-    background-color: #ffffff;
-    height: 2em;
+.choice-text {
+	width: 70%;
+	border-radius: 5px;
+	border: none;
+	background-color: #ffffff;
+	height: 2em;
+	padding-left: 2%;
 }
 
-.submit-quiz-btn{
-    border-radius: 50%;
-    width: 80px;
-    height: 80px;
-    position: absolute;
-    bottom: -30px;
-    right: -30px;
+.submit-quiz-btn {
+	border-radius: 50%;
+	width: 80px;
+	height: 80px;
+	position: absolute;
+	bottom: -30px;
+	right: -30px;
 	cursor: pointer;
 	display: flex;
 	margin-block-end: 5%;
 	margin-right: 8%;
 	background: #80BCBD;
+	color: #ffffff;
 }
 
-.submit-quiz-btn:hover{
+.submit-quiz-btn:hover {
 	background-color: #AAD9BB;
+	color: #ffffff;
+	transition: all 0.5s;
 }
 
-.next-btn {
+.submit-quiz-btn > .fa-solid {
+	font-size: 3vw;
 	margin-left: 25%;
 	margin-top: 25%;
 }
 
-/*	display: inline-block;*/
-/*	width: 200px;*/
-/*	height: 50px;*/
-/*	 ボタン幅 */
-	
-/*	 背景色 */
-/*	border: 2px solid #4D9BC1;*/
-/*	padding: 1em 2em;*/
-/*	font-weight: bold;*/
-/*	color: #fff;*/
-/*	 文字 */
-/*	font-size: 20px;*/
-/*	text-decoration: none;*/
-/*	text-align: center;*/
-/*	transition-duration: 0.3s;*/
-/*	 位置 */
-/*	position: absolute;*/
-/*	margin: 0;*/
-/*	padding: 10px;*/
-/*	bottom: 70px;*/
-/*	right: 70px;*/
-
 /* 作問確認モーダル */
-.metadata-modal-back{
-    display: none;
-    position: fixed;
-    top: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: #0006;
-    z-index: 100;
+.metadata-modal-back {
+	display: none;
+	position: fixed;
+	top: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: #0006;
+	z-index: 100;
 }
 
-.metadata-modal{
-    display: block;
-    position: absolute;
-    margin: 1vh 20vw;
-    width: 50vw;
-    height: 30vh;
-    background-color: #e2dccd;
-    border-radius: 20px;
-    padding: 5vh 5vw;
+.metadata-modal {
+	display: block;
+	position: absolute;
+	margin: 1vh 20vw;
+	width: 50vw;
+	height: 50vh;
+	background-color: #F9F7C9;
+	border-radius: 20px;
+	padding: 5vh 5vw;
 }
 
-.quiz-metadata{
-    display: flex;
-    flex-direction: column;
-    width: 90%;
-    margin: 0 5%;
+.quiz-metadata {
+	display: flex;
+	flex-direction: column;
+	width: 90%;
+	margin: 0 5%;
 }
 
-.quiz-metadata>*{
-    margin: 10px 0;
-    height: 2em;
-    border: solid 2px #88847b;
-    background-color: #faf8f3;
+.quiz-metadata>* {
+	margin: 10px 0;
+	height: 2em;
+	border: solid 2px #88847b;
+	background-color: #faf8f3;
 }
 
-.quiz-metadata>select{
+.quiz-metadata>select {
 	margin: 10px 0;
 }
 
-.quiz-metadata option{
-    background-color: #faf8f3;
+.quiz-metadata option {
+	background-color: #faf8f3;
 }
 
-.metadata-buttons{
-    position: absolute;
-    bottom: 5vh;
-    right: 5vw;
+.metadata-buttons {
+	position: absolute;
+	bottom: 5vh;
+	right: 5vw;
 }
 
-.metadata-buttons>*{
-    font-size: 1.5rem;
-    border-radius: 0.5rem;
-    margin: 0 10px;
-    width: 5em;
-    height: 2em;
-    border: solid 1px #000;
+.metadata-buttons>* {
+	font-size: 1.5rem;
+	border-radius: 0.5rem;
+	margin: 0 10px;
+	width: 5em;
+	height: 2em;
+	border: solid 1px #000;
+}
+
+.post-quiz-btn {
+	width: 10vw;
+	height: 5vh;
+	padding: 1rem 1.5rem;
+	font-weight: bold;
+	border: 2px solid #43deb7;
+	background: #43deb7;
+	color: #fff;
+	transition: 0.5s;
+	justify-content: center;
+	/* 水平中央寄せ */
+	align-items: center;
+	/* 垂直中央寄せ */
+}
+
+.post-quiz-btn:hover {
+	color: #43deb7;
+	background: #fff;
+}
+
+.cancel-quiz-btn {
+	width: 10vw;
+	height: 5vh;
+	padding: 1rem 1.5rem;
+	font-weight: bold;
+	border: 2px solid #82A0D8;
+	background: #82A0D8;
+	color: #fff;
+	transition: 0.5s;
+}
+
+.cancel-quiz-btn:hover {
+	color: #82A0D8;
+	background: #fff;
+}
+
+.metadata-buttons>.fa-solid {
+	font-size: 2vw;
+}
+
+
+/*✕ボタン*/
+.close_btn {
+	display: block;
+	position: relative;
+	width: 30px;
+	height: 30px;
+	border: 2px solid #333;
+	/* 枠の調整 */
+	background: #fff;
+	/* ボタンの背景色 */
+}
+
+.create {
+	margin-left: 90%;
+	margin-top: 1%;
+}
+
+.metadata {
+	margin-left: 75%;
+	margin-top: 6%;
+}
+
+
+.close_btn::before,
+.close_btn::after {
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 3px;
+	/* 棒の幅（太さ） */
+	height: 27px;
+	/* 棒の高さ */
+	background: #333;
+	/* バツ印の色 */
+}
+
+.close_btn::before {
+	transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.close_btn::after {
+	transform: translate(-50%, -50%) rotate(-45deg);
 }
