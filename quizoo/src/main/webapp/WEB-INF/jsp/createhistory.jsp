@@ -31,9 +31,15 @@
 	<!-- ヘッダー -->
 	<%@ include file="header.jsp" %>
 
-	<div class="quiz_list">
-		<h1 class="createhistory">作成履歴</h1>
-		<div class="box" id="createHistoryContainer">
+	<!--　クイズリスト  -->
+	<div class="quiz_list mx-auto" id="quiz_list">
+		<div class="quiz">
+			<div class="width row">
+				<div class="title col">
+					<p class="ex">作成履歴</p>
+				</div>
+			</div>
+		</div>
 	</div>
 
 	<!--	モーダル-->
