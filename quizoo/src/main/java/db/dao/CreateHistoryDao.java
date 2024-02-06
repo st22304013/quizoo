@@ -16,15 +16,12 @@ public class CreateHistoryDao extends Dao {
 		
 		String sql = "SELECT q.title AS title,"
 	            + "q.explanation AS explanation,"
-	            + "n.nickname AS nickname,"
 	            + "q.create_time AS create_time,"
 	            + "g.genre_title AS genre_title, "
 	            + "q.correct_rate AS correct_rate "
 	            + "FROM genre g "
 	            + "INNER JOIN quiz q "
 	            + "ON g.genre_no = q.genre_no "
-	            + "LEFT JOIN nickname n "
-	            + "ON q.author_no = n.user_no "
 	            + "WHERE q.author_no = ? "
 	            + "ORDER BY q.create_time DESC";
 		
@@ -40,7 +37,6 @@ public class CreateHistoryDao extends Dao {
 				CreateHistoryBean createHistoryBean = new CreateHistoryBean();
 				createHistoryBean.setTitle(rs.getString("title"));
 				createHistoryBean.setExplanation(rs.getString("explanation"));
-				createHistoryBean.setNickname(rs.getString("nickname"));
 				createHistoryBean.setCreateTime(rs.getString("create_time"));
 				createHistoryBean.setGenre(rs.getString("genre_title"));
 				createHistoryBean.setCorrectRate(rs.getFloat("correct_rate"));
