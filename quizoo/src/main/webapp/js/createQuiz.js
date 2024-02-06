@@ -14,7 +14,9 @@ window.addEventListener("load",function () {
     this.document.querySelector("#add-question").addEventListener("click",addQuestion);
     this.document.querySelector("#submit-quiz-btn").addEventListener("click",showMetadataModal);
     this.document.querySelector("#cancel-quiz-btn").addEventListener("click",showQreateModal);
-    this.document.querySelector("#post-quiz-btn").addEventListener("click",postQuiz);
+    this.document.querySelector("#post-quiz-btn").addEventListener("click",postQuiz);    
+    this.document.querySelector('#create-close-btn').addEventListener('click', hideCreateModal);
+    this.document.querySelector('#metadata-close-btn').addEventListener('click', hideMetadataModal);
 })
 
 // クイズ作成モーダルを表示
