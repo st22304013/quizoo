@@ -18,7 +18,8 @@ public class CreateHistoryDao extends Dao {
 	            + "q.explanation AS explanation,"
 	            + "q.create_time AS create_time,"
 	            + "g.genre_title AS genre_title, "
-	            + "q.correct_rate AS correct_rate "
+	            + "q.correct_rate AS correct_rate, "
+	            + "q.question_count AS question_count "
 	            + "FROM genre g "
 	            + "INNER JOIN quiz q "
 	            + "ON g.genre_no = q.genre_no "
@@ -40,6 +41,7 @@ public class CreateHistoryDao extends Dao {
 				createHistoryBean.setCreateTime(rs.getString("create_time"));
 				createHistoryBean.setGenre(rs.getString("genre_title"));
 				createHistoryBean.setCorrectRate(rs.getFloat("correct_rate"));
+				createHistoryBean.setQuestionCount(rs.getInt("question_count"));
 				
 				//Listに追加
 				createhistory.add(createHistoryBean);
