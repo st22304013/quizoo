@@ -18,18 +18,17 @@ window.addEventListener("load", async () => {
             return;
         }
 
-        const historyListElement = displayCreateHistory(createHistoryList);
-        // コード修正: 作成したリストを DOM に追加
-        document.body.appendChild(historyListElement);
+        // 修正: リストを表示する関数を呼び出し
+        displayCreateHistory(createHistoryList);
     } catch (error) {
         console.error("Error fetching data:", error);
     }
 });
 
 function displayCreateHistory(createHistoryData) {
-    const list = document.createElement('div');
-    list.setAttribute('class', 'quiz_list');
-    list.setAttribute('id', 'quiz_list');
+    // 修正: 既存の要素を取得
+    const quizListElement = document.getElementById('quiz_list');
+
     for (let quiz of createHistoryData) {
         const box = document.createElement('div');
         box.setAttribute('class', 'quiz');
@@ -85,7 +84,8 @@ function displayCreateHistory(createHistoryData) {
         box.appendChild(row);
         box.appendChild(info);
 
-        list.appendChild(box);
+        // 修正: 既存の要素にボックスを追加
+        quizListElement.appendChild(box);
     }
 
     return list;
