@@ -32,6 +32,8 @@
 	<!-- ヘッダー -->
 	<%@ include file="header.jsp" %>
 
+	<h1 style="text-align: center">作成履歴</h1>
+
 	<!-- クイズリスト -->
     <div class="quiz_list mx-auto" id="quiz_list"></div>
 
