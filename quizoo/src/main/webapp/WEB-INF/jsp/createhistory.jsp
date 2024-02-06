@@ -32,16 +32,8 @@
 	<!-- ヘッダー -->
 	<%@ include file="header.jsp" %>
 
-	<!--　クイズリスト  -->
-	<div class="quiz_list mx-auto" id="quiz_list">
-		<div class="quiz">
-			<div class="width row">
-				<div class="title col">
-					<p class="ex">作成履歴</p>
-				</div>
-			</div>
-		</div>
-	</div>
+	<!-- クイズリスト -->
+    <div class="quiz_list mx-auto" id="quiz_list"></div>
 
 	<!--	モーダル-->
 	<div class="modal fade text-center" id="myModal" tabindex="-1"
