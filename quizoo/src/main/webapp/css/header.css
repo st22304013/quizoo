@@ -33,6 +33,11 @@ header {
 .input-group {
 	width: 30%;
 	height: 15%;
+	display: none;
+}
+
+.seach-box {
+	display: flex;
 }
 
 .form-control {

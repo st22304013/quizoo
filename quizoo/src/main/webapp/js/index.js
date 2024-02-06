@@ -3,9 +3,21 @@
 */
 var list_box;
 
-window.addEventListener('load',function(){
-    // gneres = fetch("/quizoo/genres");
+window.addEventListener('load',async function(){
+    gneres = await fetch("/quizoo/genres");
+
+    // メタデータのモーダルが非表示になった時の処理
+    const createQuizModalObserver = new MutationObserver(mutations => {
+        if (mutations[0].target.style.display == "none") {
+            updateQuizList();
+        }
+    });
+    createQuizModalObserver.observe(document.querySelector("#metadata-modal-back"), {
+        attributes: true
+    });
     
+
+    // ジャンルのプルダウンを初期化
     var genreSelector = document.querySelector("#genre_selector");
     
     var emptyChoice = document.createElement("option");
@@ -20,22 +32,13 @@ window.addEventListener('load',function(){
         genreSelector.appendChild(genreChoce);
     }
     
+    genreSelector.addEventListener("change",() => filterGenre(genreSelector.value));
     
-    genreSelector.addEventListener("change",()=>{
-        let url = new URL(this.window.location.href);
-        
-        if(genreSelector.value == -1){
-            url.searchParams.delete("genre_no");
-        }else{
-            url.searchParams.set("genre_no",genreSelector.value);
-        }
-        window.history.pushState(null,null,url);
-        
-        updateQuizList();
-    })
     
     list_box = document.querySelector("#quiz_list");
     
+
+    // ソートボタンをクリックした時の処理
     orderBtns = document.querySelectorAll(".order_btn");
     for(var btn of orderBtns){
         btn.addEventListener("click",function () {
@@ -67,23 +70,7 @@ window.addEventListener('load',function(){
             document.querySelector(".drawer__nav").classList.remove("active");
         });
     });
-
-    // ページ内スクロール
-    document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-
-            const speed = 400;
-            let href = this.getAttribute("href");
-            let target = document.querySelector(href === "#" || href === "" ? "html" : href);
-            let position = target.offsetTop;
-
-            window.scrollTo({
-                top: position,
-                behavior: "smooth"
-            });
-        });
-    });
+    
 })
 
 async function searchTitle(){
@@ -121,8 +108,6 @@ async function updateQuizList() {
 
 async function getQuizList() {
     params = new URLSearchParams(window.location.search);
-
-    console.log(params.toString());
 
 
     var quizList = await fetch("/quizoo/quizlist?" + params);
@@ -163,8 +148,9 @@ function quizlistFactory(quizList){
         create_time.innerText = quiz['createTime'];
         
         genre = document.createElement('a');
-        genre.setAttribute('href',quiz['genre_no']);
         genre.innerText = quiz['genre'];
+        genre.setAttribute('class','genre');
+        genre.addEventListener('click',filterGenre.bind(null,quiz['genreNo']));
         
         ratio = document.createElement('a');
         ratio.setAttribute('class','raito');
@@ -218,4 +204,18 @@ function limitCheckbox(clickedCheckbox) {
             checkbox.checked = false;
         }
     });
+}
+
+// ジャンルを指定する
+function filterGenre(genreNo) {
+    let url = new URL(window.location.href);
+    if(genreNo == -1){
+        url.searchParams.delete("genre_no");
+    }else{
+        url.searchParams.set("genre_no",genreNo);
+    }
+    window.history.pushState(null,null,url);
+    var genrePulldown = document.querySelector("#genre_selector");
+    genrePulldown.value = genreNo;
+    updateQuizList();
 }
