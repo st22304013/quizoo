@@ -54,9 +54,9 @@
 			
 			<!-- 確認モーダル -->
 			<div class="confirm-modal" id="confirm-modal">
-				<div>
-					<p>回答を終了しますか？</p>
-					<div>
+				<div class="confirm-modal-body">
+					<p class="fonfirm-msg">回答を終了しますか？</p>
+					<div class="confirm-choices">
 						<button type="button" class="cancel-btn" id="dontSendButton">いいえ</button>
 						<button type="button" class="send-btn" id="sendAnswerButton">はい</button>
 					</div>

@@ -331,7 +331,7 @@ a.btn--orange:hover {
     z-index: 1100;
 }
 
-.confirm-modal>div{
+.confirm-modal-body{
     position: absolute;
     width: 40vw;
     left: 30vw;
@@ -342,11 +342,11 @@ a.btn--orange:hover {
 	padding: 3vh 5vw;
 }
 
-.confirm-modal>div>div{
+.confirm-choices{
 	text-align: center;
 }
 
-.confirm-modal p{
+.cofirm-msg{
 	text-align: center;
 }
 
