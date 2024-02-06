@@ -70,7 +70,7 @@
 														placeholder="Password" required>
 												</div>
 												<div class="miss none" id="miss">
-													<p>IDまたはPASSWORDが違います</p>
+													IDまたはPASSWORDが違います
 												</div>
 												<div class="text-center">
 													<button type="submit" class="btn">Login</button>

@@ -24,6 +24,10 @@ img {
 	vertical-align: bottom;
 }
 
+h1 {
+	font-size: 2.5vw;
+}
+
 .container {
 	margin-top: 5%;
 }
