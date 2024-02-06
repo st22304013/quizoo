@@ -33,7 +33,6 @@ function displayCreateHistory(createHistoryData) {
                     </a>
                 </div>
                 <div class="information text-right">
-                    作成者：<a class="author">${historyItem.author}</a>
                     作成日：<a class="create_time">${historyItem.createTime}</a>
                     ジャンル：<a class="genre">${historyItem.genre}</a>
                     正解率：<a class="raito">${historyItem.correctRate}</a>
