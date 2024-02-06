@@ -231,6 +231,46 @@ a.btn-border-shadow--color2:before {
 }
 
 /*モーダル*/
+
+/*✕ボタン*/
+.close_btn {
+  display: block;
+  position: relative;
+  width: 30px;
+  height: 30px;
+  border: 2px solid #333; /* 枠の調整 */
+  background: #fff; /* ボタンの背景色 */
+}
+
+.create {
+	  margin-left: 90%;
+	  margin-top: 1%;
+}
+
+.metadata {
+	  margin-left: 75%;
+	  margin-top: 10%;
+}
+
+ 
+.close_btn::before, .close_btn::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 3px; /* 棒の幅（太さ） */
+  height: 27px; /* 棒の高さ */
+  background: #333; /* バツ印の色 */
+}
+ 
+.close_btn::before {
+  transform: translate(-50%,-50%) rotate(45deg);
+}
+ 
+.close_btn::after {
+  transform: translate(-50%,-50%) rotate(-45deg);
+}
+
 .modal-dialog {
 	width: 2000px;
 	height: 500px;
@@ -559,6 +599,7 @@ a.btn-border-shadow--color2:before {
 	top: 5vh;
 	left: 5vw;
     border-radius: 20px;
+    margin-top: 2%;
 }
 
 .create-quiz-modal::before{
@@ -677,7 +718,7 @@ a.btn-border-shadow--color2:before {
 .metadata-modal{
     display: block;
     position: absolute;
-    margin: 30vh 20vw;
+    margin: 1vh 20vw;
     width: 50vw;
     height: 30vh;
     background-color: #e2dccd;
