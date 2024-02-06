@@ -68,7 +68,7 @@
 			<div class="create-quiz-modal">
 				<div class="stored-question" id="stored-question">
 					<div class="add-question" id="add-question">
-						問題を追加する
+						<i class="fa-solid fa-plus"></i>問題を追加する
 					</div>
 				</div>
 				<div class="question-editor" id="question-editor">
@@ -93,7 +93,7 @@
 					</fieldset>
 				</div>
 				<div class="submit-quiz-btn" id="submit-quiz-btn">
-					アイコン
+					<i class="next-btn fa-solid fa-arrow-right"></i>
 				</div>
 			</div>
 		</div>

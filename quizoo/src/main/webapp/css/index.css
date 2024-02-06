@@ -594,7 +594,7 @@ a.btn-border-shadow--color2:before {
     display: flex;
     width: 90vw;
     height: 90vh;
-    background-color: #ccc4a6;
+    background-color: #F9F7C9;
 	position: absolute;
 	top: 5vh;
 	left: 5vw;
@@ -652,7 +652,8 @@ a.btn-border-shadow--color2:before {
 .add-question{
 	position: sticky;
 	bottom: 0;
-	background-color: #9e9881;
+	background-color: #F9F7C9;
+	padding: auto 0;
 }
 
 .add-question:hover{
@@ -662,9 +663,9 @@ a.btn-border-shadow--color2:before {
 .question-text{
     display: block;
     border-radius: 5px;
-    background-color: #f1efec;
+    background-color: #ffffff;
     width: calc(90% - 2em);
-    height: 50%;
+    height: 30%;
     margin: 5%;
     padding: 1em;
 	resize: none;
@@ -682,27 +683,57 @@ a.btn-border-shadow--color2:before {
 
 
 .choice-text{
-    width: calc(100% - 2em);
+    width: 70%;
     border-radius: 5px;
     border: none;
-    background-color: #edeadc;
-    height: 3em;
+    background-color: #ffffff;
+    height: 2em;
 }
 
 .submit-quiz-btn{
     border-radius: 50%;
     width: 80px;
     height: 80px;
-    background-color: #84bab8;
     position: absolute;
     bottom: -30px;
     right: -30px;
 	cursor: pointer;
+	display: flex;
+	margin-block-end: 5%;
+	margin-right: 8%;
+	background: #80BCBD;
 }
 
 .submit-quiz-btn:hover{
-	background-color: #4D9BC1;
+	background-color: #AAD9BB;
 }
+
+.next-btn {
+	margin-left: 25%;
+	margin-top: 25%;
+}
+
+/*	display: inline-block;*/
+/*	width: 200px;*/
+/*	height: 50px;*/
+/*	 ボタン幅 */
+	
+/*	 背景色 */
+/*	border: 2px solid #4D9BC1;*/
+/*	padding: 1em 2em;*/
+/*	font-weight: bold;*/
+/*	color: #fff;*/
+/*	 文字 */
+/*	font-size: 20px;*/
+/*	text-decoration: none;*/
+/*	text-align: center;*/
+/*	transition-duration: 0.3s;*/
+/*	 位置 */
+/*	position: absolute;*/
+/*	margin: 0;*/
+/*	padding: 10px;*/
+/*	bottom: 70px;*/
+/*	right: 70px;*/
 
 /* 作問確認モーダル */
 .metadata-modal-back{
