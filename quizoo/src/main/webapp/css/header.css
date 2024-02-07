@@ -8,32 +8,44 @@ header {
 	background-color: #DBFAFD;
 	display: flex;
 	width: 100%;
-	height: 120px;
+	height: 15%;
 	align-items: center;
-	max-height: 30vh;
+	max-height: 15%;
 }
 
-.navbar {
-	height: 16px;
-	width: 100%;
-	padding: 0;
+.fixed-top {
+	padding: 1% 2% 1% 1%;
 }
 
 
 /*全画面共通ヘッダー画像*/
 .header-img {
-	margin-top: 15px;
-	margin-left: 15px;
-	width: 120px;
-	height: 85px;
+	width: 15%;
+}
+
+.icon {
+	margin-top: 0%;
+	margin-left: 0%;
+	width: 50%;
+	height: 15%;
 }
 
 .input-group {
 	width: 30%;
-	height: 50px;
+	height: 15%;
+	display: none;
 }
 
-.input-group-append svg{
+.seach-box {
+	display: flex;
+}
+
+.form-control {
+	padding: 1%;
+	height: 6%;
+}
+
+.input-group-append svg {
 	height: 35px;
 }
 
@@ -41,8 +53,8 @@ header {
 
 /* ボタンのデザイン */
 .drawer__button {
-	margin-top: 15px;
-	margin-right: 40px;
+	margin-top: 0%;
+	margin-right: 0%;
 	position: relative;
 	padding: 0;
 	width: 60px;
@@ -54,14 +66,18 @@ header {
 	/* メニューを開いている時もクリックできるよう設定 */
 }
 
+.drawer__button.clicked {
+	border: none;
+}
+
 /* ボタンを区切る線 */
 .drawer__button>span {
 	display: block;
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	width: 2rem;
-	height: 2px;
+	width: 50%;
+	height: 3%;
 	background-color: black;
 	transform: translateX(-50%);
 }

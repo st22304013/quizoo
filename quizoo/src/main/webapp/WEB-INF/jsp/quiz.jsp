@@ -42,61 +42,35 @@
 					<li>東中野</li>
 					<li>東中野</li>
 				</ol>
-
 				<!-- Button trigger modal -->
-				<button type="button" id="endButton" class="btn btn-primary">
-					回答完了
-				</button>
-
-				<!-- Button trigger modal -->
-				<button type="button" class="close-btn" data-bs-toggle="modal"
-					data-bs-target="#exampleModal">回答完了</button>
+				<button type="button" class="close-btn" id="endButton">回答完了</button>
 			</div>
-
-			<!-- 1番目のモーダル -->
-			<div class="modal fade text-center" id="exampleModal" tabindex="-1"
-				aria-labelledby="exampleModalLabel" aria-hidden="true"
-				data-bs-backdrop="static">
-				<div class="modal-dialog modal-dialog-centered">
-					<div class="modal-content">
-						<div class="modal-body">
-							本当に終了しますか？
-						</div>	
-						<div class="modal-footer">
-							<button type="button" class="no-btn btn btn-secondary" data-bs-dismiss="modal" id="dontSendButton">いいえ</button>
-							<button type="button" class="yes-btn btn btn-primary" id="sendAnswerButton" 
-								data-bs-target="#secondModal" >はい</button>
-						</div>
+			
+			<!-- 確認モーダル -->
+			<div class="confirm-modal" id="confirm-modal">
+				<div class="confirm-modal-body">
+					<p class="fonfirm-msg">回答を終了しますか？</p>
+					<div class="confirm-choices">
+						<button type="button" class="cancel-btn" id="dontSendButton">いいえ</button>
+						<button type="button" class="send-btn" id="sendAnswerButton">はい</button>
 					</div>
 				</div>
 			</div>
 
-			<!-- 2番目のモーダル -->
-			<div class="modal fade" id="secondModal" tabindex="-1"
-				aria-labelledby="exampleModalLabel" aria-hidden="true"
-				data-bs-backdrop="static">
-				<div class="modal-dialog modal-dialog-centered">
-					<div class="modal-content">
-						<div class="modal-header text-center">
-							<h1 class="modal-title fs-7" id="exampleModalLabel">score</h1>
-						</div>
-						<div class="modal-body">
-							<div class="question-result" id="question-result">
-								<p>1. 〇</p>
-								<p>2. ✕</p>
-								<p>3. 〇</p>
-								<p>4. 〇</p>
-								<p>5. ✕</p>
-							</div>
-							<div class="score text-end" id="score">
-								<h3>Points earned</h3>
-								<h1>200</h1>
-							</div>
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="close-btn btn btn-primary"
-								id="closeButton">close</button>
-						</div>
+			<!-- 結果モーダル -->
+			<div class="result-modal" id="result-modal">
+				<div class="result-modal-body">
+					<p class="title">結果</p>
+					<div class="result-list" id="result-list">
+						<div>1.〇</div>
+						<div>2.×</div>
+						<div>3.〇</div>
+					</div>
+					<div class="result-rate" id="result-rate">
+						正解率<a>2/3</a>
+					</div>
+					<div class="closeButton" id="closeButton">	
+						トップページに戻る
 					</div>
 				</div>
 			</div>
@@ -122,16 +96,16 @@
 
 				</div>
 
-				<table class="answers">
+				<table class="answers" id="question-choices">
 					<tr>
 						<td>
-							<button type="button" class="btn btn--orange">1</button>
+							<button type="button" class="btn btn--orange" id="answer-btn">1</button>
 						</td>
 						<td>
 							<div class="choice">1月1日</div>
 						</td>
 						<td>
-							<button type="button" class="btn btn--orange">2</button>
+							<button type="button" class="btn btn--orange" id="answer-btn">2</button>
 						</td>
 						<td>
 							<div class="choice">2月18日</div>
@@ -139,13 +113,13 @@
 					</tr>
 					<tr>
 						<td>
-							<button type="button" class="btn btn--orange">3</button>
+							<button type="button" class="btn btn--orange" id="answer-btn">3</button>
 						</td>
 						<td>
 							<div class="choice">4月5日</div>
 						</td>
 						<td>
-							<button type="button" class="btn btn--orange">4</button>
+							<button type="button" class="btn btn--orange" id="answer-btn">4</button>
 						</td>
 						<td>
 							<div class="choice">5月3日</div>
