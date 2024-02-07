@@ -21,7 +21,7 @@ window.addEventListener('load',async function(){
     var genreSelector = document.querySelector("#genre_selector");
     
     var emptyChoice = document.createElement("option");
-    emptyChoice.innerText = "ジャンルを指定しない";
+    emptyChoice.innerText = "genre";
     emptyChoice.value = -1;
     genreSelector.appendChild(emptyChoice);
     
