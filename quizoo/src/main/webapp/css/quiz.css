@@ -413,3 +413,10 @@ a.btn--orange:hover {
     background-color: #fff;
     height: 2em;
 }
+
+.closeButton{
+    position: absolute;
+    bottom: -30px;
+    background-color: #ded7d7;
+	cursor: pointer;
+}

@@ -75,7 +75,9 @@
 					<div class="result-rate" id="result-rate">
 						正解率<a>2/3</a>
 					</div>
-					<button type="button" id="closeButton">閉じる</button>
+					<div class="closeButton" id="closeButton">	
+						トップページに戻る
+					</div>
 				</div>
 			</div>
 
