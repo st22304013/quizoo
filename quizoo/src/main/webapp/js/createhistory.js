@@ -44,7 +44,7 @@ function displayCreateHistory(createHistoryData) {
 
         // 説明
         const explanation = document.createElement('div');
-        explanation.setAttribute('class', 'd-flex align-items-center col');
+        explanation.setAttribute('class', 'explanation d-flex align-items-center col');
         explanation.innerText = quiz['explanation'] ? quiz['explanation'] : "";
         row.appendChild(explanation);
 
