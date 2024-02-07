@@ -63,33 +63,19 @@
 				</div>
 			</div>
 
-			<!-- 2番目のモーダル -->
-			<div class="modal fade" id="secondModal" tabindex="-1"
-				aria-labelledby="exampleModalLabel" aria-hidden="true"
-				data-bs-backdrop="static">
-				<div class="modal-dialog modal-dialog-centered">
-					<div class="modal-content">
-						<div class="modal-header text-center">
-							<h1 class="modal-title fs-7" id="exampleModalLabel">score</h1>
-						</div>
-						<div class="modal-body">
-							<div class="question-result" id="question-result">
-								<p>1. 〇</p>
-								<p>2. ✕</p>
-								<p>3. 〇</p>
-								<p>4. 〇</p>
-								<p>5. ✕</p>
-							</div>
-							<div class="score text-end" id="score">
-								<h3>Points earned</h3>
-								<h1>200</h1>
-							</div>
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="close-btn btn btn-primary"
-								id="closeButton">close</button>
-						</div>
+			<!-- 結果モーダル -->
+			<div class="result-modal" id="result-modal">
+				<div class="result-modal-body">
+					<p class="title">結果</p>
+					<div class="result-list" id="result-list">
+						<div>1.〇</div>
+						<div>2.×</div>
+						<div>3.〇</div>
 					</div>
+					<div class="result-rate" id="result-rate">
+						正解率<a>2/3</a>
+					</div>
+					<button type="button" id="closeButton">閉じる</button>
 				</div>
 			</div>
 

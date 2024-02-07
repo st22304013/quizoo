@@ -14,11 +14,9 @@ let currentQuestionNo;
 let selectedAnswers;
 let answerBtns;
 let questionlist; // Declare questionlist variable
-let resultModal;
 
 window.addEventListener('load', async function () {
     // モーダルを取得
-    resultModal = new Modal(this.document.querySelector("#secondModal"));
 
     questionlist = this.document.querySelector('#question_list');
 
@@ -48,7 +46,7 @@ window.addEventListener('load', async function () {
 
     this.document.querySelector("#sendAnswerButton").addEventListener('click', async ()=>{
         hideConfirmModal();
-        resultModal.show();
+        showResultModal();
         scoring();
     });
 
@@ -187,22 +185,24 @@ function chengeSelected(selectedNo = 0) {
 
 function scoring() {
     let questionResult = document.createElement('div');
-    questionResult.setAttribute('class','question-result');
-    questionResult.setAttribute('id','question-result');
+    questionResult.setAttribute('class','result-list');
     let score = 0;
     for(let i = 0; i < quizAndQuestions['question'].length; i++) {
-        var result = document.createElement('p');
+        var result = document.createElement('div');
+        result.innerText = (i+1) + "."
         if(quizAndQuestions['question'][i]['judge'][selectedAnswers[i]]) {
-            result.innerText= "〇";
+            result.innerText+= "〇";
             score++;
         }else{
-            result.innerText = "✕";
+            result.innerText+= "✕";
         }
         questionResult.appendChild(result);
     }
     
-    document.querySelector("#question-result").replaceWith(questionResult);
-    document.querySelector("#score h1").innerText = score;
+    document.querySelector("#result-list").replaceWith(questionResult);
+
+    var rate = Math.round(score/quizAndQuestions['question'].length * 100);
+    document.querySelector("#result-rate a").innerText = rate + "%";
     sendAnswer(score);
     
 }
@@ -228,4 +228,8 @@ function showConfirmModal() {
 
 function hideConfirmModal() {
     document.querySelector("#confirm-modal").style.display = "none";
+}
+
+function showResultModal() {
+    document.querySelector("#result-modal").style.display = "block";
 }
