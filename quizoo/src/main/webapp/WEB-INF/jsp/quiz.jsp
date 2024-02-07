@@ -42,12 +42,6 @@
 					<li>東中野</li>
 					<li>東中野</li>
 				</ol>
-
-				<!-- Button trigger modal -->
-				<button type="button" class="btn btn-primary">
-					回答完了
-				</button>
-
 				<!-- Button trigger modal -->
 				<button type="button" class="close-btn" id="endButton">回答完了</button>
 			</div>
