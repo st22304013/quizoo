@@ -12,6 +12,10 @@ body {
 
 }
 
+h1 {
+	text-align: center
+}
+
 /*全画面共通a*/
 a {
 	font-size: 1.0vw;
