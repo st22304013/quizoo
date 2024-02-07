@@ -76,6 +76,11 @@ a {
 	font-family: cursive;
 }
 
+.quiz .explanation {
+    font-size: 1vw;
+    font-family: cursive;
+}
+
 .quiz .information {
 	position: absolute;
 	z-index: 10;
