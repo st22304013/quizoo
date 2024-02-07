@@ -768,7 +768,6 @@ a.btn-border-shadow--color2:before {
 .metadata-buttons {
 	position: absolute;
 	bottom: 5vh;
-	right: 5vw;
 }
 
 .metadata-buttons>* {
@@ -782,9 +781,11 @@ a.btn-border-shadow--color2:before {
 
 .post-quiz-btn {
 	width: 10vw;
-	height: 5vh;
-	padding: 1rem 1.5rem;
+	height: 7vh;
+	padding: 2%;
+	margin-right: 5%;
 	font-weight: bold;
+	font-size: 1.5vw;
 	border: 2px solid #43deb7;
 	background: #43deb7;
 	color: #fff;
@@ -802,9 +803,10 @@ a.btn-border-shadow--color2:before {
 
 .cancel-quiz-btn {
 	width: 10vw;
-	height: 5vh;
-	padding: 1rem 1.5rem;
+	height: 7vh;
+	padding: 2%;
 	font-weight: bold;
+	font-size: 1.5vw;
 	border: 2px solid #82A0D8;
 	background: #82A0D8;
 	color: #fff;
@@ -817,7 +819,7 @@ a.btn-border-shadow--color2:before {
 }
 
 .metadata-buttons>.fa-solid {
-	font-size: 2vw;
+	font-size: 1.5vw;
 }
 
 
