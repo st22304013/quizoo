@@ -60,14 +60,16 @@
 			<!-- 結果モーダル -->
 			<div class="result-modal" id="result-modal">
 				<div class="result-modal-body">
-					<p class="title">結果</p>
+					<div class="border">
+						<p class="title">結果</p>
+						<div class="result-rate" id="result-rate">
+							正解率<a>2/3</a>
+						</div>
+					</div>
 					<div class="result-list" id="result-list">
 						<div>1.〇</div>
 						<div>2.×</div>
 						<div>3.〇</div>
-					</div>
-					<div class="result-rate" id="result-rate">
-						正解率<a>2/3</a>
 					</div>
 					<div class="closeButton" id="closeButton">	
 						トップページに戻る
