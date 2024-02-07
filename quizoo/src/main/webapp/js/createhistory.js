@@ -36,15 +36,30 @@ function displayCreateHistory(createHistoryData) {
         const row = document.createElement('div');
         row.setAttribute('class', 'width row');
 
+        // タイトル
         const title = document.createElement('div');
         title.setAttribute('class', 'title col');
         title.innerText = quiz['title'];
         row.appendChild(title);
 
+        // 説明
         const explanation = document.createElement('div');
         explanation.setAttribute('class', 'd-flex align-items-center col');
         explanation.innerText = quiz['explanation'] ? quiz['explanation'] : "";
         row.appendChild(explanation);
+
+        // ゴミ箱
+        const garbageCan = document.createElement('a');
+        garbageCan.setAttribute('href', '#');
+        garbageCan.setAttribute('class', 'garbage_can col');
+        garbageCan.setAttribute('data-bs-toggle', 'modal');
+        garbageCan.setAttribute('data-bs-target', '#myModal');
+
+        const trashIcon = document.createElement('i');
+        trashIcon.setAttribute('class', 'fa-regular fa-trash-can');
+
+        garbageCan.appendChild(trashIcon);
+        row.appendChild(garbageCan);
 
         const info = document.createElement('div');
         info.setAttribute('class', 'information text-right');
@@ -65,21 +80,10 @@ function displayCreateHistory(createHistoryData) {
         } else {
             ratio.innerText = ' ' + (parseFloat(quiz['correctRate']) / parseFloat(quiz['questionCount'])).toFixed(2)
         }
-
-        const garbageCan = document.createElement('a');
-        garbageCan.setAttribute('href', '#');
-        garbageCan.setAttribute('class', 'garbage_can col');
-        garbageCan.setAttribute('data-bs-toggle', 'modal');
-        garbageCan.setAttribute('data-bs-target', '#myModal');
-
-        const trashIcon = document.createElement('i');
-        trashIcon.setAttribute('class', 'fa-regular fa-trash-can');
-
-        garbageCan.appendChild(trashIcon);
+        
         info.appendChild(create_time);
         info.appendChild(genre);
         info.appendChild(ratio);
-        info.appendChild(garbageCan);
 
         box.appendChild(row);
         box.appendChild(info);
