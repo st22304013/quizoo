@@ -12,6 +12,11 @@ body {
 
 }
 
+h1 {
+	text-align: center;
+	margin-bottom: 50px;
+}
+
 /*全画面共通a*/
 a {
 	font-size: 1.0vw;
@@ -49,23 +54,49 @@ a {
 /*	padding: 10%;*/
 /*}*/
 
-.createhistory {
-	text-align: center;
-	margin-bottom: 3%;
-	font-size: 2.5vw;
+/* クイズ一覧 */
+.quiz_list {
+	margin-top: 200px;
+	margin-bottom: 0px;
+	width: 100%;
 }
 
+/* 各クイズ */
 .quiz {
 	position: relative;
 	padding: 30px 0px;
 	padding-bottom: 40px;
-	margin: 0px auto;
-	margin-bottom: 40px;
+	margin-bottom: 5%;
+	margin-left: 20%;
+	margin-right: 20%;
 	border: 1px solid #333333;
 	border-radius: 80px;
 	background-color: rgb(215, 248, 215);
-	width: 80%;
-/*	max-width: 70%;*/
+	width: 60%;
+	height: 10%;
+}
+
+.quiz .title {
+	font-size: 2vw;
+	margin-left: 5%;
+	font-family: cursive;
+}
+
+.quiz .explanation {
+    font-size: 1vw;
+    font-family: cursive;
+}
+
+.quiz .information {
+	position: absolute;
+	z-index: 10;
+	width: 100%;
+	text-align: center !important;
+	margin-top: 10px;
+}
+
+.quiz .information a {
+	margin: 0 0.5rem;
 }
 
 /*ゴミ箱*/
@@ -73,13 +104,7 @@ a {
 	margin: 3% 5% 0 0;
     text-align: right;
     color: #000000;
-}
-
-.ex {
-	margin-left: 15%;
-	font-size: 2vw;
-	color: #000000;
-	opacity: 0.8;
+	font-size: 24px;
 }
 
 /*モーダル*/
