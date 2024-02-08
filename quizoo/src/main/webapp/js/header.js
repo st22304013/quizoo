@@ -4,9 +4,9 @@
 
 document.addEventListener('DOMContentLoaded', function () {
     // ハンバーガーボタンクリックで実行
-    document.querySelector(".drawer__button").addEventListener('click', function () {
+    document.querySelector("#side-menu-drawer").addEventListener('click', function () {
         this.classList.toggle("active");
-        document.querySelector(".drawer__nav").classList.toggle("active");
+        document.querySelector("#side-menu").style.display = "block";
     });
 
     // ドロワーナビゲーションリンククリックで非アクティブ化

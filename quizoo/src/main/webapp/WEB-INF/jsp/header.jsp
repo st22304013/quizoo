@@ -7,18 +7,18 @@
 			alt="quizoo">
 	</div>
 	<input class="search-txtbox" type="text" placeholder="Search">
-	<button class="side-menu-drawer">
+	<button class="side-menu-drawer" id="side-menu-drawer">
 		<span></span> <span></span> <span></span>
 	</button>
-	<div class="side-menu">
-		<ul>
-			<li><a href="profile">プロフィール編集</a></li>
-			<li><a href="createhistory">作成履歴</a></li>
-			<li><a href="score">スコア詳細</a></li>
-			<li><a href="logout">ログアウト</a></li>
-		</ul>
-	</div>
 </header>
 
 <!-- ハンバーガー -->
+<div class="side-menu" id="side-menu">
+	<ul>
+		<li><a href="profile">プロフィール編集</a></li>
+		<li><a href="createhistory">作成履歴</a></li>
+		<li><a href="score">スコア詳細</a></li>
+		<li><a href="logout">ログアウト</a></li>
+	</ul>
+</div>
 <script src="js/header.js"></script>
