@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // ドロワーナビゲーションリンククリックで非アクティブ化
     document.querySelector("#side-menu").addEventListener('click',function () {
+        if(event.target == document.querySelector("#side-menu-body")) return;
         document.querySelector("#side-menu").style.display = "none";
     });
 

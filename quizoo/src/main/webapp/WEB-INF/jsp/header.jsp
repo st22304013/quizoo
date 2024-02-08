@@ -14,7 +14,7 @@
 
 <!-- ハンバーガー -->
 <div class="side-menu" id="side-menu">
-	<ul>
+	<ul id="side-menu-body">
 		<li><a href="profile">プロフィール編集</a></li>
 		<li><a href="createhistory">作成履歴</a></li>
 		<li><a href="score">スコア詳細</a></li>
