@@ -82,8 +82,9 @@ img {
 	margin: 0 120px;
 }
 
-.genre-selector 
+
 .genre-selector{
+	border-radius: 1em;	
 	border-style: none;
 	background-color: transparent;
 	text-align: center;
