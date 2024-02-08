@@ -564,7 +564,6 @@ a.btn-border-shadow--color2:before {
 	top: 5vh;
 	left: 5vw;
 	border-radius: 20px;
-	margin-top: 2%;
 }
 
 .create-quiz-modal::before {
@@ -703,8 +702,6 @@ a.btn-border-shadow--color2:before {
 	right: -30px;
 	cursor: pointer;
 	display: flex;
-	margin-block-end: 5%;
-	margin-right: 8%;
 	background: #80BCBD;
 	color: #ffffff;
 }
@@ -716,9 +713,10 @@ a.btn-border-shadow--color2:before {
 }
 
 .submit-quiz-btn > .fa-solid {
-	font-size: 3vw;
-	margin-left: 25%;
-	margin-top: 25%;
+    font-size: 60px;
+    margin-top: 10PX;
+    width: 100%;
+    text-align: center;
 }
 
 /* 作問確認モーダル */
@@ -733,14 +731,16 @@ a.btn-border-shadow--color2:before {
 }
 
 .metadata-modal {
-	display: block;
-	position: absolute;
-	margin: 1vh 20vw;
-	width: 50vw;
-	height: 50vh;
-	background-color: #F9F7C9;
-	border-radius: 20px;
-	padding: 5vh 5vw;
+    display: block;
+    position: absolute;
+    top: calc(50vh - 175px);
+    left: 20vw;
+    width: 50vw;
+    min-width: 400px;
+    height: 300px;
+    background-color: #F9F7C9;
+    border-radius: 20px;
+    padding: 50px;
 }
 
 .quiz-metadata {
@@ -766,9 +766,10 @@ a.btn-border-shadow--color2:before {
 }
 
 .metadata-buttons {
-	position: absolute;
-	display: flex;
-	bottom: 5vh;
+    position: absolute;
+    display: flex;
+    bottom: 40px;
+    right: 40px;
 }
 
 .metadata-buttons>* {
@@ -781,20 +782,17 @@ a.btn-border-shadow--color2:before {
 }
 
 .post-quiz-btn {
-	width: 10vw;
-	height: 7vh;
-	padding: 2%;
-	margin-right: 5%;
-	font-weight: bold;
-	font-size: 1.5vw;
-	border: 2px solid #43deb7;
-	background: #43deb7;
-	color: #fff;
-	transition: 0.5s;
-	justify-content: center;
-	/* 水平中央寄せ */
-	align-items: center;
-	/* 垂直中央寄せ */
+    max-width: 50%;
+    width: 120px;
+    height: 100%;
+    padding: 0;
+    font-weight: bold;
+    font-size: 30px;
+    border: 2px solid #43deb7;
+    background: #43deb7;
+    color: #fff;
+    transition: 0.5s;
+    margin: 0 10px;
 }
 
 .post-quiz-btn:hover {
@@ -803,15 +801,17 @@ a.btn-border-shadow--color2:before {
 }
 
 .cancel-quiz-btn {
-	width: 10vw;
-	height: 7vh;
-	padding: 2%;
-	font-weight: bold;
-	font-size: 1.5vw;
-	border: 2px solid #82A0D8;
-	background: #82A0D8;
-	color: #fff;
-	transition: 0.5s;
+    max-width: 50%;
+    width: 120px;
+    height: 100%;
+    padding: 0;
+    font-weight: bold;
+    font-size: 30px;
+    border: 2px solid #82A0D8;
+    background: #82A0D8;
+    color: #fff;
+    transition: 0.5s;
+    margin: 0 10px;
 }
 
 .cancel-quiz-btn:hover {
@@ -826,39 +826,30 @@ a.btn-border-shadow--color2:before {
 
 /*✕ボタン*/
 .close_btn {
-	display: block;
-	position: relative;
-	width: 30px;
-	height: 30px;
-	border: 2px solid #333;
-	/* 枠の調整 */
-	background: #fff;
-	/* ボタンの背景色 */
+    margin: 0;
+    display: block;
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    width: 30px;
+    height: 30px;
+    /* border: 2px solid #3330; */
+    background: #fff0;
+    cursor: pointer;
 }
 
-.create {
-	margin-left: 90%;
-	margin-top: 1%;
-}
-
-.metadata {
-	margin-left: 75%;
-	margin-top: 6%;
-}
 
 
 .close_btn::before,
 .close_btn::after {
-	content: "";
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	width: 3px;
-	/* 棒の幅（太さ） */
-	height: 27px;
-	/* 棒の高さ */
-	background: #333;
-	/* バツ印の色 */
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 50px;
+    border-radius: 5px;
+    background: #fff;
 }
 
 .close_btn::before {
