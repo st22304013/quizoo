@@ -13,7 +13,8 @@ body {
 }
 
 h1 {
-	text-align: center
+	text-align: center;
+	margin-bottom: 50px;
 }
 
 /*全画面共通a*/
@@ -55,6 +56,7 @@ a {
 
 /* クイズ一覧 */
 .quiz_list {
+	margin-top: 200px;
 	margin-bottom: 0px;
 	width: 100%;
 }
