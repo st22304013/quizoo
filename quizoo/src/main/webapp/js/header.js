@@ -5,16 +5,12 @@
 document.addEventListener('DOMContentLoaded', function () {
     // ハンバーガーボタンクリックで実行
     document.querySelector("#side-menu-drawer").addEventListener('click', function () {
-        this.classList.toggle("active");
         document.querySelector("#side-menu").style.display = "block";
     });
 
     // ドロワーナビゲーションリンククリックで非アクティブ化
-    document.querySelectorAll(".drawer__nav__link").forEach(function (link) {
-        link.addEventListener('click', function () {
-            document.querySelector(".drawer__button").classList.remove("active");
-            document.querySelector(".drawer__nav").classList.remove("active");
-        });
+    document.querySelector("#side-menu").addEventListener('click',function () {
+        document.querySelector("#side-menu").style.display = "none";
     });
 
     // ページ内スクロール

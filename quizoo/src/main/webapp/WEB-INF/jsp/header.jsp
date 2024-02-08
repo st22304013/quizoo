@@ -6,7 +6,7 @@
 		<img src="img/quizoo_nobackground.png"
 			alt="quizoo">
 	</div>
-	<input class="search-txtbox" type="text" placeholder="Search">
+	<input class="search-txtbox" id="search-textbox" type="text" placeholder="Search">
 	<button class="side-menu-drawer" id="side-menu-drawer">
 		<span></span> <span></span> <span></span>
 	</button>

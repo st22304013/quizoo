@@ -52,24 +52,10 @@ window.addEventListener('load',async function(){
         
     }
     
-    this.document.querySelector("#search_text").addEventListener("input",searchTitle);
+    this.document.querySelector("#search-textbox").addEventListener("input",searchTitle);
     
     
     updateQuizList();
-
-    // ハンバーガーボタンクリックで実行
-    document.querySelector(".drawer__button").addEventListener('click', function () {
-        this.classList.toggle("active");
-        document.querySelector(".drawer__nav").classList.toggle("active");
-    });
-
-    // ドロワーナビゲーションリンククリックで非アクティブ化
-    document.querySelectorAll(".drawer__nav__link").forEach(function (link) {
-        link.addEventListener('click', function () {
-            document.querySelector(".drawer__button").classList.remove("active");
-            document.querySelector(".drawer__nav").classList.remove("active");
-        });
-    });
     
 })
 
