@@ -34,10 +34,9 @@ img {
 	background-color: #CDF5FD;
 	display: flex;
 	width: 100%;
-	height: 10%;
-	/* セカンダリーヘッダーの高さを設定 */
+	height: 40px;
 	align-items: center;
-	/* 他のスタイルプロパティを追加 */
+	position: fixed;
 
 }
 
@@ -68,18 +67,23 @@ img {
 
 .secondary-header ul {
 	width: 100%;
-	position: fixed;
+	position: absolute;
 	display: flex;
-	margin: 0 auto;
-	padding-left: 0;
+	height: 100%;
+	padding: 0;
+	margin: 0;
 }
 
 .secondary-header li {
 	text-align: center;
-	font-size: 2em;
 	width: 100%;
+	height: 100%;
 	list-style: none;
-	margin: 0 120px;
+	margin: 0;
+}
+
+.secondary-header li>*{
+	font-size: 22px;
 }
 
 
@@ -89,6 +93,7 @@ img {
 	background-color: transparent;
 	text-align: center;
 	outline: none;
+	width: 100%;
 }
 
 
