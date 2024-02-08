@@ -8,9 +8,8 @@ header {
 	background-color: #DBFAFD;
 	display: flex;
 	width: 100%;
-	height: 15%;
+	height: 100px;
 	align-items: center;
-	max-height: 15%;
 }
 
 .fixed-top {
