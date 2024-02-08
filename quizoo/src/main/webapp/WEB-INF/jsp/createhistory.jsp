@@ -31,10 +31,10 @@
 	<!-- ヘッダー -->
 	<%@ include file="header.jsp" %>
 
-	<h1>作成履歴</h1>
-
 	<!-- クイズリスト -->
-    <div class="quiz_list mx-auto" id="quiz_list"></div>
+    <div class="quiz_list mx-auto" id="quiz_list">
+		<h1>作成履歴</h1>
+	</div>
 
 	<!--	モーダル-->
 	<div class="modal fade text-center" id="myModal" tabindex="-1"
