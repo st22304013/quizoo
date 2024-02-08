@@ -103,6 +103,8 @@ img {
 .quiz_list {
 	margin-bottom: 0px;
 	width: 100%;
+	position: relative;
+	z-index: -100;
 }
 
 /* 各クイズ */
