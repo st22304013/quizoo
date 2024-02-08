@@ -60,7 +60,7 @@ window.addEventListener('load',async function(){
 })
 
 async function searchTitle(){
-    var searchStr = document.querySelector("#search_text").value;
+    var searchStr = document.querySelector("#search-textbox").value;
     var url = new URL(window.location.href);
     if(searchStr == null || searchStr == ""){
         url.searchParams.delete("search");
