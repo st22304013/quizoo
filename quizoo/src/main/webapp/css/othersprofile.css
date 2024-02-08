@@ -8,7 +8,7 @@ body {
 	/* ページの最大横幅を画面幅と同じに設定 */
 	margin: 0;
 	/* ページを水平中央に配置するために左右の余白を自動調整 */
-	margin-top: 120px;
+	margin-top: 8%;
 
 }
 
@@ -303,7 +303,7 @@ section:nth-child(even) {
 }
 
 .ex {
-	color: rgba(255, 255, 255, 0.5);
+	color: #000000;
 	opacity: 0.8;
 }
 
