@@ -111,11 +111,6 @@ header {
 	/* 適切な余白を追加 */
 }
 
-.text-right {
-	font-size: 20px;
-	margin-right: 20px;
-}
-
 /*問題文を囲う枠*/
 .border {
 	display: block;
@@ -134,15 +129,8 @@ header {
 }
 
 /*解答群*/
-.answers {
-	margin-top: 30px;
-	width: 100%;
-	transition: height 0.3s;
-}
-
-.answers td {
-	padding: 10px;
-	text-align: center;
+.answer {
+	margin-top: 3%;
 }
 
 /*選択肢*/
@@ -194,18 +182,6 @@ a.btn--orange:hover {
 }
 
 /*1つ目のモーダル*/
-
-/*backボタン*/
-.no-btn {
-	width: 150px;
-	height: 70px;
-}
-
-/*endボタン*/
-.yes-btn {
-	width: 150px;
-	height: 70px;
-}
 
 .fonfirm-msg {
 	text-align: center;
@@ -302,8 +278,8 @@ a.btn--orange:hover {
     display: block;
     grid-template-rows: 50px repeat(2,5fr);
     grid-template-columns: 1fr 3fr;
-    width: 70vw;
-    left: 15vw;
+    width: 50vw;
+    left: 25vw;
     height: 50vh;
     top: 25vh;
     background-color: #ffffff;
@@ -311,42 +287,46 @@ a.btn--orange:hover {
 }
 
 .result-modal .title{
-    width: 100%;
-    margin-top: 5%;
+	margin-top: 1%;
     margin-left: 5%;
-    font-size: 3em;
+    font-size: 3.5em;
     text-align: left;
-    height: 2em;
     padding: 0;
 }
 
 
-.result-modal .result-list{
-    width: 100%;
+.result-modal .result-list {
+    width: 80%;
     height: calc(96% - 8em);
+    margin-top: 3%;
+    margin-left: 10%;
+    display: flex; /* Flexboxを使用 */
+    flex-wrap: wrap; /* 要素がwidthの限界値まで来たら改行 */
 }
 
-.result-modal .result-list>div{
+.result-modal .result-list > div {
     font-size: 2em;
-    display: inline;
     margin-left: 2em;
+    flex: 0 0 auto; /* 要素が自動的に幅を調整する */
 }
 
-.result-modal .result-rate{
+.result-modal .result-rate {
     position: absolute;
-    top: 5%;
+    top: 7%;
     right: 10%;
     font-size: 2em;
     border-radius: 0 0 10px 10px;
     height: 2em;
-    
 }
-
 .closeButton{
-	margin-left: 45%;
+	margin-left: 40%;
     position: absolute;
     bottom: 10%;
 	cursor: pointer;
+}
+
+.closeButton:hover {
+	color: #ff4500;
 }
 
 .close-btn {
@@ -369,6 +349,7 @@ a.btn--orange:hover {
 	background: #fff;
 }
 
-.border {
-	
-}
+/*.resultborder {*/
+/*	border-bottom: solid;*/
+/*	width: 100%;*/
+/*}*/

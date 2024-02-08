@@ -60,7 +60,7 @@
 			<!-- 結果モーダル -->
 			<div class="result-modal" id="result-modal">
 				<div class="result-modal-body">
-					<div class="border">
+					<div class="resultborder">
 						<p class="title">結果</p>
 						<div class="result-rate" id="result-rate">
 							正解率<a>2/3</a>
@@ -78,9 +78,6 @@
 			</div>
 
 			<div class="Problem-statement">
-				<div class="text-right">
-					<a>5/5</a>
-				</div>
 				<div class="border border-dark rounded bg-white">
 					<div class="sentence" id="question-sentence">
 						こまむらえいやの誕生日は何月何日でしょう？
