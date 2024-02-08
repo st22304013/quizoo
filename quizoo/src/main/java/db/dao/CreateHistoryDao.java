@@ -28,7 +28,7 @@ public class CreateHistoryDao extends Dao {
 		
 		try {
 			st = cn.prepareStatement(sql);
-			st.setInt(1, 0);
+			st.setInt(1, userNo);
 			
 			rs = st.executeQuery();
 			
