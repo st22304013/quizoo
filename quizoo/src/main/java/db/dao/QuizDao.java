@@ -42,8 +42,7 @@ public class QuizDao extends Dao{
 			}
 			
 			if(orderColumn != null && !orderColumn.isEmpty()) {
-				sql += " ORDER BY ?";
-				params.add(orderColumn);
+				sql += " ORDER BY " + orderColumn + " desc ";
 			}
 			
 			System.out.println(sql);
