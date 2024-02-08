@@ -64,19 +64,19 @@
 
 		<!--作問ポップアップ-->
 		<div class="create-quiz-modal-back" id="create-quiz-modal-back">			
-			<span class="close_btn create" id="create-close-btn"></span>
+			<span class="close_btn" id="create-close-btn"></span>
 			<div class="create-quiz-modal">
 				<div class="stored-question" id="stored-question">
 					<div class="add-question" id="add-question">
-						問題を追加する
+						<span><i class="fa-solid fa-plus"></i></span><span>問題を追加する</span>
 					</div>
 				</div>
 				<div class="question-editor" id="question-editor">
-					<textarea type="text" name="question-text" id="question-text" class="question-text"></textarea>
+					<textarea type="text" name="question-text" id="question-text" class="question-text" placeholder="問題文"></textarea>
 					<fieldset class="choices">
 						<div class="choice">
 							<input type="radio" name="choice" id="1">
-							<input type="text" name="choice-text" id="choice-text" class="choice-text">
+							<input type="text" name="choice-text" id="choice-text" class="choice-text" placeholder="選択肢">
 						</div>
 						<div class="choice">
 							<input type="radio" name="choice" id="2">
@@ -93,7 +93,7 @@
 					</fieldset>
 				</div>
 				<div class="submit-quiz-btn" id="submit-quiz-btn">
-					アイコン
+					<i class="next-btn fa-solid fa-arrow-right"></i>
 				</div>
 			</div>
 		</div>
@@ -107,18 +107,18 @@
 
 		<!--　作問確認ポップアップ　-->
 		<div class="metadata-modal-back" id="metadata-modal-back">
-			<span class="close_btn metadata" id="metadata-close-btn"></span>
+			<span class="close_btn" id="metadata-close-btn"></span>
 			<div class="metadata-modal">
 				<h5>以下の内容で投稿します</h5>
 				<div id="quiz-metadata" class="quiz-metadata">
-					<input type="text" name="title" id="post-title">
+					<input type="text" name="title" id="post-title" placeholder="タイトル">
 					<select name="genre" id="post-genres">
 					</select>
-					<input type="text" name="explanation" id="post-explanation">
+					<input type="text" name="explanation" id="post-explanation" placeholder="説明">
 				</div>
 				<div class="metadata-buttons">
-					<button class="cancel-quiz-btn" id="cancel-quiz-btn">修正する</button>
-					<button class="post-quiz-btn" id="post-quiz-btn">投稿する</button>
+					<button class="cancel-quiz-btn" id="cancel-quiz-btn"><i class="fa-solid fa-arrow-rotate-left"></i> 修正</button>
+					<button class="post-quiz-btn" id="post-quiz-btn"><i class="fa-solid fa-check"></i> 投稿</button>
 				</div>
 			</div>
 		</div>
