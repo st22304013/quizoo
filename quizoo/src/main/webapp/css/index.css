@@ -767,6 +767,7 @@ a.btn-border-shadow--color2:before {
 
 .metadata-buttons {
 	position: absolute;
+	display: flex;
 	bottom: 5vh;
 }
 
