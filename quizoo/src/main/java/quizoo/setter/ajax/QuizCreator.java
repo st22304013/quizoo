@@ -1,4 +1,4 @@
-package quizoo.setter;
+package quizoo.setter.ajax;
 
 import java.io.IOException;
 
