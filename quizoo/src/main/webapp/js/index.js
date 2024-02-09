@@ -113,20 +113,20 @@ function quizlistFactory(quizList){
         box.setAttribute('class','quiz');
         
         row = document.createElement('div');
-        row.setAttribute('class','width row');
+        row.setAttribute('class','metadata');
         title = document.createElement('div');
-        title.setAttribute('class','title col');
+        title.setAttribute('class','title');
         title.innerText = quiz['title'];
         row.appendChild(title);
         
         explanation = document.createElement('div');
-        explanation.setAttribute('class','d-flex align-items-center col');
+        explanation.setAttribute('class','explanation');
         explanation.innerText = quiz['explanation'] ? quiz['explanation'] : "";
         
         row.appendChild(explanation);
         
         info = document.createElement('div');
-        info.setAttribute('class','information text-right');
+        info.setAttribute('class','information');
         
         
         create_time = document.createElement('a');
