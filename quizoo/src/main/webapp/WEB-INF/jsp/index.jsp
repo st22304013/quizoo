@@ -73,8 +73,9 @@
                     </div>
                 </fieldset>
             </div>
-            <div id="submit-quiz-btn">
-                <i></i>
+            <!-- 完了ボタン -->
+            <div id="submit-quiz-btn" class="submit-quiz-btn">
+                <i class="fa-solid fa-arrow-right"></i>
             </div>
         </div>
     </div>
