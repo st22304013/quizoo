@@ -1,0 +1,87 @@
+header{
+    position: fixed;
+    height: 100px;
+    width: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    background-color: #daeef0;
+}
+
+header .index-link{
+    width: 100px;
+    height: 100px;
+    position: relative;
+}
+
+header .index-link img{
+	width: 100%;
+}
+
+header .index-link a{
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.side-menu{
+	display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: #00000057;
+}
+
+.side-menu ul{
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 150px;
+    height: 100vh;
+    background-color: #d7d3c0;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+
+header .search-txtbox{
+    width: calc(100% - 268px);
+    height: 30px;
+    margin: 34px;
+    padding: 0;
+    border: solid 1px #bbb6ab;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+header .search-txtbox:focus{
+	border: solid 2px #bbb6ab;
+}
+
+header .side-menu-drawer{
+    cursor: pointer;
+    position: absolute;
+    top: 30px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+header .side-menu-drawer span{ 
+    display: block;
+    width: 60%;
+    content: "";
+    border-bottom: 1px solid #000;
+    height: 0px;
+    position: relative;
+    padding: 0 10%;
+    left: 0%;
+    margin: 17% 10%;
+}
