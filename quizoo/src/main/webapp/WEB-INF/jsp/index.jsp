@@ -78,22 +78,22 @@
 					<div class="choice">
 						<input type="radio" name="choice" id="1"> <input
 							type="text" name="choice-text" id="choice-text"
-							class="choice-text" placeholder="選択肢">
+							class="choice-text" placeholder="選択肢1">
 					</div>
 					<div class="choice">
 						<input type="radio" name="choice" id="2"> <input
 							type="text" name="choice-text" id="choice-text"
-							class="choice-text">
+							class="choice-text" placeholder="選択肢2">
 					</div>
 					<div class="choice">
 						<input type="radio" name="choice" id="3"> <input
 							type="text" name="choice-text" id="choice-text"
-							class="choice-text">
+							class="choice-text" placeholder="選択肢3">
 					</div>
 					<div class="choice">
 						<input type="radio" name="choice" id="4"> <input
 							type="text" name="choice-text" id="choice-text"
-							class="choice-text">
+							class="choice-text" placeholder="選択肢4">
 					</div>
 				</fieldset>
 			</div>
