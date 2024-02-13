@@ -20,6 +20,7 @@
 	crossorigin="anonymous"></script>
 <link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css"
 	rel="stylesheet">
+<link rel="icon" type="image/png" href="img/favicon.png">
 </head>
 
 <body>
