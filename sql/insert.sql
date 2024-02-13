@@ -1,10 +1,9 @@
 /* userinfo テーブルへのデータ挿入 */
 INSERT INTO userinfo (user_id, password, total_answer, correct_answer, rating) VALUES
-('watoru5151@gmail.com', 'password1', 2, 1, 0.5),
-('jibiki@gmail.com', 'password2', 3, 0, 0),
-('eiya@gmail.com', 'password3', 15, 15, 15),
-('niko@gmail.com', 'password4', 100, 80, 64),
-('tester', 'test', 0, 0, 0);
+('watoru5151@quizoo.ttc.ac.jp', 'password1', 2, 1, 0.5),
+('jibiki@quizoo.ttc.ac.jp', 'password2', 3, 0, 0),
+('eiya@quizoo.ttc.ac.jp', 'password3', 15, 15, 15),
+('niko@quizoo.ttc.ac.jp', 'password4', 100, 80, 64),
 
 
 
