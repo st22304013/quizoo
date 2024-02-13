@@ -25,7 +25,7 @@ public class passwordUpdater extends Service {
     	UserInfoBean user = req.getUser();
         
         UserInfoDao dao = new UserInfoDao();
-        System.out.println("パスワードをアップデート！");
+        
     
         Gson gson = new Gson();
         String body = req.getMessageBody();
@@ -39,8 +39,5 @@ public class passwordUpdater extends Service {
 			throw new ResourceException(e.getMessage(), e);
 		}
         dao.updatePassword(user.getUserId(),password);
-        System.out.println(password);
-        System.out.println(user.getUserId());
-
     }
 }
