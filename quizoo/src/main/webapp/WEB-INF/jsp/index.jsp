@@ -23,7 +23,7 @@
     <header class="order-menu">
 		<a>new</a>
 		<a>popular</a>
-			<select id="genre_selector">
+			<select id="genre_selector" class="genre_selector">
 			</select>
     </header>
     <!-- クイズリスト  -->
@@ -45,7 +45,7 @@
 
     <!--作問ポップアップ-->
     <div id="create-quiz-modal-back" class="create-quiz-modal-back">
-        <span id="create-close-btn"></span>
+        <span id="create-close-btn" class="create-close-btn"><i class="close-btn fa-solid fa-xmark"></i></span>
         <div id="create-quiz-modal" class="create-quiz-modal">
             <div id="stored-question" class="stored-question">
                 <div id="add-question" class="add-question">
@@ -82,7 +82,7 @@
 
     <!-- 作問確認ポップアップ -->
     <div id="metadata-modal-back" class="metadata-modal-back">
-        <span id="metadata-close-btn"></span>
+        <span id="metadata-close-btn" class="metadata-close-btn"><i class="close-btn fa-solid fa-xmark"></i></span>
         <div id="metadata-modal" class="metadata-modal">
             <h5>以下の内容で投稿します</h5>
             <div id="quiz-metadata" class="quiz-metadata">

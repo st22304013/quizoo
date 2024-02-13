@@ -1,8 +1,14 @@
 @charset "UTF-8";
 
 body{
+	font-family: 'Zen Maru Gothic', serif;
 	margin:0;
 	padding-top: 150px;
+	background-color: #FFFAEF;
+}
+
+button {
+	font-family: 'Zen Maru Gothic', serif;
 }
 
 .order-menu{
@@ -15,10 +21,17 @@ body{
 	display: block;
 	width: 33%;
 	text-align: center;
+	font-size: 1.5em;
 }
 
 .order-menu>*:hover{
 	text-decoration: underline solid #000;
+}
+
+.genre_selector {
+	border: none;
+	background-color: #daeef0;
+	font-size: 1.5em;
 }
 
 .quiz_list{
@@ -74,13 +87,15 @@ body{
 }
 
 .quiz .title {
-	font-size: 1rem;
+	font-size: 2em;
 	margin-left: 5%;
-	font-family: cursive;
+}
+
+.quiz .explanation {
+	margin-left: 30%;
 }
 
 .quiz .information {
-	z-index: 10;
 	width: 100%;
 	text-align: center !important;
 	margin-top: 10px;
@@ -115,7 +130,7 @@ body{
 	bottom: 0;
 	right: 0;
 	margin-bottom: 40px;
-	margin-right: 40px;
+	margin-right: 60px;
 }
 
 .create-quiz-btn .fa-solid {
@@ -172,7 +187,19 @@ body{
 	font-size: 40px;
 }
 
+.create-close-btn {
+	display: block;
+    position: absolute;
+    top: 0;
+    right: 20px;
+    width: 100px;
+    height: 100px;
+    z-index: 1;
+}
 
+.close-btn {
+	color: #ffffff;
+}
 
 .create-quiz-modal-back {
 	display: none;
@@ -363,6 +390,15 @@ body{
     text-align: center;
 }
 
+.metadata-close-btn {
+	display: block;
+    position: absolute;
+    top: 150px;
+    right: 310px;
+    width: 100px;
+    height: 100px;
+    z-index: 1;
+}
 
 .metadata-modal-back{
 	display: none;
