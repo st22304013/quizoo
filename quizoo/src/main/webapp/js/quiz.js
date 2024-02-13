@@ -14,13 +14,9 @@ let currentQuestionNo;
 let selectedAnswers;
 let answerBtns;
 let questionlist; // Declare questionlist variable
-let confirmModal; //送信確認のモーダル
-let resultModal;
 
 window.addEventListener('load', async function () {
     // モーダルを取得
-    confirmModal = new Modal(this.document.querySelector("#exampleModal"));
-    resultModal = new Modal(this.document.querySelector("#secondModal"));
 
     questionlist = this.document.querySelector('#question_list');
 
@@ -34,7 +30,7 @@ window.addEventListener('load', async function () {
     selectedAnswers = new Array(quizAndQuestions['question'].length);
 
     // 選択肢ボタンを設定
-    answerBtns = document.querySelectorAll('#answer_btn button');
+    answerBtns = document.querySelectorAll('#answer_btn');
 
     for(let i = 0; i < answerBtns.length; i++) {
         answerBtns[i].addEventListener('click', function() {
@@ -45,17 +41,17 @@ window.addEventListener('load', async function () {
 
     // 回答送信の確認画面を表示
     document.querySelector('#endButton').addEventListener('click', ()=>{
-        confirmModal.show();
+        showConfirmModal();
     });
 
     this.document.querySelector("#sendAnswerButton").addEventListener('click', async ()=>{
-        confirmModal.hide();
-        resultModal.show();
+        hideConfirmModal();
+        showResultModal();
         scoring();
     });
 
     this.document.querySelector("#dontSendButton").addEventListener('click', ()=>{
-        confirmModal.hide();
+        hideConfirmModal();
     });
 
 
@@ -113,6 +109,9 @@ function displayQuestionDetails(questionNo) {
 
     let oldChoicesWrapper = document.querySelector('#question-choices');
     let newChoicesWrapper = createChoiseNodes(questionNo);
+    for(let i = 0; i < 4; i++) {
+        newChoicesWrapper.querySelectorAll("#answer-btn")[i].addEventListener('click',choiceBtnClickHandler.bind(this,i+1));
+    }
     oldChoicesWrapper.replaceWith(newChoicesWrapper);
     
     chengeSelected(selectedAnswers[currentQuestionNo - 1]);
@@ -136,20 +135,36 @@ function createSentenceNode(questionNo) {
 }
 
 function createChoiseNodes(questionNo) {
-    let newChoicesWrapper = document.createElement('div');
+    let newChoicesWrapper = document.createElement('table');
     newChoicesWrapper.setAttribute('class','answer');
     newChoicesWrapper.setAttribute('id','question-choices');
 
     let question = quizAndQuestions['question'][questionNo - 1];
 
-    // 一時的になし
-    // choiceBtn.setAttribute('class', '');
-    
-    for(let i = 1; i <= 4; i++) {
-        let choiceBtn = document.createElement('div');
-        choiceBtn.setAttribute('class','choice');
-        choiceBtn.innerText = question['choice'+i];
-        newChoicesWrapper.appendChild(choiceBtn);
+    let tr;
+    for(var i = 1; i <= 4; i++) {
+        if((i % 2) === 1){
+            tr = document.createElement('tr');
+            newChoicesWrapper.appendChild(tr);
+        }
+        var td = document.createElement('td');
+        var button = document.createElement('button');
+        button.innerText = i;
+        button.setAttribute('class','btn btn--orange');
+        button.setAttribute('id','answer-btn');
+
+        td.appendChild(button);
+
+        tr.appendChild(td.cloneNode(true));
+
+        var td = document.createElement('td');
+        var div = document.createElement('div');
+        div.setAttribute('class','choice');
+        div.innerText = question['choice'+i];
+
+        td.appendChild(div.cloneNode(true));
+
+        tr.appendChild(td.cloneNode(true));
     }
 
     return newChoicesWrapper;
@@ -170,22 +185,24 @@ function chengeSelected(selectedNo = 0) {
 
 function scoring() {
     let questionResult = document.createElement('div');
-    questionResult.setAttribute('class','question-result');
-    questionResult.setAttribute('id','question-result');
+    questionResult.setAttribute('class','result-list');
     let score = 0;
     for(let i = 0; i < quizAndQuestions['question'].length; i++) {
-        var result = document.createElement('p');
+        var result = document.createElement('div');
+        result.innerText = (i+1) + "."
         if(quizAndQuestions['question'][i]['judge'][selectedAnswers[i]]) {
-            result.innerText= "〇";
+            result.innerText+= "〇";
             score++;
         }else{
-            result.innerText = "✕";
+            result.innerText+= "✕";
         }
         questionResult.appendChild(result);
     }
     
-    document.querySelector("#question-result").replaceWith(questionResult);
-    document.querySelector("#score h1").innerText = score;
+    document.querySelector("#result-list").replaceWith(questionResult);
+
+    var rate = Math.round(score/quizAndQuestions['question'].length * 100);
+    document.querySelector("#result-rate a").innerText = rate + "%";
     sendAnswer(score);
     
 }
@@ -203,4 +220,16 @@ async function sendAnswer(score){
             'question_num':quizAndQuestions['question'].length,
         })
     });
+}
+
+function showConfirmModal() {
+    document.querySelector("#confirm-modal").style.display = "block";
+}
+
+function hideConfirmModal() {
+    document.querySelector("#confirm-modal").style.display = "none";
+}
+
+function showResultModal() {
+    document.querySelector("#result-modal").style.display = "block";
 }

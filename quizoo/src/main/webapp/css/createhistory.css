@@ -4,38 +4,30 @@
 body {
 	font-family: 'Zen Maru Gothic', serif;
 	background-color: #fffaef;
-	width: 100em;
+	width: 100%;
 	/* ページの最大横幅を画面幅と同じに設定 */
 	margin: 0;
 	/* ページを水平中央に配置するために左右の余白を自動調整 */
-	margin-top: 100px;
+	margin-top: 10%;
 
+}
+
+h1 {
+	text-align: center;
+	margin-bottom: 50px;
 }
 
 /*全画面共通a*/
 a {
-	font-size: 1.0em;
+	font-size: 1.0vw;
 	text-decoration: none;
 }
 
-/*全画面共通img*/
-img {
-	max-width: 100%;
-	vertical-align: bottom;
-}
-
 .profile {
-	padding: 20px;
-	margin-top: 120px;
+	padding: 15%;
+	margin-top: 10%;
 }
 
-/*プロフィール画像*/
-.img-thumbnail {
-	margin-top: 50px;
-	border-radius: 50%;
-	width: 200px;
-	height: 200px;
-}
 
 /* スタイルを適用するための親要素 */
 .custom-file-input {
@@ -58,37 +50,61 @@ img {
 	border-radius: 5px;
 }
 
+/*.quiz_list {*/
+/*	padding: 10%;*/
+/*}*/
+
+/* クイズ一覧 */
 .quiz_list {
-	padding: 20px;
-	margin-top: 120px;
+	margin-top: 200px;
+	margin-bottom: 0px;
+	width: 100%;
 }
 
-.createhistory {
-	text-align: center;
-}
-
-.box {
-	padding: 25px;
-	margin: 60px;
-	margin-bottom: 10px;
+/* 各クイズ */
+.quiz {
+	position: relative;
+	padding: 30px 0px;
+	padding-bottom: 40px;
+	margin-bottom: 5%;
+	margin-left: 20%;
+	margin-right: 20%;
 	border: 1px solid #333333;
-	border-radius: 10px;
-	background-color: #ffff99;
+	border-radius: 80px;
+	background-color: rgb(215, 248, 215);
+	width: 60%;
+	height: 10%;
 }
 
-.title {
-	font-size: 30px;
-	margin-left: 100px;
+.quiz .title {
+	font-size: 2vw;
+	margin-left: 5%;
+	font-family: cursive;
 }
 
-.information {
-	margin-right: 200px;
+.quiz .explanation {
+    font-size: 1vw;
+    font-family: cursive;
 }
+
+.quiz .information {
+	position: absolute;
+	z-index: 10;
+	width: 100%;
+	text-align: center !important;
+	margin-top: 10px;
+}
+
+.quiz .information a {
+	margin: 0 0.5rem;
+}
+
 /*ゴミ箱*/
 .garbage_can {
-	margin: 20px 30px 0 0;
+	margin: 3% 5% 0 0;
     text-align: right;
     color: #000000;
+	font-size: 24px;
 }
 
 /*モーダル*/

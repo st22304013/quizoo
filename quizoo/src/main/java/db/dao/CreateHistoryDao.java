@@ -3,35 +3,28 @@ package db.dao;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import db.bean.QuizBean;
+import db.bean.CreateHistoryBean;
 import frame.exception.ResourceException;
 
 public class CreateHistoryDao extends Dao {
 	
-	public ArrayList<QuizBean> selectCreateHistory(int userNo) throws ResourceException {
+	public ArrayList<CreateHistoryBean> selectCreateHistory(int userNo) throws ResourceException {
 		//回答履歴を格納するArrayList
-		ArrayList<QuizBean> createhistory = new ArrayList<>();
+		ArrayList<CreateHistoryBean> createhistory = new ArrayList<>();
 		
-
 		connect();
 		
-		String sql = "SELECT q.quiz_id AS quiz_id,"
-				+ "q.author_no AS author_no,"
-				+ "q.title AS title,"
-				+ "q.question_count AS question_count,"
-				+ "q.genre_no AS genre_no,"
-				+ "q.explanation AS explanation,"
-				+ "q.create_time AS create_time,"
-				+ "q.correct_rate AS correct_rate ,"
-				+ "q.total_participants AS total_participants,"
-				+ "g.genre_title AS genre_title, "
-				+ "q.deleted AS deleted"	 
-				+ " FROM genre g "
-				+ " INNER JOIN quiz q"
-				+ " USING (genre_no)"
-				+ " WHERE author_no = ?"
-				+ " ORDER BY create_time desc";
-		
+		String sql = "SELECT q.title AS title,"
+	            + "q.explanation AS explanation,"
+	            + "q.create_time AS create_time,"
+	            + "g.genre_title AS genre_title, "
+	            + "q.correct_rate AS correct_rate, "
+	            + "q.question_count AS question_count "
+	            + "FROM genre g "
+	            + "INNER JOIN quiz q "
+	            + "ON g.genre_no = q.genre_no "
+	            + "WHERE q.author_no = ? "
+	            + "ORDER BY q.create_time DESC";
 		
 		try {
 			st = cn.prepareStatement(sql);
@@ -39,28 +32,20 @@ public class CreateHistoryDao extends Dao {
 			
 			rs = st.executeQuery();
 			
-			
 			while(rs.next()) {
 				
 				//QuizBeanの作成とセット
-				QuizBean quizbean = new QuizBean();
-				quizbean.setQuizId(rs.getInt("quiz_id"));
-				quizbean.setQuestionCount(rs.getInt("question_count"));
-				quizbean.setTitle(rs.getString("title"));
-				quizbean.setAuthorNo(rs.getInt("author_no"));
-				quizbean.setExplanation(rs.getString("explanation"));
-				quizbean.setCreateTime(rs.getString("create_time"));
-				quizbean.setCorrectRate(rs.getFloat("correct_rate"));
-				quizbean.setTotalParticipants(rs.getInt("total_participants"));
-				quizbean.setGenreNo(rs.getInt("genre_no"));
-				quizbean.setDeleted(rs.getBoolean("deleted"));
-				
-				
+				CreateHistoryBean createHistoryBean = new CreateHistoryBean();
+				createHistoryBean.setTitle(rs.getString("title"));
+				createHistoryBean.setExplanation(rs.getString("explanation"));
+				createHistoryBean.setCreateTime(rs.getString("create_time"));
+				createHistoryBean.setGenre(rs.getString("genre_title"));
+				createHistoryBean.setCorrectRate(rs.getFloat("correct_rate"));
+				createHistoryBean.setQuestionCount(rs.getInt("question_count"));
 				
 				//Listに追加
-				createhistory.add(quizbean);
+				createhistory.add(createHistoryBean);
 			}
-			
 			
 			
 		} catch (SQLException e) {

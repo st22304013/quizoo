@@ -41,7 +41,7 @@
 
 			<!-- 右側のコンテンツ -->
 			<div class="col-md-6">
-				<div class="container flex-grow-1 ms-3">
+				<div class="form container flex-grow-1 ms-3">
 					<div class="row justify-content">
 						<div class="fixed-col-md-7">
 							<div class="card">
@@ -70,7 +70,7 @@
 														placeholder="Password" required>
 												</div>
 												<div class="miss none" id="miss">
-													<p>IDまたはPASSWORDが違います</p>
+													IDまたはPASSWORDが違います
 												</div>
 												<div class="text-center">
 													<button type="submit" class="btn">Login</button>

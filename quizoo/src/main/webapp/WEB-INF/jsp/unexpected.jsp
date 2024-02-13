@@ -21,7 +21,24 @@ pageEncoding="UTF-8"%>
       ご迷惑をおかけし、申し訳ございません。
       
     </p>
+    <p id="timer"></p>
   </div>
 </div>
 </body>
+<script>
+window.addEventListener('load', function() {
+  const timer = document.querySelector('#timer');
+
+  var seconds = 10;
+  var timerId = setInterval(function() {
+    seconds--;
+    timer.textContent = seconds;
+    if (seconds <= 0) {
+      clearInterval(timerId);
+      window.location = '/quizoo/';
+    }
+  }, 1000);
+});
+
+</script>
 </html>

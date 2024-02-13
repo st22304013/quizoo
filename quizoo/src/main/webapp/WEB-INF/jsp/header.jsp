@@ -4,9 +4,9 @@
 	<nav class="navbar navbar-light fixed-top">
 		<div class="header-img">
 			<a href="index"><img src="img/quizoo_nobackground.png"
-				alt="quizoo"></a>
+				alt="quizoo" class="icon"></a>
 		</div>
-		<div class="input-group">
+		<div class="input-group seach-box" id="input-group">
 			<input type="text" class="form-control" placeholder="Search" id="search_text">
 		</div>
 		<!-- ハンバーガーメニュー -->
@@ -32,5 +32,5 @@
 </header>
 
 <!--	ハンバーガー -->
-<script src="header.js"></script>
+<script src="js/header.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

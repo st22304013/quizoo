@@ -111,11 +111,6 @@ header {
 	/* 適切な余白を追加 */
 }
 
-.text-right {
-	font-size: 20px;
-	margin-right: 20px;
-}
-
 /*問題文を囲う枠*/
 .border {
 	display: block;
@@ -134,15 +129,8 @@ header {
 }
 
 /*解答群*/
-.answers {
-	margin-top: 30px;
-	width: 100%;
-	transition: height 0.3s;
-}
-
-.answers td {
-	padding: 10px;
-	text-align: center;
+.answer {
+	margin-top: 3%;
 }
 
 /*選択肢*/
@@ -195,16 +183,8 @@ a.btn--orange:hover {
 
 /*1つ目のモーダル*/
 
-/*backボタン*/
-.no-btn {
-	width: 150px;
-	height: 70px;
-}
-
-/*endボタン*/
-.yes-btn {
-	width: 150px;
-	height: 70px;
+.fonfirm-msg {
+	text-align: center;
 }
 
 /*2つ目のモーダル*/
@@ -241,79 +221,135 @@ a.btn--orange:hover {
 	height: 70px;
 }
 
-/*profile.html*/
 
-.profile {
-	padding: 20px;
-	margin-top: 120px;
-}
 
-/*プロフィール画像*/
-.img-thumbnail {
-	margin-top: 50px;
-	border-radius: 50%;
-	width: 200px;
-	height: 200px;
-}
-
-/* スタイルを適用するための親要素 */
-.custom-file-input {
-	position: relative;
-	display: inline-block;
-}
-
-/* 実際のinputは非表示 */
-.custom-file-input input {
+/* 自作確認モーダル */
+.confirm-modal{
 	display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #0006;
+    z-index: 1100;
 }
 
-/* カスタムデザインのスタイル */
-.custom-file-input label {
-	display: inline-block;
-	padding: 10px 15px;
-/*	background-color: #3498db;*/
-	color: #0000ff;
+.confirm-modal-body{
+    position: absolute;
+    width: 40vw;
+    left: 30vw;
+    height: 20vh;
+    top: 40vh;
+    background-color: #fff;
+    border-radius: 10px;
+	padding: 3vh 5vw;
+}
+
+.confirm-choices{
+	text-align: center;
+}
+
+.cofirm-msg{
+	text-align: center;
+}
+
+.confirm-modal button{
+    height: 4em;
+    width: 7em;
+    max-width: 100%;
+    border-radius: 1em;
+}
+
+.result-modal{
+	display: none;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: #0006;
+    z-index: 1100;
+    margin: auto;
+}
+
+.result-modal-body{
+    position: absolute;
+    display: block;
+    grid-template-rows: 50px repeat(2,5fr);
+    grid-template-columns: 1fr 3fr;
+    width: 50vw;
+    left: 25vw;
+    height: 50vh;
+    top: 25vh;
+    background-color: #ffffff;
+    border-radius: 10px;
+}
+
+.result-modal .title{
+	margin-top: 1%;
+    margin-left: 5%;
+    font-size: 3.5em;
+    text-align: left;
+    padding: 0;
+}
+
+
+.result-modal .result-list {
+    width: 80%;
+    height: calc(96% - 8em);
+    margin-top: 3%;
+    margin-left: 10%;
+    display: flex; /* Flexboxを使用 */
+    flex-wrap: wrap; /* 要素がwidthの限界値まで来たら改行 */
+}
+
+.result-modal .result-list > div {
+    font-size: 2em;
+    margin-left: 2em;
+    flex: 0 0 auto; /* 要素が自動的に幅を調整する */
+}
+
+.result-modal .result-rate {
+    position: absolute;
+    top: 7%;
+    right: 10%;
+    font-size: 2em;
+    border-radius: 0 0 10px 10px;
+    height: 2em;
+}
+.closeButton{
+	margin-left: 40%;
+    position: absolute;
+    bottom: 10%;
 	cursor: pointer;
-	border-radius: 5px;
 }
 
-.title {
-	margin-left: 10px;
+.closeButton:hover {
+	color: #ff4500;
 }
 
-.nickname {
-	margin-top: 50px;
-	background-color: #fffaef;
-	border: none;
-	outline: none;
-	border-bottom: 2px solid #999;
-	padding: 5px 10px;
+.close-btn {
+	display: block;
+	text-align: center;
+	vertical-align: middle;
+	text-decoration: none;
+	width: 80%;
+	padding: 2%;
+	margin: auto;
+	font-weight: bold;
+	border: 2px solid #ffa500;
+	background: #ffa500;
+	color: #fff;
+	transition: 0.5s;
 }
 
-.nickname:focus {
-	border-bottom-color: #ffa500;
+.close-btn:hover {
+	color: #ffa500;
+	background: #fff;
 }
 
-.password {
-	background-color: #fffaef;
-	border: none;
-	outline: none;
-	border-bottom: 2px solid #999;
-	padding: 5px 10px;
-}
-
-.password:focus {
-	border-bottom-color: #ffa500;
-}
-
-.edit-btn {
-	margin-top: 20px;
-}
-
-.selected{
-	border:solid 3px #ff0000;	
-}
-
-.selected:hover{
-	border:solid 3px #ff0000;	
-}
+/*.resultborder {*/
+/*	border-bottom: solid;*/
+/*	width: 100%;*/
+/*}*/
