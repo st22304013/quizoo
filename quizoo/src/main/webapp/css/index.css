@@ -567,6 +567,7 @@ a.btn-border-shadow--color2:before {
 	display: flex;
 	width: 90vw;
 	height: 90vh;
+	min-height: 400px;
 	background-color: #F9F7C9;
 	position: absolute;
 	top: 5vh;
