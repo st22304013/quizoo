@@ -21,11 +21,17 @@ window.addEventListener("load",function () {
 
 // クイズ作成モーダルを表示
 function showQreateModal() {
+    // クイズリストをスクロールしないようにする
+    document.body.style.overflow = "hidden";
+
     metadataModal.style.display = "none";
     createModal.style.display = "block";
 }
 // クイズ作成モーダルを非表示
 function hideCreateModal() {
+    // クイズリストをスクロールするようにする
+    document.body.style.overflow = "auto";
+
     createModal.style.display = "none";
 }
 // クイズ作成モーダルを初期化
@@ -45,11 +51,17 @@ function showMetadataModal(){
         document.querySelector("#post-genres").appendChild(option.cloneNode(true));
     }
 
+    // クイズリストをスクロールしないようにする
+    document.body.style.overflow = "hidden";
+
     createModal.style.display = "none";
     metadataModal.style.display = "block";
 }
 //　クイズ作成モーダルを非表示
 function hideMetadataModal() {
+    // クイズリストをスクロールするようにする
+    document.body.style.overflow = "auto";
+
     metadataModal.style.display = "none";
     
 }
