@@ -1,3 +1,7 @@
+SET NAMES utf8;
+
+use quizoo
+
 /* userinfo テーブルへのデータ挿入 */
 INSERT INTO userinfo (user_id, password, total_answer, correct_answer, rating) VALUES
 ('watoru5151@quizoo.ga.ttc.ac.jp', '9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08', 2, 1, 0.5),
@@ -17,27 +21,27 @@ INSERT INTO nickname (user_no, nickname) VALUES
 
 
 /* genre テーブルへのデータ挿入 */
-INSERT INTO  genre(genre_no, genre_title) VALUES
-(1, 'スポーツ'),
-(2, '音楽'),
-(3, '映画'),
-(4, 'ゲーム'),
-(5, '雑学'),
-(6, '宇宙'),
-(7, 'エンタメ・芸能'),
-(8, 'なぞなぞ'),
-(9, '生き物'),
-(10, '歴史'),
-(11, '数学'),
-(12, '漫画'),
-(13, '生活'),
-(14, '地理'),
-(15, 'お酒'),
-(16, '美術'),
-(17, 'ことば'),
-(18, '文化'),
-(19, '料理'),
-(20, 'アニメ');
+INSERT INTO  genre(genre_title) VALUES
+('スポーツ'),
+('音楽'),
+('映画'),
+('ゲーム'),
+('雑学'),
+('宇宙'),
+('エンタメ・芸能'),
+('なぞなぞ'),
+('生き物'),
+('歴史'),
+('数学'),
+('漫画'),
+('生活'),
+('地理'),
+('お酒'),
+('美術'),
+('ことば'),
+('文化'),   
+('料理'),
+('アニメ');
 
 
 
@@ -78,7 +82,7 @@ INSERT INTO quiz (author_no, title, question_count, genre_no, explanation, creat
 
 /* question テーブルへのデータ挿入 */
 INSERT INTO question (quiz_id, question_id, question, choice_1, choice_2, choice_3, choice_4, judge) VALUES
-(1, 1, '亘の好きな食べ物は？', 'ラーメン', '寿司', 'カツオ', 'プリン', b'1100'),
+(1, 1, '亘の好きな食べ物は？', 'ラーメン', '寿司', 'カツオ', 'プリン', b'1000'),
 (1, 2, '亘の嫌いな食べ物は？', 'カツオ', 'プリン', 'カリフラワー', '大根', b'0010'),
 (1, 3, '亘の身長は？', '169', '170', '171', '172', b'0010'),
 (2, 1, '地引の居住地は？', '神栖', '筑波', '大洗', '取手', b'0001'),

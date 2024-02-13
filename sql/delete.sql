@@ -1,3 +1,4 @@
+SET NAMES utf8;
 /*トリガーの削除*/
 DROP TRIGGER calculate_rating;
 DROP TRIGGER question_count_AND_correct_rate;
