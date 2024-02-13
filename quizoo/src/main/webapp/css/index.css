@@ -672,6 +672,7 @@ a.btn-border-shadow--color2:before {
 }
 
 .add-question span {
+	font-size: 1rem;
 	/*絶対配置でテキストの位置を決める*/
 	position: absolute;
 	left: 50%;
