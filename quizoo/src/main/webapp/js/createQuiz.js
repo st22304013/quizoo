@@ -50,9 +50,7 @@ function showMetadataModal(){
 }
 //　クイズ作成モーダルを非表示
 function hideMetadataModal() {
-	setTimeout(function() {
-		metadataModal.style.display = "none";
-	}, 2000);
+    metadataModal.style.display = "none";
     
 }
 // クイズ作成モーダルを初期化
@@ -170,14 +168,23 @@ function addQuestion(){
 }
 
 //投稿中メッセージ
-function postMessage(){
-	var bar = document.getElementById("snackbar");
-	bar.className = "show";
-  	setTimeout(function(){ bar.className = bar.className.replace("show", ""); }, 2000);
+
+function showPostingMessage(){
+    document.querySelector("#snackbar").classList.add("show");
+}
+
+function hidePostingMessage(){
+    document.querySelector("#snackbar").classList.remove("show");
 }
 
 // 問題を投稿する
 async function postQuiz(){
+    hideCreateModal();
+    hideMetadataModal();
+    showPostingMessage();
+    clearCreateModal();
+    clearMetadataModal();
+
     let quidatas = [];
     for(var editor of questionEditors){
         quidatas.push({
@@ -212,11 +219,6 @@ async function postQuiz(){
         credentials:"include"
     }).catch((err)=>{
         console.log(err);
-    })
-
-    hideCreateModal();
-    postMessage();
-    hideMetadataModal();
-    clearCreateModal();
-    clearMetadataModal();
+    });
+    hidePostingMessage();
 }
