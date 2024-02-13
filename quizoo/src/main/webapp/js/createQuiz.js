@@ -182,9 +182,7 @@ async function postQuiz(){
     hideCreateModal();
     hideMetadataModal();
     showPostingMessage();
-    clearCreateModal();
-    clearMetadataModal();
-
+    
     let questionDatas = [];
     for(var editor of questionEditors){
         questionDatas.push({
@@ -221,4 +219,6 @@ async function postQuiz(){
         console.log(err);
     });
     hidePostingMessage();
+    clearCreateModal();
+    clearMetadataModal();
 }
