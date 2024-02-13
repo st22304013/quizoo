@@ -6,6 +6,14 @@ var list_box;
 window.addEventListener('load',async function(){
     gneres = await fetch("/quizoo/genres");
 
+    // genresを取得できるまで待つ
+    var genresInterval = setInterval(() => {
+        if(gneres.status == 200){
+            gneres = gneres.json();
+            clearInterval(genresInterval);
+        }
+    },100);
+
     // メタデータのモーダルが非表示になった時の処理
     const createQuizModalObserver = new MutationObserver(mutations => {
         if (mutations[0].target.style.display == "none") {
