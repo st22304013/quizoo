@@ -1,9 +1,9 @@
 /* userinfo テーブルへのデータ挿入 */
 INSERT INTO userinfo (user_id, password, total_answer, correct_answer, rating) VALUES
-('watoru5151@quizoo.ttc.ac.jp', '9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08', 2, 1, 0.5),
-('jibiki@quizoo.ttc.ac.jp', '9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08', 3, 0, 0),
-('eiya@quizoo.ttc.ac.jp', '9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08', 15, 15, 15),
-('niko@quizoo.ttc.ac.jp', '9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08', 100, 80, 64);
+('watoru5151@quizoo.ga.ttc.ac.jp', '9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08', 2, 1, 0.5),
+('jibiki@quizoo.ga.ttc.ac.jp', '9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08', 3, 0, 0),
+('eiya@quizoo.ga.ttc.ac.jp', '9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08', 15, 15, 15),
+('niko@quizoo.ga.ttc.ac.jp', '9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08', 100, 80, 64);
 
 
 
