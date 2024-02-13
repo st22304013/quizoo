@@ -182,12 +182,10 @@ async function postQuiz(){
     hideCreateModal();
     hideMetadataModal();
     showPostingMessage();
-    clearCreateModal();
-    clearMetadataModal();
-
-    let quidatas = [];
+    
+    let questionDatas = [];
     for(var editor of questionEditors){
-        quidatas.push({
+        questionDatas.push({
             "question":editor.querySelector("#question-text").value,
             "choice1":editor.querySelector("#choice-text").value,
             "choice2":editor.querySelector("#choice-text").value,
@@ -206,7 +204,6 @@ async function postQuiz(){
         "genreNo":metadataModal.querySelector("#post-genres").value,
         "explanation":metadataModal.querySelector("#post-explanation").value
     }
-    console.log(JSON.stringify(quidatas));
     await fetch("/quizoo/submitquiz",{
         method:"POST",
         headers:{
@@ -214,11 +211,18 @@ async function postQuiz(){
         },
         body:JSON.stringify({
             "quiz":medaData,
-            "question":quidatas
+            "question":questionDatas
         }),
         credentials:"include"
     }).catch((err)=>{
         console.log(err);
     });
     hidePostingMessage();
+    clearCreateModal();
+    clearMetadataModal();
+
+    // updateQuizListは別ファイルのため確認して実行
+    if(updateQuizList){
+        updateQuizList();
+    }
 }

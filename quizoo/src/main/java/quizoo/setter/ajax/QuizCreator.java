@@ -18,14 +18,22 @@ public class QuizCreator extends Service {
     @Override
     public void execute(RequestContext req, ResponseContext res)
             throws IOException, ResourceException, BadRequestException, NotFoundException {
+    	try {
+    	String msgbdy = req.getMessageBody();
+    	
+    	System.out.println(msgbdy);
         
     	int user_no = req.getUser().getUserNo();
     	
     	Gson gson = new Gson();
-        QuizQuestionBean quizQuestionBean = gson.fromJson(req.getMessageBody(), QuizQuestionBean.class);
+        QuizQuestionBean quizQuestionBean = gson.fromJson(msgbdy, QuizQuestionBean.class);
 
 
         QuizQuestionDao quizQuestionDao = new QuizQuestionDao();
         quizQuestionDao.insertQuizQuestion(user_no,quizQuestionBean);
+    	}catch(Throwable e) {
+    		e.printStackTrace();
+    		
+    	}
     }
 }
