@@ -68,7 +68,7 @@
 		<div class="create-quiz-modal">
 			<div class="stored-question" id="stored-question">
 				<div class="add-question" id="add-question">
-					<span><i class="fa-solid fa-plus"></i></span><span>問題を追加する</span>
+					<span class="plus-icon"></span><span>問題を追加する</span>
 				</div>
 			</div>
 			<div class="question-editor" id="question-editor">
