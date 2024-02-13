@@ -204,7 +204,6 @@ async function postQuiz(){
         "genreNo":metadataModal.querySelector("#post-genres").value,
         "explanation":metadataModal.querySelector("#post-explanation").value
     }
-    console.log(JSON.stringify(questionDatas));
     await fetch("/quizoo/submitquiz",{
         method:"POST",
         headers:{
@@ -221,4 +220,9 @@ async function postQuiz(){
     hidePostingMessage();
     clearCreateModal();
     clearMetadataModal();
+
+    // updateQuizListは別ファイルのため確認して実行
+    if(updateQuizList){
+        updateQuizList();
+    }
 }
