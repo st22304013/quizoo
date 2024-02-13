@@ -28,16 +28,22 @@ header .index-link a{
 .side-menu{
 	display: none;
     position: fixed;
+    z-index:1000;
     top: 0;
     left: 0;
     height: 100vh;
     width: 100vw;
     background-color: #00000057;
+    transition: .5s ease-in-out;
+}
+
+.side-menu.show{
+	display: block;
 }
 
 .side-menu ul{
     position: fixed;
-    right: 0;
+    right: -150px;
     top: 0;
     width: 150px;
     height: 100vh;
@@ -45,6 +51,11 @@ header .index-link a{
     padding: 0;
     margin: 0;
     list-style: none;
+    transition: .5s ease-in-out;
+}
+
+.side-menu.show ul{
+	right: 0;
 }
 
 
