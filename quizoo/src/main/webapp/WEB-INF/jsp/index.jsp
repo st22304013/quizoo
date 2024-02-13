@@ -49,98 +49,109 @@
 				<div class="width row">
 					<div class="title col">
 						<p class="ex">常識クイズ</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+	<div class="fixed-bottom text-right">
+		<a href="#" id="create-quiz-open"
+			class="btn btn-border-shadow btn-border-shadow--color2"
+			data-slide-index="1"> <i class="fa-solid fa-pen"></i>
+		</a>
+	</div>
+
+
+	<!--作問ポップアップ-->
+	<div class="create-quiz-modal-back" id="create-quiz-modal-back">
+		<span class="close_btn" id="create-close-btn"></span>
+		<div class="create-quiz-modal">
+			<div class="stored-question" id="stored-question">
+				<div class="add-question" id="add-question">
+					<span><i class="fa-solid fa-plus"></i></span><span>問題を追加する</span>
+				</div>
+			</div>
+			<div class="question-editor" id="question-editor">
+				<textarea type="text" name="question-text" id="question-text"
+					class="question-text" placeholder="問題文"></textarea>
+				<fieldset class="choices">
+					<div class="choice">
+						<input type="radio" name="choice" id="1"> <input
+							type="text" name="choice-text" id="choice-text"
+							class="choice-text" placeholder="選択肢">
 					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="fixed-bottom text-right">
-			<a href="#" id="create-quiz-open" class="btn btn-border-shadow btn-border-shadow--color2"
-				data-slide-index="1"> <i class="fa-solid fa-pen"></i>
-			</a>
-		</div>
-
-
-		<!--作問ポップアップ-->
-		<div class="create-quiz-modal-back" id="create-quiz-modal-back">			
-			<span class="close_btn" id="create-close-btn"></span>
-			<div class="create-quiz-modal">
-				<div class="stored-question" id="stored-question">
-					<div class="add-question" id="add-question">
-						<span><i class="fa-solid fa-plus"></i></span><span>問題を追加する</span>
+					<div class="choice">
+						<input type="radio" name="choice" id="2"> <input
+							type="text" name="choice-text" id="choice-text"
+							class="choice-text">
 					</div>
-				</div>
-				<div class="question-editor" id="question-editor">
-					<textarea type="text" name="question-text" id="question-text" class="question-text" placeholder="問題文"></textarea>
-					<fieldset class="choices">
-						<div class="choice">
-							<input type="radio" name="choice" id="1">
-							<input type="text" name="choice-text" id="choice-text" class="choice-text" placeholder="選択肢">
-						</div>
-						<div class="choice">
-							<input type="radio" name="choice" id="2">
-							<input type="text" name="choice-text" id="choice-text" class="choice-text">
-						</div>
-						<div class="choice">
-							<input type="radio" name="choice" id="3">
-							<input type="text" name="choice-text" id="choice-text" class="choice-text">
-						</div>
-						<div class="choice">
-							<input type="radio" name="choice" id="4">
-							<input type="text" name="choice-text" id="choice-text" class="choice-text">
-						</div>
-					</fieldset>
-				</div>
-				<div class="submit-quiz-btn" id="submit-quiz-btn">
-					<i class="next-btn fa-solid fa-arrow-right"></i>
-				</div>
+					<div class="choice">
+						<input type="radio" name="choice" id="3"> <input
+							type="text" name="choice-text" id="choice-text"
+							class="choice-text">
+					</div>
+					<div class="choice">
+						<input type="radio" name="choice" id="4"> <input
+							type="text" name="choice-text" id="choice-text"
+							class="choice-text">
+					</div>
+				</fieldset>
+			</div>
+			<div class="submit-quiz-btn" id="submit-quiz-btn">
+				<i class="next-btn fa-solid fa-arrow-right"></i>
 			</div>
 		</div>
+	</div>
 
-
-		<div id="post-roading" class="post-roading-back">
-			<h1 class="post-roading-msg">問題を投稿しています</h1>
-			<div class="post-roading-anime"></div>
-		</div>
-
-
-		<!--　作問確認ポップアップ　-->
-		<div class="metadata-modal-back" id="metadata-modal-back">
-			<span class="close_btn" id="metadata-close-btn"></span>
-			<div class="metadata-modal">
-				<h5>以下の内容で投稿します</h5>
-				<div id="quiz-metadata" class="quiz-metadata">
-					<input type="text" name="title" id="post-title" placeholder="タイトル">
-					<select name="genre" id="post-genres">
-					</select>
-					<input type="text" name="explanation" id="post-explanation" placeholder="説明">
-				</div>
-				<div class="metadata-buttons">
-					<button class="cancel-quiz-btn" id="cancel-quiz-btn"><i class="fa-solid fa-arrow-rotate-left"></i> 修正</button>
-					<button class="post-quiz-btn" id="post-quiz-btn"><i class="fa-solid fa-check"></i> 投稿</button>
-				</div>
+	<!--　作問確認ポップアップ　-->
+	<div class="metadata-modal-back" id="metadata-modal-back">
+		<span class="close_btn" id="metadata-close-btn"></span>
+		<div class="metadata-modal">
+			<h5>以下の内容で投稿します</h5>
+			<div id="quiz-metadata" class="quiz-metadata">
+				<input type="text" name="title" id="post-title" placeholder="タイトル">
+				<select name="genre" id="post-genres">
+				</select> <input type="text" name="explanation" id="post-explanation"
+					placeholder="説明">
+			</div>
+			<div class="metadata-buttons">
+				<button class="cancel-quiz-btn" id="cancel-quiz-btn">
+					<i class="fa-solid fa-arrow-rotate-left"></i> 修正
+				</button>
+				<button class="post-quiz-btn" id="post-quiz-btn">
+					<i class="fa-solid fa-check"></i> 投稿
+				</button>
 			</div>
 		</div>
-		<!-- Modal -->
-		
-		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+	</div>
+	
+	<div class="snackbar" id="snackbar">投稿中です...。</div>
 
-		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-			integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-			crossorigin="anonymous"></script>
-		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
-			integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-			crossorigin="anonymous"></script>
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-			integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-			crossorigin="anonymous"></script>
-		<script src="js/index.js"></script>
-		<script src="js/createQuiz.js"></script>
+	<!-- Modal -->
+
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+	<script src="js/index.js"></script>
+	<script src="js/createQuiz.js"></script>
 
 
-	</body>
+</body>
 
-	</html>
+</html>

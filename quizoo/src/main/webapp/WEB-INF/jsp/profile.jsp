@@ -38,8 +38,9 @@
 			<img src="img/prof.png" class="prof-img" alt="icon"><br>
 			nickname <input type="text" class="nickname" name="nickname"
 				id="profile-nickname" value=""><br>
-				
-			<button type="submit" class="buttonRound">編集</button>
+			password <input type="text" class="password" name="password"
+				id="profile-password" value="">
+			<button type="submit" class="buttonRound">変更</button>
 		</form>
 	</div>
 
@@ -53,6 +54,7 @@
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="js/header.js"></script>
+	<script src="js/profile.js"></script>
 </body>
 
 </html>
