@@ -633,6 +633,37 @@ a.btn-border-shadow--color2:before {
 	transition: all .2s;
 }
 
+/* 問題追加用のプラスマーク */
+
+.plus-icon{
+	width: 10px;
+	height: 10px;
+}
+
+
+.plus-icon:before {
+    position: absolute;
+    top: calc(50% - 1px);
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px;
+    border-radius: 1px;
+    background-color: #000;
+}
+
+.plus-icon::after {
+    position: absolute;
+    content: "";
+    display: block;
+    left: calc(50% - 1px);
+    width: 2px;
+    height: 100%;
+    border-radius: 1px;
+    background-color: #000;
+}
+
+
 /*hoverした際の変化*/
 .add-question:hover {
 	background-color: #F9F7C9;
