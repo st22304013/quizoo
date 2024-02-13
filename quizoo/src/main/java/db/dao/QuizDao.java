@@ -41,9 +41,11 @@ public class QuizDao extends Dao{
 				params.add("%"+searchStr+"%");
 			}
 			
-			if(orderColumn != null && !orderColumn.isEmpty()) {
-				sql += " ORDER BY " + orderColumn + " desc ";
+			if(orderColumn == null || orderColumn.isEmpty()) {
+				orderColumn = "create_time";
 			}
+			sql += " ORDER BY " + orderColumn + " desc ";
+			
 			
 			System.out.println(sql);
 			st = cn.prepareStatement(sql);
