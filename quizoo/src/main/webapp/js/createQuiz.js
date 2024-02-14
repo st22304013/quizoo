@@ -44,6 +44,12 @@ function clearCreateModal(){
 // クイズ作成モーダルを表示
 function showMetadataModal(){
     storeQuestionEditor();
+    // クエスチョンが無い場合は投稿できない
+    if(questionEditors.length == 0){
+        document.querySelector("#question-text").setCustomValidity("最低1つの問題を作成してください。");
+        document.querySelector("#question-text").reportValidity();
+        return;
+    }
     for(var genre of genres){
         var option = document.createElement("option");
         option.value = genre['genre_no'];
