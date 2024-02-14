@@ -246,6 +246,28 @@ function hidePostingMessage(){
 
 // 問題を投稿する
 async function postQuiz(){
+    // タイトルが未入力の場合はエラーメッセージを表示
+    if(!document.querySelector("#post-title").value){
+        document.querySelector("#post-title").setCustomValidity("問題名は必須項目です");
+        document.querySelector("#post-title").reportValidity();
+        document.querySelector("#post-title").addEventListener("input",function(){
+            document.querySelector("#post-title").setCustomValidity("");
+            document.querySelector("#post-title").reportValidity();
+        })
+        return;
+    }
+
+    // 説明が未入力の場合はエラーメッセージを表示
+    if(!document.querySelector("#post-explanation").value){
+        document.querySelector("#post-explanation").setCustomValidity("説明は必須項目です");
+        document.querySelector("#post-explanation").reportValidity();
+        document.querySelector("#post-explanation").addEventListener("input",function(){
+            document.querySelector("#post-explanation").setCustomValidity("");
+            document.querySelector("#post-explanation").reportValidity();
+        })
+        return;
+    }
+
     hideCreateModal();
     hideMetadataModal();
     showPostingMessage();
