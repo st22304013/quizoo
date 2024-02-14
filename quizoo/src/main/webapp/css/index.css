@@ -735,6 +735,7 @@ a.btn-border-shadow--color2:before {
     background-color: #ffffff;
     height: 2rem;
     padding-left: 2%;
+	margin-left: 5px;
 }
 
 .submit-quiz-btn {
