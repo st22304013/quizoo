@@ -190,11 +190,25 @@ button {
 .create-close-btn {
 	display: block;
     position: absolute;
-    top: 0;
-    right: 20px;
-    width: 100px;
-    height: 100px;
+    top: 1vh;
+    right: 35px;
+    width: 50px;
+    height: 50px;
     z-index: 1;
+    border-radius: 50%;
+	cursor: pointer;
+	background: #B4B4B8;
+	color: #ffffff;
+	text-align: center;
+	align-items: center;
+}
+
+.create-close-btn > i {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
 }
 
 .close-btn {
@@ -393,11 +407,25 @@ button {
 .metadata-close-btn {
 	display: block;
     position: absolute;
-    top: 150px;
-    right: 310px;
-    width: 100px;
-    height: 100px;
+    top: 16vh;
+    right: 250px;
+    width: 50px;
+    height: 50px;
     z-index: 1;
+    border-radius: 50%;
+	cursor: pointer;
+	background: #B4B4B8;
+	color: #ffffff;
+	text-align: center;
+	align-items: center;
+}
+
+.metadata-close-btn > i {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
 }
 
 .metadata-modal-back{
@@ -501,4 +529,10 @@ button {
 
 .metadata-buttons>.fa-solid {
 	font-size: 1.5vw;
+}
+
+
+.author, .genre {
+	position: relative;
+	z-index: 1;
 }
