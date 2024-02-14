@@ -222,7 +222,9 @@ public class UserInfoDao extends Dao {
 			st.setInt(1, userNo);
 			rs = st.executeQuery();
 			
-			nickname = rs.getString(1);
+			if(rs.next()) {				
+				nickname = rs.getString(1);
+			}
 
 			cn.commit();
 		} catch (SQLException e) {
