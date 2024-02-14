@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<!-- <%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%> -->
 <!DOCTYPE html>
 <html>
 
@@ -26,101 +26,42 @@
 </head>
 
 <body>
-	<div class="container">
-		<div class="row">
-			<!-- 左側のコンテンツ -->
-			<div class="col-md-6">
-				<div class="left-contents text-center">
-					<div class="top-img flex-shrink-0">
-						<img src="img/quizoo.png" alt="top"><br>
-						<div class="message">welcome to Quizoo!!</div>
-					</div>
-				</div>
-			</div>
+	
 
-			<!-- 右側のコンテンツ -->
-			<div class="col-md-6">
-				<div class="form container flex-grow-1 ms-3">
-					<div class="row justify-content">
-						<div class="fixed-col-md-7">
-							<div class="card">
-								<div class="card-header teal text-white">
-									<ul class="nav nav-tabs nav-fill" id="myTabs">
-										<li class="nav-item"><a class="nav-link active"
-											id="login-tab" data-toggle="tab" href="#login" role="tab">Login</a>
-										</li>
-										<li class="nav-item"><a class="nav-link" id="signup-tab"
-											data-toggle="tab" href="#Signup" role="tab">Sign up</a></li>
-									</ul>
-								</div>
-								<div class="card-body">
-									<div class="tab-content">
-										<div class="tab-pane fade show active" id="login"
-											role="tabpanel">
-											<form id="login-form" method="post" action="login">
-												<div class="form-group">
-													<label for="login-userid"></label> <input type="text"
-														class="textbox" name="id" id="login-username"
-														placeholder="UserID" required>
-												</div>
-												<div class="form-group">
-													<label for="login-password"></label> <input type="password"
-														class="textbox" name="password" id="login-password"
-														placeholder="Password" required>
-												</div>
-												<div class="miss none" id="miss">
-													IDまたはPASSWORDが違います
-												</div>
-												<div class="text-center">
-													<button type="submit" class="btn">Login</button>
-												</div>
-											</form>
-										</div>
-										<div class="tab-pane fade" id="Signup" role="tabpanel">
-											<form id="register-form" method="post" action="signup">
-												<div class="form-group">
-													<label for="register-userid"></label> <input type="text"
-														class="textbox" name="id" id="register-userid"
-														placeholder="UserID" required>
-												</div>
-												<div class="form-group">
-													<label for="register-nickname"></label> <input type="text"
-														class="textbox" name="name" id="register-nickname"
-														placeholder="Nickname" required>
-												</div>
-												<div class="form-group">
-													<label for="register-password"></label> <input
-														type="password" class="textbox" name="password"
-														id="register-password" placeholder="Password" required>
-												</div>
-												<div class="form-group">
-													<label for="register-password"></label> <input
-														type="password" class="textbox" name="passwordAgain"
-														id="register-password" placeholder="Password Again" required>
-												</div>
-												<div class="text-center">
-													<button type="submit" class="btn">Sign up</button>
-												</div>
-											</form>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+	
+	<div class="container">
+		<div class="icon">
+		<img src="img/quizoo.png" alt="">
+		</div>
+		<div class="auth-form">
+			<div class="form-selector">
+				<div class="active" id="select-login">
+					<p>Login</p>
+				</div>
+				<div class="" id="select-signup">
+					<p>Signup</p>
 				</div>
 			</div>
+			<form class="login-form" id="login-form" action="login" method="post">
+				<input type="text" name="id" placeholder="UserId">
+				<input type="password" name="password" placeholder="Password">
+				<button><p>Login</p></button>
+			</form>
+			<form class="signup-form" id="signup-form" action="signup" method="post">
+				<input type="text" name="id" placeholder="UserId">
+				<input type="text" name="name" placeholder="Nickname">
+				<input type="password" name="password" placeholder="Password">
+				<input type="password" name="passwordAgain" placeholder="Password Again">
+				<button><p>Signup</p></button>
+			</form>
 		</div>
 	</div>
-
+	
+	
+	
+	
+	
 	<script src="js/login.js"></script>
-
-
-
-
-
-
-
 </body>
 
 </html>
