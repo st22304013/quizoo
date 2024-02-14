@@ -134,7 +134,7 @@ function changeQuestionEditor(questionNo){
 // クエスチョンを追加する
 function addQuestion(){
     // 現在作成中のクエスチョンを保存
-    storeQuestionEditor();
+    storeQuestionEditor();  
     
     let emptyEditor;
     // 初回のみ空のクエスチョンを作成
@@ -148,6 +148,7 @@ function addQuestion(){
         text.setAttribute("name","question-text");
         text.setAttribute("class","question-text");
         text.setAttribute("id","question-text");
+        text.setAttribute("placeholder","問題文");
         emptyEditor.appendChild(text);
 
         var filedset = document.createElement("fieldset");
@@ -167,6 +168,7 @@ function addQuestion(){
             text.setAttribute("name","choisce-text");
             text.setAttribute("class","choice-text");
             text.setAttribute("id","choice-text");
+            text.setAttribute("placeholder",`選択肢${i}`);
 
             choice.appendChild(text);
 
