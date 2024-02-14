@@ -48,8 +48,54 @@ function showMetadataModal(){
     if(questionEditors.length == 0){
         document.querySelector("#question-text").setCustomValidity("最低1つの問題を作成してください。");
         document.querySelector("#question-text").reportValidity();
+        document.querySelector("#question-text").addEventListener("input",function(event){
+            document.querySelector("#question-text").setCustomValidity("");
+            document.querySelector("#question-text").reportValidity();
+        })
         return;
     }
+
+    // 全てのクエスチョンに未入力が無いかチェックする
+    for(var i = 0 ; i < questionEditors.length ; i++){
+        // 問題文の未入力をチェック
+        if(questionEditors[i].querySelector("#question-text").value == ""){
+            changeQuestionEditor(i);
+            document.querySelector("#question-text").setCustomValidity("問題を入力してください。");
+            document.querySelector("#question-text").reportValidity();
+            document.querySelector("#question-text").addEventListener("input",function(event){
+                document.querySelector("#question-text").setCustomValidity("");
+                document.querySelector("#question-text").reportValidity();
+            });
+            return;
+        }
+
+        // 選択肢の未入力をチェック
+        for(var j = 0 ; j < questionEditors[i].querySelectorAll("#choice-text").length ; j++){
+            if(questionEditors[i].querySelectorAll("#choice-text")[j].value == ""){
+                changeQuestionEditor(i);
+                document.querySelectorAll("#choice-text")[j].setCustomValidity("解答を入力してください。");
+                document.querySelectorAll("#choice-text")[j].reportValidity();
+                document.querySelectorAll("#choice-text")[j].addEventListener("input",function(event){
+                    document.querySelectorAll("#choice-text")[j].setCustomValidity("");
+                    document.querySelectorAll("#choice-text")[j].reportValidity();
+                })
+                return;
+            }
+        }
+
+        // ラジオボタンの未入力をチェック
+        var checked = false;
+        for(var j = 0 ; j < questionEditors[i].querySelectorAll("#choice-radio").length ; j++){
+            checked = checked || questionEditors[i].querySelectorAll("#choice-radio")[j].checked;
+        }
+        if(!checked){
+            changeQuestionEditor(i);
+            document.querySelector("#choice-radio").setCustomValidity("正解の選択肢を選んでください。");
+            document.querySelector("#choice-radio").reportValidity();
+            return;
+        }
+    }
+
     for(var genre of genres){
         var option = document.createElement("option");
         option.value = genre['genre_no'];
@@ -159,6 +205,7 @@ function addQuestion(){
 
         var filedset = document.createElement("fieldset");
         filedset.setAttribute("class","choices");
+        filedset.setAttribute("id","choices");
         for(let i = 1 ; i <= 4 ; i++){
             var choice = document.createElement("div");
             choice.setAttribute("class","choice");
@@ -166,7 +213,7 @@ function addQuestion(){
             var radio = document.createElement("input");
             radio.setAttribute("type","radio");
             radio.setAttribute("name","choice");
-            radio.setAttribute("id",i);
+            radio.setAttribute("id","choice-radio");
             choice.appendChild(radio);
 
             var text = document.createElement("input");

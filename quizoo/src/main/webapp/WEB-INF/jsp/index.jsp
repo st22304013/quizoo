@@ -74,24 +74,24 @@
 			<div class="question-editor" id="question-editor">
 				<textarea type="text" name="question-text" id="question-text"
 					class="question-text" placeholder="問題文"></textarea>
-				<fieldset class="choices">
+				<fieldset class="choices" id="choices">
 					<div class="choice">
-						<input type="radio" name="choice" id="1"><!-- 隙間をなくすためのコメント
+						<input type="radio" name="choice" id="choice-radio"><!-- 隙間をなくすためのコメント
 						 --><input type="text" id="choice-text"
 							class="choice-text" placeholder="選択肢1">
 					</div>
 					<div class="choice">
-						<input type="radio" name="choice" id="2"><!-- 隙間をなくすためのコメント
+						<input type="radio" name="choice" id="choice-radio"><!-- 隙間をなくすためのコメント
 						 --><input type="text" id="choice-text"
 							class="choice-text" placeholder="選択肢2">
 					</div>
 					<div class="choice">
-						<input type="radio" name="choice" id="3"><!-- 隙間をなくすためのコメント
+						<input type="radio" name="choice" id="choice-radio"><!-- 隙間をなくすためのコメント
 						 --><input type="text" id="choice-text"
 							class="choice-text" placeholder="選択肢3">
 					</div>
 					<div class="choice">
-						<input type="radio" name="choice" id="4"><!-- 隙間をなくすためのコメント
+						<input type="radio" name="choice" id="choice-radio"><!-- 隙間をなくすためのコメント
 						 --><input type="text" id="choice-text"
 							class="choice-text" placeholder="選択肢4">
 					</div>
