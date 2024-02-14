@@ -76,23 +76,23 @@
 					class="question-text" placeholder="問題文"></textarea>
 				<fieldset class="choices">
 					<div class="choice">
-						<input type="radio" name="choice" id="1">
-						<input type="text" id="choice-text"
+						<input type="radio" name="choice" id="1"><!-- 隙間をなくすためのコメント
+						 --><input type="text" id="choice-text"
 							class="choice-text" placeholder="選択肢1">
 					</div>
 					<div class="choice">
-						<input type="radio" name="choice" id="2">
-						<input type="text" id="choice-text"
+						<input type="radio" name="choice" id="2"><!-- 隙間をなくすためのコメント
+						 --><input type="text" id="choice-text"
 							class="choice-text" placeholder="選択肢2">
 					</div>
 					<div class="choice">
-						<input type="radio" name="choice" id="3">
-						<input type="text" id="choice-text"
+						<input type="radio" name="choice" id="3"><!-- 隙間をなくすためのコメント
+						 --><input type="text" id="choice-text"
 							class="choice-text" placeholder="選択肢3">
 					</div>
 					<div class="choice">
-						<input type="radio" name="choice" id="4">
-						<input type="text" id="choice-text"
+						<input type="radio" name="choice" id="4"><!-- 隙間をなくすためのコメント
+						 --><input type="text" id="choice-text"
 							class="choice-text" placeholder="選択肢4">
 					</div>
 				</fieldset>
