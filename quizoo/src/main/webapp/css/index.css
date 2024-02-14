@@ -796,6 +796,7 @@ a.btn-border-shadow--color2:before {
 }
 
 .quiz-metadata>* {
+	font-size: 0.75rem;
 	margin: 10px 0;
 	height: 2em;
 	border: solid 2px #88847b;
