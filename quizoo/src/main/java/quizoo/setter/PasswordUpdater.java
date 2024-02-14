@@ -40,6 +40,6 @@ public class PasswordUpdater extends Service {
 			
 		}
         dao.updatePassword(user.getUserId(),password);
-        System.out.println(password);
+        
     }
 }
