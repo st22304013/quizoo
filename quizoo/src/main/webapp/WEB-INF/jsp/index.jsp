@@ -27,7 +27,7 @@
 			</select>
     </header>
     <!-- クイズリスト  -->
-    <div class="quiz_list mx-auto" id="quiz_list">
+    <div class="quiz_list" id="quiz_list">
         <div class="quiz">
             <div class="width row">
                 <div class="title col">
