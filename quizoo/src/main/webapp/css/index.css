@@ -190,8 +190,8 @@ button {
 .create-close-btn {
 	display: block;
     position: absolute;
-    top: 1vh;
-    right: 35px;
+    top: -25px;
+    right: -25px;
     width: 50px;
     height: 50px;
     z-index: 1;
@@ -230,6 +230,7 @@ button {
 .create-quiz-modal {
 	display: flex;
 	width: 90vw;
+	min-width: 700px;
 	height: 90vh;
 	background-color: #F9F7C9;
 	position: absolute;
@@ -240,6 +241,7 @@ button {
 
 .create-quiz-modal::before {
 	width: 90vw;
+	min-width: 700px;
 	height: 90vh;
 	content: "";
 	position: absolute;
@@ -407,8 +409,8 @@ button {
 .metadata-close-btn {
 	display: block;
     position: absolute;
-    top: 16vh;
-    right: 250px;
+    top: -25px;
+    right: -25px;
     width: 50px;
     height: 50px;
     z-index: 1;
