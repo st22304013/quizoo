@@ -15,7 +15,7 @@ import frame.exception.NotFoundException;
 import frame.exception.ResourceException;
 import frame.util.Hash;
 
-public class passwordUpdater extends Service {
+public class PasswordUpdater extends Service {
 
     @Override
     public void execute(RequestContext req, ResponseContext res)
@@ -37,7 +37,9 @@ public class passwordUpdater extends Service {
 		} catch (NoSuchAlgorithmException e) {
 			e.printStackTrace();
 			throw new ResourceException(e.getMessage(), e);
+			
 		}
         dao.updatePassword(user.getUserId(),password);
+        
     }
 }

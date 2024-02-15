@@ -19,32 +19,27 @@ public class NickNameUpdater extends Service {
     public void execute(RequestContext req, ResponseContext res)
             throws IOException, ResourceException, BadRequestException, NotFoundException {
         
-    	try {
     		
-    		UserInfoBean user = req.getUser();
+    		UserInfoDao dao = new UserInfoDao();
+    		
+    		int userNo = req.getUser().getUserNo();
+    		
+    		
+    		
+    		
     		Gson gson = new Gson();
     		String body = req.getMessageBody();
     		
-    		Nickname name = gson.fromJson(body, Nickname.class);
+    		UserInfoBean bean = gson.fromJson(body, UserInfoBean.class);
     		
-    		UserInfoDao userinfoDao = new UserInfoDao();
-    		userinfoDao.updateNickName(user.getUserNo(), name.getNickname());
-    	}catch(Throwable e) {
-    		e.printStackTrace();
-    	}
+    		
+    		dao.updateNickName(userNo,bean.getNickname());
+    		
+    		
 
     }
     
-    private class Nickname{
-    	private String nickname;
-
-		public String getNickname() {
-			return nickname;
-		}
-
-		public void setNickname(String nickname) {
-			this.nickname = nickname;
-		}
+    
     	
     }
-}
+
