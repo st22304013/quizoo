@@ -21,11 +21,17 @@ window.addEventListener("load",function () {
 
 // クイズ作成モーダルを表示
 function showQreateModal() {
+    // クイズリストをスクロールしないようにする
+    document.body.style.overflow = "hidden";
+
     metadataModal.style.display = "none";
     createModal.style.display = "block";
 }
 // クイズ作成モーダルを非表示
 function hideCreateModal() {
+    // クイズリストをスクロールするようにする
+    document.body.style.overflow = "auto";
+
     createModal.style.display = "none";
 }
 // クイズ作成モーダルを初期化
@@ -38,6 +44,58 @@ function clearCreateModal(){
 // クイズ作成モーダルを表示
 function showMetadataModal(){
     storeQuestionEditor();
+    // クエスチョンが無い場合は投稿できない
+    if(questionEditors.length == 0){
+        document.querySelector("#question-text").setCustomValidity("最低1つの問題を作成してください。");
+        document.querySelector("#question-text").reportValidity();
+        document.querySelector("#question-text").addEventListener("input",function(event){
+            document.querySelector("#question-text").setCustomValidity("");
+            document.querySelector("#question-text").reportValidity();
+        })
+        return;
+    }
+
+    // 全てのクエスチョンに未入力が無いかチェックする
+    for(var i = 0 ; i < questionEditors.length ; i++){
+        // 問題文の未入力をチェック
+        if(questionEditors[i].querySelector("#question-text").value == ""){
+            changeQuestionEditor(i);
+            document.querySelector("#question-text").setCustomValidity("問題を入力してください。");
+            document.querySelector("#question-text").reportValidity();
+            document.querySelector("#question-text").addEventListener("input",function(event){
+                document.querySelector("#question-text").setCustomValidity("");
+                document.querySelector("#question-text").reportValidity();
+            });
+            return;
+        }
+
+        // 選択肢の未入力をチェック
+        for(var j = 0 ; j < questionEditors[i].querySelectorAll("#choice-text").length ; j++){
+            if(questionEditors[i].querySelectorAll("#choice-text")[j].value == ""){
+                changeQuestionEditor(i);
+                document.querySelectorAll("#choice-text")[j].setCustomValidity("解答を入力してください。");
+                document.querySelectorAll("#choice-text")[j].reportValidity();
+                document.querySelectorAll("#choice-text")[j].addEventListener("input",function(event){
+                    document.querySelectorAll("#choice-text")[j].setCustomValidity("");
+                    document.querySelectorAll("#choice-text")[j].reportValidity();
+                })
+                return;
+            }
+        }
+
+        // ラジオボタンの未入力をチェック
+        var checked = false;
+        for(var j = 0 ; j < questionEditors[i].querySelectorAll("#choice-radio").length ; j++){
+            checked = checked || questionEditors[i].querySelectorAll("#choice-radio")[j].checked;
+        }
+        if(!checked){
+            changeQuestionEditor(i);
+            document.querySelector("#choice-radio").setCustomValidity("正解の選択肢を選んでください。");
+            document.querySelector("#choice-radio").reportValidity();
+            return;
+        }
+    }
+
     for(var genre of genres){
         var option = document.createElement("option");
         option.value = genre['genre_no'];
@@ -45,12 +103,19 @@ function showMetadataModal(){
         document.querySelector("#post-genres").appendChild(option.cloneNode(true));
     }
 
+    // クイズリストをスクロールしないようにする
+    document.body.style.overflow = "hidden";
+
     createModal.style.display = "none";
     metadataModal.style.display = "block";
 }
 //　クイズ作成モーダルを非表示
 function hideMetadataModal() {
+    // クイズリストをスクロールするようにする
+    document.body.style.overflow = "auto";
+
     metadataModal.style.display = "none";
+    
 }
 // クイズ作成モーダルを初期化
 function clearMetadataModal() {
@@ -121,7 +186,7 @@ function changeQuestionEditor(questionNo){
 // クエスチョンを追加する
 function addQuestion(){
     // 現在作成中のクエスチョンを保存
-    storeQuestionEditor();
+    storeQuestionEditor();  
     
     let emptyEditor;
     // 初回のみ空のクエスチョンを作成
@@ -135,10 +200,12 @@ function addQuestion(){
         text.setAttribute("name","question-text");
         text.setAttribute("class","question-text");
         text.setAttribute("id","question-text");
+        text.setAttribute("placeholder","問題文");
         emptyEditor.appendChild(text);
 
         var filedset = document.createElement("fieldset");
         filedset.setAttribute("class","choices");
+        filedset.setAttribute("id","choices");
         for(let i = 1 ; i <= 4 ; i++){
             var choice = document.createElement("div");
             choice.setAttribute("class","choice");
@@ -146,7 +213,7 @@ function addQuestion(){
             var radio = document.createElement("input");
             radio.setAttribute("type","radio");
             radio.setAttribute("name","choice");
-            radio.setAttribute("id",i);
+            radio.setAttribute("id","choice-radio");
             choice.appendChild(radio);
 
             var text = document.createElement("input");
@@ -154,6 +221,7 @@ function addQuestion(){
             text.setAttribute("name","choisce-text");
             text.setAttribute("class","choice-text");
             text.setAttribute("id","choice-text");
+            text.setAttribute("placeholder",`選択肢${i}`);
 
             choice.appendChild(text);
 
@@ -166,11 +234,47 @@ function addQuestion(){
     document.querySelector("#question-editor").replaceWith(emptyEditor.cloneNode(true));
 }
 
+//投稿中メッセージ
+
+function showPostingMessage(){
+    document.querySelector("#snackbar").classList.add("show");
+}
+
+function hidePostingMessage(){
+    document.querySelector("#snackbar").classList.remove("show");
+}
+
 // 問題を投稿する
 async function postQuiz(){
-    let quidatas = [];
+    // タイトルが未入力の場合はエラーメッセージを表示
+    if(!document.querySelector("#post-title").value){
+        document.querySelector("#post-title").setCustomValidity("問題名は必須項目です");
+        document.querySelector("#post-title").reportValidity();
+        document.querySelector("#post-title").addEventListener("input",function(){
+            document.querySelector("#post-title").setCustomValidity("");
+            document.querySelector("#post-title").reportValidity();
+        })
+        return;
+    }
+
+    // 説明が未入力の場合はエラーメッセージを表示
+    if(!document.querySelector("#post-explanation").value){
+        document.querySelector("#post-explanation").setCustomValidity("説明は必須項目です");
+        document.querySelector("#post-explanation").reportValidity();
+        document.querySelector("#post-explanation").addEventListener("input",function(){
+            document.querySelector("#post-explanation").setCustomValidity("");
+            document.querySelector("#post-explanation").reportValidity();
+        })
+        return;
+    }
+
+    hideCreateModal();
+    hideMetadataModal();
+    showPostingMessage();
+    
+    let questionDatas = [];
     for(var editor of questionEditors){
-        quidatas.push({
+        questionDatas.push({
             "question":editor.querySelector("#question-text").value,
             "choice1":editor.querySelector("#choice-text").value,
             "choice2":editor.querySelector("#choice-text").value,
@@ -189,7 +293,6 @@ async function postQuiz(){
         "genreNo":metadataModal.querySelector("#post-genres").value,
         "explanation":metadataModal.querySelector("#post-explanation").value
     }
-    console.log(JSON.stringify(quidatas));
     await fetch("/quizoo/submitquiz",{
         method:"POST",
         headers:{
@@ -197,15 +300,18 @@ async function postQuiz(){
         },
         body:JSON.stringify({
             "quiz":medaData,
-            "question":quidatas
+            "question":questionDatas
         }),
         credentials:"include"
     }).catch((err)=>{
         console.log(err);
-    })
-
-    hideCreateModal();
-    hideMetadataModal();
+    });
+    hidePostingMessage();
     clearCreateModal();
     clearMetadataModal();
+
+    // updateQuizListは別ファイルのため確認して実行
+    if(updateQuizList){
+        updateQuizList();
+    }
 }

@@ -43,9 +43,6 @@ public class QuizListGetter extends Service {
 		}
 		
 		
-		System.out.println("genreNo :"+genreNo);
-		System.out.println("orderOol:"+orderColumn);
-		System.out.println("searchStr:"+searchStr);
 		
 		QuizDao quizDao = new QuizDao();
 		
@@ -58,7 +55,6 @@ public class QuizListGetter extends Service {
 		Gson gson = new Gson();
 		String result = gson.toJson(quizList);
 		
-		System.out.println(result);
 		
 		out.println(result);
 

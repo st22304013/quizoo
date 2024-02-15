@@ -4,7 +4,9 @@
 var list_box;
 
 window.addEventListener('load',async function(){
-    gneres = await fetch("/quizoo/genres");
+    genres = await fetch("/quizoo/genres");
+
+    genres = await genres.json();
 
     // メタデータのモーダルが非表示になった時の処理
     const createQuizModalObserver = new MutationObserver(mutations => {

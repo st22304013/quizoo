@@ -35,7 +35,6 @@ document.addEventListener('DOMContentLoaded', function () {
 window.addEventListener('load', function() {
 	var pathname = null;
 	pathname = location.pathname;
-	console.log(pathname);
 
 	if (pathname != '/quizoo/index') {
 		document.getElementById('input-group').classList.remove('seach-box');

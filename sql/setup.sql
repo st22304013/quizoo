@@ -1,10 +1,11 @@
-/* ƒRƒ}ƒ“ƒhƒvƒƒ“ƒvƒg‚©‚çÚ‘± */
+SET NAMES utf8;
+/* ã‚³ãƒãƒ³ãƒ‰ãƒ—ãƒ­ãƒ³ãƒ—ãƒˆã‹ã‚‰æ¥ç¶š */
 /*mysql --local-infile=1 -u root -p*/
 SET GLOBAL local_infile = 1;
-/* ƒf[ƒ^ƒx[ƒX */
-create database quizoo;
+/* ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ */
+create database quizoo DEFAULT CHARACTER SET utf8;
 
-/* ƒ†[ƒU[ */
+/* ãƒ¦ãƒ¼ã‚¶ãƒ¼ */
 create user 'quizoo_admin'@'localhost' identified by 'admin';
 
 create user 'quizoo_app'@'%' identified by 'app';
@@ -16,7 +17,7 @@ grant select, update, insert on quizoo.* to 'quizoo_app'@'%';
 use quizoo
 
 
-/* ƒe[ƒuƒ‹ */
+/* ãƒ†ãƒ¼ãƒ–ãƒ« */
 CREATE TABLE userinfo (
     user_id VARCHAR(256) PRIMARY KEY,
 	user_no MEDIUMINT UNSIGNED AUTO_INCREMENT NOT NULL UNIQUE,
@@ -70,10 +71,10 @@ CREATE TABLE answerhistory (
 	correct_count TINYINT UNSIGNED NOT NULL
 );
 
-/* ƒgƒŠƒK[
-userinfo‚ğupdate‚·‚é‚Æ‚«‚ÌƒgƒŠƒK[B@“ñ—ñ•¶‚Ìupdate•¶B
-ƒg[ƒ^ƒ‹ƒAƒ“ƒT[‚ÍXVŒã‚ÉXV‘O{‚P‚µ‚Ä‚é‚Ì‚ÅAupdate‚·‚é‚Ì‚Ícorrect_answer‚¾‚¯‚Å—Ç‚¢B
-rating‚É‚ÍAcorrect_answer‚Ì“ñæŠ„‚étotal_anwser‚ª“ü‚é@DELIMITER‚Íˆê˜A‚Ìˆ—‚ğ•\‚·B@*/
+/* ãƒˆãƒªã‚¬ãƒ¼
+userinfoã‚’updateã™ã‚‹ã¨ãã®ãƒˆãƒªã‚¬ãƒ¼ã€‚ã€€äºŒåˆ—æ–‡ã®updateæ–‡ã€‚
+ãƒˆãƒ¼ã‚¿ãƒ«ã‚¢ãƒ³ã‚µãƒ¼ã¯æ›´æ–°å¾Œã«æ›´æ–°å‰ï¼‹ï¼‘ã—ã¦ã‚‹ã®ã§ã€updateã™ã‚‹ã®ã¯correct_answerã ã‘ã§è‰¯ã„ã€‚
+ratingã«ã¯ã€correct_answerã®äºŒä¹—å‰²ã‚‹total_anwserãŒå…¥ã‚‹ã€€DELIMITERã¯ä¸€é€£ã®å‡¦ç†ã‚’è¡¨ã™ã€‚ã€€*/
 DELIMITER //
 CREATE TRIGGER calculate_rating
 BEFORE UPDATE ON userinfo
@@ -83,7 +84,7 @@ BEGIN
 		IF NEW.total_answer IS NOT NULL AND NEW.correct_answer IS NOT NULL THEN
 			IF NEW.correct_answer > NEW.total_answer THEN
 				SIGNAL SQLSTATE '45001'
-				SET MESSAGE_TEXT = 'correct_answer‚ªtotal_answer‚æ‚è‘å‚«‚¢';
+				SET MESSAGE_TEXT = 'correct_answerãŒtotal_answerã‚ˆã‚Šå¤§ãã„';
 			END IF;
 			SET
 				NEW.total_answer = OLD.total_answer + NEW.total_answer,
@@ -96,7 +97,7 @@ END;
 DELIMITER ;
 
 
-/* answerhistory‚Éinsert‚µ‚½‚Æ‚«‚ÉAquiz‚ğupdate‚·‚éƒgƒŠƒK[B*/
+/* answerhistoryã«insertã—ãŸã¨ãã«ã€quizã‚’updateã™ã‚‹ãƒˆãƒªã‚¬ãƒ¼ã€‚*/
 DELIMITER //
 CREATE TRIGGER question_count_AND_correct_rate
 BEFORE INSERT ON answerhistory

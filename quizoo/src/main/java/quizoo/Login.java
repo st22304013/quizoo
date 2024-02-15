@@ -43,7 +43,10 @@ public class Login extends Service{
 		} 
 		
 		//passwordが一致したとき
-		if(pass.equals(bean.getPassword().replaceAll(" ", ""))) {
+		if(bean!=null 
+				&& bean.getPassword()!=null 
+				&& pass.equals(bean.getPassword().replaceAll(" ", ""))
+				) {
 			req.setUser(bean);
 			res.redirect("index");
 		}else {
