@@ -125,7 +125,9 @@
 		</div>
 	</div>
 	
-	<div class="snackbar" id="snackbar">投稿中です...。</div>
+	<div class="posting-snackbar" id="posting-snackbar">投稿中です...。</div>
+	
+	<div class="completion-snackbar" id="completion-snackbar">投稿完了しました！</div>
 
 	<!-- Modal -->
 
