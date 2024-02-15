@@ -39,7 +39,7 @@ window.addEventListener('load',async function(){
     
 
     // ソートボタンをクリックした時の処理
-    orderBtns = document.querySelectorAll(".order_btn");
+    orderBtns = document.querySelectorAll("#order_btn");
     for(var btn of orderBtns){
         btn.addEventListener("click",function () {
 

@@ -21,8 +21,8 @@
     <%@ include file="header.jsp" %>
     <!-- 下のヘッダー-->
     <header class="order-menu">
-		<a>new</a>
-		<a>popular</a>
+		<a id="order_btn">new</a>
+		<a id="order_btn">popular</a>
 			<select id="genre_selector" class="genre_selector">
 			</select>
     </header>
