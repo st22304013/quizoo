@@ -4,17 +4,14 @@
 
 document.addEventListener('DOMContentLoaded', function () {
     // ハンバーガーボタンクリックで実行
-    document.querySelector(".drawer__button").addEventListener('click', function () {
-        this.classList.toggle("active");
-        document.querySelector(".drawer__nav").classList.toggle("active");
+    document.querySelector("#side-menu-drawer").addEventListener('click', function () {
+        document.querySelector("#side-menu").classList.add("show");
     });
 
     // ドロワーナビゲーションリンククリックで非アクティブ化
-    document.querySelectorAll(".drawer__nav__link").forEach(function (link) {
-        link.addEventListener('click', function () {
-            document.querySelector(".drawer__button").classList.remove("active");
-            document.querySelector(".drawer__nav").classList.remove("active");
-        });
+    document.querySelector("#side-menu").addEventListener('click',function () {
+        if(event.target == document.querySelector("#side-menu-body")) return;
+        document.querySelector("#side-menu").classList.remove("show");
     });
 
     // ページ内スクロール

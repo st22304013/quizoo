@@ -41,7 +41,7 @@ window.addEventListener('load',async function(){
     
 
     // ソートボタンをクリックした時の処理
-    orderBtns = document.querySelectorAll(".order_btn");
+    orderBtns = document.querySelectorAll("#order_btn");
     for(var btn of orderBtns){
         btn.addEventListener("click",function () {
 
@@ -54,29 +54,15 @@ window.addEventListener('load',async function(){
         
     }
     
-    this.document.querySelector("#search_text").addEventListener("input",searchTitle);
+    this.document.querySelector("#search-textbox").addEventListener("input",searchTitle);
     
     
     updateQuizList();
-
-    // ハンバーガーボタンクリックで実行
-    document.querySelector(".drawer__button").addEventListener('click', function () {
-        this.classList.toggle("active");
-        document.querySelector(".drawer__nav").classList.toggle("active");
-    });
-
-    // ドロワーナビゲーションリンククリックで非アクティブ化
-    document.querySelectorAll(".drawer__nav__link").forEach(function (link) {
-        link.addEventListener('click', function () {
-            document.querySelector(".drawer__button").classList.remove("active");
-            document.querySelector(".drawer__nav").classList.remove("active");
-        });
-    });
     
 })
 
 async function searchTitle(){
-    var searchStr = document.querySelector("#search_text").value;
+    var searchStr = document.querySelector("#search-textbox").value;
     var url = new URL(window.location.href);
     if(searchStr == null || searchStr == ""){
         url.searchParams.delete("search");
@@ -129,20 +115,20 @@ function quizlistFactory(quizList){
         box.setAttribute('class','quiz');
         
         row = document.createElement('div');
-        row.setAttribute('class','width row');
+        row.setAttribute('class','metadata');
         title = document.createElement('div');
-        title.setAttribute('class','title col');
+        title.setAttribute('class','title');
         title.innerText = quiz['title'];
         row.appendChild(title);
         
         explanation = document.createElement('div');
-        explanation.setAttribute('class','d-flex align-items-center col');
+        explanation.setAttribute('class','explanation');
         explanation.innerText = quiz['explanation'] ? quiz['explanation'] : "";
         
         row.appendChild(explanation);
         
         info = document.createElement('div');
-        info.setAttribute('class','information text-right');
+        info.setAttribute('class','information');
         
         
         create_time = document.createElement('a');
