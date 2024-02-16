@@ -6,6 +6,11 @@
 html{
 	scroll-behavior: smooth;
 }
+
+html *{
+	font-size: 1rem;
+}
+
 body {
 	font-family: 'Zen Maru Gothic', serif;
 	background-color: #fffaef;
