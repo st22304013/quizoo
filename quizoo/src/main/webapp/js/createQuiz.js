@@ -240,8 +240,15 @@ function showPostingMessage(){
     document.querySelector("#posting-snackbar").classList.add("show");
 }
 
+function hidePostingMessage(){
+    document.querySelector("#posting-snackbar").classList.remove("show");
+}
+
 function showCompletionMessage(){
     document.querySelector("#completion-snackbar").classList.add("show");
+    setInterval(function(){
+        document.querySelector("#completion-snackbar").classList.remove("show");
+    },500);
 }
 
 // 問題を投稿する
@@ -308,7 +315,11 @@ async function postQuiz(){
     });
     clearCreateModal();
     clearMetadataModal();
-    showCompletionMessage();
+
+    setInterval(() => {
+        hidePostingMessage();
+        showCompletionMessage();
+    }, 500);
 
     // updateQuizListは別ファイルのため確認して実行
     if(updateQuizList){

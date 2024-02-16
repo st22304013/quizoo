@@ -922,7 +922,7 @@ a.btn-border-shadow--color2:before {
 /*  opacity: 1;*/
 /*}*/
 
-#completion-snackbar {
+.completion-snackbar {
   visibility: hidden;
   min-width: 250px;
   background-color: #313131;
@@ -938,13 +938,13 @@ a.btn-border-shadow--color2:before {
   box-shadow: 0 3px 9px rgb(0 0 0 / 25%);
 }
 
-#completion-snackbar.show {
+.completion-snackbar.show {
   visibility: visible;
   -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
   animation: fadein 0.5s, fadeout 0.5s 2.5s;
 }
 
-#posting-snackbar {
+.posting-snackbar {
   visibility: hidden;
   min-width: 250px;
   background-color: #313131;
@@ -960,7 +960,7 @@ a.btn-border-shadow--color2:before {
   box-shadow: 0 3px 9px rgb(0 0 0 / 25%);
 }
 
-#posting-snackbar.show {
+.posting-snackbar.show {
   visibility: visible;
   -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
   animation: fadein 0.5s, fadeout 0.5s 2.5s;
