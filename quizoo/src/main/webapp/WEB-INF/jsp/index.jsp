@@ -58,7 +58,7 @@
 	<!--作問ポップアップ-->
 	<div class="create-quiz-modal-back" id="create-quiz-modal-back">
 		<div class="create-quiz-modal">
-			<span class="create-close-btn" id="create-close-btn"></span>
+			<span class="modal-close-btn" id="create-close-btn"></span>
 			<div class="stored-question" id="stored-question">
 				<div class="add-question" id="add-question">
 					<span class="plus-icon"></span><span>問題を追加する</span>
@@ -101,8 +101,8 @@
 
 	<!--　作問確認ポップアップ　-->
 	<div class="metadata-modal-back" id="metadata-modal-back">
-		<span class="close_btn" id="metadata-close-btn"></span>
 		<div class="metadata-modal">
+			<span class="modal-close-btn" id="metadata-close-btn"></span>
 			<h5>以下の内容で投稿します</h5>
 			<div id="quiz-metadata" class="quiz-metadata">
 				<input type="text" name="title" id="post-title" placeholder="タイトル">

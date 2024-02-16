@@ -197,7 +197,7 @@ button {
 	font-size: 40px;
 }
 
-.create-close-btn {
+.modal-close-btn {
 	display: block;
     position: absolute;
     top: -25px;
@@ -213,8 +213,8 @@ button {
 	align-items: center;
 }
 
-.create-close-btn::after,
-.create-close-btn::before{
+.modal-close-btn::after,
+.modal-close-btn::before{
 	position: absolute;
 	content: "";
 	width: 80%;
@@ -227,10 +227,10 @@ button {
 	pointer-events: none;
 }
 
-.create-close-btn::after{
+.modal-close-btn::after{
     transform: translate(-50%, -50%) rotate(45deg);
 }
-.create-close-btn::before{
+.modal-close-btn::before{
     transform: translate(-50%, -50%) rotate(-45deg);
 }
 
