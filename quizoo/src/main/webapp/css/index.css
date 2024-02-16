@@ -50,6 +50,7 @@ button {
 }
 
 .quiz_list{
+	min-width: 600px;
     position: absolute;
     z-index: -1;
     width: 100%;
