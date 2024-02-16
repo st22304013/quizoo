@@ -57,8 +57,8 @@
 	</div>
 	<!--作問ポップアップ-->
 	<div class="create-quiz-modal-back" id="create-quiz-modal-back">
-		<span class="close_btn" id="create-close-btn"></span>
 		<div class="create-quiz-modal">
+			<span class="create-close-btn" id="create-close-btn"></span>
 			<div class="stored-question" id="stored-question">
 				<div class="add-question" id="add-question">
 					<span class="plus-icon"></span><span>問題を追加する</span>
