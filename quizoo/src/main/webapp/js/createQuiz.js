@@ -237,11 +237,18 @@ function addQuestion(){
 //投稿中メッセージ
 
 function showPostingMessage(){
-    document.querySelector("#snackbar").classList.add("show");
+    document.querySelector("#posting-snackbar").classList.add("show");
 }
 
 function hidePostingMessage(){
-    document.querySelector("#snackbar").classList.remove("show");
+    document.querySelector("#posting-snackbar").classList.remove("show");
+}
+
+function showCompletionMessage(){
+    document.querySelector("#completion-snackbar").classList.add("show");
+    setInterval(function(){
+        document.querySelector("#completion-snackbar").classList.remove("show");
+    },500);
 }
 
 // 問題を投稿する
@@ -306,9 +313,13 @@ async function postQuiz(){
     }).catch((err)=>{
         console.log(err);
     });
-    hidePostingMessage();
     clearCreateModal();
     clearMetadataModal();
+
+    setInterval(() => {
+        hidePostingMessage();
+        showCompletionMessage();
+    }, 500);
 
     // updateQuizListは別ファイルのため確認して実行
     if(updateQuizList){
