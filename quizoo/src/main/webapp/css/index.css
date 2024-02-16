@@ -2,6 +2,9 @@
 
 /* --全画面共通-- */
 /*全画面共通body*/
+html{
+	scroll-behavior: smooth;
+}
 body {
 	font-family: 'Zen Maru Gothic', serif;
 	background-color: #fffaef;
@@ -11,7 +14,6 @@ body {
 	margin: 0;
 	/* ページを水平中央に配置するために左右の余白を自動調整 */
 	margin-top: 140px;
-
 }
 
 /*全画面共通a*/
@@ -964,43 +966,47 @@ a.btn-border-shadow--color2:before {
   to {bottom: 0; opacity: 0;}
 }
 
-#page-top a{
-  display: flex;
-  justify-content:center;
-  align-items:center;
-  background:#2D9596;
-  border-radius: 50%;
-  width: 80px;
-  height: 80px;
-  color: #fff;
-  text-align: center;
-  text-transform: uppercase; 
-  text-decoration: none;
-  font-size:0.6rem;
-  transition:all 0.3s;
-  
+
+.go-top-btn{
+    width: 80px;
+    height: 80px;
+    border-radius: 40px;
+    position: fixed;
+    background-color: #2d9596;
+    left: 15px;
+    bottom: -80px;
+    overflow: hidden;
+    transition: ease-in-out .3s;
 }
 
-#page-top a:hover{
-  background: #777;
+.go-top-btn .up-arrow{
+    position: absolute;
+    color: #fff;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    font-size: 35px;
+    pointer-events: none;
 }
 
-/*リンクを右下に固定*/
-#page-top {
-  position: fixed;
-  left: 15px;
-  bottom:10px;
-  z-index: 100;
-    /*はじめは非表示*/
-  opacity: 0;
-  transform: translateY(100px);
+.go-top-btn a{
+	display: block;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	left: 0;
+	top: 0;
 }
+
+.go-top-btn a:hover{
+	background-color: #777;
+}
+
 
 /*　上に上がる動き　*/
 
-#page-top.UpMove{
-  animation: UpAnime 0.5s forwards;
-}
+
 @keyframes UpAnime{
   from {
     opacity: 0;
@@ -1014,9 +1020,6 @@ a.btn-border-shadow--color2:before {
 
 /*　下に下がる動き　*/
 
-#page-top.DownMove{
-  animation: DownAnime 0.5s forwards;
-}
 @keyframes DownAnime{
   from {
     opacity: 1;

@@ -17,22 +17,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // ページ内スクロール
-    document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-
-            const speed = 400;
-            let href = this.getAttribute("href");
-            let target = document.querySelector(href === "#" || href === "" ? "html" : href);
-            let position = target.offsetTop;
-
-            window.scrollTo({
-                top: position,
-                behavior: "smooth"
-            });
-        });
-    });
 });
 
 window.addEventListener('load', function() {

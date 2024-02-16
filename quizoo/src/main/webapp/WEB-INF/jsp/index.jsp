@@ -67,16 +67,17 @@
 	</div>
 
 	<div class="fixed-bottom text-right">
-		<a href="#" id="create-quiz-open"
+		<a id="create-quiz-open"
 			class="btn btn-border-shadow btn-border-shadow--color2"
 			data-slide-index="1"> <i class="fa-solid fa-pen"></i>
 		</a>
 	</div>
 
-	<div id="footer">
-		<p id="page-top">
-			<a href="#quiz_list"><i class="fa-solid fa-arrow-up" style="font-size: 3em;"></i></a>
-		</p>
+	<!-- トップに戻るボタン -->
+
+	<div class="go-top-btn" id="go-top-btn">
+		<a href="#top"></a>
+		<i class="up-arrow fa-solid fa-arrow-up"></i>
 	</div>
 
 	<!--作問ポップアップ-->
