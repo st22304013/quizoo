@@ -59,6 +59,9 @@ window.addEventListener('load',async function(){
     
     updateQuizList();
     
+	//トップに戻るボタンの制御
+    window.addEventListener('scroll',goTopBtnControl);
+    
 })
 
 async function searchTitle(){
@@ -206,4 +209,13 @@ function filterGenre(genreNo) {
     var genrePulldown = document.querySelector("#genre_selector");
     genrePulldown.value = genreNo;
     updateQuizList();
+}
+
+
+function goTopBtnControl(){
+    if(window.scrollY > 300){
+        document.querySelector("#go-top-btn").style.bottom = "27px";
+    }else{
+        document.querySelector("#go-top-btn").style.bottom = "-80px";
+    }
 }
