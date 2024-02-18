@@ -2,11 +2,11 @@
 	pageEncoding="UTF-8"%>
 <header>
 	<div class="index-link">
-		<a href="index"></a>
-		<img src="img/quizoo_nobackground.png"
+		<a href="index"></a> <img src="img/quizoo_nobackground.png"
 			alt="quizoo">
 	</div>
-	<input class="search-txtbox" id="search-textbox" type="text" placeholder="Search">
+	<input class="search-txtbox" id="search-textbox" type="text"
+		placeholder="Search">
 	<button class="side-menu-drawer" id="side-menu-drawer">
 		<span></span> <span></span> <span></span>
 	</button>
@@ -15,10 +15,22 @@
 <!-- ハンバーガー -->
 <div class="side-menu" id="side-menu">
 	<ul id="side-menu-body">
-		<li><a href="profile">プロフィール編集</a></li>
-		<li><a href="createhistory">作成履歴</a></li>
-		<li><a href="score">スコア詳細</a></li>
-		<li><a href="logout">ログアウト</a></li>
+		<li>
+			<p> プロフィール編集 </p>
+			<a href="profile"></a>
+		</li>
+		<li>
+			<p>作成履歴</p>
+			<a href="createhistory"></a>
+		</li>
+		<li>
+			<p>スコア詳細</p>
+			<a href="score"></a>
+		</li>
+		<li>
+			<p>ログアウト</p>
+			<a href="logout"></a>
+		</li>
 	</ul>
 </div>
 <script src="js/header.js"></script>
