@@ -77,6 +77,11 @@ async function searchTitle(){
 }
 
 async function updateQuizList() {
+    var url = new URL(window.location.href);
+    if(url.searchParams.get("genre_no") != null && url.searchParams.get("genre_no") != -1){
+        document.querySelector("#genre_selector").value = url.searchParams.get("genre_no");   
+    }
+
     quizList = await getQuizList();
     var list;
     
