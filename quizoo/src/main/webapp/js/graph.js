@@ -1,10 +1,19 @@
 
 let historyList;
 window.addEventListener('load', async () => {
-	historyList = await fetch("/quizoo/answerhistory", {
-		credentials: "include"
-	});
-	historyList = await historyList.json();
+	try{
+		historyList = await fetch("/quizoo/answerhistory", {
+			credentials: "include"
+		});
+		if(!historyList.ok){
+			throw new Error(historyList.statusText);
+		}
+		historyList = await historyList.json();
+	}catch(e){
+        // エラーが発生しました
+        alert("エラーが発生しました。\nログインページに戻ります。");
+        window.location.href = "/quizoo/login-page";
+    }
 
 	let correctCount = 0;
 	let questionCount = 0;

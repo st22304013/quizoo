@@ -16,11 +16,11 @@ let answerBtns;
 let questionlist; // Declare questionlist variable
 
 window.addEventListener('load', async function () {
-    // ãƒ¢ãƒ¼ãƒ€ãƒ«ã‚’å–å¾—
+    // ãƒ¢ãƒ¼ãƒ€ãƒ«ã‚’å–å¾?
 
     questionlist = this.document.querySelector('#question_list');
 
-    // quiz_idã‚’ã‚¯ã‚¨ãƒªæ–‡å­—åˆ—ã‹ã‚‰å–å¾—
+    // quiz_idã‚’ã‚¯ã‚¨ãƒªæ–?å­—å?—ã‹ã‚‰å–å¾?
     var currentURL = new URL(this.window.location.href);
     var params = currentURL.searchParams;
     quiz_id = params.get('quiz_id');
@@ -29,7 +29,7 @@ window.addEventListener('load', async function () {
 
     selectedAnswers = new Array(quizAndQuestions['question'].length);
 
-    // é¸æŠè‚¢ãƒœã‚¿ãƒ³ã‚’è¨­å®š
+    // é¸æŠè‚¢ãƒœã‚¿ãƒ³ã‚’è¨­å®?
     answerBtns = document.querySelectorAll('#answer_btn');
 
     for(let i = 0; i < answerBtns.length; i++) {
@@ -69,14 +69,18 @@ window.addEventListener('load', async function () {
 
 
 async function loadQuiz(quiz_id) {
-    var fetchResponse = await fetch('/quizoo/quizquestion?quiz_id=' + quiz_id);
-    if (fetchResponse.ok) {
+    try{
+        var fetchResponse = await fetch('/quizoo/quizquestion?quiz_id=' + quiz_id);
+    
         var quizQuestionJson = fetchResponse.json();
+
         return quizQuestionJson;
-    } else {
-        // redirect('/quizoo/error');
-        alert('fetchError!! \n ');
+    }catch(e){
+        // ƒGƒ‰[‚ª”­¶‚µ‚Ü‚µ‚½
+        alert("ƒGƒ‰[‚ª”­¶‚µ‚Ü‚µ‚½B\nƒƒOƒCƒ“ƒy[ƒW‚É–ß‚è‚Ü‚·B");
+        window.location.href = "/quizoo/login-page";
     }
+
 }
 
 async function displayQuestionsList() {
@@ -191,10 +195,10 @@ function scoring() {
         var result = document.createElement('div');
         result.innerText = (i+1) + "."
         if(quizAndQuestions['question'][i]['judge'][selectedAnswers[i]]) {
-            result.innerText+= "ã€‡";
+            result.innerText+= "ã€?";
             score++;
         }else{
-            result.innerText+= "âœ•";
+            result.innerText+= "âœ?";
         }
         questionResult.appendChild(result);
     }
@@ -208,18 +212,28 @@ function scoring() {
 }
 
 async function sendAnswer(score){
-    let response = await fetch('/quizoo/submitanswer', {
-        method: 'POST',
-        credentials: 'include',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            'quiz_id': quiz_id,
-            'score': score,
-            'question_num':quizAndQuestions['question'].length,
-        })
-    });
+    try{
+        var res = await fetch('/quizoo/submitanswer', {
+            method: 'POST',
+            credentials: 'include',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                'quiz_id': quiz_id,
+                'score': score,
+                'question_num':quizAndQuestions['question'].length,
+            })
+        });
+        if(!res.ok){
+            throw new Error(res.statusText);
+        }
+    }catch(e){
+        // ƒGƒ‰[‚ª”­¶‚µ‚Ü‚µ‚½
+        alert("ƒGƒ‰[‚ª”­¶‚µ‚Ü‚µ‚½B\nƒƒOƒCƒ“ƒy[ƒW‚É–ß‚è‚Ü‚·B");
+        window.location.href = "/quizoo/login-page";
+    }
+
 }
 
 function showConfirmModal() {

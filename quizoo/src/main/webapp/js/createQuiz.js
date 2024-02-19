@@ -300,19 +300,27 @@ async function postQuiz(){
         "genreNo":metadataModal.querySelector("#post-genres").value,
         "explanation":metadataModal.querySelector("#post-explanation").value
     }
-    await fetch("/quizoo/submitquiz",{
-        method:"POST",
-        headers:{
-            "Content-Type":"application/json"
-        },
-        body:JSON.stringify({
-            "quiz":medaData,
-            "question":questionDatas
-        }),
-        credentials:"include"
-    }).catch((err)=>{
-        console.log(err);
-    });
+    try{
+        var res = await fetch("/quizoo/submitquiz",{
+            method:"POST",
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body:JSON.stringify({
+                "quiz":medaData,
+                "question":questionDatas
+            }),
+            credentials:"include"
+        });
+
+        if(!res.ok){
+            throw new Error(res.statusText);
+        }
+    }catch(e){
+        // エラーが発生した場合はログインページに戻る
+        alert("エラーが発生しました。\nログインページに戻ります。");
+        window.location.href = "/quizoo/login-page";
+    }
     clearCreateModal();
     clearMetadataModal();
 

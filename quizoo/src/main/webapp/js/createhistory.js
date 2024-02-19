@@ -5,24 +5,31 @@
 let createHistoryList;
 
 window.addEventListener("load", async () => {
-    try {
+    try{
         const response = await fetch("/quizoo/createhistoryjson", {
             credentials: "include"
         });
-
-        createHistoryList = await response.json();
-
-        // createHistoryList が存在するか確認
-        if (!Array.isArray(createHistoryList) || createHistoryList.length === 0) {
-            console.error("Error: createHistoryList is null or undefined");
-            return;
+        
+        if(!response.ok){
+            throw new Error(response.statusText);
         }
 
-        // 修正: リストを表示する関数を呼び出し
-        displayCreateHistory(createHistoryList);
-    } catch (error) {
-        console.error("Error fetching data:", error);
+        createHistoryList = await response.json();
+    }catch(e){
+        // エラーが発生しました
+        alert("エラーが発生しました。\nログインページに戻ります。");
+        window.location.href = "/quizoo/login-page";
     }
+
+    // createHistoryList が存在するか確認
+    if (!Array.isArray(createHistoryList) || createHistoryList.length === 0) {
+        console.error("Error: createHistoryList is null or undefined");
+        return;
+    }
+
+    // 修正: リストを表示する関数を呼び出し
+    displayCreateHistory(createHistoryList);
+
 });
 
 function displayCreateHistory(createHistoryData) {
