@@ -4,9 +4,21 @@
 var list_box;
 
 window.addEventListener('load',async function(){
-    genres = await fetch("/quizoo/genres");
 
-    genres = await genres.json();
+    try{
+        genres = await fetch("/quizoo/genres");
+        if(!genres.ok){
+            throw new Error(genres.statusText);
+        }
+        console.log(genres.headers.get("Content-Type"));
+        genres = await genres.json();
+    }catch(e){
+        // エラーが発生しました
+        alert("エラーが発生しました。\nログインページに戻ります。");
+        window.location.href = "/quizoo/login-page";
+    }
+
+
 
     // メタデータのモーダルが非表示になった時の処理
     const createQuizModalObserver = new MutationObserver(mutations => {
@@ -105,10 +117,17 @@ async function updateQuizList() {
 async function getQuizList() {
     params = new URLSearchParams(window.location.search);
 
+    try{
+        var quizList = await fetch("/quizoo/quizlist?" + params);
+    
+        quizList = await quizList.json();
 
-    var quizList = await fetch("/quizoo/quizlist?" + params);
+    }catch(e){
+        // エラーが発生しました
+        alert("エラーが発生しました。\nログインページに戻ります。");
+        window.location.href = "/quizoo/login-page";
+    }
 
-    quizList = await quizList.json();
 
     return quizList;
 
